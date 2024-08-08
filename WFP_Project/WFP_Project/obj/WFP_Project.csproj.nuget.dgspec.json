@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\VS\\WFP_Project\\WFP_Project\\WFP_Project.csproj": {}
+    "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\WFP_Project.csproj": {}
   },
   "projects": {
-    "Z:\\VS\\WFP_Project\\WFP_Project\\WFP_Project.csproj": {
+    "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\WFP_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\VS\\WFP_Project\\WFP_Project\\WFP_Project.csproj",
+        "projectUniqueName": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\WFP_Project.csproj",
         "projectName": "WFP_Project",
-        "projectPath": "Z:\\VS\\WFP_Project\\WFP_Project\\WFP_Project.csproj",
+        "projectPath": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\WFP_Project.csproj",
         "packagesPath": "C:\\Users\\sndre\\.nuget\\packages\\",
-        "outputPath": "Z:\\VS\\WFP_Project\\WFP_Project\\obj\\",
+        "outputPath": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sndre\\AppData\\Roaming\\NuGet\\NuGet.Config",

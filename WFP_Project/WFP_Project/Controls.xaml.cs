@@ -1,5 +1,4 @@
-﻿
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Input;
@@ -9,7 +8,10 @@ namespace WFP_Project
 {
     public partial class ControlWindow : Window
     {
-        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Reposotory\\C#\\Summer_product.api\\DataBase.mdf;Integrated Security=True;Connect Timeout=30";
+        string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;" +
+            "AttachDbFilename=C:\\Reposotory\\C#\\Summer_product.api\\DataBase.mdf;" +
+            "Integrated Security=True;" +
+            "Connect Timeout=30";
 
         public ControlWindow()
         {
@@ -30,7 +32,9 @@ namespace WFP_Project
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
-                        string queryInsert = "INSERT INTO [UserS] (Force, Repeate_1st, Weight, Repeate_2nd, Goal, Repeate_3rd) VALUES (@Force, @Repeate_1st, @Weight, @Repeate_2nd, @Goal, @Repeate_3rd)";
+                        string queryInsert = "INSERT INTO [UserS] (Force, Repeate_1st, Weight, Repeate_2nd, Goal, Repeate_3rd)" +
+                            "VALUES" +
+                            "(@Force, @Repeate_1st, @Weight, @Repeate_2nd, @Goal, @Repeate_3rd)";
 
                         using (SqlCommand cmd = new SqlCommand(queryInsert, conn))
                         {

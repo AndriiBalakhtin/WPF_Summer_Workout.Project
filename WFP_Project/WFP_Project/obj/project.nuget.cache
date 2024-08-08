@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pRU1iUsjVjTzr+2E9p4atOCdapG0aM32sGw26ckdYPkgitZgks3ZKiNUW3POse2UfOjLxXJOUjNcA45EK1nJoA==",
+  "dgSpecHash": "Bg+3nd92HEQuniXRXqKF8zQghZxqZ0lHP8dwsoXI08sav3bGzYJ39D0kJR8IctVeIhl+QwSP+gFd5nE9pGpqxw==",
   "success": true,
-  "projectFilePath": "Z:\\VS\\WFP_Project\\WFP_Project\\WFP_Project.csproj",
+  "projectFilePath": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\WFP_Project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sndre\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\sndre\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
