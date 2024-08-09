@@ -1,8 +1,8 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Input;
-
 
 namespace WFP_Project
 {
@@ -13,6 +13,8 @@ namespace WFP_Project
             "Integrated Security=True;" +
             "Connect Timeout=30";
 
+        private AppSettings appSettings;
+
         public ControlWindow()
         {
             InitializeComponent();
@@ -20,7 +22,43 @@ namespace WFP_Project
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            appSettings = SettingsManager.LoadSettings();
+            ApplyTheme(appSettings.SelectedTheme);
+
             LoadOverlay();
+        }
+
+        private void ApplyTheme(string theme)
+        {
+            ResourceDictionary newTheme = new ResourceDictionary();
+
+            try
+            {
+                switch (theme)
+                {
+                    case "White":
+                        newTheme.Source = new Uri("pack://application:,,,/Themes/WhiteTheme.xaml", UriKind.Absolute);
+                        break;
+                    case "Dark":
+                        newTheme.Source = new Uri("pack://application:,,,/Themes/DarkTheme.xaml", UriKind.Absolute);
+                        break;
+                    default:
+                        MessageBox.Show("Unknown theme selected.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                }
+
+                Application.Current.Resources.MergedDictionaries.Clear();
+                Application.Current.Resources.MergedDictionaries.Add(newTheme);
+
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.Background = (System.Windows.Media.Brush)newTheme["WindowBackgroundBrush"];
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading theme: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void InsertButton_Click(object sender, RoutedEventArgs e)

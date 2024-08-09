@@ -1,4 +1,23 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Brush for window background -->
     <SolidColorBrush x:Key="WindowBackgroundBrush" Color="White"/>
+
+    <!-- Style for TextBox -->
+    <Style TargetType="TextBox">
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Background" Value="White"/>
+    </Style>
+
+    <!-- Style for Label -->
+    <Style TargetType="Label">
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+
+    <!-- Style for Window -->
+    <Style TargetType="Window">
+        <Setter Property="Background" Value="White"/>
+    </Style>
+
 </ResourceDictionary>

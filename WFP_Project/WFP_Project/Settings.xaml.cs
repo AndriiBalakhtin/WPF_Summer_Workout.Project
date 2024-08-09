@@ -5,19 +5,23 @@ namespace WFP_Project
 {
     public partial class SettingsWindow : Window
     {
+        private AppSettings appSettings;
+
         public SettingsWindow()
-        {
+        {          
             InitializeComponent();
+            appSettings = SettingsManager.LoadSettings();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             var defaultItem = ThemeModeComboBox.Items.OfType<ComboBoxItem>()
-                .FirstOrDefault(item => item.Content.ToString() == "White");
+                .FirstOrDefault(item => item.Content.ToString() == appSettings.SelectedTheme);
 
             if (defaultItem != null)
             {
                 ThemeModeComboBox.SelectedItem = defaultItem;
+                ApplyTheme(appSettings.SelectedTheme);
             }
         }
 
@@ -26,6 +30,8 @@ namespace WFP_Project
             if (ThemeModeComboBox.SelectedItem is ComboBoxItem selectedItem)
             {
                 string selectedTheme = selectedItem.Content.ToString();
+                appSettings.SelectedTheme = selectedTheme;
+                SettingsManager.SaveSettings(appSettings);
                 ApplyTheme(selectedTheme);
             }
         }
