@@ -1,5 +1,4 @@
-﻿
-using System.Windows;
+﻿using System.Windows;
 
 namespace WFP_Project.Classes
 {
@@ -13,8 +12,8 @@ namespace WFP_Project.Classes
             {
                 switch (theme)
                 {
-                    case "White":
-                        newTheme.Source = new Uri("pack://application:,,,/Themes/WhiteTheme.xaml", UriKind.Absolute);
+                    case "Light":
+                        newTheme.Source = new Uri("pack://application:,,,/Themes/LightTheme.xaml", UriKind.Absolute);
                         break;
                     case "Dark":
                         newTheme.Source = new Uri("pack://application:,,,/Themes/DarkTheme.xaml", UriKind.Absolute);

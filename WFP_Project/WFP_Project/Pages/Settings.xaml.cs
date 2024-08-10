@@ -1,73 +1,51 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using WFP_Project.Enums;
 using WFP_Project.Classes;
+using WFP_Project.Enums;
 
-namespace WFP_Project.Pages;
-
-public partial class SettingsWindow : Window
+namespace WFP_Project.Pages
 {
-    private AppSettings appSettings;
-
-    public SettingsWindow()
-    {          
-        InitializeComponent();
-        appSettings = SettingsManager.LoadSettings();
-    }
-
-    private void Window_Loaded(object sender, RoutedEventArgs e)
+    public partial class SettingsWindow : Window
     {
-        var defaultItem = ThemeModeComboBox.Items.OfType<ComboBoxItem>()
-            .FirstOrDefault(item => item.Content.ToString() == appSettings.SelectedTheme);
+        private AppSettings appSettings;
+        private ApplyThemes applyThemes;
 
-        if (defaultItem != null)
+        public SettingsWindow()
         {
-            ThemeModeComboBox.SelectedItem = defaultItem;
-            ApplyTheme(appSettings.SelectedTheme);
+            InitializeComponent();
+
+            appSettings = SettingsManager.LoadSettings();
+            applyThemes = new ApplyThemes();
         }
-    }
 
-    private void ThemeModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        if (ThemeModeComboBox.SelectedItem is ComboBoxItem selectedItem)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string selectedTheme = selectedItem.Content.ToString();
-            appSettings.SelectedTheme = selectedTheme;
-            SettingsManager.SaveSettings(appSettings);
-            ApplyTheme(selectedTheme);
-        }
-    }
+            var defaultItem = ThemeModeComboBox.Items.OfType<ComboBoxItem>()
+           .FirstOrDefault(item => item.Content.ToString() == appSettings.SelectedTheme);
 
-    private void ApplyTheme(string theme)
-    {
-        ResourceDictionary newTheme = new ResourceDictionary();
 
-        try
-        {
-            switch (theme)
+            if (defaultItem != null)
             {
-                case "White":
-                    newTheme.Source = new Uri("pack://application:,,,/Themes/LightTheme.xaml", UriKind.Absolute);
-                    break;
-                case "Dark":
-                    newTheme.Source = new Uri("pack://application:,,,/Themes/DarkTheme.xaml", UriKind.Absolute);
-                    break;
-                default:
-                    MessageBox.Show("Unknown theme selected.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
+                ThemeModeComboBox.SelectedItem = defaultItem;
+                applyThemes.ApplyTheme(appSettings.SelectedTheme);
             }
-
-            Application.Current.Resources.MergedDictionaries.Clear();
-            Application.Current.Resources.MergedDictionaries.Add(newTheme);
-
-            foreach (Window window in Application.Current.Windows)
+            else
             {
-                window.Background = (System.Windows.Media.Brush)newTheme["WindowBackgroundBrush"];
+                MessageBox.Show($"Default theme not found: '{appSettings.SelectedTheme}'", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
-        catch (Exception ex)
+
+        private void ThemeModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show($"Error loading theme: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (ThemeModeComboBox.SelectedItem is ComboBoxItem selectedItem)
+            {
+                string selectedTheme = selectedItem.Content.ToString();
+
+                appSettings.SelectedTheme = selectedTheme;
+                SettingsManager.SaveSettings(appSettings);
+                applyThemes.ApplyTheme(selectedTheme);
+            }
         }
+
     }
 }

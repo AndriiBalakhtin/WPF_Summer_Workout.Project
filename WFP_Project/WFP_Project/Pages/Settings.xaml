@@ -7,7 +7,7 @@
         <Label Content="Theme:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
         <ComboBox Name="ThemeModeComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,10,0,0"
                   Width="120" SelectionChanged="ThemeModeComboBox_SelectionChanged">
-            <ComboBoxItem Content="White"/>
+            <ComboBoxItem Content="Light"/>
             <ComboBoxItem Content="Dark"/>
         </ComboBox>
     </Grid>
