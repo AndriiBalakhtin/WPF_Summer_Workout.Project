@@ -16,5 +16,5 @@ TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 199-2056520642
 Pages\Archive.xaml;Pages\Controls.xaml;Pages\Settings.xaml;Themes\DarkTheme.xaml;Themes\LightTheme.xaml;Windows\App.xaml;Windows\MainWindow.xaml;
 
-False
+True
 
