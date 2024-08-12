@@ -4,13 +4,22 @@
         Title="Control Panel" Height="540" Width="1080"
         Loaded="Window_Loaded">
     <Grid>
-        <Button Name="insertButton" Content="Insert" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="90" Click="InsertButton_Click"/>
-        <TextBox Name="forceTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,10,0,0" Width="120"/>
-        <TextBox Name="repeate_1stTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,10,0,0" Width="120" PreviewKeyDown="NumbersOnlyTextboxes"/>
-        <TextBox Name="weightTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="370,10,0,0" Width="120"/>
-        <TextBox Name="repeate_2ndTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="500,10,0,0" Width="120" PreviewKeyDown="NumbersOnlyTextboxes"/>
-        <TextBox Name="goalTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="630,10,0,0" Width="120"/>
-        <TextBox Name="repeate_3rdTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="760,10,0,0" Width="120" PreviewKeyDown="NumbersOnlyTextboxes"/>
-        <DataGrid Name="databaseDataGrid" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,50,10,10"/>
+        <Label Content="Force"      HorizontalAlignment="Left" Margin="150, 0, 0, 0" VerticalAlignment="Top" Width="40" Height="27"/>
+        <Label Content="Repeat 1st" HorizontalAlignment="Left" Margin="268, 0, 0, 0" VerticalAlignment="Top" Width="65" Height="27"/>
+        <Label Content="Weight"     HorizontalAlignment="Left" Margin="406, 0, 0, 0" VerticalAlignment="Top" Width="48" Height="27"/>
+        <Label Content="Repeat 2nd" HorizontalAlignment="Left" Margin="526, 0, 0, 0" VerticalAlignment="Top" Width="70" Height="27"/>
+        <Label Content="Goal"       HorizontalAlignment="Left" Margin="672, 0, 0, 0" VerticalAlignment="Top" Width="34" Height="27"/>
+        <Label Content="Repeat 3rd" HorizontalAlignment="Left" Margin="786, 0, 0, 0" VerticalAlignment="Top" Width="68" Height="27"/>
+
+        <Button Name="insertButton" Content="Insert" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,26,0,0" Width="85" Click="InsertButton_Click" Height="20" RenderTransformOrigin="0.512,0.502"/>
+        
+        <TextBox Name="forceTextBox"       HorizontalAlignment="Left" VerticalAlignment="Top" Margin="110,27,0,0" Width="120"/>
+        <TextBox Name="repeate_1stTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="240,27,0,0" Width="120" PreviewKeyDown="NumbersOnlyTextboxes"/>
+        <TextBox Name="weightTextBox"      HorizontalAlignment="Left" VerticalAlignment="Top" Margin="370,27,0,0" Width="120"/>
+        <TextBox Name="repeate_2ndTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="500,27,0,0" Width="120" PreviewKeyDown="NumbersOnlyTextboxes"/>
+        <TextBox Name="goalTextBox"        HorizontalAlignment="Left" VerticalAlignment="Top" Margin="630,27,0,0" Width="120"/>
+        <TextBox Name="repeate_3rdTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="760,27,0,0" Width="120" PreviewKeyDown="NumbersOnlyTextboxes"/>
+
+        <DataGrid Name="databaseDataGrid"   HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10,50,10,10"/>
     </Grid>
 </Window>
