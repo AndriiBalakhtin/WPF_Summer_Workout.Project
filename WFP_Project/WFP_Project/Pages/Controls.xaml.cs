@@ -50,17 +50,17 @@ namespace WFP_Project.Pages
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
-                        string queryInsert = "INSERT INTO [UserS] (Force, Repeate_1st, Weight, Repeate_2nd, Goal, Repeate_3rd) " +
-                            "VALUES (@Force, @Repeate_1st, @Weight, @Repeate_2nd, @Goal, @Repeate_3rd)";
+                        string queryInsert = "INSERT INTO [UserS] (Force, [1st], Weight, [2nd], Goal, [3rd]) " +
+                            "VALUES (@Force, @1st, @Weight, @2nd, @Goal, @3rd)";
 
                         using (SqlCommand cmd = new SqlCommand(queryInsert, conn))
                         {
                             cmd.Parameters.AddWithValue("@Force", forceTextBox.Text);
-                            cmd.Parameters.AddWithValue("@Repeate_1st", repeate_1stTextBox.Text);
+                            cmd.Parameters.AddWithValue("@1st", repeate_1stTextBox.Text);
                             cmd.Parameters.AddWithValue("@Weight", weightTextBox.Text);
-                            cmd.Parameters.AddWithValue("@Repeate_2nd", repeate_2ndTextBox.Text);
+                            cmd.Parameters.AddWithValue("@2nd", repeate_2ndTextBox.Text);
                             cmd.Parameters.AddWithValue("@Goal", goalTextBox.Text);
-                            cmd.Parameters.AddWithValue("@Repeate_3rd", repeate_3rdTextBox.Text);
+                            cmd.Parameters.AddWithValue("@3rd", repeate_3rdTextBox.Text);
 
                             cmd.ExecuteNonQuery();
                         }
