@@ -46,7 +46,6 @@ namespace WFP_Project
 
         private void RadioButton_ArchiveChecked(object sender, RoutedEventArgs e)
         {
-            
             var archiveWindow = new ArchiveWindow();
             archiveWindow.Show();
 
@@ -63,7 +62,6 @@ namespace WFP_Project
 
         private void RadioButton_SettingsChecked(object sender, RoutedEventArgs e)
         {
-            
             var settingsWindow = new SettingsWindow();
             settingsWindow.Show();
 
