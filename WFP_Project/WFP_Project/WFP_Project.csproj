@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Windows\DarkBackground.png" />
+    <None Remove="Windows\LightBackground.png" />
     <None Remove="Windows\logo.png" />
   </ItemGroup>
 
@@ -20,6 +22,8 @@
     <Resource Include="Png\logo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Windows\DarkBackground.png" />
+    <Resource Include="Windows\LightBackground.png" />
   </ItemGroup>
 
 </Project>

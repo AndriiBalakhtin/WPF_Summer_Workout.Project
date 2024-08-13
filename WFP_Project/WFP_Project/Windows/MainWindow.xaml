@@ -26,14 +26,13 @@
             Grid.Row="1" Grid.Column="0"
             HorizontalAlignment="Left" 
             VerticalAlignment="Top"
-            Margin="20,10,0,0" Width="126" Height="132">
+            Margin="20,10,0,0" Width="126" Height="128">
 
             <!-- Home -->
             <RadioButton 
                 Background="Transparent"
                 BorderBrush="Transparent"
-                FontFamily="Cascadia Code"  
-                Foreground="Transparent"
+                FontFamily="Cascadia Code"                 
                 Width="126"
                 Height="32"
                 Click="RadioButton_HomeChecked">
@@ -41,7 +40,13 @@
                     <ControlTemplate TargetType="RadioButton">
                         <Border x:Name="Border" Background="Transparent" CornerRadius="5">
                             <StackPanel Orientation="Horizontal" Height="32" Width="126">
-                                <Border Width="32" Height="32" CornerRadius="5" Background="#FF16C1FB">
+                                <Border Width="32" Height="32" CornerRadius="5">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Offset="0" Color="#59ADFF" />
+                                            <GradientStop Offset="1" Color="#5161FF" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
                                     <TextBlock 
                                         VerticalAlignment="Center" 
                                         HorizontalAlignment="Center" 
@@ -53,7 +58,7 @@
                                 <TextBlock
                                     Text="  Home" 
                                     FontWeight="Bold" 
-                                    FontFamily="Hauora" Height="14" Width="43" Foreground="Black"/>
+                                    FontFamily="Hauora" Height="14" Width="43"/>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -82,14 +87,20 @@
                     <ControlTemplate TargetType="RadioButton">
                         <Border x:Name="Border" Background="Transparent" CornerRadius="5">
                             <StackPanel Orientation="Horizontal" Height="32" Width="126">
-                                <Border Width="32" Height="32" CornerRadius="5" Background="#FF16C1FB">
+                                <Border Width="32" Height="32" CornerRadius="5">
+                                    <Border.Background>
+                                        <LinearGradientBrush>
+                                            <GradientStop Offset="0" Color="#9B00FF" />
+                                            <GradientStop Offset="1" Color="#2144E0" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
                                     <TextBlock 
                                         VerticalAlignment="Center" 
                                         HorizontalAlignment="Center" 
                                         FontFamily="Arial" 
                                         FontSize="18" 
                                         Foreground="White" 
-                                        Text="🎛️"/>
+                                        Text="🎚️"/>
                                 </Border>
                                 <TextBlock
                                     Text="  Controls" 
@@ -122,14 +133,20 @@
                     <ControlTemplate TargetType="RadioButton">
                         <Border x:Name="Border" Background="Transparent" CornerRadius="5">
                             <StackPanel Orientation="Horizontal" Height="32" Width="126">
-                                <Border Width="32" Height="32" CornerRadius="5" Background="#FF16C1FB">
+                                <Border Width="32" Height="32" CornerRadius="5">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="Black"     Offset="0"/>
+                                            <GradientStop Color="#FFFF3535" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
                                     <TextBlock 
                                         VerticalAlignment="Center" 
                                         HorizontalAlignment="Center" 
                                         FontFamily="Arial" 
                                         FontSize="18" 
                                         Foreground="White" 
-                                        Text="🗄️"/>
+                                        Text="📦"/>
                                 </Border>
                                 <TextBlock
                                     Text="  Archive" 
@@ -162,7 +179,13 @@
                     <ControlTemplate TargetType="RadioButton">
                         <Border x:Name="Border" Background="Transparent" CornerRadius="5">
                             <StackPanel Orientation="Horizontal" Height="32" Width="126">
-                                <Border Width="32" Height="32" CornerRadius="5" Background="#FF16C1FB">
+                                <Border Width="32" Height="32" CornerRadius="5">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Offset="0" Color="#B1B1B1" />
+                                            <GradientStop Offset="1" Color="#343C51" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
                                     <TextBlock 
                                         VerticalAlignment="Center" 
                                         HorizontalAlignment="Center" 

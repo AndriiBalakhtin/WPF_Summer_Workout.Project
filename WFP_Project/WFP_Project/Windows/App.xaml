@@ -4,8 +4,6 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            
-            <FontFamily x:Key="FluentIcons">/Fonts/#FluentSystemIcons-Filled</FontFamily>
 
             <SolidColorBrush x:Key="WindowButtonsHoverForeground1" Color="#FF000000"/>
             <SolidColorBrush x:Key="Foreground1" Color="Black"/>
@@ -22,6 +20,7 @@
                 <GradientStop Offset="0" Color="#59ADFF" />
                 <GradientStop Offset="1" Color="#5161FF" />
             </LinearGradientBrush>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -8,9 +8,20 @@
             <ColumnDefinition Width="27*"/>
             <ColumnDefinition Width="773*"/>
         </Grid.ColumnDefinitions>
+
         <Label Content="Theme:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Grid.ColumnSpan="2"/>
-        <ComboBox Name="ThemeModeComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="43,10,0,0"
-                  Width="120" SelectionChanged="ThemeModeComboBox_SelectionChanged" Grid.Column="1">
+
+        <ComboBox 
+            Name="ThemeModeComboBox"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="43,10,0,0"
+            Width="120"
+            SelectionChanged="ThemeModeComboBox_SelectionChanged"
+            Grid.Column="1"
+            BorderBrush="Black"
+            Background="White"
+            Foreground="Black">
             <ComboBoxItem Content="Light"/>
             <ComboBoxItem Content="Dark"/>
         </ComboBox>

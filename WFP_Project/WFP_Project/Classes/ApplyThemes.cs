@@ -13,7 +13,7 @@ namespace WFP_Project.Classes
                 switch (theme)
                 {
                     case "Light":
-                        newTheme.Source = new Uri("pack://application:,,,/Themes/LightTheme.xaml", UriKind.Absolute);
+                        newTheme.Source = new Uri("pack://application:,,,/Themes/LightTheme.xaml", UriKind.Absolute);                      
                         break;
                     case "Dark":
                         newTheme.Source = new Uri("pack://application:,,,/Themes/DarkTheme.xaml", UriKind.Absolute);

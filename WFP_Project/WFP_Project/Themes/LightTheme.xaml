@@ -1,11 +1,21 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="White"/>
-
+    <ImageBrush x:Key="WindowBackgroundBrush" ImageSource="pack://application:,,,/Windows/LightBackground.png"/>
+    
     <Style TargetType="TextBox">
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="Background" Value="White"/>
+    </Style>
+
+    <Style TargetType="ComboBox">
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Background" Value="Black"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+    </Style>
+
+    <Style TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Black"/>
     </Style>
 
     <Style TargetType="Label">
