@@ -3,15 +3,80 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WFP_Project"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        Loaded="Window_Loaded" Icon="/Windows/logo.png">
+        Loaded="Window_Loaded" Icon="/Png/logo.png">
     <Grid>
-        <Menu VerticalAlignment="Top" Name="menuStrip">
-            <MenuItem Name="settingsMenuItem" Header="Settings" Click="SettingsMenuItem_Click"/>
-            <MenuItem Name="controlMenuItem" Header="Control" Click="ControlMenuItem_Click"/>
-            <MenuItem Name="archiveMenuItem" Header="Archive" Click="ArchiveMenuItem_Click"/>
-        </Menu>
+        <TextBlock 
+            Margin="17,28,683,393"
+            Text="Pinned" 
+            FontWeight="Bold" FontFamily="Hauora"/>
+        <RadioButton 
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="30,55,0,0"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            FontFamily="Cascadia Code"  FontSize="15" Width="87" Height="22" Checked="RadioButton_HomeChecked"/>
+        <TextBlock
+            Margin="54,60,712,361"
+            Text="Home" 
+            FontWeight="Bold" FontFamily="Hauora"/>
+        <RadioButton
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="30,83,0,0"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            
+            FontFamily="Cascadia Code"  FontSize="15" Width="87" Height="14" Checked="RadioButton_ControlsChecked"/>
+        <TextBlock
+            Margin="54,84,698,337"
+            Text="Controls" 
+            
+            FontWeight="Bold" FontFamily="Hauora"/>
+            
+            
+        <RadioButton 
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="30, 110, 0, 0"
+            Background="Transparent"
+            BorderBrush="Transparent"
+           
+            FontFamily="Cascadia Code"  FontSize="15" Width="87" Checked="RadioButton_ArchiveChecked"/>
+        <TextBlock
+            Margin="54,110,703,311"
+            Text="Archive" 
+            FontWeight="Bold" FontFamily="Hauora"/>
+        <RadioButton
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="30, 136, 0, 0"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            
+            FontFamily="Cascadia Code" FontSize="15" Width="87" Checked="RadioButton_SettingsChecked"/>
+        <TextBlock
+            Margin="54,136,697,285"
+            Text="Settings" 
+            FontWeight="Bold" FontFamily="Hauora" RenderTransformOrigin="0.598,0.259"/>
+
+        <Border
+         Padding="7"
+         CornerRadius="5,5,5,5" Margin="30,55,748,357" Width="22" Height="22">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF16C1FB" Offset="1"/>
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FF08698A" Offset="0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <TextBlock
+            x:Name="HomeIconTxt"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            FontFamily="/Fonts/#FluentSystemIcons-Filled"
+            FontSize="18"
+            Foreground="White"
+            Text="&#xF488;" Margin="32,57,0,0" />
     </Grid>
 </Window>

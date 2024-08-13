@@ -4,7 +4,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            
+            <SolidColorBrush x:Key="WindowButtonsHoverForeground1" Color="#FF000000"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

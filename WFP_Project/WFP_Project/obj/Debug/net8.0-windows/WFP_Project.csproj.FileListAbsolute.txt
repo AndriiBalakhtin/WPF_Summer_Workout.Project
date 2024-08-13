@@ -49,7 +49,6 @@ C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-wi
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project.csproj.AssemblyReference.cache
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Themes\DarkTheme.baml
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project_MarkupCompile.cache
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project_MarkupCompile.lref
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project.g.resources
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project.GeneratedMSBuildEditorConfig.editorconfig
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project.AssemblyInfoInputs.cache

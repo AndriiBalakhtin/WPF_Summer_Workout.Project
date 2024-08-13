@@ -23,53 +23,60 @@ namespace WFP_Project
             applyThemes.ApplyTheme(appSettings.SelectedTheme);
         }
 
-        private void SettingsMenuItem_Click(object sender, RoutedEventArgs e)
+        private void RadioButton_HomeChecked(object sender, RoutedEventArgs e)
         {
-            var settingsWindow = new SettingsWindow();
-            settingsWindow.Show();
-
-            if (settingsWindow != null)
-            {
-                settingsMenuItem.IsEnabled = false;
-
-                settingsWindow.Closed += (s, args) =>
-                {
-                    settingsMenuItem.IsEnabled = true;
-
-                    appSettings = SettingsManager.LoadSettings();
-                    applyThemes.ApplyTheme(appSettings.SelectedTheme);
-                };
-            }
+            //Nothing
         }
 
-        private void ControlMenuItem_Click(object sender, RoutedEventArgs e)
+        private void RadioButton_ControlsChecked(object sender, RoutedEventArgs e)
         {
             var controlWindow = new ControlWindow();
             controlWindow.Show();
 
             if (controlWindow != null)
             {
-                controlMenuItem.IsEnabled = false;
+                IsEnabled = false;
 
                 controlWindow.Closed += (s, args) =>
                 {
-                    controlMenuItem.IsEnabled = true;
+                    IsEnabled = true;
                 };
             }
         }
 
-        private void ArchiveMenuItem_Click(object sender, RoutedEventArgs e)
+        private void RadioButton_ArchiveChecked(object sender, RoutedEventArgs e)
         {
+            
             var archiveWindow = new ArchiveWindow();
             archiveWindow.Show();
 
             if (archiveWindow != null)
             {
-                archiveMenuItem.IsEnabled = false;
+                IsEnabled = false;
 
                 archiveWindow.Closed += (s, args) =>
                 {
-                    archiveMenuItem.IsEnabled = true;
+                    IsEnabled = true;
+                };
+            }
+        }
+
+        private void RadioButton_SettingsChecked(object sender, RoutedEventArgs e)
+        {
+            
+            var settingsWindow = new SettingsWindow();
+            settingsWindow.Show();
+
+            if (settingsWindow != null)
+            {
+                IsEnabled = false;
+
+                settingsWindow.Closed += (s, args) =>
+                {
+                    IsEnabled = true;
+
+                    appSettings = SettingsManager.LoadSettings();
+                    applyThemes.ApplyTheme(appSettings.SelectedTheme);
                 };
             }
         }
