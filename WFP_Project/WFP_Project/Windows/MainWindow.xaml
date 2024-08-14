@@ -8,11 +8,13 @@
         Loaded="Window_Loaded" Icon="/Png/logo.png" Background="White">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition 
+                Height="Auto" MinHeight="42.4"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" MinWidth="126"/>
+            <ColumnDefinition 
+                Width="Auto" MinWidth="126"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
@@ -26,7 +28,7 @@
             Grid.Row="1" Grid.Column="0"
             HorizontalAlignment="Left" 
             VerticalAlignment="Top"
-            Margin="20,10,0,0" Width="126" Height="128">
+            Margin="20,10,0,0" Width="126" Height="180">
 
             <!-- Home -->
             <RadioButton 
@@ -34,13 +36,25 @@
                 BorderBrush="Transparent"
                 FontFamily="Cascadia Code"                 
                 Width="126"
-                Height="32"
+                Height="45"
                 Click="RadioButton_HomeChecked">
                 <RadioButton.Template>
                     <ControlTemplate TargetType="RadioButton">
-                        <Border x:Name="Border" Background="Transparent" CornerRadius="5">
-                            <StackPanel Orientation="Horizontal" Height="32" Width="126">
-                                <Border Width="32" Height="32" CornerRadius="5">
+                        <Border 
+                            x:Name="Border"
+                            Background="Transparent"
+                            CornerRadius="5">
+                            <StackPanel 
+                                Orientation="Horizontal"
+                                Height="32"
+                                Width="126">
+                                <Border 
+                                    x:Name="BorderHomeIconTxt"
+                                    Width="32"
+                                    Height="32"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    CornerRadius="5">
                                     <Border.Background>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Offset="0" Color="#59ADFF" />
@@ -48,6 +62,7 @@
                                         </LinearGradientBrush>
                                     </Border.Background>
                                     <TextBlock 
+                                        x:Name="HomeIconTxt"
                                         VerticalAlignment="Center" 
                                         HorizontalAlignment="Center" 
                                         FontFamily="Arial" 
@@ -68,10 +83,59 @@
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter TargetName="Border" Property="Background" Value="#FF16A085"/>
                             </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="HomeIconTxt"
+                                                Storyboard.TargetProperty="FontSize"
+                                                From="12"
+                                                To="18"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderHomeIconTxt"
+                                                Storyboard.TargetProperty="Width"
+                                                From="28"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderHomeIconTxt"
+                                                Storyboard.TargetProperty="Height"
+                                                From="28"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="HomeIconTxt"
+                                                Storyboard.TargetProperty="FontSize"
+                                                From="12"
+                                                To="18"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderHomeIconTxt"
+                                                Storyboard.TargetProperty="Width"
+                                                From="28"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderHomeIconTxt"
+                                                Storyboard.TargetProperty="Height"
+                                                From="28"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </RadioButton.Template>
-                <Label Content="Label"/>
             </RadioButton>
 
             <!-- Controls -->
@@ -81,20 +145,24 @@
                 FontFamily="Cascadia Code"  
                 Foreground="Black"
                 Width="126"
-                Height="32"
+                Height="45"
                 Click="RadioButton_ControlsChecked">
                 <RadioButton.Template>
                     <ControlTemplate TargetType="RadioButton">
                         <Border x:Name="Border" Background="Transparent" CornerRadius="5">
                             <StackPanel Orientation="Horizontal" Height="32" Width="126">
-                                <Border Width="32" Height="32" CornerRadius="5">
+                                <Border 
+                                    x:Name="BorderControlsIconTxt"
+                                    Width="32" Height="32"
+                                    CornerRadius="5">
                                     <Border.Background>
                                         <LinearGradientBrush>
                                             <GradientStop Offset="0" Color="#9B00FF" />
                                             <GradientStop Offset="1" Color="#2144E0" />
                                         </LinearGradientBrush>
                                     </Border.Background>
-                                    <TextBlock 
+                                    <TextBlock
+                                        x:Name="ControlsIconTxt"
                                         VerticalAlignment="Center" 
                                         HorizontalAlignment="Center" 
                                         FontFamily="Arial" 
@@ -115,10 +183,31 @@
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter TargetName="Border" Property="Background" Value="#FF16A085"/>
                             </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderControlsIconTxt"
+                                                Storyboard.TargetProperty="Width"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderControlsIconTxt"
+                                                Storyboard.TargetProperty="Height"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" /> 
+                                        </Storyboard>
+                                    </BeginStoryboard> 
+                                </Trigger.EnterActions>
+                            </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </RadioButton.Template>
             </RadioButton>
+
 
             <!-- Archive -->
             <RadioButton 
@@ -127,7 +216,7 @@
                 FontFamily="Cascadia Code"  
                 Foreground="Black"
                 Width="126"
-                Height="32"
+                Height="45"
                 Click="RadioButton_ArchiveChecked">
                 <RadioButton.Template>
                     <ControlTemplate TargetType="RadioButton">
@@ -173,7 +262,7 @@
                 FontFamily="Cascadia Code"  
                 Foreground="Black"
                 Width="126"
-                Height="32"
+                Height="45"
                 Click="RadioButton_SettingsChecked">
                 <RadioButton.Template>
                     <ControlTemplate TargetType="RadioButton">
