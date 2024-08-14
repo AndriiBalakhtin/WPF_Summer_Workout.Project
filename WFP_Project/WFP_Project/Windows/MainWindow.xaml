@@ -21,6 +21,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
+        <ContentControl Name="MainContentControl" Grid.Row="1" Grid.Column="1"/>
+
         <TextBlock 
             Grid.Row="0" Grid.Column="0"
             Margin="17,28,0,0"
@@ -36,7 +38,7 @@
             <!-- Home -->
             <RadioButton 
                 Background="Transparent"
-                BorderBrush="Transparent"
+                BorderThickness="1"
                 FontFamily="Cascadia Code"                 
                 Width="126"
                 Height="45"
@@ -84,7 +86,9 @@
                                 <Setter TargetName="Border" Property="Background" Value="#FFD6EAF8"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="#FF16A085"/>
+                                <Setter TargetName="Border" Property="Background" Value="White"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Black"/>
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Trigger.EnterActions>
@@ -139,12 +143,13 @@
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </RadioButton.Template>
+                <RadioButton Content="RadioButton"/>
             </RadioButton>
 
             <!-- Controls -->
             <RadioButton 
                 Background="Transparent"
-                BorderBrush="Transparent"
+                BorderThickness="1"
                 FontFamily="Cascadia Code"  
                 Foreground="Black"
                 Width="126"
@@ -193,7 +198,9 @@
                                 <Setter TargetName="Border" Property="Background" Value="#FFD6EAF8"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="#FF16A085"/>
+                                <Setter TargetName="Border" Property="Background" Value="White"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Black"/>
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Trigger.EnterActions>
@@ -226,8 +233,8 @@
                                             <DoubleAnimation
                                                 Storyboard.TargetName="ControlsRotator"
                                                 Storyboard.TargetProperty="Angle"
-                                                From="0"
-                                                To="720"
+                                                From="180"
+                                                To="360"
                                                 Duration="0:0:0.4" />
                                             <DoubleAnimation
                                                 Storyboard.TargetName="BorderControlsIconTxt"
@@ -254,7 +261,7 @@
             <!-- Archive -->
             <RadioButton 
                 Background="Transparent"
-                BorderBrush="Transparent"
+                BorderThickness="1"
                 FontFamily="Cascadia Code"  
                 Foreground="Black"
                 Width="126"
@@ -276,7 +283,7 @@
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Offset="0" Color="#FFD4CD1F" />
                                             <GradientStop Offset="1" Color="#FFDCD521" />
-                                            <GradientStop Color="#FFD68103" Offset="0"/>
+                                            <GradientStop Color="#FFEA1111" Offset="0"/>
                                         </LinearGradientBrush>
                                     </Border.Background>
                                     <TextBlock 
@@ -286,7 +293,7 @@
                                         FontFamily="Arial" 
                                         FontSize="18" 
                                         Foreground="White" 
-                                        Text="📁"/>
+                                        Text="🗃️"/>
                                 </Border>
                                 <TextBlock
                                     Text="  Archive" 
@@ -299,18 +306,22 @@
                                 <Setter TargetName="Border" Property="Background" Value="#FFD6EAF8"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="#FF16A085"/>
+                                <Setter TargetName="Border" Property="Background" Value="White"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Black"/>
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Trigger.EnterActions>
                                     <BeginStoryboard>
                                         <Storyboard>
-                                            <DoubleAnimation
-                                                Storyboard.TargetName="ArchiveIconTxt"
-                                                Storyboard.TargetProperty="FontSize"
-                                                From="12"
-                                                To="18"
-                                                Duration="0:0:0.2" />
+                                            <ThicknessAnimationUsingKeyFrames
+                                                    AccelerationRatio="0.5"
+                                                    BeginTime="00:00:00"
+                                                    Storyboard.TargetName="ArchiveIconTxt"
+                                                    Storyboard.TargetProperty="Margin">
+                                                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="30,0,0,0" />
+                                                <SplineThicknessKeyFrame KeyTime="00:00:0.3" Value="0" />
+                                            </ThicknessAnimationUsingKeyFrames>
                                             <DoubleAnimation
                                                 Storyboard.TargetName="BorderArchiveIconTxt"
                                                 Storyboard.TargetProperty="Width"
@@ -409,7 +420,9 @@
                                 <Setter TargetName="Border" Property="Background" Value="#FFD6EAF8"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="#FF16A085"/>
+                                <Setter TargetName="Border" Property="Background" Value="White"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="Black"/>
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Trigger.EnterActions>
@@ -419,7 +432,7 @@
                                                 Storyboard.TargetName="SettingsRotator"
                                                 Storyboard.TargetProperty="Angle"
                                                 From="0"
-                                                To="360"
+                                                To="180"
                                                 Duration="0:0:0.4" />
                                             <DoubleAnimation
                                                 Storyboard.TargetName="BorderSettingsIconTxt"
@@ -442,8 +455,8 @@
                                             <DoubleAnimation
                                                 Storyboard.TargetName="SettingsRotator"
                                                 Storyboard.TargetProperty="Angle"
-                                                From="0"
-                                                To="360"
+                                                From="180"
+                                                To="0"
                                                 Duration="0:0:0.4" />
                                             <DoubleAnimation
                                                 Storyboard.TargetName="BorderSettingsIconTxt"
@@ -466,6 +479,5 @@
                 </RadioButton.Template>
             </RadioButton>
         </StackPanel>
-        <ContentControl Name="MainContentControl" Grid.Row="1" Grid.Column="1"/>
     </Grid>
 </Window>

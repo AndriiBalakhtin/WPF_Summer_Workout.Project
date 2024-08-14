@@ -21,6 +21,9 @@ namespace WFP_Project.Pages
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SettingsManager.ApplySelectedTheme();
+
+            var defaultItem = ThemeModeComboBox.Items.OfType<ComboBoxItem>()
+            .FirstOrDefault(item => item.Content.ToString() == appSettings.SelectedTheme);
         }
 
         private void ThemeModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -34,6 +37,5 @@ namespace WFP_Project.Pages
                 applyThemes.ApplyTheme(selectedTheme);
             }
         }
-       
     }
 }

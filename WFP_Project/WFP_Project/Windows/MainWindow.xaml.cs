@@ -27,20 +27,20 @@ namespace WFP_Project
         }
         private void RadioButton_ControlsChecked(object sender, RoutedEventArgs e)
         {
-            ControlWindow controlWindow = new ControlWindow();
-            MainContentControl.Content = controlWindow.Content;
+            ControlWindow controlsWindow = new ControlWindow();
+            MainContentControl.Content = controlsWindow.Content;
         }
 
         private void RadioButton_ArchiveChecked(object sender, RoutedEventArgs e)
         {
-            ArchiveWindow controlWindow = new ArchiveWindow();
-            MainContentControl.Content = controlWindow.Content;
+            ArchiveWindow archiveWindow = new ArchiveWindow();
+            MainContentControl.Content = archiveWindow.Content;
         }
 
         private void RadioButton_SettingsChecked(object sender, RoutedEventArgs e)
         {
-            SettingsWindow controlWindow = new SettingsWindow();
-            MainContentControl.Content = controlWindow.Content;
+            SettingsWindow settingsWindow = new SettingsWindow();
+            MainContentControl.Content = settingsWindow.Content;
         }
     }
 }

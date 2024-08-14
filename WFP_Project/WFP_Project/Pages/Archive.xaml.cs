@@ -13,6 +13,8 @@ namespace WFP_Project.Pages
         private void Windows_Load(object sender, RoutedEventArgs e)
         {
             SettingsManager.ApplySelectedTheme();
+
+            
         }
     }
 }
