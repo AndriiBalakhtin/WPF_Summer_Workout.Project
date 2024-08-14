@@ -5,8 +5,8 @@
         Loaded="Window_Loaded" Icon="C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\Pages\Settings.ico">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="27*"/>
-            <ColumnDefinition Width="773*"/>
+            <ColumnDefinition Width="27"/>
+            <ColumnDefinition Width="773"/>
         </Grid.ColumnDefinitions>
 
         <Label Content="Theme:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Grid.ColumnSpan="2"/>

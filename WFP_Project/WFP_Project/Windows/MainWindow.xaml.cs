@@ -25,63 +25,26 @@ namespace WFP_Project
 
         private void RadioButton_HomeChecked(object sender, RoutedEventArgs e)
         {
-            //Nothing
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Content = mainWindow.Content;
         }
 
         private void RadioButton_ControlsChecked(object sender, RoutedEventArgs e)
         {
-            var controlWindow = new ControlWindow();
-            controlWindow.Show();
-
-            if (controlWindow != null)
-            {
-                IsEnabled = false;
-
-                controlWindow.Closed += (s, args) =>
-                {
-                    IsEnabled = true;
-                };
-            }
+            ControlWindow controlWindow = new ControlWindow();
+            MainContentControl.Content = controlWindow.Content;
         }
 
         private void RadioButton_ArchiveChecked(object sender, RoutedEventArgs e)
         {
-            var archiveWindow = new ArchiveWindow();
-            archiveWindow.Show();
-
-            if (archiveWindow != null)
-            {
-                IsEnabled = false;
-
-                archiveWindow.Closed += (s, args) =>
-                {
-                    IsEnabled = true;
-                };
-            }
+            ArchiveWindow controlWindow = new ArchiveWindow();
+            MainContentControl.Content = controlWindow.Content;
         }
 
         private void RadioButton_SettingsChecked(object sender, RoutedEventArgs e)
         {
-            var settingsWindow = new SettingsWindow();
-            settingsWindow.Show();
-
-            if (settingsWindow != null)
-            {
-                IsEnabled = false;
-
-                settingsWindow.Closed += (s, args) =>
-                {
-                    IsEnabled = true;
-
-                    appSettings = SettingsManager.LoadSettings();
-                    applyThemes.ApplyTheme(appSettings.SelectedTheme);
-                };
-            }
-        }
-
-        private void RadioButton_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            
+            SettingsWindow controlWindow = new SettingsWindow();
+            MainContentControl.Content = controlWindow.Content;
         }
     }
 }

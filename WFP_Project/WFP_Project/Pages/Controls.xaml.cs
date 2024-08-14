@@ -23,6 +23,7 @@ namespace WFP_Project.Pages
 
             appSettings = SettingsManager.LoadSettings();
             applyThemes = new ApplyThemes();
+            LoadOverlay();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

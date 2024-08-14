@@ -13,7 +13,7 @@ namespace WFP_Project.Classes
                 switch (theme)
                 {
                     case "Light":
-                        newTheme.Source = new Uri("pack://application:,,,/Themes/LightTheme.xaml", UriKind.Absolute);                      
+                        newTheme.Source = new Uri("pack://application:,,,/Themes/LightTheme.xaml", UriKind.Absolute);
                         break;
                     case "Dark":
                         newTheme.Source = new Uri("pack://application:,,,/Themes/DarkTheme.xaml", UriKind.Absolute);
@@ -34,6 +34,18 @@ namespace WFP_Project.Classes
             catch (Exception ex)
             {
                 MessageBox.Show($"Error loading theme: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public void Windows_Load(object sender, RoutedEventArgs e, string selectedTheme)
+        {
+            if (!string.IsNullOrEmpty(selectedTheme))
+            {
+                ApplyTheme(selectedTheme);
+            }
+            else
+            {
+                MessageBox.Show("No theme selected in settings.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }

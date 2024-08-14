@@ -46,6 +46,6 @@ namespace WFP_Project.Pages
                 applyThemes.ApplyTheme(selectedTheme);
             }
         }
-
+       
     }
 }

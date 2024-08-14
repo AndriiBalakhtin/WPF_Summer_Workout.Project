@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="Control Panel" Height="600" Width="1140" MinHeight="600" MinWidth="1140"
         Loaded="Window_Loaded" Icon="/Png/logo.png" Background="White">
     <Grid>
         <Grid.RowDefinitions>
@@ -271,8 +271,9 @@
                                     CornerRadius="5">
                                     <Border.Background>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                            <GradientStop Color="Black"     Offset="0"/>
-                                            <GradientStop Color="#FFFF3535" Offset="1"/>
+                                            <GradientStop Offset="0" Color="#FFD4CD1F" />
+                                            <GradientStop Offset="1" Color="#FFDCD521" />
+                                            <GradientStop Color="#FFD68103" Offset="0"/>
                                         </LinearGradientBrush>
                                     </Border.Background>
                                     <TextBlock 
@@ -303,9 +304,9 @@
                                         <Storyboard>
                                             <DoubleAnimation
                                                 Storyboard.TargetName="ArchiveIconTxt"
-                                                Storyboard.TargetProperty="Width"
+                                                Storyboard.TargetProperty="FontSize"
                                                 From="12"
-                                                To="100"
+                                                To="18"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
                                                 Storyboard.TargetName="BorderArchiveIconTxt"
@@ -327,9 +328,9 @@
                                         <Storyboard>
                                             <DoubleAnimation
                                                 Storyboard.TargetName="ArchiveIconTxt"
-                                                Storyboard.TargetProperty="Width"
-                                                From="100"
-                                                To="12"
+                                                Storyboard.TargetProperty="FontSize"
+                                                From="12"
+                                                To="18"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
                                                 Storyboard.TargetName="BorderArchiveIconTxt"
@@ -363,9 +364,16 @@
                 Click="RadioButton_SettingsChecked">
                 <RadioButton.Template>
                     <ControlTemplate TargetType="RadioButton">
-                        <Border x:Name="Border" Background="Transparent" CornerRadius="5">
+                        <Border 
+                            x:Name="Border" 
+                            Background="Transparent" 
+                            CornerRadius="5">
                             <StackPanel Orientation="Horizontal" Height="32" Width="126">
-                                <Border Width="32" Height="32" CornerRadius="5">
+                                <Border
+                                    x:Name="BorderSettingsIconTxt"
+                                    Width="32"
+                                    Height="32" 
+                                    CornerRadius="5">
                                     <Border.Background>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Offset="0" Color="#B1B1B1" />
@@ -373,12 +381,19 @@
                                         </LinearGradientBrush>
                                     </Border.Background>
                                     <TextBlock 
+                                        x:Name="SettingsIconTxt"
                                         VerticalAlignment="Center" 
                                         HorizontalAlignment="Center" 
                                         FontFamily="Arial" 
                                         FontSize="18" 
                                         Foreground="White" 
-                                        Text="⚙️"/>
+                                        Text="⚙️">
+                                        <TextBlock.RenderTransform>
+                                            <TransformGroup>
+                                                <RotateTransform x:Name="SettingsRotator" CenterX="12.5" CenterY="10" />
+                                            </TransformGroup>
+                                        </TextBlock.RenderTransform>
+                                    </TextBlock>
                                 </Border>
                                 <TextBlock
                                     Text="  Settings" 
@@ -393,10 +408,61 @@
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter TargetName="Border" Property="Background" Value="#FF16A085"/>
                             </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="SettingsRotator"
+                                                Storyboard.TargetProperty="Angle"
+                                                From="0"
+                                                To="360"
+                                                Duration="0:0:0.4" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderSettingsIconTxt"
+                                                Storyboard.TargetProperty="Width"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderSettingsIconTxt"
+                                                Storyboard.TargetProperty="Height"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="SettingsRotator"
+                                                Storyboard.TargetProperty="Angle"
+                                                From="0"
+                                                To="360"
+                                                Duration="0:0:0.4" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderSettingsIconTxt"
+                                                Storyboard.TargetProperty="Width"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderSettingsIconTxt"
+                                                Storyboard.TargetProperty="Height"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </RadioButton.Template>
             </RadioButton>
         </StackPanel>
+        <ContentControl Name="MainContentControl" Grid.Row="1" Grid.Column="1"/>
     </Grid>
 </Window>
