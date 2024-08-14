@@ -97,7 +97,7 @@
                                             <DoubleAnimation
                                                 Storyboard.TargetName="HomeIconTxt"
                                                 Storyboard.TargetProperty="FontSize"
-                                                From="12"
+                                                From="5"
                                                 To="18"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
@@ -121,7 +121,7 @@
                                             <DoubleAnimation
                                                 Storyboard.TargetName="HomeIconTxt"
                                                 Storyboard.TargetProperty="FontSize"
-                                                From="12"
+                                                From="5"
                                                 To="18"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
@@ -234,7 +234,7 @@
                                                 Storyboard.TargetName="ControlsRotator"
                                                 Storyboard.TargetProperty="Angle"
                                                 From="180"
-                                                To="360"
+                                                To="0"
                                                 Duration="0:0:0.4" />
                                             <DoubleAnimation
                                                 Storyboard.TargetName="BorderControlsIconTxt"
