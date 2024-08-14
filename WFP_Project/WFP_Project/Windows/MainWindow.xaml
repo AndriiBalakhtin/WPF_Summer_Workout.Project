@@ -149,7 +149,10 @@
                 Click="RadioButton_ControlsChecked">
                 <RadioButton.Template>
                     <ControlTemplate TargetType="RadioButton">
-                        <Border x:Name="Border" Background="Transparent" CornerRadius="5">
+                        <Border 
+                            x:Name="Border"
+                            Background="Transparent"
+                            CornerRadius="5">
                             <StackPanel Orientation="Horizontal" Height="32" Width="126">
                                 <Border 
                                     x:Name="BorderControlsIconTxt"
@@ -168,7 +171,13 @@
                                         FontFamily="Arial" 
                                         FontSize="18" 
                                         Foreground="White" 
-                                        Text="🎚️"/>
+                                        Text="🎚️">
+                                        <TextBlock.RenderTransform>
+                                            <TransformGroup>
+                                                <RotateTransform x:Name="ControlsRotator" CenterX="12.5" CenterY="10" />
+                                            </TransformGroup>
+                                        </TextBlock.RenderTransform>
+                                    </TextBlock>
                                 </Border>
                                 <TextBlock
                                     Text="  Controls" 
@@ -188,6 +197,12 @@
                                     <BeginStoryboard>
                                         <Storyboard>
                                             <DoubleAnimation
+                                                Storyboard.TargetName="ControlsRotator"
+                                                Storyboard.TargetProperty="Angle"
+                                                From="0"
+                                                To="180"
+                                                Duration="0:0:0.4" />
+                                            <DoubleAnimation
                                                 Storyboard.TargetName="BorderControlsIconTxt"
                                                 Storyboard.TargetProperty="Width"
                                                 From="25"
@@ -198,10 +213,34 @@
                                                 Storyboard.TargetProperty="Height"
                                                 From="25"
                                                 To="32"
-                                                Duration="0:0:0.2" /> 
+                                                Duration="0:0:0.2" />
                                         </Storyboard>
                                     </BeginStoryboard> 
                                 </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="ControlsRotator"
+                                                Storyboard.TargetProperty="Angle"
+                                                From="0"
+                                                To="720"
+                                                Duration="0:0:0.4" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderControlsIconTxt"
+                                                Storyboard.TargetProperty="Width"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderControlsIconTxt"
+                                                Storyboard.TargetProperty="Height"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -220,9 +259,16 @@
                 Click="RadioButton_ArchiveChecked">
                 <RadioButton.Template>
                     <ControlTemplate TargetType="RadioButton">
-                        <Border x:Name="Border" Background="Transparent" CornerRadius="5">
+                        <Border 
+                            x:Name="Border"
+                            Background="Transparent"
+                            CornerRadius="5">
                             <StackPanel Orientation="Horizontal" Height="32" Width="126">
-                                <Border Width="32" Height="32" CornerRadius="5">
+                                <Border 
+                                    x:Name="BorderArchiveIconTxt"
+                                    Width="32"
+                                    Height="32"
+                                    CornerRadius="5">
                                     <Border.Background>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="Black"     Offset="0"/>
@@ -230,12 +276,13 @@
                                         </LinearGradientBrush>
                                     </Border.Background>
                                     <TextBlock 
+                                        x:Name="ArchiveIconTxt"
                                         VerticalAlignment="Center" 
                                         HorizontalAlignment="Center" 
                                         FontFamily="Arial" 
                                         FontSize="18" 
                                         Foreground="White" 
-                                        Text="📦"/>
+                                        Text="📁"/>
                                 </Border>
                                 <TextBlock
                                     Text="  Archive" 
@@ -249,6 +296,56 @@
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter TargetName="Border" Property="Background" Value="#FF16A085"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="ArchiveIconTxt"
+                                                Storyboard.TargetProperty="Width"
+                                                From="12"
+                                                To="100"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderArchiveIconTxt"
+                                                Storyboard.TargetProperty="Width"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderArchiveIconTxt"
+                                                Storyboard.TargetProperty="Height"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="ArchiveIconTxt"
+                                                Storyboard.TargetProperty="Width"
+                                                From="100"
+                                                To="12"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderArchiveIconTxt"
+                                                Storyboard.TargetProperty="Width"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderArchiveIconTxt"
+                                                Storyboard.TargetProperty="Height"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
