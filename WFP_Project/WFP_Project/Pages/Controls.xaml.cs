@@ -3,7 +3,6 @@ using System.Data.SqlClient;
 using System.Windows;
 using System.Windows.Input;
 using WFP_Project.Classes;
-using WFP_Project.Enums;
 
 namespace WFP_Project.Pages
 {
@@ -14,30 +13,15 @@ namespace WFP_Project.Pages
             "Integrated Security=True;" +
             "Connect Timeout=30";
 
-        private AppSettings appSettings;
-        private ApplyThemes applyThemes;
-
         public ControlWindow()
         {
             InitializeComponent();
-
-            appSettings = SettingsManager.LoadSettings();
-            applyThemes = new ApplyThemes();
             LoadOverlay();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(appSettings.SelectedTheme))
-            {
-                applyThemes.ApplyTheme(appSettings.SelectedTheme);
-            }
-            else
-            {
-                MessageBox.Show("No theme selected in settings.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-
-            LoadOverlay();
+            SettingsManager.ApplySelectedTheme();
         }
 
         private void InsertButton_Click(object sender, RoutedEventArgs e)

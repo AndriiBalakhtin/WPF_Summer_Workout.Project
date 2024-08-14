@@ -20,19 +20,7 @@ namespace WFP_Project.Pages
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var defaultItem = ThemeModeComboBox.Items.OfType<ComboBoxItem>()
-           .FirstOrDefault(item => item.Content.ToString() == appSettings.SelectedTheme);
-
-
-            if (defaultItem != null)
-            {
-                ThemeModeComboBox.SelectedItem = defaultItem;
-                applyThemes.ApplyTheme(appSettings.SelectedTheme);
-            }
-            else
-            {
-                MessageBox.Show($"Default theme not found: '{appSettings.SelectedTheme}'", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
+            SettingsManager.ApplySelectedTheme();
         }
 
         private void ThemeModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

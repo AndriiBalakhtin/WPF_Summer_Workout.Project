@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Control Panel" Height="600" Width="1140" MinHeight="600" MinWidth="1140"
-        Loaded="Window_Loaded" Icon="/Png/logo.png" Background="White">
+        Loaded="Window_Loaded" Icon="/Png/logo.png">
+    <Window.Background>
+        <ImageBrush ImageSource="/Windows/LightBackground.png"/>
+    </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition 
@@ -215,7 +218,7 @@
                                                 To="32"
                                                 Duration="0:0:0.2" />
                                         </Storyboard>
-                                    </BeginStoryboard> 
+                                    </BeginStoryboard>
                                 </Trigger.EnterActions>
                                 <Trigger.ExitActions>
                                     <BeginStoryboard>

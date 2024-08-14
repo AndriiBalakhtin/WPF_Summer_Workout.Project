@@ -36,17 +36,5 @@ namespace WFP_Project.Classes
                 MessageBox.Show($"Error loading theme: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
-        public void Windows_Load(object sender, RoutedEventArgs e, string selectedTheme)
-        {
-            if (!string.IsNullOrEmpty(selectedTheme))
-            {
-                ApplyTheme(selectedTheme);
-            }
-            else
-            {
-                MessageBox.Show("No theme selected in settings.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-        }
     }
 }

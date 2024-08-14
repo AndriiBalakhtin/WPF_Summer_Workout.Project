@@ -1,12 +1,10 @@
 ﻿
 using System.Windows;
+using WFP_Project.Classes;
 
 
 namespace WFP_Project.Pages
 {
-    /// <summary>
-    /// Interaction logic for Home.xaml
-    /// </summary>
     public partial class Home : Window
     {
         public Home()
@@ -16,7 +14,7 @@ namespace WFP_Project.Pages
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            SettingsManager.ApplySelectedTheme();
         }
     }
 }

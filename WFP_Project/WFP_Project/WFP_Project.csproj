@@ -9,8 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Windows\DarkBackground.png" />
-    <None Remove="Windows\LightBackground.png" />
     <None Remove="Windows\logo.png" />
   </ItemGroup>
 
