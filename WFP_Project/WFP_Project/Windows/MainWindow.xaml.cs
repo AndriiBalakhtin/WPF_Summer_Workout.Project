@@ -9,7 +9,6 @@ namespace WFP_Project
     {
         private AppSettings appSettings;
         private ApplyThemes applyThemes;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -17,18 +16,15 @@ namespace WFP_Project
             appSettings = SettingsManager.LoadSettings();
             applyThemes = new ApplyThemes();
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             applyThemes.ApplyTheme(appSettings.SelectedTheme);
         }
-
         private void RadioButton_HomeChecked(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Content = mainWindow.Content;
+            Home homeWindow = new Home();
+            MainContentControl.Content = homeWindow.Content;
         }
-
         private void RadioButton_ControlsChecked(object sender, RoutedEventArgs e)
         {
             ControlWindow controlWindow = new ControlWindow();
