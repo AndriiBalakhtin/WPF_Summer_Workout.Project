@@ -85,6 +85,28 @@ namespace WFP_Project.Pages
             }
         }
 
+        private void databaseDataGrid_BeginningEdit(object sender, System.Windows.Controls.DataGridBeginningEditEventArgs e)
+        {
+            if (databaseDataGrid.SelectedItem is DataRowView selectedRow)
+            {
+                var force = selectedRow["Force"].ToString();
+                var repeate1st = selectedRow["1st"].ToString();
+                var weight = selectedRow["Weight"].ToString();
+                var repeate2nd = selectedRow["2nd"].ToString();
+                var goal = selectedRow["Goal"].ToString();
+                var repeate3rd = selectedRow["3rd"].ToString();
+
+                Editor editorWindow = new Editor(force, repeate1st, weight, repeate2nd, goal, repeate3rd, selectedRow.Row);
+                editorWindow.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to edit.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            e.Cancel = true;
+        }
+
         private void NumbersOnlyTextboxes(object sender, KeyEventArgs e)
         {
             e.Handled = !(e.Key >= Key.D0 && e.Key <= Key.D9) && !(e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9);

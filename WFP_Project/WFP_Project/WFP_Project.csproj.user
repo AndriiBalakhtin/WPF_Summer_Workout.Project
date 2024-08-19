@@ -6,11 +6,17 @@
     <Compile Update="Classes\SettingsManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\Editor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\Home.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Pages\Editor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Pages\Home.xaml">
       <SubType>Designer</SubType>
     </Page>

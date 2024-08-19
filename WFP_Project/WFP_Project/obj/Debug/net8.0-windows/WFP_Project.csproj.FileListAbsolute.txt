@@ -75,3 +75,5 @@ C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-wi
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Home.g.cs
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project_MarkupCompile.lref
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Home.baml
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Editor.g.cs
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Editor.baml
