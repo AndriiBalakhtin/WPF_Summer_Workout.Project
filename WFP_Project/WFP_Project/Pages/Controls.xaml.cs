@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using WFP_Project.Classes;
 
@@ -85,26 +86,25 @@ namespace WFP_Project.Pages
             }
         }
 
-        private void databaseDataGrid_BeginningEdit(object sender, System.Windows.Controls.DataGridBeginningEditEventArgs e)
+        private void databaseDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
-            if (databaseDataGrid.SelectedItem is DataRowView selectedRow)
+            if (e.Row.Item is DataRowView rowView)
             {
-                var force = selectedRow["Force"].ToString();
-                var repeate1st = selectedRow["1st"].ToString();
-                var weight = selectedRow["Weight"].ToString();
-                var repeate2nd = selectedRow["2nd"].ToString();
-                var goal = selectedRow["Goal"].ToString();
-                var repeate3rd = selectedRow["3rd"].ToString();
+                DataRow selectedRow = rowView.Row;
+                string rowId = selectedRow["Id"].ToString();
 
-                Editor editorWindow = new Editor(force, repeate1st, weight, repeate2nd, goal, repeate3rd, selectedRow.Row);
+                Editor editorWindow = new Editor(
+                    selectedRow["Force"].ToString(),
+                    selectedRow["1st"].ToString(),
+                    selectedRow["Weight"].ToString(),
+                    selectedRow["2nd"].ToString(),
+                    selectedRow["Goal"].ToString(),
+                    selectedRow["3rd"].ToString(),
+                    selectedRow,
+                    rowId
+                );
                 editorWindow.ShowDialog();
             }
-            else
-            {
-                MessageBox.Show("Please select a row to edit.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-
-            e.Cancel = true;
         }
 
         private void NumbersOnlyTextboxes(object sender, KeyEventArgs e)

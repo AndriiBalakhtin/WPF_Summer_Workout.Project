@@ -6,13 +6,15 @@ namespace WFP_Project.Pages
 {
     public partial class Editor : Window
     {
-        private DataRow _dataRow;
         private string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;" +
             "AttachDbFilename=C:\\Reposotory\\C#\\Summer_product.api\\DataBase.mdf;" +
             "Integrated Security=True;" +
             "Connect Timeout=30";
 
-        public Editor(string force, string repeate1st, string weight, string repeate2nd, string goal, string repeate3rd, DataRow dataRow)
+        private DataRow _dataRow;
+        private string _rowId;
+
+        public Editor(string force, string repeate1st, string weight, string repeate2nd, string goal, string repeate3rd, DataRow dataRow, string rowId)
         {
             InitializeComponent();
 
@@ -23,6 +25,9 @@ namespace WFP_Project.Pages
             goalTextBox.Text = goal;
             repeate_3rdTextBox.Text = repeate3rd;
             _dataRow = dataRow;
+            _rowId = rowId;
+
+            selectedRowLabel.Content = $"Selected Row: {_rowId}";
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
@@ -46,14 +51,12 @@ namespace WFP_Project.Pages
                             cmd.Parameters.AddWithValue("@2nd", repeate_2ndTextBox.Text);
                             cmd.Parameters.AddWithValue("@Goal", goalTextBox.Text);
                             cmd.Parameters.AddWithValue("@3rd", repeate_3rdTextBox.Text);
-
-                            // Assuming you have an 'Id' column to identify the row
-                            cmd.Parameters.AddWithValue("@Id", _dataRow["Id"]);
+                            cmd.Parameters.AddWithValue("@Id", _rowId);
 
                             cmd.ExecuteNonQuery();
                         }
 
-                        // Close the editor window
+                        MessageBox.Show("Record updated successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                         this.Close();
                     }
                 }
