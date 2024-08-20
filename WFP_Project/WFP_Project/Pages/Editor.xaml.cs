@@ -1,21 +1,13 @@
-﻿using System.Data;
-using System.Data.SqlClient;
-using System.Windows;
+﻿using System.Windows;
 using WFP_Project.Classes;
 
 namespace WFP_Project.Pages
 {
     public partial class Editor : Window
     {
-        private string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;" +
-            "AttachDbFilename=C:\\Reposotory\\C#\\Summer_product.api\\DataBase.mdf;" +
-            "Integrated Security=True;" +
-            "Connect Timeout=30";
-
-        private DataRow _dataRow;
         private string _rowId;
 
-        public Editor(string force, string repeate1st, string weight, string repeate2nd, string goal, string repeate3rd, DataRow dataRow, string rowId)
+        public Editor(string force, string repeate1st, string weight, string repeate2nd, string goal, string repeate3rd, string rowId)
         {
             InitializeComponent();
 
@@ -25,56 +17,57 @@ namespace WFP_Project.Pages
             repeate_2ndTextBox.Text = repeate2nd;
             goalTextBox.Text = goal;
             repeate_3rdTextBox.Text = repeate3rd;
-            _dataRow = dataRow;
             _rowId = rowId;
 
             selectedRowTextBlock.Text = $"Selected Row: {rowId}";
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            SettingsManager.ApplySelectedTheme();
+        }
+
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(forceTextBox.Text) &&
-                !string.IsNullOrEmpty(weightTextBox.Text) &&
-                !string.IsNullOrEmpty(goalTextBox.Text))
+            if (string.IsNullOrEmpty(forceTextBox.Text) ||
+                string.IsNullOrEmpty(weightTextBox.Text) ||
+                string.IsNullOrEmpty(goalTextBox.Text))
+            {
+                MessageBox.Show("Fill in all the rows from the textboxes.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            MessageBoxResult result = MessageBox.Show(
+                "Are you sure you want to update this record?",
+                "Confirm Update",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question
+            );
+
+            if (result == MessageBoxResult.Yes)
             {
                 try
                 {
-                    using (SqlConnection conn = new SqlConnection(_connectionString))
-                    {
-                        conn.Open();
-                        string queryUpdate = "UPDATE [UserS] SET Force = @Force, [1st] = @1st, Weight = @Weight, [2nd] = @2nd, Goal = @Goal, [3rd] = @3rd WHERE Id = @Id";
+                    DataBase.UpdateUserData(
+                        _rowId,
+                        forceTextBox.Text,
+                        repeate_1stTextBox.Text,
+                        weightTextBox.Text,
+                        repeate_2ndTextBox.Text,
+                        goalTextBox.Text,
+                        repeate_3rdTextBox.Text
+                    );
 
-                        using (SqlCommand cmd = new SqlCommand(queryUpdate, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@Force", forceTextBox.Text);
-                            cmd.Parameters.AddWithValue("@1st", repeate_1stTextBox.Text);
-                            cmd.Parameters.AddWithValue("@Weight", weightTextBox.Text);
-                            cmd.Parameters.AddWithValue("@2nd", repeate_2ndTextBox.Text);
-                            cmd.Parameters.AddWithValue("@Goal", goalTextBox.Text);
-                            cmd.Parameters.AddWithValue("@3rd", repeate_3rdTextBox.Text);
-                            cmd.Parameters.AddWithValue("@Id", _rowId);
+                    MessageBox.Show("Record updated successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                            cmd.ExecuteNonQuery();
-                        }
-
-                        MessageBox.Show("Record updated successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                        this.Close();
-                    }
+                    this.DialogResult = true;
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"An error occurred while updating data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            else
-            {
-                MessageBox.Show("Fill in all the rows from the textboxes.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            SettingsManager.ApplySelectedTheme();
         }
     }
 }

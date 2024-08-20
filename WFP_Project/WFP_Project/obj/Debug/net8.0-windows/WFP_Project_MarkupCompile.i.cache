@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 
 9710140989
 
-141696157283
+151181513379
 199-2056520642
 Pages\Archive.xaml;Pages\Controls.xaml;Pages\Editor.xaml;Pages\Home.xaml;Pages\Settings.xaml;Themes\DarkTheme.xaml;Themes\LightTheme.xaml;Windows\App.xaml;Windows\MainWindow.xaml;
 
-True
+False
 

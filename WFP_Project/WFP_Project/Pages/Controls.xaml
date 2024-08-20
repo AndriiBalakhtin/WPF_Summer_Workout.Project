@@ -117,7 +117,6 @@
             Name="databaseDataGrid"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Top"
-            Margin="10, 50, 10, 10" BeginningEdit="databaseDataGrid_BeginningEdit"/>
-        <ContentControl Name="MainContentControl" Grid.Row="1" Grid.Column="1"/>
+            Margin="10, 50, 10, 10" BeginningEdit="databaseDataGrid_BeginningEdit" SelectionMode="Single"/>
     </Grid>
 </Window>
