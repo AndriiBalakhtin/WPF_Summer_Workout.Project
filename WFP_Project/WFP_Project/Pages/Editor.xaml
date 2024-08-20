@@ -57,7 +57,7 @@
                 Name="repeate_1stTextBox"
                 Grid.Row="1"
                 Grid.Column="1"
-                Margin="5"/>
+                Margin="5" PreviewKeyDown="NumbersOnlyTextboxes"/>
             <TextBlock 
                 Grid.Row="2" 
                 Grid.Column="0" 
@@ -77,7 +77,7 @@
                 Name="repeate_2ndTextBox"
                 Grid.Row="3" 
                 Grid.Column="1"
-                Margin="5"/>
+                Margin="5" PreviewKeyDown="NumbersOnlyTextboxes"/>
             <TextBlock 
                 Grid.Row="4" 
                 Grid.Column="0" 
@@ -97,7 +97,7 @@
                 Name="repeate_3rdTextBox" 
                 Grid.Row="5" 
                 Grid.Column="1" 
-                Margin="5"/>
+                Margin="5" PreviewKeyDown="NumbersOnlyTextboxes"/>
             <Button 
                 Content="Update" 
                 Grid.Row="6" 

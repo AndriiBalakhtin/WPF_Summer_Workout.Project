@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 using WFP_Project.Classes;
 
 namespace WFP_Project.Pages
@@ -58,8 +59,6 @@ namespace WFP_Project.Pages
                         repeate_3rdTextBox.Text
                     );
 
-                    MessageBox.Show("Record updated successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-
                     this.DialogResult = true;
                     this.Close();
                 }
@@ -68,6 +67,11 @@ namespace WFP_Project.Pages
                     MessageBox.Show($"An error occurred while updating data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+
+        private void NumbersOnlyTextboxes(object sender, KeyEventArgs e)
+        {        
+            e.Handled = !(e.Key >= Key.D0 && e.Key <= Key.D9) && !(e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9);
         }
     }
 }
