@@ -5,16 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WFP_Project.Pages"
         mc:Ignorable="d"
-        Title="Editor" Height="300" Width="400" MaxHeight="300" MaxWidth="400" MinHeight="300" MinWidth="400">
+        Title="Editor" Height="330" Width="400" MaxHeight="330" MaxWidth="400" MinHeight="330" MinWidth="400">
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/LightBackground.png"/>
+    </Window.Background>
     <Grid>
-        <!-- Main Title -->
-        <Label Content="Edit Record" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="16" Margin="0,10,0,0"/>
-
-        <!-- Selected Row Label -->
-        <Label x:Name="selectedRowLabel" Content="Selected Row: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,40,0,0" FontSize="14"/>
-
-        <!-- Grid for TextBoxes and Update Button -->
-        <Grid Margin="20,80,20,20">
+        <TextBlock 
+            Text="Edit Record"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="16"
+            Margin="0,10,0,0"/>
+        <TextBlock
+            x:Name="selectedRowTextBlock"
+            Text="Selected Row: " 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="20,40,0,0" 
+            FontSize="14"/>
+        <Grid 
+            Margin="20,80,20,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -28,26 +38,74 @@
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
-            <Label Grid.Row="0" Grid.Column="0" Content="Force:" VerticalAlignment="Center"/>
-            <TextBox Name="forceTextBox" Grid.Row="0" Grid.Column="1" Margin="5"/>
-
-            <Label Grid.Row="1" Grid.Column="0" Content="Repeat 1st:" VerticalAlignment="Center"/>
-            <TextBox Name="repeate_1stTextBox" Grid.Row="1" Grid.Column="1" Margin="5"/>
-
-            <Label Grid.Row="2" Grid.Column="0" Content="Weight:" VerticalAlignment="Center"/>
-            <TextBox Name="weightTextBox" Grid.Row="2" Grid.Column="1" Margin="5"/>
-
-            <Label Grid.Row="3" Grid.Column="0" Content="Repeat 2nd:" VerticalAlignment="Center"/>
-            <TextBox Name="repeate_2ndTextBox" Grid.Row="3" Grid.Column="1" Margin="5"/>
-
-            <Label Grid.Row="4" Grid.Column="0" Content="Goal:" VerticalAlignment="Center"/>
-            <TextBox Name="goalTextBox" Grid.Row="4" Grid.Column="1" Margin="5"/>
-
-            <Label Grid.Row="5" Grid.Column="0" Content="Repeat 3rd:" VerticalAlignment="Center"/>
-            <TextBox Name="repeate_3rdTextBox" Grid.Row="5" Grid.Column="1" Margin="5"/>
-
-            <Button Content="Update" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Right" Width="100" Click="UpdateButton_Click"/>
+            <TextBlock 
+                Grid.Row="0"
+                Grid.Column="0" 
+                Text="Force:" 
+                VerticalAlignment="Center"/>
+            <TextBox
+                Name="forceTextBox"
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="5"/>
+            <TextBlock 
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Repeat 1st:"
+                VerticalAlignment="Center"/>
+            <TextBox
+                Name="repeate_1stTextBox"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="5"/>
+            <TextBlock 
+                Grid.Row="2" 
+                Grid.Column="0" 
+                Text="Weight:"
+                VerticalAlignment="Center"/>
+            <TextBox
+                Name="weightTextBox" 
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="5"/>
+            <TextBlock 
+                Grid.Row="3" 
+                Grid.Column="0" 
+                Text="Repeat 2nd:"
+                VerticalAlignment="Center"/>
+            <TextBox 
+                Name="repeate_2ndTextBox"
+                Grid.Row="3" 
+                Grid.Column="1"
+                Margin="5"/>
+            <TextBlock 
+                Grid.Row="4" 
+                Grid.Column="0" 
+                Text="Goal:" 
+                VerticalAlignment="Center"/>
+            <TextBox 
+                Name="goalTextBox"
+                Grid.Row="4" 
+                Grid.Column="1" 
+                Margin="5"/>
+            <TextBlock 
+                Grid.Row="5"
+                Grid.Column="0" 
+                Text="Repeat 3rd:"
+                VerticalAlignment="Center"/>
+            <TextBox 
+                Name="repeate_3rdTextBox" 
+                Grid.Row="5" 
+                Grid.Column="1" 
+                Margin="5"/>
+            <Button 
+                Content="Update" 
+                Grid.Row="6" 
+                Grid.Column="1"
+                HorizontalAlignment="Left" 
+                Width="100" 
+                Click="UpdateButton_Click" 
+                Margin="70,10,0,-12"/>
         </Grid>
     </Grid>
 </Window>

@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
+using WFP_Project.Classes;
 
 namespace WFP_Project.Pages
 {
@@ -27,7 +28,12 @@ namespace WFP_Project.Pages
             _dataRow = dataRow;
             _rowId = rowId;
 
-            selectedRowLabel.Content = $"Selected Row: {_rowId}";
+            selectedRowTextBlock.Text = $"Selected Row: {rowId}";
+        }
+
+        private void Windows_Load(object sender, RoutedEventArgs e)
+        {
+            SettingsManager.ApplySelectedTheme();
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)

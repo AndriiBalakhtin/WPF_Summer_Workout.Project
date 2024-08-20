@@ -7,7 +7,7 @@
         Title="Control Panel" Height="600" Width="1140" MinHeight="600" MinWidth="1140"
         Loaded="Window_Loaded" Icon="/Png/logo.png">
     <Window.Background>
-        <ImageBrush ImageSource="/Windows/LightBackground.png"/>
+        <ImageBrush ImageSource="/Images/LightBackground.png"/>
     </Window.Background>
     <Grid>
         <Grid.RowDefinitions>

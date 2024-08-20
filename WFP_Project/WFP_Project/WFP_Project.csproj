@@ -20,8 +20,8 @@
     <Resource Include="Png\logo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Windows\DarkBackground.png" />
-    <Resource Include="Windows\LightBackground.png" />
+    <Resource Include="Images\DarkBackground.png" />
+    <Resource Include="Images\LightBackground.png" />
   </ItemGroup>
 
 </Project>
