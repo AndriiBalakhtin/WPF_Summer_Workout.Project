@@ -31,11 +31,6 @@ namespace WFP_Project.Pages
             selectedRowTextBlock.Text = $"Selected Row: {rowId}";
         }
 
-        private void Windows_Load(object sender, RoutedEventArgs e)
-        {
-            SettingsManager.ApplySelectedTheme();
-        }
-
         private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(forceTextBox.Text) &&
@@ -75,6 +70,11 @@ namespace WFP_Project.Pages
             {
                 MessageBox.Show("Fill in all the rows from the textboxes.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            SettingsManager.ApplySelectedTheme();
         }
     }
 }

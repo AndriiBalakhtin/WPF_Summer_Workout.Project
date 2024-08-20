@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WFP_Project.Pages"
         mc:Ignorable="d"
-        Title="Editor" Height="330" Width="400" MaxHeight="330" MaxWidth="400" MinHeight="330" MinWidth="400">
+        Title="Editor" Height="330" Width="400" MaxHeight="330" MaxWidth="400" MinHeight="330" MinWidth="400" Loaded="Window_Loaded">
     <Window.Background>
-        <ImageBrush ImageSource="/Images/LightBackground.png"/>
+        <ImageBrush/>
     </Window.Background>
     <Grid>
         <TextBlock 
