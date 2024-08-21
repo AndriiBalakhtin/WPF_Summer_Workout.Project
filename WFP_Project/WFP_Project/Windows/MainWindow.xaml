@@ -77,10 +77,12 @@
                                         Foreground="White" 
                                         Text="🏠"/>
                                 </Border>
-                                <Label
-                                    Content="Home" 
+                                <TextBlock
+                                    Text="  Home" 
                                     FontWeight="ExtraBold"
-                                    FontFamily="Hauora" Height="24" Width="80"/>
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center" 
+                                    FontFamily="Hauora"/>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -189,10 +191,12 @@
                                         </TextBlock.RenderTransform>
                                     </TextBlock>
                                 </Border>
-                                <Label
-                                    Content="Controls" 
+                                <TextBlock
+                                    Text="  Controls" 
                                     FontWeight="ExtraBold" 
-                                    FontFamily="Hauora" Height="24" Width="80"/>
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center" 
+                                    FontFamily="Hauora"/>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -259,7 +263,6 @@
                 </RadioButton.Template>
             </RadioButton>
 
-
             <!-- Archive -->
             <RadioButton 
                 Background="Transparent"
@@ -297,10 +300,12 @@
                                         Foreground="White" 
                                         Text="🗃️"/>
                                 </Border>
-                                <Label
-                                    Content="  Archive" 
+                                <TextBlock
+                                    Text="  Archive" 
                                     FontWeight="ExtraBold" 
-                                    FontFamily="Hauora" Height="24" Width="80"/>
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center" 
+                                    FontFamily="Hauora"/>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -411,10 +416,12 @@
                                         </TextBlock.RenderTransform>
                                     </TextBlock>
                                 </Border>
-                                <Label
-                                    Content="  Settings" 
+                                <TextBlock
+                                    Text="  Settings" 
                                     FontWeight="ExtraBold" 
-                                    FontFamily="Hauora" Height="24" Width="80"/>
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center" 
+                                    FontFamily="Hauora"/>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>

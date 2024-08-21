@@ -3,11 +3,19 @@
 
     <ImageBrush x:Key="WindowBackgroundBrush" ImageSource="/Images/DarkBackground.png"/>
 
-    <Style TargetType="TextBox">
+    <Style TargetType="TextBlock">
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="#FF1E1E1E"/>
-        <Setter Property="BorderBrush" Value="White"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Regular"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect 
+                 Color="Black" 
+                 Direction="315" 
+                 ShadowDepth="2.3" 
+                 BlurRadius="1"/>
+            </Setter.Value>
+        </Setter>
     </Style>
 
     <Style TargetType="DataGrid">
@@ -23,10 +31,6 @@
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="Background" Value="#FF1E1E1E"/>
         <Setter Property="BorderBrush" Value="Black"/>
-    </Style>
-
-    <Style TargetType="TextBlock">
-        <Setter Property="Foreground" Value="Black"/>
     </Style>
 
 </ResourceDictionary>

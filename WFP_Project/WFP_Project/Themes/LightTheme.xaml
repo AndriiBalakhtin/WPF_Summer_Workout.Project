@@ -3,9 +3,17 @@
 
     <ImageBrush x:Key="WindowBackgroundBrush" ImageSource="/Images/LightBackground.png"/>
 
+    <Style TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Regular"/>
+    </Style>
+
     <Style TargetType="TextBox">
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="1"/>
     </Style>
 
     <Style TargetType="DataGrid">
@@ -21,10 +29,6 @@
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="BorderBrush" Value="Black"/>
-    </Style>
-
-    <Style TargetType="TextBlock">
-        <Setter Property="Foreground" Value="Black"/>
     </Style>
 
 </ResourceDictionary>

@@ -20,7 +20,7 @@ namespace WFP_Project.Pages
             repeate_3rdTextBox.Text = repeate3rd;
             _rowId = rowId;
 
-            selectedRowTextLabel.Content = $"Selected Row: {rowId}";
+            selectedRowTextBlock.Text = $"Selected Row: {rowId}";
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

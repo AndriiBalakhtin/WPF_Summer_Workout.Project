@@ -23,7 +23,7 @@ namespace WFP_Project.Pages
             SettingsManager.ApplySelectedTheme();
 
             var defaultItem = ThemeModeComboBox.Items.OfType<ComboBoxItem>()
-            .FirstOrDefault(item => item.Content.ToString() == appSettings.SelectedTheme);
+                .FirstOrDefault(item => item.Content.ToString() == appSettings.SelectedTheme);
         }
 
         private void ThemeModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

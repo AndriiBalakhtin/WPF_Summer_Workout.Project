@@ -4,22 +4,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-
-            <SolidColorBrush x:Key="WindowButtonsHoverForeground1" Color="#FF000000"/>
-            <SolidColorBrush x:Key="Foreground1" Color="Black"/>
-
-            <Style x:Key="NavBarButton" TargetType="RadioButton">
-                <Setter Property="Foreground" Value="{DynamicResource Foreground1}" />
-                <Setter Property="FontSize" Value="14" />
-                <Setter Property="FontWeight" Value="Bold" />
-                <Setter Property="Background" Value="Transparent" />
-                <Setter Property="BorderThickness" Value="1" />
-            </Style>
-
-            <LinearGradientBrush x:Key="NavBarButtonBackground">
-                <GradientStop Offset="0" Color="#59ADFF" />
-                <GradientStop Offset="1" Color="#5161FF" />
-            </LinearGradientBrush>
+           
             
         </ResourceDictionary>
     </Application.Resources>
