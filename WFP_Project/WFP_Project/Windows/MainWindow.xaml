@@ -26,10 +26,10 @@
             Grid.Column="1" 
             Margin="0,0,0,0"
             Grid.RowSpan="2"/>
-        <TextBlock 
+        <Label 
             Grid.Row="0" Grid.Column="0"
             Margin="17,28,0,0"
-            Text="Pinned" 
+            Content="Pinned" 
             FontWeight="ExtraBold"/>
         <StackPanel 
             Grid.Row="1" Grid.Column="0"
@@ -77,10 +77,10 @@
                                         Foreground="White" 
                                         Text="🏠"/>
                                 </Border>
-                                <TextBlock
-                                    Text="  Home" 
+                                <Label
+                                    Content="Home" 
                                     FontWeight="ExtraBold"
-                                    FontFamily="Hauora" Height="14" Width="43"/>
+                                    FontFamily="Hauora" Height="24" Width="80"/>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -189,10 +189,10 @@
                                         </TextBlock.RenderTransform>
                                     </TextBlock>
                                 </Border>
-                                <TextBlock
-                                    Text="  Controls" 
+                                <Label
+                                    Content="Controls" 
                                     FontWeight="ExtraBold" 
-                                    FontFamily="Hauora" Height="14"/>
+                                    FontFamily="Hauora" Height="24" Width="80"/>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -297,10 +297,10 @@
                                         Foreground="White" 
                                         Text="🗃️"/>
                                 </Border>
-                                <TextBlock
-                                    Text="  Archive" 
+                                <Label
+                                    Content="  Archive" 
                                     FontWeight="ExtraBold" 
-                                    FontFamily="Hauora" Height="14"/>
+                                    FontFamily="Hauora" Height="24" Width="80"/>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -411,10 +411,10 @@
                                         </TextBlock.RenderTransform>
                                     </TextBlock>
                                 </Border>
-                                <TextBlock
-                                    Text="  Settings" 
+                                <Label
+                                    Content="  Settings" 
                                     FontWeight="ExtraBold" 
-                                    FontFamily="Hauora" Height="14"/>
+                                    FontFamily="Hauora" Height="24" Width="80"/>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
