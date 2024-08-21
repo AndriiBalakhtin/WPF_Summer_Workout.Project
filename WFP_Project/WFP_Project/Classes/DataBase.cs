@@ -66,8 +66,9 @@ namespace WFP_Project.Classes
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "UPDATE [UserS]" +
-                    "SET Force = @Force, [1st] = @1st, Weight = @Weight, [2nd] = @2nd, Goal = @Goal, [3rd] = @3rd WHERE Id = @Id";
+                string query = "UPDATE [UserS] " +
+                               "SET Force = @Force, [1st] = @1st, Weight = @Weight, [2nd] = @2nd, Goal = @Goal, [3rd] = @3rd, Date = @Date " +
+                               "WHERE Id = @Id";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -78,6 +79,7 @@ namespace WFP_Project.Classes
                     cmd.Parameters.AddWithValue("@Goal", goal);
                     cmd.Parameters.AddWithValue("@3rd", repeate3rd);
                     cmd.Parameters.AddWithValue("@Id", id);
+                    cmd.Parameters.AddWithValue("@Date", DateTime.Now);
 
                     try
                     {
@@ -91,5 +93,6 @@ namespace WFP_Project.Classes
                 }
             }
         }
+
     }
 }

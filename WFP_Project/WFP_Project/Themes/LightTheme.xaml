@@ -8,22 +8,23 @@
         <Setter Property="Background" Value="White"/>
     </Style>
 
+    <Style TargetType="DataGrid">
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="AlternatingRowBackground" Value="LightGray"/>
+        <Setter Property="RowBackground" Value="White"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="GridLinesVisibility" Value="None"/>
+    </Style>
+
     <Style TargetType="ComboBox">
         <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="Background" Value="Black"/>
+        <Setter Property="Background" Value="White"/>
         <Setter Property="BorderBrush" Value="Black"/>
     </Style>
 
     <Style TargetType="TextBlock">
         <Setter Property="Foreground" Value="Black"/>
-    </Style>
-
-    <Style TargetType="Label">
-        <Setter Property="Foreground" Value="Black"/>
-    </Style>
-
-    <Style TargetType="Window">
-        <Setter Property="Background" Value="White"/>
     </Style>
 
 </ResourceDictionary>

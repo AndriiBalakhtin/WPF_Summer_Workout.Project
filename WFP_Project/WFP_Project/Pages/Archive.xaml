@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Archive" Height="450" Width="800"
         Loaded="Windows_Load">
-    
+    <Window.Background>
+        <SolidColorBrush Color="Transparent"/>
+    </Window.Background>
     <Grid>
 
     </Grid>

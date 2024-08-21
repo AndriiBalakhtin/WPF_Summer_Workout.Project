@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Editor" Height="330" Width="400" MaxHeight="330" MaxWidth="400" MinHeight="330" MinWidth="400" Loaded="Window_Loaded">
     <Window.Background>
-        <ImageBrush/>
+        <SolidColorBrush Color="Transparent"/>
     </Window.Background>
     <Grid>
         <TextBlock 

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Control Panel" Height="600" Width="1140" MinHeight="600" MinWidth="1140"
-        Loaded="Window_Loaded" Icon="/Png/logo.png">
+        Loaded="Window_Loaded" Icon="/Png/logo.png"
+        FontFamily="../Fonts/#Hauora">
     <Window.Background>
         <ImageBrush/>
     </Window.Background>
@@ -20,14 +21,16 @@
                 Width="Auto" MinWidth="126"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
-        <ContentControl Name="MainContentControl" Grid.Row="1" Grid.Column="1"/>
-
+        <ContentControl
+            Name="MainContentControl"
+            Grid.Column="1" 
+            Margin="0,0,0,0"
+            Grid.RowSpan="2"/>
         <TextBlock 
             Grid.Row="0" Grid.Column="0"
             Margin="17,28,0,0"
             Text="Pinned" 
-            FontWeight="Bold" FontFamily="Hauora"/>
+            FontWeight="ExtraBold"/>
         <StackPanel 
             Grid.Row="1" Grid.Column="0"
             HorizontalAlignment="Left" 
@@ -76,7 +79,7 @@
                                 </Border>
                                 <TextBlock
                                     Text="  Home" 
-                                    FontWeight="Bold" 
+                                    FontWeight="ExtraBold"
                                     FontFamily="Hauora" Height="14" Width="43"/>
                             </StackPanel>
                         </Border>
@@ -188,7 +191,7 @@
                                 </Border>
                                 <TextBlock
                                     Text="  Controls" 
-                                    FontWeight="Bold" 
+                                    FontWeight="ExtraBold" 
                                     FontFamily="Hauora" Height="14"/>
                             </StackPanel>
                         </Border>
@@ -296,7 +299,7 @@
                                 </Border>
                                 <TextBlock
                                     Text="  Archive" 
-                                    FontWeight="Bold" 
+                                    FontWeight="ExtraBold" 
                                     FontFamily="Hauora" Height="14"/>
                             </StackPanel>
                         </Border>
@@ -410,7 +413,7 @@
                                 </Border>
                                 <TextBlock
                                     Text="  Settings" 
-                                    FontWeight="Bold" 
+                                    FontWeight="ExtraBold" 
                                     FontFamily="Hauora" Height="14"/>
                             </StackPanel>
                         </Border>
