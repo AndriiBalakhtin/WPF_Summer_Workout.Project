@@ -119,5 +119,14 @@
             Margin="10,50,10,10" 
             BeginningEdit="databaseDataGrid_BeginningEdit" 
             AutoGenerateColumns="True"/>
+
+
+        <TextBox x:Name="archiveTableNameTextBox" Width="200" Height="25" Margin="120,240,0,0"/>
+        <Button Content="Archive" Click="ArchiveButton_Click" Width="100" Height="30" Margin="330,240,0,0"/>
+
+        <ComboBox x:Name="archivedTablesComboBox" Width="200" Height="25" Margin="10,280,0,0"/>
+        <Button Content="Load Table" Click="LoadTableButton_Click" Width="100" Height="30" Margin="220,280,0,0"/>
+
+
     </Grid>
 </Window>

@@ -1,129 +1,87 @@
-﻿using System;
+﻿
 using System.Data;
-using System.IO;
 using System.Windows;
-using System.Windows.Controls;
 using WFP_Project.Classes;
 
 namespace WFP_Project.Pages
 {
     public partial class ArchiveWindow : Window
     {
-        private string archiveRootPath = @"C:\Reposotory\C#\Summer_product.api\Archive";
-
         public ArchiveWindow()
         {
             InitializeComponent();
-            LoadArchiveTree();
+            LoadArchivedTables();
         }
 
-        private void Windows_Load(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SettingsManager.ApplySelectedTheme();
+            LoadArchivedTables(); // Load table names on window load
         }
 
-        private void CreateFolder_Click(object sender, RoutedEventArgs e)
+        private void ArchiveButton_Click(object sender, RoutedEventArgs e)
         {
-            string folderName = Microsoft.VisualBasic.Interaction.InputBox("Enter folder name:", "Create Folder", "NewFolder");
+            string tableName = archiveTableNameTextBox.Text.Trim();
 
-            if (!string.IsNullOrEmpty(folderName))
+            if (!string.IsNullOrEmpty(tableName))
             {
-                string folderPath = Path.Combine(archiveRootPath, folderName);
-
-                if (!Directory.Exists(folderPath))
+                try
                 {
-                    Directory.CreateDirectory(folderPath);
-                    LoadArchiveTree();
-                    MessageBox.Show("Folder created successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    DataBase.ArchiveUserData(tableName); // Archive data into a new table
+                    LoadArchivedTables(); // Refresh ComboBox to show new table
+                    MessageBox.Show("Data archived successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while archiving data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a table name.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void LoadTableButton_Click(object sender, RoutedEventArgs e)
+        {
+            string tableName = archivedTablesComboBox.Text.Trim();
+
+            if (!string.IsNullOrEmpty(tableName))
+            {
+                try
+                {
+                    DataTable dataTable = DataBase.GetTableData(tableName);
+                    archivedDataGrid.ItemsSource = dataTable.DefaultView;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while loading table data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a table.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        private void LoadArchivedTables()
+        {
+            try
+            {
+                var tableNames = DataBase.GetArchivedTableNames();
+                if (tableNames.Any())
+                {
+                    archivedTablesComboBox.ItemsSource = tableNames;
+                    archivedTablesComboBox.SelectedIndex = 0; // Optionally select the first item if available
                 }
                 else
                 {
-                    MessageBox.Show("Folder already exists.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    archivedTablesComboBox.ItemsSource = null; // Clear items if none available
                 }
             }
-        }
-
-        private void SaveData_Click(object sender, RoutedEventArgs e)
-        {
-            if (archiveTreeView.SelectedItem is TreeViewItem selectedFolder)
+            catch (Exception ex)
             {
-                string folderPath = selectedFolder.Tag.ToString();
-                DataTable data = DataBase.GetUserData();
-
-                string filePath = Path.Combine(folderPath, $"UserData_{DateTime.Now:yyyyMMddHHmmss}.csv");
-                SaveDataToCsv(filePath, data);
-                MessageBox.Show("Data saved successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else
-            {
-                MessageBox.Show("Please select a folder to save data.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void LoadArchiveTree()
-        {
-            archiveTreeView.Items.Clear();
-            if (!Directory.Exists(archiveRootPath))
-            {
-                Directory.CreateDirectory(archiveRootPath);
-            }
-
-            DirectoryInfo rootDirectory = new DirectoryInfo(archiveRootPath);
-            LoadFolder(rootDirectory, null);
-        }
-
-        private void LoadFolder(DirectoryInfo directoryInfo, TreeViewItem parentItem)
-        {
-            TreeViewItem newItem = new TreeViewItem()
-            {
-                Header = directoryInfo.Name,
-                Tag = directoryInfo.FullName
-            };
-
-            if (parentItem == null)
-            {
-                archiveTreeView.Items.Add(newItem);
-            }
-            else
-            {
-                parentItem.Items.Add(newItem);
-            }
-
-            foreach (var directory in directoryInfo.GetDirectories())
-            {
-                LoadFolder(directory, newItem);
-            }
-        }
-
-        private void SaveDataToCsv(string filePath, DataTable dataTable)
-        {
-            using (StreamWriter sw = new StreamWriter(filePath))
-            {
-                // Write column headers
-                for (int i = 0; i < dataTable.Columns.Count; i++)
-                {
-                    sw.Write(dataTable.Columns[i]);
-
-                    if (i < dataTable.Columns.Count - 1)
-                    {
-                        sw.Write(",");
-                    }
-                }
-                sw.WriteLine();
-
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    for (int i = 0; i < dataTable.Columns.Count; i++)
-                    {
-                        sw.Write(row[i]);
-
-                        if (i < dataTable.Columns.Count - 1)
-                        {
-                            sw.Write(",");
-                        }
-                    }
-                    sw.WriteLine();
-                }
+                MessageBox.Show($"An error occurred while loading table names: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

@@ -1,22 +1,15 @@
 ﻿<Window x:Class="WFP_Project.Pages.ArchiveWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Archive" Height="450" Width="800"
-        Loaded="Windows_Load">
-    <Window.Background>
-        <SolidColorBrush Color="Transparent"/>
-    </Window.Background>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
-        <TreeView x:Name="archiveTreeView" Grid.Column="0" Margin="10"/>
-
-        <StackPanel Grid.Column="1" Margin="10">
-            <Button Content="Create Folder" Click="CreateFolder_Click" Margin="0,0,0,10"/>
-            <Button Content="Save Data" Click="SaveData_Click"/>
+        Title="Archive Window" Height="600" Width="800"
+        Loaded="Window_Loaded">
+    <Grid Margin="10">
+        <StackPanel>
+            <TextBox x:Name="archiveTableNameTextBox" Width="200" Height="25" Margin="10"/>
+            <Button Content="Archive" Click="ArchiveButton_Click" Width="100" Height="30" Margin="10"/>
+            <ComboBox x:Name="archivedTablesComboBox" Width="200" Height="25" Margin="10"/>
+            <Button Content="Load Table" Click="LoadTableButton_Click" Width="100" Height="30" Margin="10"/>
+            <DataGrid x:Name="archivedDataGrid" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10" AutoGenerateColumns="True"/>
         </StackPanel>
     </Grid>
 </Window>
