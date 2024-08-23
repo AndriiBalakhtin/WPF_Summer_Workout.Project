@@ -7,6 +7,16 @@
         <SolidColorBrush Color="Transparent"/>
     </Window.Background>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
+        <TreeView x:Name="archiveTreeView" Grid.Column="0" Margin="10"/>
+
+        <StackPanel Grid.Column="1" Margin="10">
+            <Button Content="Create Folder" Click="CreateFolder_Click" Margin="0,0,0,10"/>
+            <Button Content="Save Data" Click="SaveData_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

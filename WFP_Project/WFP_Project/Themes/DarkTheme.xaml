@@ -18,6 +18,14 @@
         </Setter>
     </Style>
 
+    <Style TargetType="TextBox">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background" Value="Black"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+
+
     <Style TargetType="DataGrid">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="#FF1E1E1E"/>
