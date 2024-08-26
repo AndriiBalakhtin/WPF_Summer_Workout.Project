@@ -22,7 +22,7 @@
             Text="Selected Row:" 
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Margin="0" 
+            Margin="5" 
             FontSize="14"
             FontWeight="Regular"/>
         <Grid 

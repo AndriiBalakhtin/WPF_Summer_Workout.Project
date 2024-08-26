@@ -19,6 +19,12 @@ namespace WFP_Project.Pages
             SettingsManager.ApplySelectedTheme();
         }
 
+        private void ButtonGuiArchive_Click(object sender, RoutedEventArgs e)
+        {
+            GuiArchive guiArchive = new GuiArchive();
+            guiArchive.Show();
+        }
+
         private void InsertButton_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(forceTextBox.Text) &&
@@ -85,15 +91,18 @@ namespace WFP_Project.Pages
 
         private void NumbersOnlyTextboxes(object sender, KeyEventArgs e)
         {
-            e.Handled = !(e.Key >= Key.D0 && e.Key <= Key.D9) && !(e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9);
+            if ((e.Key >= Key.D0 && e.Key <= Key.D9) ||
+                (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) ||
+                e.Key == Key.Tab ||
+                e.Key == Key.Back)
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
-
-        private void Button_GuiArchive(object sender, RoutedEventArgs e)
-        {
-            GuiArchive guiArchive = new GuiArchive();
-            guiArchive.Show();
-        }
-
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {

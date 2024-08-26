@@ -16,10 +16,19 @@
             <Button
                 Name="insertButton"
                 Content="Insert"
-                Width="85" Height="25"
+                Width="85" Height="24"
                 Margin="0,12,10,0"
-                FontWeight="ExtraBold"
-                Click="InsertButton_Click"/>
+                FontWeight="ExtraBold"   
+                Click="InsertButton_Click" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform X="0" Y="2"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
             <StackPanel 
                 Orientation="Vertical" 
                 Margin="0,0,10,0">
@@ -30,10 +39,22 @@
                     Margin="0,0,0,5"/>
                 <TextBox 
                     Name="forceTextBox" 
-                    Width="120" 
+                    Width="120" Height="18"
+                    TextAlignment="Center"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
                     BorderThickness="2" 
                     BorderBrush="#FF1D716B" 
-                    MaxLength="25"/>
+                    MaxLength="25" RenderTransformOrigin="0.5,0.5">
+                    <TextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBox.RenderTransform>
+                </TextBox>
             </StackPanel>
             <StackPanel 
                 Orientation="Vertical" 
@@ -45,10 +66,13 @@
                     Margin="0,0,0,5"/>
                 <TextBox 
                     Name="repeate_1stTextBox"
-                    Width="120" 
+                    Width="120" Height="18"
+                    TextAlignment="Center"
+                    VerticalAlignment="Center"
                     BorderThickness="2" 
                     BorderBrush="#FF1D716B" 
-                    PreviewKeyDown="NumbersOnlyTextboxes"/>
+                    PreviewKeyDown="NumbersOnlyTextboxes"
+                    MaxLength="4"/>
             </StackPanel>
             <StackPanel 
                 Orientation="Vertical"
@@ -60,7 +84,9 @@
                     Margin="0,0,0,5"/>
                 <TextBox
                     Name="weightTextBox"
-                    Width="120"
+                    Width="120" Height="18"
+                    TextAlignment="Center"
+                    VerticalAlignment="Center"
                     BorderThickness="2"
                     BorderBrush="#FF1D716B"
                     MaxLength="50"/>
@@ -75,10 +101,13 @@
                     Margin="0,0,0,5"/>
                 <TextBox 
                     Name="repeate_2ndTextBox"
-                    Width="120" 
+                    Width="120" Height="18"
+                    TextAlignment="Center"
+                    VerticalAlignment="Center"
                     BorderThickness="2" 
                     BorderBrush="#FF1D716B"
-                    PreviewKeyDown="NumbersOnlyTextboxes"/>
+                    PreviewKeyDown="NumbersOnlyTextboxes"
+                    MaxLength="4"/>
             </StackPanel>
             <StackPanel 
                 Orientation="Vertical" 
@@ -90,7 +119,9 @@
                     Margin="0,0,0,5"/>
                 <TextBox 
                     Name="goalTextBox" 
-                    Width="120" 
+                    Width="120" Height="18"
+                    TextAlignment="Center"
+                    VerticalAlignment="Center"
                     BorderThickness="2"
                     BorderBrush="#FF1D716B" 
                     MaxLength="75"/>
@@ -105,10 +136,13 @@
                     Margin="0,0,0,5"/>
                 <TextBox 
                     Name="repeate_3rdTextBox"
-                    Width="120"
+                    Width="120" Height="18"
+                    TextAlignment="Center"
+                    VerticalAlignment="Center"
                     BorderThickness="2" 
                     BorderBrush="#FF1D716B" 
-                    PreviewKeyDown="NumbersOnlyTextboxes"/>
+                    PreviewKeyDown="NumbersOnlyTextboxes"
+                    MaxLength="4"/>
             </StackPanel>
         </StackPanel>
         <Button
@@ -117,7 +151,7 @@
             FontFamily="Cascadia Code"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="Button_GuiArchive" Margin="890,14,0,0">
+            Click="ButtonGuiArchive_Click" Margin="890,14,0,0">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border 
@@ -146,11 +180,11 @@
                                 <TextBlock 
                                     x:Name="ArchiveIconTxt"
                                     VerticalAlignment="Center" 
-                                    HorizontalAlignment="Center" 
+                                    HorizontalAlignment="Left" 
                                     FontFamily="Arial" 
                                     FontSize="18" 
                                     Foreground="White"
-                                    Text="📥"/>
+                                    Text="📥" Margin="3,0,0,0"/>
                             </Border>
                         </StackPanel>
                     </Border>

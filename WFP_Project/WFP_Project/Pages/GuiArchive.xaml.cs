@@ -11,6 +11,11 @@ namespace WFP_Project.Pages
             InitializeComponent();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            SettingsManager.ApplySelectedTheme();
+        }
+
         private void ArchiveButton_Click(object sender, RoutedEventArgs e)
         {
             string tableName = archiveTableNameTextBox.Text.Trim();
@@ -31,6 +36,7 @@ namespace WFP_Project.Pages
             {
                 MessageBox.Show("Please enter a table name.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-        }
+            this.Close();
+        }      
     }
 }
