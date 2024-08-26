@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\wfp_project\\pages\\editor.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\wfp_project\\pages\\editor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|solutionrelative:wfp_project\\pages\\editor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\wfp_project\\classes\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|solutionrelative:wfp_project\\classes\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|c:\\reposotory\\wfp\\wfp_summer.project\\wfp_project\\wfp_project\\pages\\editor.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|solutionrelative:wfp_project\\pages\\editor.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\wfp_project\\pages\\editor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|solutionrelative:wfp_project\\pages\\editor.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\wfp_project\\classes\\applythemes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|solutionrelative:wfp_project\\classes\\applythemes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\wfp_project\\pages\\controls.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,7 +47,7 @@
       "RelativeMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|solutionrelative:wfp_project\\windows\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|c:\\reposotory\\wfp\\wfp_summer.project\\wfp_project\\wfp_project\\windows\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\wfp_project\\windows\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|solutionrelative:wfp_project\\windows\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -63,16 +71,8 @@
       "RelativeMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|solutionrelative:wfp_project\\pages\\settings.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\wfp_project\\classes\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|solutionrelative:wfp_project\\classes\\database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\wfp_project\\enums\\themes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|solutionrelative:wfp_project\\enums\\themes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\wfp_project\\classes\\applythemes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|solutionrelative:wfp_project\\classes\\applythemes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{29F981A5-3C4D-49C6-9FD1-F854EDDC9EE6}|WFP_Project\\WFP_Project.csproj|C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\wfp_project\\themes\\lighttheme.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -161,19 +161,82 @@
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GuiArchive.xaml.cs",
+              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\GuiArchive.xaml.cs",
+              "RelativeDocumentMoniker": "WFP_Project\\Pages\\GuiArchive.xaml.cs",
+              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\GuiArchive.xaml.cs",
+              "RelativeToolTip": "WFP_Project\\Pages\\GuiArchive.xaml.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwCoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T10:47:16.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Controls.xaml.cs",
+              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Controls.xaml.cs",
+              "RelativeDocumentMoniker": "WFP_Project\\Pages\\Controls.xaml.cs",
+              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Controls.xaml.cs",
+              "RelativeToolTip": "WFP_Project\\Pages\\Controls.xaml.cs",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAcwFsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-10T12:26:40.259Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Editor.xaml.cs",
+              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Editor.xaml.cs",
+              "RelativeDocumentMoniker": "WFP_Project\\Pages\\Editor.xaml.cs",
+              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Editor.xaml.cs",
+              "RelativeToolTip": "WFP_Project\\Pages\\Editor.xaml.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAiwFQAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T23:07:09.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "GuiArchive.xaml",
-              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\GuiArchive.xaml",
-              "RelativeDocumentMoniker": "WFP_Project\\Pages\\GuiArchive.xaml",
-              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\GuiArchive.xaml",
-              "RelativeToolTip": "WFP_Project\\Pages\\GuiArchive.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-26T10:47:10.694Z",
+              "Title": "Archive.xaml.cs",
+              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Archive.xaml.cs",
+              "RelativeDocumentMoniker": "WFP_Project\\Pages\\Archive.xaml.cs",
+              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Archive.xaml.cs",
+              "RelativeToolTip": "WFP_Project\\Pages\\Archive.xaml.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAowB4AAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-09T21:58:34.038Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApplyThemes.cs",
+              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Classes\\ApplyThemes.cs",
+              "RelativeDocumentMoniker": "WFP_Project\\Classes\\ApplyThemes.cs",
+              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Classes\\ApplyThemes.cs",
+              "RelativeToolTip": "WFP_Project\\Classes\\ApplyThemes.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAABjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-10T13:39:00.317Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "DataBase.cs",
+              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Classes\\DataBase.cs",
+              "RelativeDocumentMoniker": "WFP_Project\\Classes\\DataBase.cs",
+              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Classes\\DataBase.cs",
+              "RelativeToolTip": "WFP_Project\\Classes\\DataBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-20T14:22:17.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Editor.xaml",
               "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Editor.xaml",
               "RelativeDocumentMoniker": "WFP_Project\\Pages\\Editor.xaml",
@@ -185,19 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Controls.xaml",
-              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Controls.xaml",
-              "RelativeDocumentMoniker": "WFP_Project\\Pages\\Controls.xaml",
-              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Controls.xaml",
-              "RelativeToolTip": "WFP_Project\\Pages\\Controls.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-26T14:23:37.27Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Windows\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "WFP_Project\\Windows\\MainWindow.xaml.cs",
@@ -205,64 +256,33 @@
               "RelativeToolTip": "WFP_Project\\Windows\\MainWindow.xaml.cs",
               "ViewState": "AQIAAAkAAAAAAAAAAAArwCgAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T13:40:29.747Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-13T13:40:29.747Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "GuiArchive.xaml.cs",
-              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\GuiArchive.xaml.cs",
-              "RelativeDocumentMoniker": "WFP_Project\\Pages\\GuiArchive.xaml.cs",
-              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\GuiArchive.xaml.cs",
-              "RelativeToolTip": "WFP_Project\\Pages\\GuiArchive.xaml.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAQwCoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T10:47:16.576Z",
-              "EditorCaption": ""
+              "Title": "Controls.xaml",
+              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Controls.xaml",
+              "RelativeDocumentMoniker": "WFP_Project\\Pages\\Controls.xaml",
+              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Controls.xaml",
+              "RelativeToolTip": "WFP_Project\\Pages\\Controls.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-08-26T14:23:37.27Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Controls.xaml.cs",
-              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Controls.xaml.cs",
-              "RelativeDocumentMoniker": "WFP_Project\\Pages\\Controls.xaml.cs",
-              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Controls.xaml.cs",
-              "RelativeToolTip": "WFP_Project\\Pages\\Controls.xaml.cs",
-              "ViewState": "AQIAAEwAAAAAAAAAAAAcwFsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-10T12:26:40.259Z",
-              "EditorCaption": ""
+              "DocumentIndex": 8,
+              "Title": "GuiArchive.xaml",
+              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\GuiArchive.xaml",
+              "RelativeDocumentMoniker": "WFP_Project\\Pages\\GuiArchive.xaml",
+              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\GuiArchive.xaml",
+              "RelativeToolTip": "WFP_Project\\Pages\\GuiArchive.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-08-26T10:47:10.694Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Editor.xaml.cs",
-              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Editor.xaml.cs",
-              "RelativeDocumentMoniker": "WFP_Project\\Pages\\Editor.xaml.cs",
-              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Editor.xaml.cs",
-              "RelativeToolTip": "WFP_Project\\Pages\\Editor.xaml.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAcwFQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T23:07:09.229Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Archive.xaml.cs",
-              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Archive.xaml.cs",
-              "RelativeDocumentMoniker": "WFP_Project\\Pages\\Archive.xaml.cs",
-              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Archive.xaml.cs",
-              "RelativeToolTip": "WFP_Project\\Pages\\Archive.xaml.cs",
-              "ViewState": "AQIAABIAAAAAAAAAAAAowB4AAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T21:58:34.038Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Home.xaml.cs",
               "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Home.xaml.cs",
               "RelativeDocumentMoniker": "WFP_Project\\Pages\\Home.xaml.cs",
@@ -274,19 +294,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Windows\\MainWindow.xaml",
               "RelativeDocumentMoniker": "WFP_Project\\Windows\\MainWindow.xaml",
               "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Windows\\MainWindow.xaml",
               "RelativeToolTip": "WFP_Project\\Windows\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-14T15:06:54.938Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-14T15:06:54.938Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "App.xaml.cs",
               "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Windows\\App.xaml.cs",
               "RelativeDocumentMoniker": "WFP_Project\\Windows\\App.xaml.cs",
@@ -294,12 +313,11 @@
               "RelativeToolTip": "WFP_Project\\Windows\\App.xaml.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-09T21:54:54.858Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-09T21:54:54.858Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "AssemblyInfo.cs",
               "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Windows\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "WFP_Project\\Windows\\AssemblyInfo.cs",
@@ -311,7 +329,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "MainWindow.g.cs",
               "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\obj\\Debug\\net8.0-windows\\Windows\\MainWindow.g.cs",
               "RelativeDocumentMoniker": "WFP_Project\\obj\\Debug\\net8.0-windows\\Windows\\MainWindow.g.cs",
@@ -323,19 +341,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "Archive.xaml",
               "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Archive.xaml",
               "RelativeDocumentMoniker": "WFP_Project\\Pages\\Archive.xaml",
               "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Archive.xaml",
               "RelativeToolTip": "WFP_Project\\Pages\\Archive.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-10T12:40:07.96Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-10T12:40:07.96Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "Settings.xaml.cs",
               "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Pages\\Settings.xaml.cs",
               "RelativeDocumentMoniker": "WFP_Project\\Pages\\Settings.xaml.cs",
@@ -347,7 +364,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "Themes.cs",
               "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Enums\\Themes.cs",
               "RelativeDocumentMoniker": "WFP_Project\\Enums\\Themes.cs",
@@ -356,18 +373,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAA+AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-14T18:04:45.313Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ApplyThemes.cs",
-              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Classes\\ApplyThemes.cs",
-              "RelativeDocumentMoniker": "WFP_Project\\Classes\\ApplyThemes.cs",
-              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Classes\\ApplyThemes.cs",
-              "RelativeToolTip": "WFP_Project\\Classes\\ApplyThemes.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAABjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-10T13:39:00.317Z"
             },
             {
               "$type": "Document",
@@ -400,20 +405,7 @@
               "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Themes\\DarkTheme.xaml",
               "RelativeToolTip": "WFP_Project\\Themes\\DarkTheme.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-14T18:24:27.806Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "DataBase.cs",
-              "DocumentMoniker": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Classes\\DataBase.cs",
-              "RelativeDocumentMoniker": "WFP_Project\\Classes\\DataBase.cs",
-              "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Classes\\DataBase.cs",
-              "RelativeToolTip": "WFP_Project\\Classes\\DataBase.cs",
-              "ViewState": "AQIAAJMAAAAAAAAAAAAowLcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-20T14:22:17.257Z"
+              "WhenOpened": "2024-08-14T18:24:27.806Z"
             },
             {
               "$type": "Document",
@@ -424,8 +416,7 @@
               "ToolTip": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\Windows\\App.xaml",
               "RelativeToolTip": "WFP_Project\\Windows\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-08-13T17:30:12.472Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-13T17:30:12.472Z"
             },
             {
               "$type": "Document",

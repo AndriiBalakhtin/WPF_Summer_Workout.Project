@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
 
@@ -90,6 +88,29 @@ namespace WFP_Project.Classes
                     catch (Exception ex)
                     {
                         MessageBox.Show($"An error occurred while updating data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+        }
+
+        public static void DeleteUserData(string id)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "DELETE FROM [UserS] WHERE Id = @Id";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Id", id);
+
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred while deleting data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }

@@ -131,9 +131,17 @@
                 Grid.Row="6" 
                 Grid.Column="1"
                 HorizontalAlignment="Left" 
-                Width="100" 
+                Width="90" 
                 Click="UpdateButton_Click" 
-                Margin="70,5,0,-12"/>
+                Margin="20,5,0,-12"/>
+            <Button 
+                Content="Delete" 
+                Grid.Row="6" 
+                Grid.Column="1"
+                HorizontalAlignment="Left" 
+                Width="90" 
+                Click="DeleteButton_Click"
+                Margin="115,5,0,-12"/>
         </Grid>
     </Grid>
 </Window>

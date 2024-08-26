@@ -69,6 +69,32 @@ namespace WFP_Project.Pages
             }
         }
 
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show(
+                "Are you sure you want to delete this record?",
+                "Confirm Delete",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning
+            );
+
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    DataBase.DeleteUserData(_rowId);
+                    MessageBox.Show("Record deleted successfully.", "Delete", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    this.DialogResult = true;
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while deleting data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
         private void NumbersOnlyTextboxes(object sender, KeyEventArgs e)
         {
             if ((e.Key >= Key.D0 && e.Key <= Key.D9) ||
