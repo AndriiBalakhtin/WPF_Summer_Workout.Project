@@ -3,6 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Archive Window" Height="600" Width="800"
         Loaded="Window_Loaded">
+    <Window.Background>
+        <SolidColorBrush Color="Transparent"/>
+    </Window.Background>
     <Grid Margin="10">
         <StackPanel>
             <TextBox x:Name="archiveTableNameTextBox" Width="200" Height="25" Margin="10"/>

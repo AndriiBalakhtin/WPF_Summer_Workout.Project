@@ -16,7 +16,7 @@ namespace WFP_Project.Pages
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SettingsManager.ApplySelectedTheme();
-            LoadArchivedTables(); // Load table names on window load
+            LoadArchivedTables(); 
         }
 
         private void ArchiveButton_Click(object sender, RoutedEventArgs e)
@@ -27,8 +27,8 @@ namespace WFP_Project.Pages
             {
                 try
                 {
-                    DataBase.ArchiveUserData(tableName); // Archive data into a new table
-                    LoadArchivedTables(); // Refresh ComboBox to show new table
+                    DataBase.ArchiveUserData(tableName);
+                    LoadArchivedTables();
                     MessageBox.Show("Data archived successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)

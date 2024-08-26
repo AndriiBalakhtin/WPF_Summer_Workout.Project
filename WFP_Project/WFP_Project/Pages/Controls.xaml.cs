@@ -42,51 +42,6 @@ namespace WFP_Project.Pages
             }
         }
 
-        private void ArchiveButton_Click(object sender, RoutedEventArgs e)
-        {
-            string tableName = archiveTableNameTextBox.Text.Trim();
-
-            if (!string.IsNullOrEmpty(tableName))
-            {
-                try
-                {
-                    DataBase.ArchiveUserData(tableName);
-                    MessageBox.Show("Table archived successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                    LoadArchivedTables();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred while archiving data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please enter a table name.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-        }
-
-        private void LoadTableButton_Click(object sender, RoutedEventArgs e)
-        {
-            string selectedTable = archivedTablesComboBox.SelectedItem as string;
-
-            if (!string.IsNullOrEmpty(selectedTable))
-            {
-                try
-                {
-                    DataTable dataTable = DataBase.GetTableData(selectedTable);
-                    databaseDataGrid.ItemsSource = dataTable.DefaultView;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred while loading data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select a table from the list.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-        }
-
         private void LoadOverlay()
         {
             try
@@ -97,19 +52,6 @@ namespace WFP_Project.Pages
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred while loading data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-        private void LoadArchivedTables()
-        {
-            try
-            {
-                var tableNames = DataBase.GetArchivedTableNames();
-                archivedTablesComboBox.ItemsSource = tableNames;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while loading tables: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -144,6 +86,12 @@ namespace WFP_Project.Pages
         private void NumbersOnlyTextboxes(object sender, KeyEventArgs e)
         {
             e.Handled = !(e.Key >= Key.D0 && e.Key <= Key.D9) && !(e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9);
+        }
+
+        private void Button_GuiArchive(object sender, RoutedEventArgs e)
+        {
+            GuiArchive guiArchive = new GuiArchive();
+            guiArchive.Show();
         }
     }
 }

@@ -6,14 +6,13 @@
     <Window.Background>
         <SolidColorBrush Color="Transparent"/>
     </Window.Background>
-    <Grid 
-        Margin="10">
+    <Grid Margin="10">
         <StackPanel
-                Orientation="Horizontal"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Top"
-                Margin="10,0,0,0" 
-                Height="50">
+            Orientation="Horizontal"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Margin="10,0,0,0" 
+            Height="50" Width="942">
             <Button
                 Name="insertButton"
                 Content="Insert"
@@ -37,8 +36,8 @@
                     MaxLength="25"/>
             </StackPanel>
             <StackPanel 
-                    Orientation="Vertical" 
-                    Margin="0,0,10,0">
+                Orientation="Vertical" 
+                Margin="0,0,10,0">
                 <TextBlock
                     Text="Repeat 1st"
                     HorizontalAlignment="Center"
@@ -112,6 +111,104 @@
                     PreviewKeyDown="NumbersOnlyTextboxes"/>
             </StackPanel>
         </StackPanel>
+        <Button
+            Background="Transparent"
+            BorderThickness="1"
+            FontFamily="Cascadia Code"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="Button_GuiArchive" Margin="880,14,0,0">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border 
+                        x:Name="Border"
+                        Background="Transparent"
+                        BorderThickness="1">
+                        <StackPanel 
+                            Orientation="Horizontal"
+                            Height="32"
+                            Width="32"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            <Border 
+                                x:Name="BorderGuiArchiveIconTxt"
+                                Width="32"
+                                Height="32"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                CornerRadius="5">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Offset="0" Color="#59ADFF" />
+                                        <GradientStop Offset="1" Color="#5161FF" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <TextBlock 
+                                    x:Name="ArchiveIconTxt"
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center" 
+                                    FontFamily="Arial" 
+                                    FontSize="18" 
+                                    Foreground="White"
+                                    Text="📥"/>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="ArchiveIconTxt"
+                                            Storyboard.TargetProperty="FontSize"
+                                            From="5"
+                                            To="18"
+                                            Duration="0:0:0.2" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="BorderGuiArchiveIconTxt"
+                                            Storyboard.TargetProperty="Width"
+                                            From="28"
+                                            To="32"
+                                            Duration="0:0:0.2" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="BorderGuiArchiveIconTxt"
+                                            Storyboard.TargetProperty="Height"
+                                            From="28"
+                                            To="32"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="ArchiveIconTxt"
+                                            Storyboard.TargetProperty="FontSize"
+                                            From="5"
+                                            To="18"
+                                            Duration="0:0:0.2" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="BorderGuiArchiveIconTxt"
+                                            Storyboard.TargetProperty="Width"
+                                            From="28"
+                                            To="32"
+                                            Duration="0:0:0.2" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="BorderGuiArchiveIconTxt"
+                                            Storyboard.TargetProperty="Height"
+                                            From="28"
+                                            To="32"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
         <DataGrid 
             Name="databaseDataGrid"
             HorizontalAlignment="Stretch"
@@ -119,14 +216,5 @@
             Margin="10,50,10,10" 
             BeginningEdit="databaseDataGrid_BeginningEdit" 
             AutoGenerateColumns="True"/>
-
-
-        <TextBox x:Name="archiveTableNameTextBox" Width="200" Height="25" Margin="120,240,0,0"/>
-        <Button Content="Archive" Click="ArchiveButton_Click" Width="100" Height="30" Margin="330,240,0,0"/>
-
-        <ComboBox x:Name="archivedTablesComboBox" Width="200" Height="25" Margin="10,280,0,0"/>
-        <Button Content="Load Table" Click="LoadTableButton_Click" Width="100" Height="30" Margin="220,280,0,0"/>
-
-
     </Grid>
 </Window>

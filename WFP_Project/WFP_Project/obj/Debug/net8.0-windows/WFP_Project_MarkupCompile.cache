@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 
-9710140989
+10-1030524216
 
-13-37649055
+14701351993
 199-2056520642
-Pages\Archive.xaml;Pages\Controls.xaml;Pages\Editor.xaml;Pages\Home.xaml;Pages\Settings.xaml;Themes\DarkTheme.xaml;Themes\LightTheme.xaml;Windows\App.xaml;Windows\MainWindow.xaml;
+Pages\Archive.xaml;Pages\Controls.xaml;Pages\Editor.xaml;Pages\GuiArchive.xaml;Pages\Home.xaml;Pages\Settings.xaml;Themes\DarkTheme.xaml;Themes\LightTheme.xaml;Windows\App.xaml;Windows\MainWindow.xaml;
 
 False
 
