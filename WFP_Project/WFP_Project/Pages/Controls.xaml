@@ -117,7 +117,7 @@
             FontFamily="Cascadia Code"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="Button_GuiArchive" Margin="880,14,0,0">
+            Click="Button_GuiArchive" Margin="890,14,0,0">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border 
@@ -139,8 +139,8 @@
                                 CornerRadius="5">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Offset="0" Color="#59ADFF" />
-                                        <GradientStop Offset="1" Color="#5161FF" />
+                                        <GradientStop Color="#FFCA1D08"/>
+                                        <GradientStop Color="#FC6C1F00" Offset="1"/>
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <TextBlock 
@@ -162,7 +162,7 @@
                                         <DoubleAnimation
                                             Storyboard.TargetName="ArchiveIconTxt"
                                             Storyboard.TargetProperty="FontSize"
-                                            From="5"
+                                            From="1"
                                             To="18"
                                             Duration="0:0:0.2" />
                                         <DoubleAnimation
@@ -186,7 +186,7 @@
                                         <DoubleAnimation
                                             Storyboard.TargetName="ArchiveIconTxt"
                                             Storyboard.TargetProperty="FontSize"
-                                            From="5"
+                                            From="1"
                                             To="18"
                                             Duration="0:0:0.2" />
                                         <DoubleAnimation
@@ -209,12 +209,13 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+
         <DataGrid 
-            Name="databaseDataGrid"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Top" 
-            Margin="10,50,10,10" 
-            BeginningEdit="databaseDataGrid_BeginningEdit" 
-            AutoGenerateColumns="True"/>
+            x:Name="databaseDataGrid"
+            Grid.Row="0"
+            Margin="10,55,10,10" 
+            Background="LightGray"
+            BeginningEdit="databaseDataGrid_BeginningEdit"
+            AutoGenerateColumns="True" />
     </Grid>
 </Window>

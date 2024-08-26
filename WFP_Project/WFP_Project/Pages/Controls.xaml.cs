@@ -93,5 +93,24 @@ namespace WFP_Project.Pages
             GuiArchive guiArchive = new GuiArchive();
             guiArchive.Show();
         }
+
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            AdjustDataGridSize();
+        }
+
+        private void AdjustDataGridSize()
+        {
+            double windowHeight = this.ActualHeight;
+
+            double availableHeight = windowHeight - 10;
+
+            databaseDataGrid.Height = availableHeight;
+
+            double windowWidth = this.ActualWidth;
+
+            databaseDataGrid.Width = windowWidth - 20;
+        }
     }
 }
