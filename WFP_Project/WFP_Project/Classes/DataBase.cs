@@ -32,7 +32,6 @@ namespace WFP_Project.Classes
                 return dataTable;
             }
         }
-
         public static void InsertUserData(string force, string repeate1st, string weight, string repeate2nd, string goal, string repeate3rd)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -131,11 +130,9 @@ namespace WFP_Project.Classes
                     {
                         conn.Open();
 
-                        // Drop the old table if it exists
                         cmd.CommandText = dropOldTableQuery;
                         cmd.ExecuteNonQuery();
 
-                        // Create the new table
                         cmd.CommandText = createTableQuery;
                         cmd.ExecuteNonQuery();
                     }

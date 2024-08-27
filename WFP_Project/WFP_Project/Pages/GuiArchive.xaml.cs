@@ -36,6 +36,7 @@ namespace WFP_Project.Pages
             {
                 MessageBox.Show("Please enter a table name.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+
             this.Close();
         }      
     }

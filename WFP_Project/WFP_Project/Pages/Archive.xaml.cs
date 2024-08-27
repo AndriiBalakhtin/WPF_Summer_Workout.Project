@@ -1,6 +1,7 @@
-﻿
-using System.Data;
+﻿using System.Data;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using WFP_Project.Classes;
 
 namespace WFP_Project.Pages
@@ -16,7 +17,6 @@ namespace WFP_Project.Pages
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SettingsManager.ApplySelectedTheme();
-            LoadArchivedTables(); 
         }
 
         private void ArchiveButton_Click(object sender, RoutedEventArgs e)
@@ -42,25 +42,44 @@ namespace WFP_Project.Pages
             }
         }
 
-        private void LoadTableButton_Click(object sender, RoutedEventArgs e)
+        private void archivedDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
-            string tableName = archivedTablesComboBox.Text.Trim();
+            if (e.Row.Item is DataRowView rowView)
+            {
+                DataRow selectedRow = rowView.Row;
+                string rowId = selectedRow["Id"].ToString();
 
-            if (!string.IsNullOrEmpty(tableName))
-            {
-                try
+                var editorWindow = new Editor(
+                    selectedRow["Force"].ToString(),
+                    selectedRow["1st"].ToString(),
+                    selectedRow["Weight"].ToString(),
+                    selectedRow["2nd"].ToString(),
+                    selectedRow["Goal"].ToString(),
+                    selectedRow["3rd"].ToString(),
+                    rowId
+                );
+
+                bool? result = editorWindow.ShowDialog();
+
+                if (result == true)
                 {
-                    DataTable dataTable = DataBase.GetTableData(tableName);
-                    archivedDataGrid.ItemsSource = dataTable.DefaultView;
+                    LoadOverlay();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred while loading table data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+
+                e.Cancel = true;
             }
-            else
+        }
+
+        private void LoadOverlay()
+        {
+            try
             {
-                MessageBox.Show("Please select a table.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                DataTable dataTable = DataBase.GetUserData();
+                archivedDataGrid.ItemsSource = dataTable.DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -68,21 +87,73 @@ namespace WFP_Project.Pages
         {
             try
             {
+                tablesWrapPanel.Children.Clear();
+
                 var tableNames = DataBase.GetArchivedTableNames();
                 if (tableNames.Any())
                 {
-                    archivedTablesComboBox.ItemsSource = tableNames;
-                    archivedTablesComboBox.SelectedIndex = 0; // Optionally select the first item if available
+                    foreach (var tableName in tableNames)
+                    {
+                        Button folderButton = new Button
+                        {
+                            Content = tableName,
+                            Width = 200,
+                            Height = 100,
+                            Margin = new Thickness(10),
+                            Background = new SolidColorBrush(Color.FromRgb(74, 144, 226)),
+                            Foreground = Brushes.White,
+                            FontSize = 16,
+                            FontWeight = FontWeights.Bold,
+                            HorizontalContentAlignment = HorizontalAlignment.Center,
+                            VerticalContentAlignment = VerticalAlignment.Center,
+                        };
+                        folderButton.Click += (s, e) => LoadTableData(tableName);
+                        tablesWrapPanel.Children.Add(folderButton);
+                    }
                 }
                 else
                 {
-                    archivedTablesComboBox.ItemsSource = null; // Clear items if none available
+                    MessageBox.Show("No archived tables found.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred while loading table names: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void LoadTableData(string tableName)
+        {
+            try
+            {
+                DataTable dataTable = DataBase.GetTableData(tableName);
+                archivedDataGrid.ItemsSource = dataTable.DefaultView;
+                archivedDataGrid.Visibility = Visibility.Visible;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading table data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            AdjustDataGridSize();
+        }
+
+        private void AdjustDataGridSize()
+        {
+            double windowHeight = this.ActualHeight;
+            double availableHeight = windowHeight - 150;
+            archivedDataGrid.Height = availableHeight;
+
+            double windowWidth = this.ActualWidth;
+            archivedDataGrid.Width = windowWidth - 20;
+        }
+
+        private void archiveTableNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            watermarkTextBlock.Visibility = string.IsNullOrEmpty(archiveTableNameTextBox.Text) ? Visibility.Visible : Visibility.Collapsed;
         }
     }
 }
