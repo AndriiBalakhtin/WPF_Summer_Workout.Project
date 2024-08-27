@@ -33,34 +33,6 @@ namespace WFP_Project.Pages
             double windowWidth = this.ActualWidth;
             archivedDataGrid.Width = windowWidth - 20;
         }
-      
-        private void archivedDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
-        {
-            if (e.Row.Item is DataRowView rowView)
-            {
-                DataRow selectedRow = rowView.Row;
-                string rowId = selectedRow["Id"].ToString();
-
-                var editorWindow = new Editor(
-                    selectedRow["Force"].ToString(),
-                    selectedRow["1st"].ToString(),
-                    selectedRow["Weight"].ToString(),
-                    selectedRow["2nd"].ToString(),
-                    selectedRow["Goal"].ToString(),
-                    selectedRow["3rd"].ToString(),
-                    rowId
-                );
-
-                bool? result = editorWindow.ShowDialog();
-
-                if (result == true)
-                {
-                    LoadOverlay();
-                }
-
-                e.Cancel = true;
-            }
-        }
 
         private void LoadOverlay()
         {
@@ -230,6 +202,11 @@ namespace WFP_Project.Pages
                     MessageBox.Show($"An error occurred while deleting the table: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+
+        private void archivedDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+            e.Cancel = true;
         }
     }
 }

@@ -42,7 +42,8 @@
             x:Name="archivedDataGrid" 
             Grid.Row="1" 
             Margin="10" 
-            AutoGenerateColumns="True"
- Visibility="Collapsed"/>
+            AutoGenerateColumns="True"          
+            Visibility="Collapsed"
+            BeginningEdit="archivedDataGrid_BeginningEdit"/>
     </Grid>
 </Window>
