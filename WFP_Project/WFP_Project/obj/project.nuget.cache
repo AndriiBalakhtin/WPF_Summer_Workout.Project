@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "Bg+3nd92HEQuniXRXqKF8zQghZxqZ0lHP8dwsoXI08sav3bGzYJ39D0kJR8IctVeIhl+QwSP+gFd5nE9pGpqxw==",
+  "dgSpecHash": "9WmvUAFe0cTEVHvrzxEQYCWQSFF51HZf9YamtM4R6TuU1D2J+e+eBjapJL4rDxM+d65CzhpnH7GF0GYyFmkr7w==",
   "success": true,
   "projectFilePath": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\WFP_Project.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\sndre\\.nuget\\packages\\materialdesigncolors\\3.1.0\\materialdesigncolors.3.1.0.nupkg.sha512",
+    "C:\\Users\\sndre\\.nuget\\packages\\materialdesignthemes\\5.1.0\\materialdesignthemes.5.1.0.nupkg.sha512",
     "C:\\Users\\sndre\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\sndre\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\sndre\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
     "C:\\Users\\sndre\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\sndre\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\sndre\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

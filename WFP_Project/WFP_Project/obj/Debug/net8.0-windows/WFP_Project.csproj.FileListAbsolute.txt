@@ -79,3 +79,6 @@ C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-wi
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Editor.baml
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\GuiArchive.g.cs
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\GuiArchive.baml
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\MaterialDesignColors.dll
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll

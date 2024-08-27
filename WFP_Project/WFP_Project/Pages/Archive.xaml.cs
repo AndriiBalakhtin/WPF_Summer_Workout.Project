@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using MaterialDesignThemes.Wpf;
+using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -97,6 +98,19 @@ namespace WFP_Project.Pages
             }
         }
 
+        private void LoadTableData(string tableName)
+        {
+            try
+            {
+                DataTable dataTable = DataBase.GetTableData(tableName);
+                archivedDataGrid.ItemsSource = dataTable.DefaultView;
+                archivedDataGrid.Visibility = Visibility.Visible;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading table data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         private void LoadArchivedTables()
         {
             try
@@ -104,7 +118,7 @@ namespace WFP_Project.Pages
                 tablesWrapPanel.Children.Clear();
 
                 var tableNames = DataBase.GetArchivedTableNames();
-                if (tableNames.Any())
+                if (tableNames.Count > 0)
                 {
                     foreach (var tableName in tableNames)
                     {
@@ -116,32 +130,72 @@ namespace WFP_Project.Pages
 
                         Button folderButton = new Button
                         {
-                            Content = tableName,
-                            Width = 180,
-                            Height = 100,
+                            Width = 120,
+                            Height = 40,
                             Margin = new Thickness(10),
-                            Background = new SolidColorBrush(Color.FromRgb(74, 144, 226)),
-                            Foreground = Brushes.White,
                             FontSize = 16,
-                            FontWeight = FontWeights.Bold,
+                            FontWeight = FontWeights.ExtraBold,
                             HorizontalContentAlignment = HorizontalAlignment.Center,
                             VerticalContentAlignment = VerticalAlignment.Center,
+                            Background = Brushes.White,
+                            Content = new StackPanel
+                            {
+                                Orientation = Orientation.Horizontal,
+                                Children =
+                        {
+                            new PackIcon
+                            {
+                                Kind = PackIconKind.Folder,
+                                Width = 20,
+                                Height = 20,
+                                Margin = new Thickness(0, 0, 5, 0)
+                            },
+                            new TextBlock
+                            {
+                                Text = tableName,
+                                VerticalAlignment = VerticalAlignment.Center
+                            }
+                        }
+                            }
                         };
+
+                        folderButton.Style = (Style)this.FindResource("RoundedButtonStyle");
+
                         folderButton.Click += (s, e) => LoadTableData(tableName);
 
                         Button deleteButton = new Button
                         {
-                            Content = "Delete",
-                            Width = 80,
-                            Height = 100,
+                            Width = 100,
+                            Height = 40,
                             Margin = new Thickness(10),
-                            Background = Brushes.Red,
-                            Foreground = Brushes.White,
                             FontSize = 14,
-                            FontWeight = FontWeights.Bold,
+                            FontWeight = FontWeights.ExtraBold,
                             HorizontalContentAlignment = HorizontalAlignment.Center,
                             VerticalContentAlignment = VerticalAlignment.Center,
+                            Background = Brushes.White,
+                            Content = new StackPanel
+                            {
+                                Orientation = Orientation.Horizontal,
+                                Children =
+                        {
+                            new PackIcon
+                            {
+                                Kind = PackIconKind.Delete,
+                                Width = 20,
+                                Height = 20,
+                                Margin = new Thickness(0, 0, 5, 0)
+                            },
+                            new TextBlock
+                            {
+                                Text = "Delete",
+                                VerticalAlignment = VerticalAlignment.Center
+                            }
+                        }
+                            }
                         };
+
+                        deleteButton.Style = (Style)this.FindResource("RoundedButtonStyle");
+
                         deleteButton.Click += (s, e) => DeleteArchivedTable(tableName);
 
                         stackPanel.Children.Add(folderButton);
@@ -158,21 +212,6 @@ namespace WFP_Project.Pages
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred while loading table names: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
-
-        private void LoadTableData(string tableName)
-        {
-            try
-            {
-                DataTable dataTable = DataBase.GetTableData(tableName);
-                archivedDataGrid.ItemsSource = dataTable.DefaultView;
-                archivedDataGrid.Visibility = Visibility.Visible;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while loading table data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
