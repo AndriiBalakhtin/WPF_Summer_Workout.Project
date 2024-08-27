@@ -2,56 +2,46 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Archive Window" Height="600" Width="800"
-        Loaded="Window_Loaded"
-        SizeChanged="Window_SizeChanged">
-    <Window.Resources>
-        <Style TargetType="TextBox">
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="Padding" Value="4"/>
-            <Setter Property="Margin" Value="4"/>
-        </Style>
-    </Window.Resources>
-    <Window.Background>
-        <SolidColorBrush Color="Transparent"/>
-    </Window.Background>
-    <Grid
-        Margin="10">
+        Loaded="Window_Loaded" SizeChanged="Window_SizeChanged">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
         <StackPanel 
-            Orientation="Vertical">
-            <Grid>
-                <TextBox 
-                    x:Name="archiveTableNameTextBox" 
-                    Width="200" Height="25" Margin="10"
-                    TextChanged="archiveTableNameTextBox_TextChanged"/>
-                <TextBlock 
-                    Text="Enter table name..."                      
-                    Foreground="Gray" 
-                    Margin="10,0,0,0" 
-                    VerticalAlignment="Center" 
-                    HorizontalAlignment="Left"
-                    IsHitTestVisible="False"
-                    x:Name="watermarkTextBlock" 
-                    Visibility="Visible"
-                    RenderTransformOrigin="0.5,0.5"/>
-            </Grid>
+            Grid.Row="0"
+            Orientation="Horizontal" 
+            Margin="10">
+            <TextBox 
+                x:Name="archiveTableNameTextBox"
+                Width="200" 
+                TextChanged="archiveTableNameTextBox_TextChanged"/>
+            <TextBlock
+                x:Name="watermarkTextBlock" 
+                Text="Enter table name..." 
+                Foreground="Gray" 
+                IsHitTestVisible="False"
+                VerticalAlignment="Center" 
+                Margin="5,0,0,0"/>
             <Button 
-                Content="Archive"
-                Click="ArchiveButton_Click"
-                Width="100"
-                Height="30" 
-                Margin="10"/>
-            <WrapPanel
-                x:Name="tablesWrapPanel" 
-                Orientation="Horizontal" 
-                Margin="10"/>
-            <DataGrid 
-                x:Name="archivedDataGrid"
-                HorizontalAlignment="Stretch" 
-                VerticalAlignment="Top"
-                Margin="10" 
-                AutoGenerateColumns="True"
-                IsReadOnly="True"/>
+                Content="Archive Data" 
+                Click="ArchiveButton_Click" 
+                Margin="10,0,0,0"/>
         </StackPanel>
+        <WrapPanel 
+            x:Name="tablesWrapPanel"
+            Grid.Row="1"
+            Margin="10" 
+            VerticalAlignment="Top" 
+            HorizontalAlignment="Stretch"/>
+        <DataGrid 
+            x:Name="archivedDataGrid"
+            AutoGenerateColumns="True" 
+            Visibility="Collapsed" 
+            Margin="10"
+            BeginningEdit="archivedDataGrid_BeginningEdit" 
+            VerticalAlignment="Stretch"/>
     </Grid>
 </Window>

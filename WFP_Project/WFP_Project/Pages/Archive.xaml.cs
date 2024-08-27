@@ -19,6 +19,20 @@ namespace WFP_Project.Pages
             SettingsManager.ApplySelectedTheme();
         }
 
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            AdjustDataGridSize();
+        }
+
+        private void AdjustDataGridSize()
+        {
+            double windowHeight = this.ActualHeight;
+            double availableHeight = windowHeight - 10;
+            archivedDataGrid.Height = availableHeight;
+            double windowWidth = this.ActualWidth;
+            archivedDataGrid.Width = windowWidth - 20;
+        }
+
         private void ArchiveButton_Click(object sender, RoutedEventArgs e)
         {
             string tableName = archiveTableNameTextBox.Text.Trim();
@@ -94,10 +108,16 @@ namespace WFP_Project.Pages
                 {
                     foreach (var tableName in tableNames)
                     {
+                        StackPanel stackPanel = new StackPanel
+                        {
+                            Orientation = Orientation.Horizontal,
+                            Margin = new Thickness(5)
+                        };
+
                         Button folderButton = new Button
                         {
                             Content = tableName,
-                            Width = 200,
+                            Width = 180,
                             Height = 100,
                             Margin = new Thickness(10),
                             Background = new SolidColorBrush(Color.FromRgb(74, 144, 226)),
@@ -108,7 +128,26 @@ namespace WFP_Project.Pages
                             VerticalContentAlignment = VerticalAlignment.Center,
                         };
                         folderButton.Click += (s, e) => LoadTableData(tableName);
-                        tablesWrapPanel.Children.Add(folderButton);
+
+                        Button deleteButton = new Button
+                        {
+                            Content = "Delete",
+                            Width = 80,
+                            Height = 100,
+                            Margin = new Thickness(10),
+                            Background = Brushes.Red,
+                            Foreground = Brushes.White,
+                            FontSize = 14,
+                            FontWeight = FontWeights.Bold,
+                            HorizontalContentAlignment = HorizontalAlignment.Center,
+                            VerticalContentAlignment = VerticalAlignment.Center,
+                        };
+                        deleteButton.Click += (s, e) => DeleteArchivedTable(tableName);
+
+                        stackPanel.Children.Add(folderButton);
+                        stackPanel.Children.Add(deleteButton);
+
+                        tablesWrapPanel.Children.Add(stackPanel);
                     }
                 }
                 else
@@ -121,6 +160,7 @@ namespace WFP_Project.Pages
                 MessageBox.Show($"An error occurred while loading table names: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         private void LoadTableData(string tableName)
         {
@@ -136,19 +176,23 @@ namespace WFP_Project.Pages
             }
         }
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void DeleteArchivedTable(string tableName)
         {
-            AdjustDataGridSize();
-        }
+            MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete the table '{tableName}'? This action cannot be undone.", "Delete Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
-        private void AdjustDataGridSize()
-        {
-            double windowHeight = this.ActualHeight;
-            double availableHeight = windowHeight - 150;
-            archivedDataGrid.Height = availableHeight;
-
-            double windowWidth = this.ActualWidth;
-            archivedDataGrid.Width = windowWidth - 20;
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    DataBase.DeleteTable(tableName);
+                    LoadArchivedTables();
+                    MessageBox.Show("Table deleted successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while deleting the table: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void archiveTableNameTextBox_TextChanged(object sender, TextChangedEventArgs e)

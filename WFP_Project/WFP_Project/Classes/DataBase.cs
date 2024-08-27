@@ -115,6 +115,27 @@ namespace WFP_Project.Classes
             }
         }
 
+        public static void DeleteTable(string tableName)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = $"DROP TABLE [{tableName}]";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred while deleting the table '{tableName}': {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+        }
+
         public static void ArchiveUserData(string tableName)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
