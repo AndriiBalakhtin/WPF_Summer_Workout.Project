@@ -40,6 +40,7 @@
         <Setter Property="BorderBrush" Value="White"/>
     </Style>
 
+
     <Style TargetType="Button">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -57,7 +58,7 @@
                     <Border Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="10">
+                            CornerRadius="5">
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           ContentSource="Content"/>
@@ -66,5 +67,4 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
 </ResourceDictionary>

@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Materials\Icons\**" />
+    <EmbeddedResource Remove="Materials\Icons\**" />
+    <None Remove="Materials\Icons\**" />
+    <Page Remove="Materials\Icons\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Pages\Settings.ico" />
     <None Remove="Windows\logo.png" />
   </ItemGroup>
@@ -25,10 +32,6 @@
     </Resource>
     <Resource Include="Images\DarkBackground.png" />
     <Resource Include="Images\LightBackground.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Materials\Icons\" />
   </ItemGroup>
 
 </Project>

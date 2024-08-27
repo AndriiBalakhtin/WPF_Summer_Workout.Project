@@ -33,30 +33,7 @@ namespace WFP_Project.Pages
             double windowWidth = this.ActualWidth;
             archivedDataGrid.Width = windowWidth - 20;
         }
-
-        private void ArchiveButton_Click(object sender, RoutedEventArgs e)
-        {
-            string tableName = archiveTableNameTextBox.Text.Trim();
-
-            if (!string.IsNullOrEmpty(tableName))
-            {
-                try
-                {
-                    DataBase.ArchiveUserData(tableName);
-                    LoadArchivedTables();
-                    MessageBox.Show("Data archived successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred while archiving data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please enter a table name.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-        }
-
+      
         private void archivedDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
             if (e.Row.Item is DataRowView rowView)
@@ -111,6 +88,7 @@ namespace WFP_Project.Pages
                 MessageBox.Show($"An error occurred while loading table data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         private void LoadArchivedTables()
         {
             try
@@ -128,6 +106,17 @@ namespace WFP_Project.Pages
                             Margin = new Thickness(5)
                         };
 
+                        LinearGradientBrush folderButtonBrush = new LinearGradientBrush
+                        {
+                            StartPoint = new Point(0, 0),
+                            EndPoint = new Point(1, 1),
+                            GradientStops = new GradientStopCollection
+                    {
+                        new GradientStop(Colors.Azure, 0),
+                        new GradientStop(Colors.White, 1)
+                    }
+                        };
+
                         Button folderButton = new Button
                         {
                             Width = 120,
@@ -137,7 +126,7 @@ namespace WFP_Project.Pages
                             FontWeight = FontWeights.ExtraBold,
                             HorizontalContentAlignment = HorizontalAlignment.Center,
                             VerticalContentAlignment = VerticalAlignment.Center,
-                            Background = Brushes.White,
+                            Background = folderButtonBrush,
                             Content = new StackPanel
                             {
                                 Orientation = Orientation.Horizontal,
@@ -160,8 +149,18 @@ namespace WFP_Project.Pages
                         };
 
                         folderButton.Style = (Style)this.FindResource("RoundedButtonStyle");
-
                         folderButton.Click += (s, e) => LoadTableData(tableName);
+
+                        LinearGradientBrush deleteButtonBrush = new LinearGradientBrush
+                        {
+                            StartPoint = new Point(0, 0),
+                            EndPoint = new Point(1, 1),
+                            GradientStops = new GradientStopCollection
+                    {
+                        new GradientStop(Colors.Aquamarine, 0),
+                        new GradientStop(Colors.Azure, 1)
+                    }
+                        };
 
                         Button deleteButton = new Button
                         {
@@ -172,7 +171,7 @@ namespace WFP_Project.Pages
                             FontWeight = FontWeights.ExtraBold,
                             HorizontalContentAlignment = HorizontalAlignment.Center,
                             VerticalContentAlignment = VerticalAlignment.Center,
-                            Background = Brushes.White,
+                            Background = deleteButtonBrush,
                             Content = new StackPanel
                             {
                                 Orientation = Orientation.Horizontal,
@@ -195,7 +194,6 @@ namespace WFP_Project.Pages
                         };
 
                         deleteButton.Style = (Style)this.FindResource("RoundedButtonStyle");
-
                         deleteButton.Click += (s, e) => DeleteArchivedTable(tableName);
 
                         stackPanel.Children.Add(folderButton);
@@ -232,11 +230,6 @@ namespace WFP_Project.Pages
                     MessageBox.Show($"An error occurred while deleting the table: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-        }
-
-        private void archiveTableNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            watermarkTextBlock.Visibility = string.IsNullOrEmpty(archiveTableNameTextBox.Text) ? Visibility.Visible : Visibility.Collapsed;
         }
     }
 }

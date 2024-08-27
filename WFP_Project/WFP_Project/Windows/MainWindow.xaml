@@ -90,8 +90,8 @@
                                 <Setter TargetName="Border" Property="Background" Value="#FFD6EAF8"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="White"/>
-                                <Setter TargetName="Border" Property="BorderBrush" Value="Black"/>
+                                <Setter TargetName="Border" Property="Background" Value="#FFB0D1E3"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
                                 <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -204,8 +204,8 @@
                                 <Setter TargetName="Border" Property="Background" Value="#FFD6EAF8"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="White"/>
-                                <Setter TargetName="Border" Property="BorderBrush" Value="Black"/>
+                                <Setter TargetName="Border" Property="Background" Value="#FFB0D1E3"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
                                 <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -313,8 +313,8 @@
                                 <Setter TargetName="Border" Property="Background" Value="#FFD6EAF8"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="White"/>
-                                <Setter TargetName="Border" Property="BorderBrush" Value="Black"/>
+                                <Setter TargetName="Border" Property="Background" Value="#FFB0D1E3"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
                                 <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -429,8 +429,8 @@
                                 <Setter TargetName="Border" Property="Background" Value="#FFD6EAF8"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="Border" Property="Background" Value="White"/>
-                                <Setter TargetName="Border" Property="BorderBrush" Value="Black"/>
+                                <Setter TargetName="Border" Property="Background" Value="#FFB0D1E3"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
                                 <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">

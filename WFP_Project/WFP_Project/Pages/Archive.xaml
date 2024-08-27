@@ -32,37 +32,17 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel 
+        <WrapPanel
+            x:Name="tablesWrapPanel" 
+            Orientation="Horizontal"
             Grid.Row="0"
-            Orientation="Horizontal" 
-            Margin="20,10,10,10">
-            <TextBox 
-                x:Name="archiveTableNameTextBox"
-                Width="100" Height="18"
-                TextChanged="archiveTableNameTextBox_TextChanged"/>
-            <TextBlock
-                x:Name="watermarkTextBlock" 
-                Text="  Enter table name... " 
-                Foreground="Gray" 
-                IsHitTestVisible="False"
-                Margin="5,0,0,0"/>
-            <Button 
-                Content="Archive Data" 
-                Click="ArchiveButton_Click" 
-                Margin="10,0,0,0"/>
-        </StackPanel>
-        <WrapPanel 
-            x:Name="tablesWrapPanel"
-            Grid.Row="1"
-            Margin="10" 
-            VerticalAlignment="Top" 
-            HorizontalAlignment="Stretch"/>
-        <DataGrid 
-            x:Name="archivedDataGrid"
-            AutoGenerateColumns="True" 
-            Visibility="Collapsed" 
             Margin="10"
-            BeginningEdit="archivedDataGrid_BeginningEdit" 
-            VerticalAlignment="Stretch"/>
+            VerticalAlignment="Top"/>
+        <DataGrid
+            x:Name="archivedDataGrid" 
+            Grid.Row="1" 
+            Margin="10" 
+            AutoGenerateColumns="True"
+ Visibility="Collapsed"/>
     </Grid>
 </Window>
