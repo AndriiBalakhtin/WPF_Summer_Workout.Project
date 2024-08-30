@@ -2,13 +2,13 @@
 using WFP_Project.Classes;
 using WFP_Project.Enums;
 using WFP_Project.Pages;
-
 namespace WFP_Project
 {
     public partial class MainWindow : Window
     {
         private AppSettings appSettings;
         private ApplyThemes applyThemes;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -16,15 +16,39 @@ namespace WFP_Project
             appSettings = SettingsManager.LoadSettings();
             applyThemes = new ApplyThemes();
         }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             applyThemes.ApplyTheme(appSettings.SelectedTheme);
         }
+
+        public event EventHandler LoginSuccessful;
+
+        private void Button_Login_Click(object sender, RoutedEventArgs e)
+        {
+            if (ValidateLogin())
+            {
+                LoginSuccessful?.Invoke(this, EventArgs.Empty);
+                BlockUserControl.Visibility = Visibility.Collapsed;
+                ButtonLogin.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                MessageBox.Show("Login failed. Please try again.");
+            }
+        }
+
+        private bool ValidateLogin()
+        {
+            return true;
+        }
+
         private void RadioButton_HomeChecked(object sender, RoutedEventArgs e)
         {
             Home homeWindow = new Home();
             MainContentControl.Content = homeWindow.Content;
         }
+
         private void RadioButton_ControlsChecked(object sender, RoutedEventArgs e)
         {
             ControlWindow controlsWindow = new ControlWindow();
