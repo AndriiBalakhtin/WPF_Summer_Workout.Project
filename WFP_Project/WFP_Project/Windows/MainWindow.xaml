@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Control Panel" Height="600" Width="1140" MinHeight="600" MinWidth="1140"
         Loaded="Window_Loaded" Icon="/Png/logo.png"
@@ -494,19 +495,51 @@
         <Rectangle
             x:Name="BlockUserControl"
             Stroke="Black"
-            Margin="15,5,975,310"
-            Fill="Transparent" 
+            Margin="15,5,975,310" 
             Grid.ColumnSpan="2"
-            Grid.Row="1"/>
-
+            Grid.Row="1">
+            <Rectangle.Fill>
+                <ImageBrush/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <materialDesign:PackIcon 
+            x:Name="LockIcon"
+            Kind="Lock"
+            Width="200"
+            Height="150"
+            Foreground="Black" 
+            Margin="-18,25,0,0" 
+            RenderTransformOrigin="0.5,0.5"
+            Grid.ColumnSpan="2" 
+            Grid.Row="1">
+        </materialDesign:PackIcon>
         <Button
             x:Name="ButtonLogin"
             Content="Login"
             HorizontalAlignment="Left" 
-            Margin="459,175,0,0"
+            Margin="424,275,0,0"
             VerticalAlignment="Top" 
             Grid.Row="1"
             Grid.Column="1"
-            Click="Button_Login_Click" Height="45" Width="107"/>
+            Click="Button_Login_Click" Height="24" Width="106"/>
+        <TextBox 
+            x:Name="TextBoxLogin"
+            Grid.Column="1" 
+            HorizontalAlignment="Left" 
+            Margin="337,238,0,0" 
+            Grid.Row="1"
+            TextWrapping="Wrap" 
+            Text="" 
+            VerticalAlignment="Top" 
+            Width="120"/>
+        <TextBox 
+            x:Name="TextBoxPassword"
+            Grid.Column="1" 
+            HorizontalAlignment="Left" 
+            Margin="477,238,0,0" Grid.Row="1" 
+            TextWrapping="Wrap" 
+            Text="" 
+            VerticalAlignment="Top" 
+            Width="120"/>
     </Grid>
 </Window>

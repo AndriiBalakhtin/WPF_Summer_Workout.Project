@@ -28,9 +28,15 @@ namespace WFP_Project
         {
             if (ValidateLogin())
             {
-                LoginSuccessful?.Invoke(this, EventArgs.Empty);
-                BlockUserControl.Visibility = Visibility.Collapsed;
-                ButtonLogin.Visibility = Visibility.Collapsed;
+                if (TextBoxLogin.Text == "Admin" && TextBoxPassword.Text == "123456")
+                {
+                    LoginSuccessful?.Invoke(this, EventArgs.Empty);
+                    BlockUserControl.Visibility = Visibility.Collapsed;
+                    TextBoxLogin.Visibility = Visibility.Collapsed;
+                    TextBoxPassword.Visibility = Visibility.Collapsed;
+                    ButtonLogin.Visibility = Visibility.Collapsed;
+                    LockIcon.Visibility = Visibility.Collapsed;
+                }
             }
             else
             {
