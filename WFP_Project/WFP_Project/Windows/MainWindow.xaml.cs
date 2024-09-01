@@ -20,6 +20,7 @@ namespace WFP_Project
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             applyThemes.ApplyTheme(appSettings.SelectedTheme);
+            this.ResizeMode = ResizeMode.NoResize;
         }
 
         public event EventHandler LoginSuccessful;
@@ -30,10 +31,12 @@ namespace WFP_Project
             {
                 if (TextBoxLogin.Text == "Admin" && TextBoxPassword.Text == "123456")
                 {
+                    this.Height = 600; this.Width = 1140; this.MinHeight = 600; this.MinWidth = 1140; this.ResizeMode = ResizeMode.CanResize;
                     LoginSuccessful?.Invoke(this, EventArgs.Empty);
                     BlockUserControl.Visibility = Visibility.Collapsed;
                     TextBoxLogin.Visibility = Visibility.Collapsed;
                     TextBoxPassword.Visibility = Visibility.Collapsed;
+                    ComboBoxRoleType.Visibility = Visibility.Collapsed;
                     ButtonLogin.Visibility = Visibility.Collapsed;
                     LockIcon.Visibility = Visibility.Collapsed;
                 }
@@ -47,6 +50,16 @@ namespace WFP_Project
         private bool ValidateLogin()
         {
             return true;
+        }
+
+        private void TextBoxLogin_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBoxLogin.Text = "";
+        }
+
+        private void TextBoxPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBoxPassword.Text = "";
         }
 
         private void RadioButton_HomeChecked(object sender, RoutedEventArgs e)

@@ -607,19 +607,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\glebv\\.nuget\\packages\\": {}
+    "C:\\Users\\sndre\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\GitHub\\C#\\WFP_Project\\WFP_Project\\WFP_Project.csproj",
+      "projectUniqueName": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\WFP_Project.csproj",
       "projectName": "WFP_Project",
-      "projectPath": "C:\\GitHub\\C#\\WFP_Project\\WFP_Project\\WFP_Project.csproj",
-      "packagesPath": "C:\\Users\\glebv\\.nuget\\packages\\",
-      "outputPath": "C:\\GitHub\\C#\\WFP_Project\\WFP_Project\\obj\\",
+      "projectPath": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\WFP_Project.csproj",
+      "packagesPath": "C:\\Users\\sndre\\.nuget\\packages\\",
+      "outputPath": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\glebv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sndre\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -678,7 +678,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
