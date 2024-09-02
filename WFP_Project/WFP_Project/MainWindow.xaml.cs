@@ -2,14 +2,17 @@
 using System.Windows.Media;
 using WFP_Project.Classes;
 using WFP_Project.Pages;
+
 namespace WFP_Project
 {
     public partial class MainWindow : Window
     {
+        private UserManagement _userManagement;
 
         public MainWindow()
         {
             InitializeComponent();
+            _userManagement = new UserManagement();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -20,10 +23,34 @@ namespace WFP_Project
 
         private void Button_Login_Click(object sender, RoutedEventArgs e)
         {
-            if (TextBoxLogin.Text == "Admin" && TextBoxPassword.Text == "123" && ComboBoxRoleType.Text == "Administrator")
+            string login = TextBoxLogin.Text.Trim();
+            string password = TextBoxPassword.Text.Trim();
+            string role = ComboBoxRoleType.Text.Trim();
+
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(role))
+            {
+                MessageBox.Show("Please fill in all fields.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            bool isAuthenticated;
+            try
+            {
+                isAuthenticated = _userManagement.VerifyUser(login, password, role);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred during authentication: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (isAuthenticated)
             {
                 this.ResizeMode = ResizeMode.CanResize;
-                this.Height = 600; this.Width = 1140; this.MinHeight = 600; this.MinWidth = 1140; 
+                this.Height = 600;
+                this.Width = 1140;
+                this.MinHeight = 600;
+                this.MinWidth = 1140;
 
                 BlockUserControl.Visibility = Visibility.Collapsed;
                 LabelLogin.Visibility = Visibility.Collapsed;
@@ -33,7 +60,7 @@ namespace WFP_Project
                 TextBoxPassword.Visibility = Visibility.Collapsed;
                 ComboBoxRoleType.Visibility = Visibility.Collapsed;
                 ButtonLogin.Visibility = Visibility.Collapsed;
-                LockIcon.Visibility = Visibility.Collapsed;              
+                LockIcon.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -44,14 +71,20 @@ namespace WFP_Project
 
         private void TextBoxLogin_GotFocus(object sender, RoutedEventArgs e)
         {
-            TextBoxLogin.Text = "";
-            TextBoxLogin.Foreground = Brushes.Black;
+            if (TextBoxLogin.Text == "Enter login")
+            {
+                TextBoxLogin.Text = "";
+                TextBoxLogin.Foreground = Brushes.Black;
+            }
         }
 
         private void TextBoxPassword_GotFocus(object sender, RoutedEventArgs e)
         {
-            TextBoxPassword.Text = "";
-            TextBoxPassword.Foreground = Brushes.Black;
+            if (TextBoxPassword.Text == "Enter password")
+            {
+                TextBoxPassword.Text = "";
+                TextBoxPassword.Foreground = Brushes.Black;
+            }
         }
 
         private void RadioButton_HomeChecked(object sender, RoutedEventArgs e)

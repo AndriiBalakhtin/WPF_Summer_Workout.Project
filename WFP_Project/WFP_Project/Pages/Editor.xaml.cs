@@ -26,6 +26,7 @@ namespace WFP_Project.Pages
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SettingsManager.ApplySelectedTheme();
+            this.ResizeMode = ResizeMode.NoResize;
         }
 
         private void UpdateButton_Click(object sender, RoutedEventArgs e)

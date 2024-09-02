@@ -7,7 +7,7 @@ namespace WFP_Project.Classes
     public static class DataBase
     {
         private static readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;" +
-            "AttachDbFilename=C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\DataBase.mdf;" +
+            "AttachDbFilename=C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\Databases\\Database\\DataBase.mdf;" +
             "Integrated Security=True;" +
             "Connect Timeout=30";
 

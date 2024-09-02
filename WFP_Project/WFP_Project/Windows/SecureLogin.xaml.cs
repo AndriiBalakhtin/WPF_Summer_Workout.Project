@@ -7,7 +7,7 @@ namespace WFP_Project
     public partial class SecureLogin : Window
     {
         private DispatcherTimer _timer;
-        private int _countdownTime = 30;
+        private int _countdownTime = 2;
 
         public SecureLogin()
         {

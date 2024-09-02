@@ -518,14 +518,14 @@
         <TextBlock
             x:Name="LabelLogin"
             HorizontalAlignment="Left"
-            Margin="25,50,0,0" 
+            Margin="25,68,0,0" 
             TextWrapping="Wrap" 
             Text="LOGIN" 
             VerticalAlignment="Top" 
             Grid.Column="1" Grid.Row="2"/>
         <TextBox 
             x:Name="TextBoxLogin"
-            Margin="25,67,0,0" 
+            Margin="25,85,0,0" 
             TextAlignment="Left"
             VerticalAlignment="Top"
             HorizontalAlignment="Left"            
@@ -533,7 +533,7 @@
             Text="Enter login" 
             Height="33" Width="145"
             GotFocus="TextBoxLogin_GotFocus" 
-            MaxLength="25"
+            MaxLength="50"
             FontSize="14"
             Padding="10,5"
             BorderBrush="#FFCCCCCC"
@@ -580,14 +580,14 @@
         <TextBlock
             x:Name="LabelPassword"
             HorizontalAlignment="Left"
-            Margin="26,104,0,0" 
+            Margin="26,122,0,0" 
             TextWrapping="Wrap" 
             Text="PASSWORD"
             VerticalAlignment="Top" 
             Grid.Column="1" Grid.Row="2"/>
         <TextBox 
             x:Name="TextBoxPassword"
-            Margin="25,122,0,0" 
+            Margin="25,140,0,0" 
             TextAlignment="Left"
             VerticalAlignment="Top"
             HorizontalAlignment="Left"            
@@ -595,7 +595,7 @@
             Text="Enter password" 
             Height="33" Width="145"
             GotFocus="TextBoxPassword_GotFocus" 
-            MaxLength="25"
+            MaxLength="50"
             FontSize="14"
             Padding="10,5"
             BorderBrush="#FFCCCCCC"
@@ -642,7 +642,7 @@
         <TextBlock
             x:Name="LabelRole"
             HorizontalAlignment="Left"
-            Margin="181,50,0,0" 
+            Margin="181,68,0,0" 
             TextWrapping="Wrap" 
             Text="ROLE"
             VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
@@ -652,7 +652,7 @@
             VerticalAlignment="Top"
             Width="135"
             Height="33"
-            Margin="180,67,0,0"
+            Margin="180,85,0,0"
             Grid.Column="1"
             Grid.Row="2"
             SelectedIndex="0"
@@ -679,7 +679,7 @@
                                     VerticalAlignment="Center"
                                     Width="20"
                                     Height="20">
-                                <Path
+                                    <Path
                                     Fill="Gray"
                                     Data="M 0 0 L 4 4 L 8 0 Z"
                                     VerticalAlignment="Center"
@@ -699,7 +699,7 @@
                                     Background="Transparent"
                                     Focusable="False"
                                     Visibility="Hidden"/>
-                                    </Grid>
+                            </Grid>
                         </Border>
                         <Popup 
                             Name="Popup"
@@ -722,14 +722,14 @@
                     </Grid>
                 </ControlTemplate>
             </ComboBox.Template>
-            <ComboBoxItem Content="Administrator"/>
-            <ComboBoxItem Content="Instructor"/>
             <ComboBoxItem Content="User"/>
+            <ComboBoxItem Content="Instructor"/>
+            <ComboBoxItem Content="Administrator"/>
         </ComboBox>
         <Button
             x:Name="ButtonLogin"
             Content="Submit"
-            Margin="180,122,0,0"
+            Margin="180,140,0,0"
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
             Grid.Row="2"
