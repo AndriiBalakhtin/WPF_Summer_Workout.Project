@@ -26,7 +26,7 @@
         <ContentControl
             Name="MainContentControl"
             Grid.Column="1"
-            Grid.RowSpan="3">
+            Grid.RowSpan="3" RenderTransformOrigin="0.5,0.5">
         </ContentControl>
         <StackPanel 
             Grid.Row="2" Grid.Column="0"
@@ -515,42 +515,227 @@
             Margin="15,30,0,0" 
             RenderTransformOrigin="0.5,0.5" 
             Grid.Row="2"/>
+        <TextBlock
+            x:Name="LabelLogin"
+            HorizontalAlignment="Left"
+            Margin="25,50,0,0" 
+            TextWrapping="Wrap" 
+            Text="LOGIN" 
+            VerticalAlignment="Top" 
+            Grid.Column="1" Grid.Row="2"/>
+        <TextBox 
+            x:Name="TextBoxLogin"
+            Margin="25,67,0,0" 
+            TextAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"            
+            Foreground="#FF7B7979"            
+            Text="Enter login" 
+            Height="33" Width="145"
+            GotFocus="TextBoxLogin_GotFocus" 
+            MaxLength="25"
+            FontSize="14"
+            Padding="10,5"
+            BorderBrush="#FFCCCCCC"
+            BorderThickness="2"
+            Grid.Column="1" Grid.Row="2"
+            RenderTransformOrigin="0.5,0.5">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TextBox">
+                                <Border 
+                                    Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="8">
+                                    <ScrollViewer x:Name="PART_ContentHost" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderBrush" Value="#FFCCCCCC"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Foreground" Value="#FF7B7979"/>
+                </Style>
+            </TextBox.Style>
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBlock
+            x:Name="LabelPassword"
+            HorizontalAlignment="Left"
+            Margin="26,104,0,0" 
+            TextWrapping="Wrap" 
+            Text="PASSWORD"
+            VerticalAlignment="Top" 
+            Grid.Column="1" Grid.Row="2"/>
+        <TextBox 
+            x:Name="TextBoxPassword"
+            Margin="25,122,0,0" 
+            TextAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"            
+            Foreground="#FF7B7979"            
+            Text="Enter password" 
+            Height="33" Width="145"
+            GotFocus="TextBoxPassword_GotFocus" 
+            MaxLength="25"
+            FontSize="14"
+            Padding="10,5"
+            BorderBrush="#FFCCCCCC"
+            BorderThickness="2"
+            Grid.Column="1" Grid.Row="2"
+            RenderTransformOrigin="0.5,0.5">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TextBox">
+                                <Border 
+                                    Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="8">
+                                    <ScrollViewer x:Name="PART_ContentHost" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderBrush" Value="#FFCCCCCC"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Foreground" Value="#FF7B7979"/>
+                </Style>
+            </TextBox.Style>
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBlock
+            x:Name="LabelRole"
+            HorizontalAlignment="Left"
+            Margin="181,50,0,0" 
+            TextWrapping="Wrap" 
+            Text="ROLE"
+            VerticalAlignment="Top" Grid.Column="1" Grid.Row="2"/>
         <ComboBox 
             x:Name="ComboBoxRoleType"
             HorizontalAlignment="Left"
-            Margin="150,166,0,0" 
-            VerticalAlignment="Top" 
-            Width="120" Grid.Column="1" Grid.Row="2" Height="22"/>
-        <TextBox 
-            x:Name="TextBoxLogin"
-            Grid.Column="1" 
-            HorizontalAlignment="Left" 
-            Margin="150,111,0,0" 
+            VerticalAlignment="Top"
+            Width="135"
+            Height="33"
+            Margin="180,67,0,0"
+            Grid.Column="1"
             Grid.Row="2"
-            TextWrapping="Wrap" 
-            Text="Login" 
-            VerticalAlignment="Top" 
-            Width="120" Height="19"
-            GotFocus="TextBoxLogin_GotFocus"/>
-        <TextBox 
-            x:Name="TextBoxPassword"
-            Grid.Column="1" 
-            HorizontalAlignment="Left" 
-            Margin="150,135,0,0" Grid.Row="2" 
-            TextWrapping="Wrap" 
-            Text="Password" 
-            VerticalAlignment="Top" 
-            Width="120" Height="19" 
-            GotFocus="TextBoxPassword_GotFocus"/>
+            SelectedIndex="0"
+            Background="#FFEEEEEE"
+            BorderBrush="#FFCCCCCC"
+            BorderThickness="1">
+            <ComboBox.Template>
+                <ControlTemplate TargetType="ComboBox">
+                    <Grid>
+                        <Border 
+                    Background="{TemplateBinding Background}" 
+                    BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="{TemplateBinding BorderThickness}" 
+                    CornerRadius="8">
+                            <Grid>
+                                <ToggleButton 
+                            Name="ToggleButton"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Focusable="false"
+                            IsChecked="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                            ClickMode="Press"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Width="20"
+                            Height="20">
+                                    <Path
+                                Fill="Gray"
+                                Data="M 0 0 L 4 4 L 8 0 Z"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                                </ToggleButton>
+                                <ContentPresenter 
+                            Name="ContentSite"
+                            Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            Margin="5,0,25,0"/>
+                                <TextBox 
+                            x:Name="PART_EditableTextBox"
+                            Style="{x:Null}"
+                            Background="Transparent"
+                            Focusable="False"
+                            Visibility="Hidden"/>
+                            </Grid>
+                        </Border>
+                        <Popup 
+                    Name="Popup"
+                    Placement="Bottom" 
+                    IsOpen="{TemplateBinding IsDropDownOpen}" 
+                    AllowsTransparency="True" 
+                    Focusable="False"
+                    PopupAnimation="Slide">
+                            <Border 
+                        Name="DropDownBorder"
+                        Background="White"
+                        BorderBrush="#FFCCCCCC"
+                        BorderThickness="1"
+                        CornerRadius="8">
+                                <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                    <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                </ScrollViewer>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </ComboBox.Template>
+            <ComboBoxItem Content="Administrator"/>
+            <ComboBoxItem Content="Instructor"/>
+            <ComboBoxItem Content="User"/>
+        </ComboBox>
         <Button
             x:Name="ButtonLogin"
-            Content="Login"
+            Content="Submit"
+            Margin="180,122,0,0"
             HorizontalAlignment="Left" 
-            Margin="150,202,0,0"
             VerticalAlignment="Top" 
             Grid.Row="2"
             Grid.Column="1"
-            Height="24" Width="120"
+            Height="33" Width="135"
+            Background="#FF2BFF00"
             Click="Button_Login_Click"/>
     </Grid>
 </Window>

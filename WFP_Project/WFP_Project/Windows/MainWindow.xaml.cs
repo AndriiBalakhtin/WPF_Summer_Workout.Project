@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Media;
 using WFP_Project.Classes;
 using WFP_Project.Enums;
 using WFP_Project.Pages;
@@ -23,23 +24,22 @@ namespace WFP_Project
             this.ResizeMode = ResizeMode.NoResize;
         }
 
-        public event EventHandler LoginSuccessful;
-
         private void Button_Login_Click(object sender, RoutedEventArgs e)
         {
-            if (ValidateLogin())
+            if (TextBoxLogin.Text == "Admin" && TextBoxPassword.Text == "123456")
             {
-                if (TextBoxLogin.Text == "Admin" && TextBoxPassword.Text == "123456")
-                {
-                    this.Height = 600; this.Width = 1140; this.MinHeight = 600; this.MinWidth = 1140; this.ResizeMode = ResizeMode.CanResize;
-                    LoginSuccessful?.Invoke(this, EventArgs.Empty);
-                    BlockUserControl.Visibility = Visibility.Collapsed;
-                    TextBoxLogin.Visibility = Visibility.Collapsed;
-                    TextBoxPassword.Visibility = Visibility.Collapsed;
-                    ComboBoxRoleType.Visibility = Visibility.Collapsed;
-                    ButtonLogin.Visibility = Visibility.Collapsed;
-                    LockIcon.Visibility = Visibility.Collapsed;
-                }
+                this.ResizeMode = ResizeMode.CanResize;
+                this.Height = 600; this.Width = 1140; this.MinHeight = 600; this.MinWidth = 1140; 
+
+                BlockUserControl.Visibility = Visibility.Collapsed;
+                LabelLogin.Visibility = Visibility.Collapsed;
+                LabelPassword.Visibility = Visibility.Collapsed;
+                LabelRole.Visibility = Visibility.Collapsed;
+                TextBoxLogin.Visibility = Visibility.Collapsed;
+                TextBoxPassword.Visibility = Visibility.Collapsed;
+                ComboBoxRoleType.Visibility = Visibility.Collapsed;
+                ButtonLogin.Visibility = Visibility.Collapsed;
+                LockIcon.Visibility = Visibility.Collapsed;              
             }
             else
             {
@@ -47,19 +47,16 @@ namespace WFP_Project
             }
         }
 
-        private bool ValidateLogin()
-        {
-            return true;
-        }
-
         private void TextBoxLogin_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxLogin.Text = "";
+            TextBoxLogin.Foreground = Brushes.Black;
         }
 
         private void TextBoxPassword_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxPassword.Text = "";
+            TextBoxPassword.Foreground = Brushes.Black;
         }
 
         private void RadioButton_HomeChecked(object sender, RoutedEventArgs e)
