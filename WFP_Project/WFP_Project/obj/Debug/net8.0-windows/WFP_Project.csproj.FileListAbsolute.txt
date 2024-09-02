@@ -131,16 +131,3 @@ C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-wi
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\App.g.cs
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\SecureLogin.baml
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\SecureLogin.g.cs
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\EntityFramework.SqlServer.dll
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\EntityFramework.dll
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.dll
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Memory.dll
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.dll
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll

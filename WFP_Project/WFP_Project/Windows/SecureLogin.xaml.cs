@@ -7,7 +7,7 @@ namespace WFP_Project
     public partial class SecureLogin : Window
     {
         private DispatcherTimer _timer;
-        private int _countdownTime = 2;
+        private int _countdownTime = 31;
 
         public SecureLogin()
         {
@@ -16,6 +16,7 @@ namespace WFP_Project
             _timer.Tick += Timer_Tick;
             StartCountdown();
         }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SettingsManager.ApplySelectedTheme();

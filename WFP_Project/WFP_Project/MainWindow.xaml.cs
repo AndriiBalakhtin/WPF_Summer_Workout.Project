@@ -47,10 +47,7 @@ namespace WFP_Project
             if (isAuthenticated)
             {
                 this.ResizeMode = ResizeMode.CanResize;
-                this.Height = 600;
-                this.Width = 1140;
-                this.MinHeight = 600;
-                this.MinWidth = 1140;
+                this.Height = 600; this.Width = 1140; this.MinHeight = 600; this.MinWidth = 1140;
 
                 BlockUserControl.Visibility = Visibility.Collapsed;
                 LabelLogin.Visibility = Visibility.Collapsed;
