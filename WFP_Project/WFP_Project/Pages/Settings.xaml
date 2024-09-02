@@ -17,7 +17,7 @@
                 Margin="5">
             </TextBlock>
             <ComboBox 
-                Name="ThemeModeComboBox"    
+                x:Name="ThemeModeComboBox"    
                 Width="120"
                 SelectionChanged="ThemeModeComboBox_SelectionChanged"
                 BorderBrush="Black"

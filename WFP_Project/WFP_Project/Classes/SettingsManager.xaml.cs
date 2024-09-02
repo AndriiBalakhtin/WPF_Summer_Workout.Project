@@ -13,8 +13,19 @@ namespace WFP_Project.Classes
         {
             if (File.Exists(SettingsFilePath))
             {
-                var json = File.ReadAllText(SettingsFilePath);
-                return JsonSerializer.Deserialize<AppSettings>(json);
+                try
+                {
+                    var json = File.ReadAllText(SettingsFilePath);
+                    var settings = JsonSerializer.Deserialize<AppSettings>(json);
+                    if (settings != null)
+                    {
+                        return settings;
+                    }
+                }
+                catch (JsonException ex)
+                {
+                    MessageBox.Show($"Failed to load settings: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
 
             var defaultSettings = new AppSettings();
@@ -39,7 +50,8 @@ namespace WFP_Project.Classes
             }
             else
             {
-                MessageBox.Show("No theme selected in settings.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                applyThemes.ApplyTheme("DefaultTheme");
+                MessageBox.Show("No theme selected in settings. Applying default theme.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

@@ -52,13 +52,9 @@ C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-wi
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Settings.baml
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Themes\DarkTheme.baml
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Themes\LightTheme.baml
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\App.baml
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\MainWindow.baml
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Archive.g.cs
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Controls.g.cs
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Settings.g.cs
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\App.g.cs
-C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\MainWindow.g.cs
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project_MarkupCompile.cache
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project.g.resources
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project.GeneratedMSBuildEditorConfig.editorconfig
@@ -129,3 +125,9 @@ C:\GitHub\C#\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\refint\WFP_Project
 C:\GitHub\C#\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project.pdb
 C:\GitHub\C#\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project.genruntimeconfig.cache
 C:\GitHub\C#\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\ref\WFP_Project.dll
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\MainWindow.baml
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\App.baml
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\App.g.cs
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\SecureLogin.baml
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\SecureLogin.g.cs

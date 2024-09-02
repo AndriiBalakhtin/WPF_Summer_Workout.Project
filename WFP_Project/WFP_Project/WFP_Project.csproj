@@ -26,6 +26,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Include="App.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Pages\Settings.ico" />
     <Resource Include="Png\logo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

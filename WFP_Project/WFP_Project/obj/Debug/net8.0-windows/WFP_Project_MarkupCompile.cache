@@ -9,12 +9,12 @@ WFP_Project
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\App.xaml
+101839272700
 
-10-1030524216
-
-14701351993
+151747472031
 202-502407113
-Pages\Archive.xaml;Pages\Controls.xaml;Pages\Editor.xaml;Pages\GuiArchive.xaml;Pages\Home.xaml;Pages\Settings.xaml;Themes\DarkTheme.xaml;Themes\LightTheme.xaml;Windows\App.xaml;Windows\MainWindow.xaml;
+MainWindow.xaml;Pages\Archive.xaml;Pages\Controls.xaml;Pages\Editor.xaml;Pages\GuiArchive.xaml;Pages\Home.xaml;Pages\Settings.xaml;Themes\DarkTheme.xaml;Themes\LightTheme.xaml;Windows\SecureLogin.xaml;
 
 False
 

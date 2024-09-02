@@ -15,6 +15,9 @@
     <Compile Update="Pages\Home.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\SecureLogin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\Editor.xaml">
@@ -26,7 +29,10 @@
     <Page Update="Pages\Home.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Windows\MainWindow.xaml">
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\SecureLogin.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
