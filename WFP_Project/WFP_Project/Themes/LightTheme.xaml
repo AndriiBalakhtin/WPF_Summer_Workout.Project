@@ -3,6 +3,10 @@
 
     <ImageBrush x:Key="WindowBackgroundBrush" ImageSource="/Images/LightBackground.png"/>
 
+    <Style TargetType="Rectangle">
+        <Setter Property="Stroke" Value="Black"/>
+    </Style>
+
     <Style TargetType="TextBlock">
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="FontSize" Value="16"/>

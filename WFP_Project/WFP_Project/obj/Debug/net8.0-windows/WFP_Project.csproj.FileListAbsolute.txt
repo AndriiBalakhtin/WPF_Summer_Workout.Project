@@ -131,3 +131,9 @@ C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-wi
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\App.g.cs
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\SecureLogin.baml
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\SecureLogin.g.cs
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\UserControls\FirstStep.baml
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\UserControls\FirstStep.g.cs
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\UserControls\Login.baml
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\UserControls\Login.g.cs
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\UserControls\SignUp.g.cs
+C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\UserControls\SignUp.baml
