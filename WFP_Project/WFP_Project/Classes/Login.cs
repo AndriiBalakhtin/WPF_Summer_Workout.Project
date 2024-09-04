@@ -16,15 +16,24 @@ namespace WFP_Project.Classes
                 mainWindow.Height = 600; mainWindow.Width = 1140; mainWindow.MinHeight = 600; mainWindow.MinWidth = 1140;
             }
         }
-
-        static class LoginMenu
+    }
+    public static class LoginMenu
+    {
+        public static void ReturnToLoginMenu(Login login, MainWindow mainWindow)
         {
-            public static void ReturnToLoginMenu(Login login)
+            if (login != null && mainWindow != null)
             {
-                if (login != null)
-                {
-                    
-                }
+                mainWindow.MainContentControl.Content = login.Content;
+            }
+        }
+    }
+    public static class SignUpMenu
+    {
+        public static void ReturnToSignUpMenu(SignUp signUp, MainWindow mainWindow)
+        {
+            if (signUp != null && mainWindow != null)
+            {
+                mainWindow.MainContentControl.Content = signUp.Content;
             }
         }
     }

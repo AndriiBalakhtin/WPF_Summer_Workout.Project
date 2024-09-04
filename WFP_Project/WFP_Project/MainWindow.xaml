@@ -6,8 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Control Panel" Height="290" Width="500"
-        Loaded="Window_Loaded" Icon="/Png/logo.png"
-        FontFamily="../Fonts/#Hauora">
+        Loaded="Window_Loaded" Icon="/Png/logo.png">
     <Window.Background>
         <SolidColorBrush Color="Transparent"/>
     </Window.Background>
@@ -74,18 +73,24 @@
                                     <TextBlock 
                                         x:Name="HomeIconTxt"
                                         VerticalAlignment="Center" 
-                                        HorizontalAlignment="Center" 
-                                        FontFamily="Arial" 
+                                        HorizontalAlignment="Center"  
                                         FontSize="18" 
                                         Foreground="White" 
                                         Text="🏠"/>
                                 </Border>
                                 <TextBlock
-                                    Text="  Home" 
+                                    Text="Home" 
                                     FontWeight="ExtraBold"
                                     VerticalAlignment="Center" 
                                     HorizontalAlignment="Center" 
-                                    FontFamily="Hauora"/>
+                                    FontFamily="Regular" 
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <TextBlock.RenderTransform>
+                                        <TransformGroup>
+                                            <TranslateTransform X="10"/>
+                                        </TransformGroup>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -195,11 +200,18 @@
                                     </TextBlock>
                                 </Border>
                                 <TextBlock
-                                    Text="  Controls" 
+                                    Text="Controls" 
                                     FontWeight="ExtraBold" 
                                     VerticalAlignment="Center" 
                                     HorizontalAlignment="Center" 
-                                    FontFamily="Hauora"/>
+                                    FontFamily="Regular" 
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <TextBlock.RenderTransform>
+                                        <TransformGroup>
+                                            <TranslateTransform X="10"/>
+                                        </TransformGroup>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -304,11 +316,18 @@
                                         Text="🗃️"/>
                                 </Border>
                                 <TextBlock
-                                    Text="  Archive" 
+                                    Text="Archive" 
                                     FontWeight="ExtraBold" 
                                     VerticalAlignment="Center" 
                                     HorizontalAlignment="Center" 
-                                    FontFamily="Hauora"/>
+                                    FontFamily="Regular" 
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <TextBlock.RenderTransform>
+                                        <TransformGroup>
+                                            <TranslateTransform X="10"/>
+                                        </TransformGroup>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -420,11 +439,18 @@
                                     </TextBlock>
                                 </Border>
                                 <TextBlock
-                                    Text="  Settings" 
+                                    Text="Settings" 
                                     FontWeight="ExtraBold" 
                                     VerticalAlignment="Center" 
                                     HorizontalAlignment="Center" 
-                                    FontFamily="Hauora"/>
+                                    FontFamily="Regular" 
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <TextBlock.RenderTransform>
+                                        <TransformGroup>
+                                            <TranslateTransform X="10"/>
+                                        </TransformGroup>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
                             </StackPanel>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -493,19 +519,21 @@
         </StackPanel>
 
         <!-- Lock -->
-        <Rectangle
+        <Border
             x:Name="BlockUserControl"
-            Stroke="Red"
             Margin="15,30,0,0"
             Width="135"
             Height="190"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            BorderBrush="Red"
+            CornerRadius="10"
+            BorderThickness="1"
             Grid.Row="2">
-            <Rectangle.Fill>
-                <ImageBrush/>
-            </Rectangle.Fill>
-        </Rectangle>
+            <Border.Background>
+                <SolidColorBrush Color="Transparent"/>
+            </Border.Background>
+        </Border>
         <materialDesign:PackIcon 
             x:Name="LockIcon"
             Kind="Lock"

@@ -19,11 +19,11 @@
                 Width="85" Height="24"
                 Margin="0,12,10,0"
                 FontWeight="ExtraBold"   
-                Click="InsertButton_Click" BorderThickness="1,1,1,1" RenderTransformOrigin="0.5,0.5">
+				BorderThickness="1,1,1,1" 
+				RenderTransformOrigin="0.5,0.5"
+                Click="InsertButton_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
                         <RotateTransform Angle="0"/>
                         <TranslateTransform X="0" Y="2"/>
                     </TransformGroup>
@@ -49,9 +49,6 @@
                     <TextBox.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleX="1" ScaleY="1"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
                         </TransformGroup>
                     </TextBox.RenderTransform>
                 </TextBox>
@@ -145,19 +142,18 @@
                     MaxLength="4"/>
             </StackPanel>
         </StackPanel>
-        <Button
+		<Button
+			Margin="890,14,0,0"
             Background="Transparent"
-            BorderThickness="1"
-            FontFamily="Cascadia Code"
+            FontFamily="Regular"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="ButtonGuiArchive_Click" Margin="890,14,0,0">
+            Click="ButtonGuiArchive_Click">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border 
                         x:Name="Border"
-                        Background="Transparent"
-                        BorderThickness="1">
+                        Background="Transparent">
                         <StackPanel 
                             Orientation="Horizontal"
                             Height="32"

@@ -3,8 +3,8 @@
 
     <ImageBrush x:Key="WindowBackgroundBrush" ImageSource="/Images/DarkBackground.png"/>
 
-    <Style TargetType="Rectangle">
-        <Setter Property="Stroke" Value="White"/>
+    <Style TargetType="Border">
+        <Setter Property="BorderBrush" Value="White"/>
     </Style>
 
     <Style TargetType="TextBlock">

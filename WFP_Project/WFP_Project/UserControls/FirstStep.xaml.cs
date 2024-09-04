@@ -20,16 +20,24 @@ namespace WFP_Project.Windows
         {
             Login login = new Login();
             FirstStepContent.Content = login.Content;
-
-            TextBlockWelcome.Visibility = Visibility.Hidden;
-            RadioButtonLogin.Visibility = Visibility.Hidden;
-            RadioButtonSignUp.Visibility = Visibility.Hidden;
-            Rectangle.Visibility = Visibility.Hidden;
+            {
+                TextBlockWelcome.Visibility     = Visibility.Hidden;
+                RadioButtonLogin.Visibility     = Visibility.Hidden;
+                RadioButtonSignUp.Visibility    = Visibility.Hidden;
+                FirstStepRectangleUI.Visibility = Visibility.Hidden;
+            }
         }
 
         private void RadioButtonSignUp_Checked(object sender, RoutedEventArgs e)
         {
-
+            SignUp signUp = new SignUp();
+            FirstStepContent.Content = signUp.Content;
+            {
+                TextBlockWelcome.Visibility     = Visibility.Hidden;
+                RadioButtonLogin.Visibility     = Visibility.Hidden;
+                RadioButtonSignUp.Visibility    = Visibility.Hidden;
+                FirstStepRectangleUI.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

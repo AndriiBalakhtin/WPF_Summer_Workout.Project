@@ -3,34 +3,46 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="WFP_Project.UserControls.Login"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        x:Class="WFP_Project.UserControls.Login"
         mc:Ignorable="d"
-        Title="Login"
-        Height="245" Width="370"
-        Loaded="Window_Loaded" Background="Transparent">
+        Title="Login" Height="220" Width="335"
+        Loaded="Window_Loaded">
+    <Window.Background>
+        <SolidColorBrush Color="Transparent"/>
+     </Window.Background>
     <Grid>
+        <Border 
+            x:Name="LoginRectangleUI"
+            Margin="10,74,0,0" 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="120" Width="310"
+            BorderBrush="Gray"
+            CornerRadius="10"
+            BorderThickness="1"/>
         <TextBlock
             x:Name="TextBlockLogin"
             HorizontalAlignment="Left"
             VerticalAlignment="Top" 
-            Margin="40,78,0,0" 
+            Margin="20,74,0,0" 
             TextWrapping="Wrap" 
             Text="LOGIN"/>
         <TextBox 
             x:Name="TextBoxLogin"
-            Margin="40,95,0,0" 
+            Margin="20,95,0,0" 
             TextAlignment="Left"
             VerticalAlignment="Top"
             HorizontalAlignment="Left"            
             Foreground="#FF7B7979"            
             Text="Enter login" 
-            Height="33" Width="145"
+            Height="34" Width="145"
             GotFocus="TextBoxLogin_GotFocus" 
             MaxLength="50"
             FontSize="14"
             Padding="10,5"
             BorderBrush="#FFCCCCCC"
-            BorderThickness="2"
+            BorderThickness="3"
             RenderTransformOrigin="0.5,0.5">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
@@ -38,10 +50,10 @@
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type TextBox}">
                                 <Border 
-                            Background="{TemplateBinding Background}" 
-                            BorderBrush="{TemplateBinding BorderBrush}" 
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            CornerRadius="8">
+                                    Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="5">
                                     <ScrollViewer x:Name="PART_ContentHost" />
                                 </Border>
                             </ControlTemplate>
@@ -72,36 +84,36 @@
         <TextBlock
             x:Name="TextBlockPassword"
             HorizontalAlignment="Left"
-            Margin="41,132,0,0" 
+            Margin="20,129,0,0" 
             TextWrapping="Wrap" 
             Text="PASSWORD"
             VerticalAlignment="Top"/>
         <TextBox 
-            x:Name="TextBoxPassword"
-            Margin="40,150,0,0" 
-            TextAlignment="Left"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left"            
-            Foreground="#FF7B7979"            
-            Text="Enter password" 
-            Height="33" Width="145"
-            GotFocus="TextBoxPassword_GotFocus" 
-            MaxLength="50"
-            FontSize="14"
-            Padding="10,5"
-            BorderBrush="#FFCCCCCC"
-            BorderThickness="2"
-            RenderTransformOrigin="0.5,0.5">
+             x:Name="TextBoxPassword"
+             Margin="20,150,0,0" 
+             TextAlignment="Left"
+             VerticalAlignment="Top"
+             HorizontalAlignment="Left"            
+             Foreground="#FF7B7979"            
+             Text="Enter password" 
+             Height="34" Width="145"
+             GotFocus="TextBoxPassword_GotFocus" 
+             MaxLength="50"
+             FontSize="14"
+             Padding="10,5"
+             BorderBrush="#FFCCCCCC"
+             BorderThickness="3"
+             RenderTransformOrigin="0.5,0.5">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type TextBox}">
                                 <Border 
-                                    Background="{TemplateBinding Background}" 
-                                    BorderBrush="{TemplateBinding BorderBrush}" 
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    CornerRadius="8">
+                                     Background="{TemplateBinding Background}" 
+                                     BorderBrush="{TemplateBinding BorderBrush}" 
+                                     BorderThickness="{TemplateBinding BorderThickness}"
+                                     CornerRadius="5">
                                     <ScrollViewer x:Name="PART_ContentHost" />
                                 </Border>
                             </ControlTemplate>
@@ -132,7 +144,7 @@
         <TextBlock
             x:Name="TextBlockRole"
             HorizontalAlignment="Left"
-            Margin="196,78,0,0" 
+            Margin="175,74,0,0" 
             TextWrapping="Wrap" 
             Text="ROLE"
             VerticalAlignment="Top"/>
@@ -141,12 +153,12 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Width="135"
-            Height="33"
-            Margin="195,95,0,0"
+            Height="34"
+            Margin="175,95,0,0"
             SelectedIndex="0"
             Background="#FFEEEEEE"
             BorderBrush="#FFCCCCCC"
-            BorderThickness="1">
+            BorderThickness="3">
             <ComboBox.Template>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
                     <Grid>
@@ -154,7 +166,7 @@
                             Background="{TemplateBinding Background}" 
                             BorderBrush="{TemplateBinding BorderBrush}" 
                             BorderThickness="{TemplateBinding BorderThickness}" 
-                            CornerRadius="8">
+                            CornerRadius="5">
                             <Grid>
                                 <ToggleButton 
                                     x:Name="ToggleButton"
@@ -217,46 +229,45 @@
         <Button
             x:Name="ButtonLogin"
             Content="Submit"
-            Margin="195,150,0,0"
+            Margin="175,150,0,0"
             HorizontalAlignment="Left" 
             VerticalAlignment="Top"
-            Height="33" Width="135"
+            Height="34" Width="135"
             Background="#FF2BFF00"
             Click="Button_Login_Click"/>
         <RadioButton
-    x:Name="RadioButtonSignUp"
-    Margin="250,3,0,0"
-    VerticalAlignment="Top"
-    HorizontalAlignment="Left"
-    Background="Transparent"
-    Height="36" Width="120"
-    Checked="RadioButtonSignUp_Checked">
+            x:Name="RadioButtonSignUp"
+            Margin="215,4,0,0"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Background="Transparent"
+            Height="36" Width="115"
+            Checked="RadioButtonSignUp_Checked">
             <RadioButton.Template>
                 <ControlTemplate TargetType="{x:Type RadioButton}">
                     <Border 
-                x:Name="Border"
-                Background="Transparent"
-                CornerRadius="5">
+                        x:Name="Border"
+                        Background="Transparent"
+                        CornerRadius="5" Margin="0,0,0,1">
                         <StackPanel 
-                    Orientation="Horizontal"
-                    Height="32"
-                    Width="126">
+                            Orientation="Horizontal"
+                            Height="32" Margin="0,1.5,0,1.5">
                             <TextBlock
-                        Text="Sign Up" 
-                        FontWeight="ExtraBold"
-                        VerticalAlignment="Center" 
-                        HorizontalAlignment="Center" 
-                        FontFamily="Hauora"
-                        FontSize="14"
-                        Margin="10,0,10,0"/>
+                                Text="Sign Up" 
+                                FontWeight="ExtraBold"
+                                VerticalAlignment="Center" 
+                                HorizontalAlignment="Center" 
+                                FontFamily="Hauora"
+                                FontSize="14"
+                                Margin="10,0,10,0"/>
                             <Border 
-                        x:Name="BorderSignUpIcon"
-                        Width="32"
-                        Height="32"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        CornerRadius="5"
-                        Margin="10,0,0,0">
+                                x:Name="BorderSignUpIcon"
+                                Width="32"
+                                Height="32"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                CornerRadius="5"
+                                Margin="10,0,0,0">
                                 <Border.Background>
                                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                         <GradientStop Offset="0" Color="#B0BEC5" />
@@ -264,13 +275,13 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                                 <materialDesign:PackIcon 
-                            x:Name="SignUpIcon"
-                            VerticalAlignment="Center" 
-                            HorizontalAlignment="Center" 
-                            Kind="Account" 
-                            Width="32" 
-                            Height="32" 
-                            Foreground="White"/>
+                                    x:Name="SignUpIcon"
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center" 
+                                    Kind="Account" 
+                                    Width="32" 
+                                    Height="32" 
+                                    Foreground="White"/>
                             </Border>
                         </StackPanel>
                     </Border>
@@ -288,25 +299,25 @@
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <ThicknessAnimationUsingKeyFrames
-                                    AccelerationRatio="0.5"
-                                    BeginTime="00:00:00"
-                                    Storyboard.TargetName="SignUpIcon"
-                                    Storyboard.TargetProperty="Margin">
+                                                AccelerationRatio="0.5"
+                                                BeginTime="00:00:00"
+                                                Storyboard.TargetName="SignUpIcon"
+                                                Storyboard.TargetProperty="Margin">
                                             <SplineThicknessKeyFrame KeyTime="00:00:00" Value="0,0,0,60" />
                                             <SplineThicknessKeyFrame KeyTime="00:00:0.3" Value="0" />
                                         </ThicknessAnimationUsingKeyFrames>
                                         <DoubleAnimation
-                                    Storyboard.TargetName="BorderSignUpIcon"
-                                    Storyboard.TargetProperty="Width"
-                                    From="25"
-                                    To="32"
-                                    Duration="0:0:0.2" />
+                                            Storyboard.TargetName="BorderSignUpIcon"
+                                            Storyboard.TargetProperty="Width"
+                                            From="25"
+                                            To="32"
+                                            Duration="0:0:0.2" />
                                         <DoubleAnimation
-                                    Storyboard.TargetName="BorderSignUpIcon"
-                                    Storyboard.TargetProperty="Height"
-                                    From="25"
-                                    To="32"
-                                    Duration="0:0:0.2" />
+                                            Storyboard.TargetName="BorderSignUpIcon"
+                                            Storyboard.TargetProperty="Height"
+                                            From="25"
+                                            To="32"
+                                            Duration="0:0:0.2" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>

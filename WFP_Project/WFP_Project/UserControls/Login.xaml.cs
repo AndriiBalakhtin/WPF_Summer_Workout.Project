@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 using WFP_Project.Classes;
-using WFP_Project.Windows;
+
 
 namespace WFP_Project.UserControls
 {
@@ -12,7 +12,6 @@ namespace WFP_Project.UserControls
         public Login()
         {
             InitializeComponent();
-
             _userManagement = new UserManagement();
         }
 
@@ -20,7 +19,6 @@ namespace WFP_Project.UserControls
         {
             SettingsManager.ApplySelectedTheme();
         }
-
         private void Button_Login_Click(object sender, RoutedEventArgs e)
         {
             string login = TextBoxLogin.Text.Trim();
@@ -51,14 +49,17 @@ namespace WFP_Project.UserControls
 
                 MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
                 LoginSuccess.HideBlockUserControl(mainWindow);
-
-                TextBlockLogin.Visibility = Visibility.Collapsed;
-                TextBlockPassword.Visibility = Visibility.Collapsed;
-                TextBlockRole.Visibility = Visibility.Collapsed;
-                TextBoxLogin.Visibility = Visibility.Collapsed;
-                TextBoxPassword.Visibility = Visibility.Collapsed;
-                ComboBoxRoleType.Visibility = Visibility.Collapsed;
-                ButtonLogin.Visibility = Visibility.Collapsed;
+                {
+                    LoginRectangleUI.Visibility  = Visibility.Hidden;
+                    RadioButtonSignUp.Visibility = Visibility.Hidden;
+                    TextBlockLogin.Visibility    = Visibility.Hidden;
+                    TextBlockPassword.Visibility = Visibility.Hidden;
+                    TextBlockRole.Visibility     = Visibility.Hidden;
+                    TextBoxLogin.Visibility      = Visibility.Hidden;
+                    TextBoxPassword.Visibility   = Visibility.Hidden;
+                    ComboBoxRoleType.Visibility  = Visibility.Hidden;
+                    ButtonLogin.Visibility       = Visibility.Hidden;
+                }
             }
             else
             {
@@ -87,8 +88,12 @@ namespace WFP_Project.UserControls
 
         private void RadioButtonSignUp_Checked(object sender, RoutedEventArgs e)
         {
-            FirstStep firstStep = new FirstStep();
-            this.Content = firstStep.Content;
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            if (mainWindow != null)
+            {
+                var signUp = new SignUp();
+                SignUpMenu.ReturnToSignUpMenu(signUp, mainWindow);
+            }
         }
     }
 }
