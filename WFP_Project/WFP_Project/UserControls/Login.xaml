@@ -1,23 +1,23 @@
 ﻿<Window
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        x:Class="WFP_Project.UserControls.Login"
-        mc:Ignorable="d"
-        Title="Login" Height="220" Width="335"
-        Loaded="Window_Loaded">
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    x:Class="WFP_Project.UserControls.Login"
+    mc:Ignorable="d"
+    Title="Login" Height="220" Width="335"
+    Loaded="Window_Loaded">
     <Window.Background>
         <SolidColorBrush Color="Transparent"/>
-     </Window.Background>
+    </Window.Background>
     <Grid>
         <Border 
             x:Name="LoginRectangleUI"
-            Margin="10,74,0,0" 
+            Margin="10,60,0,0" 
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Height="120" Width="310"
+            Height="134" Width="310"
             BorderBrush="Gray"
             CornerRadius="10"
             BorderThickness="1"/>
@@ -25,18 +25,18 @@
             x:Name="TextBlockLogin"
             HorizontalAlignment="Left"
             VerticalAlignment="Top" 
-            Margin="20,74,0,0" 
+            Margin="20,70,0,0" 
             TextWrapping="Wrap" 
             Text="LOGIN"/>
         <TextBox 
             x:Name="TextBoxLogin"
-            Margin="20,95,0,0" 
+            Margin="20,90,0,0" 
             TextAlignment="Left"
             VerticalAlignment="Top"
             HorizontalAlignment="Left"            
             Foreground="#FF7B7979"            
             Text="Enter login" 
-            Height="34" Width="145"
+            Height="36" Width="145"
             GotFocus="TextBoxLogin_GotFocus" 
             MaxLength="50"
             FontSize="14"
@@ -75,8 +75,6 @@
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="1" ScaleY="1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
                     <TranslateTransform X="0"/>
                 </TransformGroup>
             </TextBox.RenderTransform>
@@ -84,10 +82,10 @@
         <TextBlock
             x:Name="TextBlockPassword"
             HorizontalAlignment="Left"
-            Margin="20,129,0,0" 
+            Margin="20,130,0,0" 
             TextWrapping="Wrap" 
             Text="PASSWORD"
-            VerticalAlignment="Top"/>
+            VerticalAlignment="Top" RenderTransformOrigin="0.562,1.318"/>
         <TextBox 
              x:Name="TextBoxPassword"
              Margin="20,150,0,0" 
@@ -96,7 +94,7 @@
              HorizontalAlignment="Left"            
              Foreground="#FF7B7979"            
              Text="Enter password" 
-             Height="34" Width="145"
+             Height="36" Width="145"
              GotFocus="TextBoxPassword_GotFocus" 
              MaxLength="50"
              FontSize="14"
@@ -144,7 +142,7 @@
         <TextBlock
             x:Name="TextBlockRole"
             HorizontalAlignment="Left"
-            Margin="175,74,0,0" 
+            Margin="175,70,0,0" 
             TextWrapping="Wrap" 
             Text="ROLE"
             VerticalAlignment="Top"/>
@@ -153,8 +151,8 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Width="135"
-            Height="34"
-            Margin="175,95,0,0"
+            Height="36"
+            Margin="175,90,0,0"
             SelectedIndex="0"
             Background="#FFEEEEEE"
             BorderBrush="#FFCCCCCC"
@@ -168,23 +166,30 @@
                             BorderThickness="{TemplateBinding BorderThickness}" 
                             CornerRadius="5">
                             <Grid>
-                                <ToggleButton 
-                                    x:Name="ToggleButton"
-                                    Background="Transparent"
-                                    BorderThickness="0"
-                                    Focusable="false"
-                                    IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                    ClickMode="Press"
-                                    HorizontalAlignment="Right"
+                                <Border 
+                                    Background="DarkGray"
+                                    CornerRadius="10" 
+                                    HorizontalAlignment="Right" 
                                     VerticalAlignment="Center"
-                                    Width="20"
-                                    Height="20">
-                                    <Path
-                                        Fill="Gray"
-                                        Data="M 0 0 L 4 4 L 8 0 Z"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Center"/>
-                                </ToggleButton>
+                                    Width="15" 
+                                    Height="15">
+                                    <ToggleButton 
+                                        x:Name="ToggleButton"
+                                        BorderThickness="1.5"
+                                        Focusable="false"
+                                        IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                        ClickMode="Press">
+                                        <ToggleButton.Content>
+                                            <Path x:Name="TrianglePath"
+                                                Fill="Gray"
+                                                Margin="0,1.5,0,0"
+                                                Data="M 0 0 L 4 4 L 8 0 Z"
+                                                VerticalAlignment="Top"
+                                                HorizontalAlignment="Center">
+                                            </Path>
+                                        </ToggleButton.Content>
+                                    </ToggleButton>
+                                </Border>
                                 <ContentPresenter 
                                     x:Name="ContentSite"
                                     Content="{TemplateBinding SelectionBoxItem}"
@@ -232,7 +237,7 @@
             Margin="175,150,0,0"
             HorizontalAlignment="Left" 
             VerticalAlignment="Top"
-            Height="34" Width="135"
+            Height="36" Width="135"
             Background="#FF2BFF00"
             Click="Button_Login_Click"/>
         <RadioButton

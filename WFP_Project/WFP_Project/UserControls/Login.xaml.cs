@@ -1,17 +1,18 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 using WFP_Project.Classes;
-
-
+using System.Windows.Controls.Primitives;
 namespace WFP_Project.UserControls
 {
     public partial class Login : Window
     {
         private UserManagement _userManagement;
+        private ToggleButton _toggleButton; // Ensure this is declared as ToggleButton
 
         public Login()
         {
             InitializeComponent();
+            _toggleButton = (ToggleButton)FindName("ToggleButton"); // Ensure you use FindName to get the correct instance
             _userManagement = new UserManagement();
         }
 
@@ -19,6 +20,7 @@ namespace WFP_Project.UserControls
         {
             SettingsManager.ApplySelectedTheme();
         }
+
         private void Button_Login_Click(object sender, RoutedEventArgs e)
         {
             string login = TextBoxLogin.Text.Trim();
@@ -44,28 +46,39 @@ namespace WFP_Project.UserControls
 
             if (isAuthenticated)
             {
-                this.ResizeMode = ResizeMode.CanResize;
-                this.Height = 600; this.Width = 1140; this.MinHeight = 600; this.MinWidth = 1140;
-
+                ResizeWindowForAuthenticatedUser();
                 MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
                 LoginSuccess.HideBlockUserControl(mainWindow);
-                {
-                    LoginRectangleUI.Visibility  = Visibility.Hidden;
-                    RadioButtonSignUp.Visibility = Visibility.Hidden;
-                    TextBlockLogin.Visibility    = Visibility.Hidden;
-                    TextBlockPassword.Visibility = Visibility.Hidden;
-                    TextBlockRole.Visibility     = Visibility.Hidden;
-                    TextBoxLogin.Visibility      = Visibility.Hidden;
-                    TextBoxPassword.Visibility   = Visibility.Hidden;
-                    ComboBoxRoleType.Visibility  = Visibility.Hidden;
-                    ButtonLogin.Visibility       = Visibility.Hidden;
-                }
+
+                HideLoginUIElements();
             }
             else
             {
                 SecureLogin secureLogin = new SecureLogin();
                 secureLogin.ShowDialog();
             }
+        }
+
+        private void ResizeWindowForAuthenticatedUser()
+        {
+            this.ResizeMode = ResizeMode.CanResize;
+            this.Height = 600;
+            this.Width = 1140;
+            this.MinHeight = 600;
+            this.MinWidth = 1140;
+        }
+
+        private void HideLoginUIElements()
+        {
+            LoginRectangleUI.Visibility = Visibility.Hidden;
+            RadioButtonSignUp.Visibility = Visibility.Hidden;
+            TextBlockLogin.Visibility = Visibility.Hidden;
+            TextBlockPassword.Visibility = Visibility.Hidden;
+            TextBlockRole.Visibility = Visibility.Hidden;
+            TextBoxLogin.Visibility = Visibility.Hidden;
+            TextBoxPassword.Visibility = Visibility.Hidden;
+            ComboBoxRoleType.Visibility = Visibility.Hidden;
+            ButtonLogin.Visibility = Visibility.Hidden;
         }
 
         private void TextBoxLogin_GotFocus(object sender, RoutedEventArgs e)
