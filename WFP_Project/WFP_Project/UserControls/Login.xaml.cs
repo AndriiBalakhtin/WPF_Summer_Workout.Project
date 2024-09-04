@@ -7,20 +7,27 @@ namespace WFP_Project.UserControls
     public partial class Login : Window
     {
         private UserManagement _userManagement;
-        private ToggleButton _toggleButton; // Ensure this is declared as ToggleButton
-
+        private ToggleButton _toggleButton;
         public Login()
         {
             InitializeComponent();
-            _toggleButton = (ToggleButton)FindName("ToggleButton"); // Ensure you use FindName to get the correct instance
+            _toggleButton = (ToggleButton)FindName("ToggleButton");
             _userManagement = new UserManagement();
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SettingsManager.ApplySelectedTheme();
         }
 
+        private void RadioButtonSignUp_Checked(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            if (mainWindow != null)
+            {
+                var signUp = new SignUp();
+                SignUpMenu.ReturnToSignUpMenu(signUp, mainWindow);
+            }
+        }
         private void Button_Login_Click(object sender, RoutedEventArgs e)
         {
             string login = TextBoxLogin.Text.Trim();
@@ -96,16 +103,6 @@ namespace WFP_Project.UserControls
             {
                 TextBoxPassword.Text = "";
                 TextBoxPassword.Foreground = Brushes.Black;
-            }
-        }
-
-        private void RadioButtonSignUp_Checked(object sender, RoutedEventArgs e)
-        {
-            var mainWindow = Application.Current.MainWindow as MainWindow;
-            if (mainWindow != null)
-            {
-                var signUp = new SignUp();
-                SignUpMenu.ReturnToSignUpMenu(signUp, mainWindow);
             }
         }
     }

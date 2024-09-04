@@ -24,5 +24,32 @@ namespace WFP_Project.UserControls
                 LoginMenu.ReturnToLoginMenu(login, mainWindow);
             }
         }
+
+        //Sign in
+
+        private void TextBoxNewLogin_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBoxNewPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBoxNewRepeatPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBoxNewEmail_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonSignIn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
