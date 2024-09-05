@@ -17,6 +17,7 @@ namespace WFP_Project.Classes
             }
         }
     }
+
     public static class LoginMenu
     {
         public static void ReturnToLoginMenu(Login login, MainWindow mainWindow)
@@ -27,6 +28,7 @@ namespace WFP_Project.Classes
             }
         }
     }
+
     public static class SignUpMenu
     {
         public static void ReturnToSignUpMenu(SignUp signUp, MainWindow mainWindow)
@@ -34,6 +36,17 @@ namespace WFP_Project.Classes
             if (signUp != null && mainWindow != null)
             {
                 mainWindow.MainContentControl.Content = signUp.Content;
+            }
+        }
+    }
+
+    public static class ConfirmEmailMenu
+    {
+        public static void Email(ConfirmEmail confirmEmail, MainWindow mainWindow)
+        {
+            if (confirmEmail != null && mainWindow != null)
+            {
+                mainWindow.MainContentControl.Content = confirmEmail.Content;
             }
         }
     }

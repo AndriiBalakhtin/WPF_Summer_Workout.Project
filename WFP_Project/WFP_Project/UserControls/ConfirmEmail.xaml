@@ -1,0 +1,96 @@
+﻿<Window x:Class="WFP_Project.UserControls.ConfirmEmail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="ConfirmEmail"
+        Height="254" Width="330"
+        Loaded="Window_Loaded">
+    <Window.Background>
+        <SolidColorBrush Color="Transparent"/>
+    </Window.Background>
+    <Grid>
+
+        <Button
+            Content="Confirm"
+            Margin="40,110,0,0" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="36" Width="84"
+            Click="ButtonConfirmEmail_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF4C961B" Offset="1"/>
+                    <GradientStop Color="#FF67EA0F" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Border 
+            x:Name="ConfirmEmailRectangleUI" 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Height="89" Width="270"
+            BorderBrush="Gray"
+            CornerRadius="10"
+            BorderThickness="1"/>
+        <TextBlock
+            x:Name="TextBlockCheckEmail"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" 
+            Margin="136,89,0,0" 
+            TextWrapping="Wrap" 
+            Text="CHECK EMAIL"/>
+        <TextBox 
+            x:Name="TextBoxConfirmationCode"
+            Margin="136,110,0,0" 
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left" 
+            TextAlignment="Center"
+            Foreground="#FF7B7979"
+            Text="Enter the digital code" 
+            Height="36" Width="154"
+            MaxLength="6"
+            FontSize="14"
+            Padding="7,5"
+            BorderBrush="#FFCCCCCC"
+            BorderThickness="3"
+            RenderTransformOrigin="0.5,0.5"
+            GotFocus="TextBoxConfirmationCode_GotFocus">
+            <TextBox.Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Border 
+                                    Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="5">
+                                    <ScrollViewer x:Name="PART_ContentHost" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderBrush" Value="#FFCCCCCC"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Foreground" Value="#FF7B7979"/>
+                </Style>
+            </TextBox.Style>
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+    </Grid>
+</Window>

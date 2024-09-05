@@ -3,12 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="WFP_Project.UserControls.SignUp" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        x:Class="WFP_Project.UserControls.SignUp" 
         mc:Ignorable="d"
         Title="SignUp" Height="267" Width="335" 
-        Loaded="Window_Loaded" Background="Transparent">
+        Loaded="Window_Loaded">
+        <Window.Background>
+            <SolidColorBrush Color="Transparent"/>
+        </Window.Background>
     <Grid>
-
         <RadioButton
             x:Name="RadioButtonLogin"
             Margin="215,4,0,0"
@@ -41,7 +44,7 @@
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 CornerRadius="5"
-                                Margin="10,0,0,0">
+                                Margin="10,0,0,0" GotFocus="TextBoxNewLogin_GotFocus">
                                 <Border.Background>
                                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                         <GradientStop Offset="0" Color="#B0BEC5" />
@@ -125,14 +128,14 @@
             HorizontalAlignment="Left"            
             Foreground="#FF7B7979"            
             Text="Enter new login" 
-            Height="36" Width="145"
-            GotFocus="TextBoxNewLogin_GotFocus" 
+            Height="36" Width="145" 
             MaxLength="50"
             FontSize="14"
             Padding="7,5"
             BorderBrush="#FFCCCCCC"
             BorderThickness="3"
-            RenderTransformOrigin="0.5,0.5">
+            RenderTransformOrigin="0.5,0.5" 
+            GotFocus="TextBoxNewLogin_GotFocus">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Template">
@@ -184,14 +187,14 @@
             HorizontalAlignment="Left"            
             Foreground="#FF7B7979"            
             Text="Enter new password" 
-            Height="36" Width="145"
-            GotFocus="TextBoxNewPassword_GotFocus" 
+            Height="36" Width="145" 
             MaxLength="50"
             FontSize="14"
             Padding="7,5"
             BorderBrush="#FFCCCCCC"
             BorderThickness="3"
-            RenderTransformOrigin="0.5,0.5">
+            RenderTransformOrigin="0.5,0.5" 
+            GotFocus="TextBoxNewPassword_GotFocus">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Template">
@@ -245,14 +248,14 @@
             HorizontalAlignment="Left"            
             Foreground="#FF7B7979"            
             Text="Repeat password" 
-            Height="36" Width="145"
-            GotFocus="TextBoxNewRepeatPassword_GotFocus" 
+            Height="36" Width="145" 
             MaxLength="50"
             FontSize="14"
             Padding="7,5"
             BorderBrush="#FFCCCCCC"
             BorderThickness="3"
-            RenderTransformOrigin="0.5,0.5">
+            RenderTransformOrigin="0.5,0.5" 
+            GotFocus="TextBoxNewRepeatPassword_GotFocus">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Template">
@@ -296,7 +299,7 @@
             Text="ROLE"
             VerticalAlignment="Top"/>
         <ComboBox 
-            x:Name="ComboBoxnNewRoleType"
+            x:Name="ComboBoxNewRoleType"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Width="145"
@@ -305,7 +308,7 @@
             SelectedIndex="0"
             Background="#FFEEEEEE"
             BorderBrush="#FFCCCCCC"
-            BorderThickness="3" GotFocus="TextBoxNewEmail_GotFocus">
+            BorderThickness="3">
             <ComboBox.Template>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
                     <Grid>
@@ -392,15 +395,15 @@
             VerticalAlignment="Top"
             HorizontalAlignment="Left"            
             Foreground="#FF7B7979"            
-            Text="New email" 
+            Text="Enter new email" 
             Height="36" Width="145"
-            GotFocus="TextBoxNewRepeatPassword_GotFocus" 
             MaxLength="50"
             FontSize="14"
             Padding="7,5"
             BorderBrush="#FFCCCCCC"
             BorderThickness="3"
-            RenderTransformOrigin="0.5,0.5">
+            RenderTransformOrigin="0.5,0.5" 
+            GotFocus="TextBoxNewEmail_GotFocus">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Template">
