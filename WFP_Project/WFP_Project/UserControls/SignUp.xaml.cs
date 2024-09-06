@@ -10,7 +10,7 @@ namespace WFP_Project.UserControls
     public partial class SignUp : Window
     {
         private string _confirmationCode;
-        private string _emailToConfirm;
+        private string _email;
         private string _login;
         private string _password;
         private string _role;
@@ -37,13 +37,25 @@ namespace WFP_Project.UserControls
         private void ButtonSignIn_Click(object sender, RoutedEventArgs e)
         {
             _login = TextBoxNewLogin.Text;
-            _password = TextBoxNewPassword.Text;
+            _password = PasswordBoxNewPassword.Password;
             string repeatPassword = TextBoxNewRepeatPassword.Text;
-            _emailToConfirm = TextBoxNewEmail.Text;
+            _email = TextBoxNewEmail.Text;
 
             if (ComboBoxNewRoleType.SelectedItem is ComboBoxItem selectedRole)
             {
                 _role = selectedRole.Content.ToString();
+            }
+
+            if(_login.Length < 5 || _login == "Enter new login") 
+            {
+                MessageBox.Show("Minimum 5 characters required in login!");
+                return;
+            }
+
+            if (_password.Length < 8 || _password == "Enter new password")
+            {
+                MessageBox.Show("Minimum 8 characters required in password!");
+                return;
             }
 
             if (_password != repeatPassword)
@@ -52,8 +64,14 @@ namespace WFP_Project.UserControls
                 return;
             }
 
+            if (_password == "12345678" || _password == "87654321" || _password == "11223344" || _password == "44332211")
+            {
+                MessageBox.Show("we ask for strong passwords");
+                return;
+            }
+
             UserManagement userManagement = new UserManagement();
-            bool emailExists = userManagement.EmailExists(_emailToConfirm); // Новый метод проверки email
+            bool emailExists = userManagement.EmailExists(_email);
 
             if (emailExists)
             {
@@ -65,9 +83,9 @@ namespace WFP_Project.UserControls
 
             try
             {
-                SendConfirmationEmail(_emailToConfirm, _confirmationCode);
+                SendConfirmationEmail(_email, _confirmationCode);
 
-                var confirmEmail = new ConfirmEmail(_confirmationCode, _login, _password, _role, _emailToConfirm);
+                var confirmEmail = new ConfirmEmail(_confirmationCode, _login, _password, _role, _email);
                 var mainWindow = Application.Current.MainWindow as MainWindow;
                 if (mainWindow != null)
                 {
@@ -83,8 +101,8 @@ namespace WFP_Project.UserControls
 
         private string GenerateConfirmationCode()
         {
-            Random random = new Random();
-            return random.Next(100000, 999999).ToString();
+            Random RandomCode = new Random();
+            return RandomCode.Next(100000, 999999).ToString();
         }
 
         private void SendConfirmationEmail(string toEmail, string code)
@@ -99,15 +117,14 @@ namespace WFP_Project.UserControls
 
                 mail.From = new MailAddress(fromEmail);
                 mail.To.Add(toEmail);
-                mail.Subject = "Email Confirmation Code";
-                mail.Body = $"Hello!!!\n\n" +
-                            $"Thank you for registering. Your confirmation code is: {code}\n\n" +
-                            $"Best regards,\n" +
-                            $"From Your Company";
+                mail.IsBodyHtml = true;
+                mail.Subject = $"Email Confirmation Code, This is {code}";
+                mail.Body = $"<b>{_login}</b>, Hello!!! <br><br>" +
+                            $"Thank you for registering. Your confirmation code is: <b>{code}</b>";
 
-                SmtpServer.Port = 587; // 587 - TLS 465 - SSL [Google]
+                SmtpServer.EnableSsl = true; 
+                SmtpServer.Port = 587; // 587 - TLS, 465 - SSL [Google]
                 SmtpServer.Credentials = new NetworkCredential(fromEmail, fromPassword);
-                SmtpServer.EnableSsl = true;
                 SmtpServer.Send(mail);
             }
             catch
@@ -118,21 +135,13 @@ namespace WFP_Project.UserControls
 
         private void TextBoxNewLogin_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (TextBoxNewLogin.Text == "Enter new login")
+            if (_login == "Enter new login")
             {
-                TextBoxNewLogin.Text = "";
+                _login = "";
                 TextBoxNewLogin.Foreground = Brushes.Black;
             }
         }
 
-        private void TextBoxNewPassword_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxNewPassword.Text == "Enter new password")
-            {
-                TextBoxNewPassword.Text = "";
-                TextBoxNewPassword.Foreground = Brushes.Black;
-            }
-        }
 
         private void TextBoxNewRepeatPassword_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -145,10 +154,35 @@ namespace WFP_Project.UserControls
 
         private void TextBoxNewEmail_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (TextBoxNewEmail.Text == "Enter new email")
+            if (_email == "Enter new email")
             {
-                TextBoxNewEmail.Text = "";
+                _email = "";
                 TextBoxNewEmail.Foreground = Brushes.Black;
+            }
+        }
+
+        private void PasswordBoxNewPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (_password == "Enter new password")
+            {
+                _password = "";
+                PasswordBoxNewPassword.Foreground = Brushes.Black;
+            }
+        }
+
+        private void ButtonTogglePassword_Click(object sender, RoutedEventArgs e)
+        {
+            if (PasswordBoxNewPassword.Visibility == Visibility.Visible)
+            {
+                TextBoxNewPassword.Text = PasswordBoxNewPassword.Password;
+                TextBoxNewPassword.Visibility = Visibility.Visible;
+                PasswordBoxNewPassword.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                PasswordBoxNewPassword.Password = TextBoxNewPassword.Text;
+                PasswordBoxNewPassword.Visibility = Visibility.Visible;
+                TextBoxNewPassword.Visibility = Visibility.Collapsed;
             }
         }
     }

@@ -38,7 +38,7 @@
             Text="Enter login" 
             Height="36" Width="145"
             GotFocus="TextBoxLogin_GotFocus" 
-            MaxLength="50"
+            MaxLength="20"
             FontSize="14"
             Padding="7,5"
             BorderBrush="#FFCCCCCC"
