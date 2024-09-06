@@ -140,7 +140,7 @@ namespace WFP_Project.Classes
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string dropOldTableQuery = $"IF OBJECT_ID('{tableName}', 'U') IS NOT NULL DROP TABLE [{tableName}]";
+                string checkTableQuery = $"IF OBJECT_ID('{tableName}', 'U') IS NOT NULL SELECT 1 ELSE SELECT 0";
                 string createTableQuery = $"SELECT * INTO [{tableName}] FROM [UserS]";
 
                 using (SqlCommand cmd = new SqlCommand())
@@ -151,11 +151,19 @@ namespace WFP_Project.Classes
                     {
                         conn.Open();
 
-                        cmd.CommandText = dropOldTableQuery;
-                        cmd.ExecuteNonQuery();
+                        cmd.CommandText = checkTableQuery;
+                        int tableExists = (int)cmd.ExecuteScalar();
 
-                        cmd.CommandText = createTableQuery;
-                        cmd.ExecuteNonQuery();
+                        if (tableExists == 1)
+                        {
+                            throw new Exception("Table with this name already exists. Please choose a different name.");
+                        }
+                        else
+                        {
+                            cmd.CommandText = createTableQuery;
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show($"Data successfully archived to table '{tableName}'", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
                     }
                     catch (Exception ex)
                     {

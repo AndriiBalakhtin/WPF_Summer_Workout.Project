@@ -69,10 +69,7 @@ namespace WFP_Project.UserControls
         private void ResizeWindowForAuthenticatedUser()
         {
             this.ResizeMode = ResizeMode.CanResize;
-            this.Height = 600;
-            this.Width = 1140;
-            this.MinHeight = 600;
-            this.MinWidth = 1140;
+            this.Height = 600; this.Width = 1140; this.MinHeight = 600; this.MinWidth = 1140;         
         }
 
         private void HideLoginUIElements()

@@ -37,19 +37,6 @@ namespace WFP_Project.Pages
             archivedDataGrid.Width = windowWidth - 20;
         }
 
-        private void LoadOverlay()
-        {
-            try
-            {
-                DataTable dataTable = DataBase.GetUserData();
-                archivedDataGrid.ItemsSource = dataTable.DefaultView;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while loading data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-
         private void LoadTableData(string tableName)
         {
             try
@@ -224,7 +211,6 @@ namespace WFP_Project.Pages
                 {
                     DataBase.DeleteTable(tableName);
                     LoadArchivedTables();
-                    MessageBox.Show("Table deleted successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)
                 {

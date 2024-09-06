@@ -6,10 +6,10 @@
     <Compile Update="Classes\SettingsManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Pages\Editor.xaml.cs">
+    <Compile Update="Windows\Editor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Pages\GuiArchive.xaml.cs">
+    <Compile Update="Windows\GuiArchive.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Pages\Home.xaml.cs">
@@ -32,10 +32,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Pages\Editor.xaml">
+    <Page Update="Windows\Editor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Pages\GuiArchive.xaml">
+    <Page Update="Windows\GuiArchive.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\Home.xaml">

@@ -26,7 +26,6 @@ namespace WFP_Project.Pages
                 try
                 {
                     DataBase.ArchiveUserData(tableName);
-                    MessageBox.Show("Table archived successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)
                 {

@@ -9,9 +9,8 @@ namespace WFP_Project.Classes
         {
             if (mainWindow != null)
             {
-                mainWindow.BlockUserControl.Visibility = Visibility.Collapsed;
-                mainWindow.LockIcon.Visibility = Visibility.Collapsed;
-
+                mainWindow.BlockUserControl.Visibility = Visibility.Hidden;
+                mainWindow.LockIcon.Visibility = Visibility.Hidden;
                 mainWindow.ResizeMode = ResizeMode.CanResize;
                 mainWindow.Height = 600; mainWindow.Width = 1140; mainWindow.MinHeight = 600; mainWindow.MinWidth = 1140;
             }
