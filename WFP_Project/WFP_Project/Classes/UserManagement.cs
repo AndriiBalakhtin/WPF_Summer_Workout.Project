@@ -46,6 +46,32 @@ namespace WFP_Project.Classes
             return false;
         }
 
+        public bool EmailExists(string email)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM [UserSData] WHERE Email = @Email";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Email", email);
+
+                    try
+                    {
+                        conn.Open();
+                        int emailCount = (int)cmd.ExecuteScalar();
+
+                        return emailCount > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred while checking email: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return false;
+                    }
+                }
+            }
+        }
+
         public void SaveUserData(string login, string password, string role, string email)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))

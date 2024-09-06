@@ -52,6 +52,15 @@ namespace WFP_Project.UserControls
                 return;
             }
 
+            UserManagement userManagement = new UserManagement();
+            bool emailExists = userManagement.EmailExists(_emailToConfirm); // Новый метод проверки email
+
+            if (emailExists)
+            {
+                MessageBox.Show("This email is already registered. Please use a different email.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             _confirmationCode = GenerateConfirmationCode();
 
             try
