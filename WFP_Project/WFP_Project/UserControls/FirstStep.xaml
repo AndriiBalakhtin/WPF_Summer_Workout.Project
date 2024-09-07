@@ -52,7 +52,7 @@
             VerticalAlignment="Top"
             HorizontalAlignment="Left"
             Background="Transparent"
-            Height="35" Width="115"
+            Height="35" Width="116"
             Checked="RadioButtonLogin_Checked"
             RenderTransformOrigin="0.5,0.5">
             <RadioButton.Template>
@@ -146,7 +146,7 @@
             VerticalAlignment="Top"
             HorizontalAlignment="Left"
             Background="Transparent"
-            Height="35" Width="115"
+            Height="35" Width="116"
             Checked="RadioButtonSignUp_Checked" 
             RenderTransformOrigin="0.5,0.5">
             <RadioButton.Template>

@@ -18,7 +18,7 @@
             VerticalAlignment="Top"
             HorizontalAlignment="Left"
             Background="Transparent"
-            Height="36" Width="115"
+            Height="36" Width="116"
             Checked="RadioButtonLogin_Checked">
             <RadioButton.Template>
                 <ControlTemplate TargetType="{x:Type RadioButton}">

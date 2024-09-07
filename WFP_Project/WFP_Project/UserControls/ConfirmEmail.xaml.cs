@@ -26,6 +26,16 @@ namespace WFP_Project.UserControls
             SettingsManager.ApplySelectedTheme();
         }
 
+        private void RadioButtonReturnBackToSignUp_Checked(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            if (mainWindow != null)
+            {
+                var signUp = new SignUp();
+                SignUpMenu.ReturnToSignUpMenu(signUp, mainWindow);
+            }
+        }
+
         private void ButtonConfirmEmail_Click(object sender, RoutedEventArgs e)
         {
             string enteredCode = TextBoxConfirmationCode.Text;
