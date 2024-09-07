@@ -182,7 +182,7 @@
         <PasswordBox 
             x:Name="PasswordBoxNewPassword"
             Margin="20,134,193,0"
-            Width="122" Height="36" 
+            Height="36" 
             MaxLength="50"
             FontSize="14"
             Padding="7,5"
@@ -223,9 +223,9 @@
         </PasswordBox>
         <TextBox 
             x:Name="TextBoxNewPassword"
-            Margin="20,134,193,0"
-            Width="122" Height="36" 
-            Text="Enter new password"
+            Margin="20,134,193,0" 
+            Height="36" 
+            Text="Enter new pass..."
             MaxLength="50"
             FontSize="14"
             Padding="7,5"
@@ -266,12 +266,17 @@
             </TextBox.Style>
         </TextBox>
         <Button 
-            Margin="142,140,167,0" Height="24" 
+            Margin="142,142,167,0" 
+            Height="20" Width="20"
             BorderThickness="0"
             Background="Transparent"
-            Content="👁" 
             Click="ButtonToggleShowPassword_Click" 
-            VerticalAlignment="Top"/>
+            VerticalAlignment="Top">
+            <materialDesign:PackIcon 
+                x:Name="ShowPasswordToggleIcon" 
+                Kind="EyeOff"
+                Height="18"  Width="18" />
+        </Button>
         <TextBlock
             x:Name="TextBlockRepeatPassword"
             HorizontalAlignment="Left"
@@ -283,7 +288,7 @@
         <PasswordBox 
             x:Name="PasswordBoxNewRepeatPassword"
             Margin="20,194,193,0"
-            Width="122" Height="36" 
+            Height="36" 
             MaxLength="50"
             FontSize="14"
             Padding="7,5"
@@ -325,8 +330,8 @@
         <TextBox 
             x:Name="TextBoxNewRepeatPassword"
             Margin="20,194,193,0"
-            Width="122" Height="36" 
-            Text="Repeat password"
+            Height="36" 
+            Text="Repeat pass..."
             MaxLength="50"
             FontSize="14"
             Padding="7,5"
@@ -367,12 +372,17 @@
             </TextBox.Style>
         </TextBox>
         <Button 
-        Margin="142,200,167,0" Height="24" 
-        BorderThickness="0"
-        Background="Transparent"
-        Content="👁" 
-        Click="ButtonToggleShowRepeat_Click" 
-        VerticalAlignment="Top"/>
+            Margin="142,202,167,0" 
+            Height="20" Width="20"
+            BorderThickness="0"
+            Background="Transparent"
+            Click="ButtonToggleShowRepeatPassword_Click" 
+            VerticalAlignment="Top">
+            <materialDesign:PackIcon 
+                x:Name="ShowRepeatPasswordToggleIcon" 
+                Kind="EyeOff" 
+                Height="18" Width="18" />
+        </Button>
         <TextBlock
             x:Name="TextBlockRoleType"
             HorizontalAlignment="Left"

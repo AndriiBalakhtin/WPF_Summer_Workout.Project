@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using MaterialDesignThemes.Wpf;
+using System.Net;
 using System.Net.Mail;
 using System.Windows;
 using System.Windows.Controls;
@@ -43,9 +44,9 @@ namespace WFP_Project.UserControls
             _email = TextBoxNewEmail.Text;
 
             PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
-            PasswordBoxNewPassword.Visibility = Visibility.Visible;
-            TextBoxNewRepeatPassword.Visibility = Visibility.Collapsed;
-            TextBoxNewPassword.Visibility = Visibility.Collapsed;
+            PasswordBoxNewPassword.Visibility       = Visibility.Visible;
+            TextBoxNewRepeatPassword.Visibility     = Visibility.Collapsed;
+            TextBoxNewPassword.Visibility           = Visibility.Collapsed;
 
             if (ComboBoxNewRoleType.SelectedItem is ComboBoxItem selectedRole)
             {
@@ -142,33 +143,55 @@ namespace WFP_Project.UserControls
 
         private void ButtonToggleShowPassword_Click(object sender, RoutedEventArgs e)
         {
+            if (TextBoxNewPassword.Text == "Enter new pass...")
+            {
+                TextBoxNewPassword.Text = "";
+                TextBoxNewPassword.Foreground     = Brushes.Black;
+                PasswordBoxNewPassword.Foreground = Brushes.Black;
+                TextBoxNewPassword.Visibility     = Visibility.Collapsed;
+                PasswordBoxNewPassword.Visibility = Visibility.Visible;
+                PasswordBoxNewPassword.Focus();
+            }
             if (PasswordBoxNewPassword.Visibility == Visibility.Visible)
             {
-                TextBoxNewPassword.Text = PasswordBoxNewPassword.Password;
-                TextBoxNewPassword.Visibility = Visibility.Visible;
+                ShowPasswordToggleIcon.Kind       = PackIconKind.Eye;
+                TextBoxNewPassword.Text           = PasswordBoxNewPassword.Password;
+                TextBoxNewPassword.Visibility     = Visibility.Visible;
                 PasswordBoxNewPassword.Visibility = Visibility.Collapsed;
             }
             else
             {
-                PasswordBoxNewPassword.Password = TextBoxNewPassword.Text;
+                ShowPasswordToggleIcon.Kind       = PackIconKind.EyeOff;
+                PasswordBoxNewPassword.Password   = TextBoxNewPassword.Text;
                 PasswordBoxNewPassword.Visibility = Visibility.Visible;
-                TextBoxNewPassword.Visibility = Visibility.Collapsed;
+                TextBoxNewPassword.Visibility     = Visibility.Collapsed;
             }
         }
 
-        private void ButtonToggleShowRepeat_Click(object sender, RoutedEventArgs e)
+        private void ButtonToggleShowRepeatPassword_Click(object sender, RoutedEventArgs e)
         {
+            if (TextBoxNewRepeatPassword.Text == "Repeat pass...")
+            {
+                TextBoxNewRepeatPassword.Text = "";
+                TextBoxNewRepeatPassword.Foreground     = Brushes.Black;
+                PasswordBoxNewRepeatPassword.Foreground = Brushes.Black;
+                TextBoxNewRepeatPassword.Visibility     = Visibility.Collapsed;
+                PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
+                PasswordBoxNewRepeatPassword.Focus();
+            }
             if (PasswordBoxNewRepeatPassword.Visibility == Visibility.Visible)
             {
-                TextBoxNewRepeatPassword.Text = PasswordBoxNewRepeatPassword.Password;
-                TextBoxNewRepeatPassword.Visibility = Visibility.Visible;
+                ShowRepeatPasswordToggleIcon.Kind       = PackIconKind.Eye;
+                TextBoxNewRepeatPassword.Text           = PasswordBoxNewRepeatPassword.Password;
+                TextBoxNewRepeatPassword.Visibility     = Visibility.Visible;
                 PasswordBoxNewRepeatPassword.Visibility = Visibility.Collapsed;
             }
             else
             {
-                PasswordBoxNewRepeatPassword.Password = TextBoxNewRepeatPassword.Text;
+                ShowRepeatPasswordToggleIcon.Kind       = PackIconKind.EyeOff;
+                PasswordBoxNewRepeatPassword.Password   = TextBoxNewRepeatPassword.Text;
                 PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
-                TextBoxNewRepeatPassword.Visibility = Visibility.Collapsed;
+                TextBoxNewRepeatPassword.Visibility     = Visibility.Collapsed;
             }
         }
 
@@ -219,11 +242,12 @@ namespace WFP_Project.UserControls
 
         private void TextBoxNewPassword_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (TextBoxNewPassword.Text == "Enter new password")
+            if (TextBoxNewPassword.Text == "Enter new pass...")
             {
                 TextBoxNewPassword.Text = "";
-                TextBoxNewPassword.Foreground = Brushes.Black;
-                TextBoxNewPassword.Visibility = Visibility.Collapsed;
+                TextBoxNewPassword.Foreground     = Brushes.Black;
+                PasswordBoxNewPassword.Foreground = Brushes.Black;
+                TextBoxNewPassword.Visibility     = Visibility.Collapsed;
                 PasswordBoxNewPassword.Visibility = Visibility.Visible;
                 PasswordBoxNewPassword.Focus();
             }
@@ -231,11 +255,12 @@ namespace WFP_Project.UserControls
 
         private void TextBoxNewRepeatPassword_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (TextBoxNewRepeatPassword.Text == "Repeat password")
+            if (TextBoxNewRepeatPassword.Text == "Repeat pass...")
             {
                 TextBoxNewRepeatPassword.Text = "";
-                TextBoxNewRepeatPassword.Foreground = Brushes.Black;
-                TextBoxNewRepeatPassword.Visibility = Visibility.Collapsed;
+                TextBoxNewRepeatPassword.Foreground     = Brushes.Black;
+                PasswordBoxNewRepeatPassword.Foreground = Brushes.Black;
+                TextBoxNewRepeatPassword.Visibility     = Visibility.Collapsed;
                 PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
                 PasswordBoxNewRepeatPassword.Focus();
             }
