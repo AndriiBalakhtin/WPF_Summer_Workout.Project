@@ -133,7 +133,8 @@ namespace WFP_Project.UserControls
                 mail.To.Add(toEmail);
                 mail.IsBodyHtml = true;
                 mail.Subject = $"Email Confirmation Code, This is {code}";
-                mail.Body = $"<b>{_login}</b>, Hello!!! <br><br>" +
+                mail.Body = $"Hello!!!, <b>{_login}</b> <br><br>" +
+                            $"Your role this is, <b>{_role}</b> <br><br>" +
                             $"Thank you for registering. Your confirmation code is: <b>{code}</b>";
 
                 SmtpServer.EnableSsl = true; 
