@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="WFP_Project.UserControls.ConfirmEmail"
         mc:Ignorable="d"
         Title="ConfirmEmail"
-        Height="220" Width="335"
+        Height="258" Width="335"
         Loaded="Window_Loaded">
     <Window.Background>
         <SolidColorBrush Color="Transparent"/>
@@ -101,6 +101,15 @@
             </RadioButton.Template>
             <RadioButton Content="RadioButton"/>
         </RadioButton>
+        <Border 
+            x:Name="ConfirmEmailRectangleUI" 
+            Margin="30,84,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="77" Width="270"
+            BorderBrush="Gray"
+            CornerRadius="10"
+            BorderThickness="1"/>
         <Button
             Content="Confirm"
             Margin="40,110,0,0" 
@@ -115,14 +124,6 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Border 
-            x:Name="ConfirmEmailRectangleUI" 
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Height="110" Width="270"
-            BorderBrush="Gray"
-            CornerRadius="10"
-            BorderThickness="1" Margin="30,84,0,0"/>
         <TextBlock
             x:Name="TextBlockCheckEmail"
             HorizontalAlignment="Left"
@@ -181,5 +182,29 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
+        <Border 
+            x:Name="ButtonSendAgainEmailRectangleUI" 
+            Margin="78,160,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="66" Width="190"
+            BorderBrush="Gray"
+            CornerRadius="10"
+            BorderThickness="1"/>
+        <Button
+            x:Name="ButtonSendAgainEmail"
+            Content="Send again"
+            Margin="93,176,0,0" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Height="36" Width="160"
+            Click="ButtonSendAgainEmail_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#003366" Offset="0"/>
+                    <GradientStop Color="#0066cc" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

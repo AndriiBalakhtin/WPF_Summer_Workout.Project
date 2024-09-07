@@ -40,7 +40,7 @@ namespace WFP_Project.UserControls
         {
             _login = TextBoxNewLogin.Text;
             _password = PasswordBoxNewPassword.Password; 
-            string repeatPassword = PasswordBoxNewRepeatPassword.Password; 
+            string repeatPassword = PasswordBoxNewRepeatPassword.Password;
             _email = TextBoxNewEmail.Text;
 
             ShowPasswordToggleIcon.Kind             = PackIconKind.EyeOff;
@@ -99,6 +99,7 @@ namespace WFP_Project.UserControls
             {
                 SendConfirmationEmail(_email, _confirmationCode);
 
+                var email = GetEmail();
                 var confirmEmail = new ConfirmEmail(_confirmationCode, _login, _password, _role, _email);
                 var mainWindow = Application.Current.MainWindow as MainWindow;
                 if (mainWindow != null)
@@ -111,6 +112,11 @@ namespace WFP_Project.UserControls
                 MessageBox.Show(ex.Message);
                 return;
             }
+        }
+
+        public string GetEmail()
+        {
+            return TextBoxNewEmail.Text;
         }
 
         private string GenerateConfirmationCode()
@@ -134,7 +140,7 @@ namespace WFP_Project.UserControls
                 mail.IsBodyHtml = true;
                 mail.Subject = $"Email Confirmation Code, This is {code}";
                 mail.Body = $"Hello!!!, <b>{_login}</b> <br><br>" +
-                            $"Your role this is, <b>{_role}</b> <br><br>" +
+                            $"Your role this is, <b>[ {_role} ]</b> <br><br>" +
                             $"Thank you for registering. Your confirmation code is: <b>{code}</b>";
 
                 SmtpServer.EnableSsl = true; 

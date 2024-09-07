@@ -10,6 +10,18 @@ namespace WFP_Project.Classes
             "AttachDbFilename=C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\Databases\\UserManagement\\UserManagement.mdf;" +
             "Integrated Security=True;Connect Timeout=30";
 
+        private string _email;
+
+        public string GetEmail()
+        {
+            return _email;
+        }
+
+        public void SetEmail(string newEmail)
+        {
+            _email = newEmail;
+        }
+
         public DataTable GetUserData()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))

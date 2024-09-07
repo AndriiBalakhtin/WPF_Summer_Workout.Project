@@ -1,5 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Net.Mail;
+using System.Net;
+using System.Windows;
 using System.Windows.Media;
+using System.Windows.Threading;
 using WFP_Project.Classes;
 
 namespace WFP_Project.UserControls
@@ -11,6 +15,11 @@ namespace WFP_Project.UserControls
         private string _password;
         private string _role;
         private string _emailToConfirm;
+
+        private DispatcherTimer _timer;
+        private int _countdownTime = 31;
+        private bool _countdownComplete = false;
+
         public ConfirmEmail(string confirmationCode, string login, string password, string role, string emailToConfirm)
         {
             InitializeComponent();
@@ -19,11 +28,39 @@ namespace WFP_Project.UserControls
             _password = password;
             _role = role;
             _emailToConfirm = emailToConfirm;
+
+            _timer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
+            _timer.Tick += Timer_Tick;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SettingsManager.ApplySelectedTheme();
+        }
+
+        private void StartCountdown()
+        {
+            _countdownTime = 30;
+            _countdownComplete = false;
+            ButtonSendAgainEmail.IsEnabled = false;
+            _timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (!_countdownComplete)
+            {
+                _countdownTime--;
+                ButtonSendAgainEmail.Content = $"{_countdownTime} seconds remaining";
+
+                if (_countdownTime <= 0)
+                {
+                    ButtonSendAgainEmail.Content = "Send again";
+                    ButtonSendAgainEmail.IsEnabled = true;
+                    _countdownComplete = true;
+                    _timer.Stop();
+                }
+            }
         }
 
         private void RadioButtonReturnBackToSignUp_Checked(object sender, RoutedEventArgs e)
@@ -59,12 +96,65 @@ namespace WFP_Project.UserControls
                 MessageBox.Show("Invalid confirmation code.");
             }
         }
+
         private void TextBoxConfirmationCode_GotFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxConfirmationCode.Text == "Enter the digital code")
             {
                 TextBoxConfirmationCode.Text = "";
                 TextBoxConfirmationCode.Foreground = Brushes.Black;
+            }
+        }
+
+        private void ButtonSendAgainEmail_Click(object sender, RoutedEventArgs e)
+        {
+            StartCountdown();
+
+            _confirmationCode = GenerateConfirmationCode();
+
+            try
+            {
+                SendConfirmationEmail(_emailToConfirm, _confirmationCode);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private string GenerateConfirmationCode()
+        {
+            Random random = new Random();
+            return random.Next(100000, 999999).ToString();
+        }
+
+        private void SendConfirmationEmail(string toEmail, string code)
+        {
+            string fromEmail = "wfpworkoutregestration@gmail.com";
+            string fromPassword = "ajrx djws crji xhym";
+
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress(fromEmail);
+                mail.To.Add(toEmail);
+                mail.IsBodyHtml = true;
+                mail.Subject = $"Email Confirmation Code: {code}";
+                mail.Body = $"Hello, <b>{_login}</b> <br><br>" +
+                            $"Your role is <b>[ {_role} ]</b> <br><br>" +
+                            $"Thank you for registering. Your confirmation code is: <b>{code}</b>";
+
+                smtpServer.EnableSsl = true;
+                smtpServer.Port = 587; // 587 - TLS, 465 - SSL [Google]
+                smtpServer.Credentials = new NetworkCredential(fromEmail, fromPassword);
+                smtpServer.Send(mail);
+            }
+            catch
+            {
+                throw new Exception("Incorrect email address");
             }
         }
     }
