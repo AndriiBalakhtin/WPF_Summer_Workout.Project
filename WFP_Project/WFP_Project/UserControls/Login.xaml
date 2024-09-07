@@ -85,33 +85,76 @@
             Margin="20,130,0,0" 
             TextWrapping="Wrap" 
             Text="PASSWORD"
-            VerticalAlignment="Top" RenderTransformOrigin="0.562,1.318"/>
+            VerticalAlignment="Top" 
+            RenderTransformOrigin="0.5,0.5"/>
+        <PasswordBox 
+            x:Name="PasswordBoxPassword"
+            Margin="20,150,193,0" 
+            Height="36" 
+            MaxLength="50"
+            FontSize="14"
+            Padding="7,5"
+            BorderBrush="#FFCCCCCC"
+            BorderThickness="3"
+            RenderTransformOrigin="0.5,0.5" 
+            VerticalAlignment="Top"
+            Visibility="Collapsed"
+            PreviewKeyDown="PasswordBoxPassword_PreviewKeyDown">
+            <PasswordBox.Style>
+                <Style TargetType="{x:Type PasswordBox}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type PasswordBox}">
+                                <Border 
+                                    Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="5">
+                                    <ScrollViewer x:Name="PART_ContentHost" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderBrush" Value="#FFCCCCCC"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Foreground" Value="#FF7B7979"/>
+                </Style>
+            </PasswordBox.Style>
+        </PasswordBox>
         <TextBox 
-             x:Name="TextBoxPassword"
-             Margin="20,150,0,0" 
-             TextAlignment="Left"
-             VerticalAlignment="Top"
-             HorizontalAlignment="Left"            
-             Foreground="#FF7B7979"            
-             Text="Enter password" 
-             Height="36" Width="145"
-             GotFocus="TextBoxPassword_GotFocus" 
-             MaxLength="50"
-             FontSize="14"
-             Padding="7,5"
-             BorderBrush="#FFCCCCCC"
-             BorderThickness="3"
-             RenderTransformOrigin="0.5,0.5">
+            x:Name="TextBoxPassword"
+            Margin="20,150,193,0" 
+            Height="36" 
+            Text="Enter pass..."
+            MaxLength="50"
+            FontSize="14"
+            Padding="7,5"
+            BorderBrush="#FFCCCCCC"
+            BorderThickness="3"
+            RenderTransformOrigin="0.5,0.5" 
+            VerticalAlignment="Top"
+            Visibility="Visible"
+            PreviewKeyDown="TextBoxPassword_PreviewKeyDown"
+            GotFocus="TextBoxPassword_GotFocus" 
+            MouseLeave="TextBoxPassword_MouseLeave">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="{x:Type TextBox}">
                                 <Border 
-                                     Background="{TemplateBinding Background}" 
-                                     BorderBrush="{TemplateBinding BorderBrush}" 
-                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                     CornerRadius="5">
+                                    Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="5">
                                     <ScrollViewer x:Name="PART_ContentHost" />
                                 </Border>
                             </ControlTemplate>
@@ -130,15 +173,19 @@
                     <Setter Property="Foreground" Value="#FF7B7979"/>
                 </Style>
             </TextBox.Style>
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="1" ScaleY="1"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0"/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
         </TextBox>
+        <Button 
+            Margin="140,158,167,0" 
+            Height="20" Width="20"
+            BorderThickness="0"
+            Background="Transparent"
+            Click="ButtonToggleShowPassword_Click" 
+            VerticalAlignment="Top">
+            <materialDesign:PackIcon 
+                x:Name="ShowPasswordToggleIcon" 
+                Kind="EyeOff"
+                Height="18"  Width="18" />
+        </Button>
         <TextBlock
             x:Name="TextBlockRole"
             HorizontalAlignment="Left"

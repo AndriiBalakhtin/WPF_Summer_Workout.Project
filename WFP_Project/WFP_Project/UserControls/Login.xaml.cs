@@ -2,6 +2,8 @@
 using System.Windows.Media;
 using WFP_Project.Classes;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
+using MaterialDesignThemes.Wpf;
 namespace WFP_Project.UserControls
 {
     public partial class Login : Window
@@ -30,9 +32,14 @@ namespace WFP_Project.UserControls
         }
         private void Button_Login_Click(object sender, RoutedEventArgs e)
         {
-            string login = TextBoxLogin.Text.Trim();
-            string password = TextBoxPassword.Text.Trim();
-            string role = ComboBoxRoleType.Text.Trim();
+            string login        = TextBoxLogin.Text.Trim();
+            string password     = PasswordBoxPassword.Password.Trim();
+            string role         = ComboBoxRoleType.Text.Trim();
+
+            PasswordBoxPassword.Password   = TextBoxPassword.Text;
+            ShowPasswordToggleIcon.Kind    = PackIconKind.EyeOff;
+            PasswordBoxPassword.Foreground = Brushes.Black;
+            TextBoxPassword.Foreground     = Brushes.Black;
 
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(role))
             {
@@ -41,16 +48,8 @@ namespace WFP_Project.UserControls
             }
 
             bool isAuthenticated;
-            try
-            {
-                isAuthenticated = _userManagement.VerifyUser(login, password, role);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred during authentication: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
+            isAuthenticated = _userManagement.VerifyUser(login, password, role);
+            
             if (isAuthenticated)
             {
                 ResizeWindowForAuthenticatedUser();
@@ -74,15 +73,44 @@ namespace WFP_Project.UserControls
 
         private void HideLoginUIElements()
         {
-            LoginRectangleUI.Visibility = Visibility.Hidden;
-            RadioButtonSignUp.Visibility = Visibility.Hidden;
-            TextBlockLogin.Visibility = Visibility.Hidden;
-            TextBlockPassword.Visibility = Visibility.Hidden;
-            TextBlockRole.Visibility = Visibility.Hidden;
-            TextBoxLogin.Visibility = Visibility.Hidden;
-            TextBoxPassword.Visibility = Visibility.Hidden;
-            ComboBoxRoleType.Visibility = Visibility.Hidden;
-            ButtonLogin.Visibility = Visibility.Hidden;
+            LoginRectangleUI.Visibility       = Visibility.Hidden;
+            RadioButtonSignUp.Visibility      = Visibility.Hidden;
+            TextBlockLogin.Visibility         = Visibility.Hidden;
+            TextBlockPassword.Visibility      = Visibility.Hidden;
+            TextBlockRole.Visibility          = Visibility.Hidden;
+            TextBoxLogin.Visibility           = Visibility.Hidden;
+            TextBoxPassword.Visibility        = Visibility.Hidden;
+            PasswordBoxPassword.Visibility    = Visibility.Hidden;
+            ShowPasswordToggleIcon.Visibility = Visibility.Hidden;
+            ComboBoxRoleType.Visibility       = Visibility.Hidden;
+            ButtonLogin.Visibility            = Visibility.Hidden;
+        }
+
+        private void ButtonToggleShowPassword_Click(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxPassword.Text == "Enter pass...")
+            {
+                TextBoxPassword.Text = "";
+                TextBoxPassword.Foreground     = Brushes.Black;
+                PasswordBoxPassword.Foreground = Brushes.Black;
+                TextBoxPassword.Visibility     = Visibility.Collapsed;
+                PasswordBoxPassword.Visibility = Visibility.Visible;
+                PasswordBoxPassword.Focus();
+            }
+            if (PasswordBoxPassword.Visibility == Visibility.Visible)
+            {
+                ShowPasswordToggleIcon.Kind    = PackIconKind.Eye;
+                TextBoxPassword.Text           = PasswordBoxPassword.Password;
+                TextBoxPassword.Visibility     = Visibility.Visible;
+                PasswordBoxPassword.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                ShowPasswordToggleIcon.Kind    = PackIconKind.EyeOff;
+                PasswordBoxPassword.Password   = TextBoxPassword.Text;
+                PasswordBoxPassword.Visibility = Visibility.Visible;
+                TextBoxPassword.Visibility     = Visibility.Collapsed;
+            }
         }
 
         private void TextBoxLogin_GotFocus(object sender, RoutedEventArgs e)
@@ -96,11 +124,49 @@ namespace WFP_Project.UserControls
 
         private void TextBoxPassword_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (TextBoxPassword.Text == "Enter password")
+            if (TextBoxPassword.Text == "Enter pass...")
+            {
+                TextBoxPassword.Text = "";
+                TextBoxPassword.Foreground     = Brushes.Black;
+                PasswordBoxPassword.Foreground = Brushes.Black;
+                TextBoxPassword.Visibility     = Visibility.Collapsed;
+                PasswordBoxPassword.Visibility = Visibility.Visible;
+                PasswordBoxPassword.Focus();
+            }
+        }
+
+        private void PasswordBoxPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            TextBoxPassword.Text = PasswordBoxPassword.Password;
+            if ((Keyboard.Modifiers == ModifierKeys.Control) && (e.Key == Key.C || e.Key == Key.V))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBoxPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            PasswordBoxPassword.Password = TextBoxPassword.Text;
+            if ((Keyboard.Modifiers == ModifierKeys.Control) && (e.Key == Key.C || e.Key == Key.V))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBoxPassword_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (TextBoxPassword.Text == "Enter pass...")
             {
                 TextBoxPassword.Text = "";
                 TextBoxPassword.Foreground = Brushes.Black;
+                PasswordBoxPassword.Foreground = Brushes.Black;
+                TextBoxPassword.Visibility = Visibility.Collapsed;
+                PasswordBoxPassword.Visibility = Visibility.Visible;
             }
+            ShowPasswordToggleIcon.Kind = PackIconKind.EyeOff;
+            PasswordBoxPassword.Password = TextBoxPassword.Text;
+            PasswordBoxPassword.Visibility = Visibility.Visible;
+            TextBoxPassword.Visibility = Visibility.Collapsed;
         }
     }
 }

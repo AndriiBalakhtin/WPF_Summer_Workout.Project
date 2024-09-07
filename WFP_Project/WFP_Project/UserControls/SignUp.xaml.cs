@@ -43,6 +43,12 @@ namespace WFP_Project.UserControls
             string repeatPassword = PasswordBoxNewRepeatPassword.Password; 
             _email = TextBoxNewEmail.Text;
 
+            ShowPasswordToggleIcon.Kind             = PackIconKind.EyeOff;
+            ShowRepeatPasswordToggleIcon.Kind       = PackIconKind.EyeOff;
+            PasswordBoxNewRepeatPassword.Foreground = Brushes.Black;
+            PasswordBoxNewPassword.Foreground       = Brushes.Black;
+            TextBoxNewRepeatPassword.Foreground     = Brushes.Black;
+            TextBoxNewPassword.Foreground           = Brushes.Black;
             PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
             PasswordBoxNewPassword.Visibility       = Visibility.Visible;
             TextBoxNewRepeatPassword.Visibility     = Visibility.Collapsed;
@@ -59,7 +65,7 @@ namespace WFP_Project.UserControls
                 return;
             }
 
-            if (_password.Length < 8 || _password == "Enter new password")
+            if (_password.Length < 8 || _password == "Enter new pass...")
             {
                 MessageBox.Show("Minimum 8 characters required in password!");
                 return;
@@ -253,6 +259,22 @@ namespace WFP_Project.UserControls
             }
         }
 
+        private void TextBoxNewPassword_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (TextBoxNewPassword.Text == "Enter new pass...")
+            {
+                TextBoxNewPassword.Text = "";
+                TextBoxNewPassword.Foreground     = Brushes.Black;
+                PasswordBoxNewPassword.Foreground = Brushes.Black;
+                TextBoxNewPassword.Visibility     = Visibility.Collapsed;
+                PasswordBoxNewPassword.Visibility = Visibility.Visible;
+            }
+            ShowPasswordToggleIcon.Kind       = PackIconKind.EyeOff;
+            PasswordBoxNewPassword.Password   = TextBoxNewPassword.Text;
+            PasswordBoxNewPassword.Visibility = Visibility.Visible;
+            TextBoxNewPassword.Visibility     = Visibility.Collapsed;
+        }
+
         private void TextBoxNewRepeatPassword_GotFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxNewRepeatPassword.Text == "Repeat pass...")
@@ -264,6 +286,23 @@ namespace WFP_Project.UserControls
                 PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
                 PasswordBoxNewRepeatPassword.Focus();
             }
+        }
+
+
+        private void TextBoxNewRepeatPassword_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (TextBoxNewRepeatPassword.Text == "Repeat pass...")
+            {
+                TextBoxNewRepeatPassword.Text = "";
+                TextBoxNewRepeatPassword.Foreground     = Brushes.Black;
+                PasswordBoxNewRepeatPassword.Foreground = Brushes.Black;
+                TextBoxNewRepeatPassword.Visibility     = Visibility.Collapsed;
+                PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
+            }
+            ShowRepeatPasswordToggleIcon.Kind       = PackIconKind.EyeOff;
+            PasswordBoxNewRepeatPassword.Password   = TextBoxNewRepeatPassword.Text;
+            PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
+            TextBoxNewRepeatPassword.Visibility     = Visibility.Collapsed;
         }
 
         private void TextBoxNewEmail_GotFocus(object sender, RoutedEventArgs e)

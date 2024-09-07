@@ -235,7 +235,8 @@
             VerticalAlignment="Top"
             Visibility="Visible"
             PreviewKeyDown="TextBoxNewPassword_PreviewKeyDown"
-            GotFocus="TextBoxNewPassword_GotFocus">
+            GotFocus="TextBoxNewPassword_GotFocus"
+            MouseLeave="TextBoxNewPassword_MouseLeave">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Template">
@@ -341,7 +342,8 @@
             VerticalAlignment="Top"
             Visibility="Visible"
             PreviewKeyDown="TextBoxNewRepeatPassword_PreviewKeyDown"
-            GotFocus="TextBoxNewRepeatPassword_GotFocus">
+            GotFocus="TextBoxNewRepeatPassword_GotFocus"
+            MouseLeave="TextBoxNewRepeatPassword_MouseLeave">
             <TextBox.Style>
                 <Style TargetType="{x:Type TextBox}">
                     <Setter Property="Template">
