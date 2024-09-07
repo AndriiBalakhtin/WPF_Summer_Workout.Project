@@ -2,6 +2,7 @@
 using System.Net.Mail;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using WFP_Project.Classes;
 
@@ -37,16 +38,21 @@ namespace WFP_Project.UserControls
         private void ButtonSignIn_Click(object sender, RoutedEventArgs e)
         {
             _login = TextBoxNewLogin.Text;
-            _password = PasswordBoxNewPassword.Password;
-            string repeatPassword = TextBoxNewRepeatPassword.Text;
+            _password = PasswordBoxNewPassword.Password; 
+            string repeatPassword = PasswordBoxNewRepeatPassword.Password; 
             _email = TextBoxNewEmail.Text;
+
+            PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
+            PasswordBoxNewPassword.Visibility = Visibility.Visible;
+            TextBoxNewRepeatPassword.Visibility = Visibility.Collapsed;
+            TextBoxNewPassword.Visibility = Visibility.Collapsed;
 
             if (ComboBoxNewRoleType.SelectedItem is ComboBoxItem selectedRole)
             {
                 _role = selectedRole.Content.ToString();
             }
 
-            if(_login.Length < 5 || _login == "Enter new login") 
+            if (_login.Length < 5 || _login == "Enter new login")
             {
                 MessageBox.Show("Minimum 5 characters required in login!");
                 return;
@@ -64,7 +70,8 @@ namespace WFP_Project.UserControls
                 return;
             }
 
-            if (_password == "12345678" || _password == "87654321" || _password == "11223344" || _password == "44332211")
+            if (_password == "12345678" || _password == "87654321" ||
+                _password == "11223344" || _password == "44332211")
             {
                 MessageBox.Show("we ask for strong passwords");
                 return;
@@ -133,44 +140,7 @@ namespace WFP_Project.UserControls
             }
         }
 
-        private void TextBoxNewLogin_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (_login == "Enter new login")
-            {
-                _login = "";
-                TextBoxNewLogin.Foreground = Brushes.Black;
-            }
-        }
-
-
-        private void TextBoxNewRepeatPassword_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxNewRepeatPassword.Text == "Repeat password")
-            {
-                TextBoxNewRepeatPassword.Text = "";
-                TextBoxNewRepeatPassword.Foreground = Brushes.Black;
-            }
-        }
-
-        private void TextBoxNewEmail_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (_email == "Enter new email")
-            {
-                _email = "";
-                TextBoxNewEmail.Foreground = Brushes.Black;
-            }
-        }
-
-        private void PasswordBoxNewPassword_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (_password == "Enter new password")
-            {
-                _password = "";
-                PasswordBoxNewPassword.Foreground = Brushes.Black;
-            }
-        }
-
-        private void ButtonTogglePassword_Click(object sender, RoutedEventArgs e)
+        private void ButtonToggleShowPassword_Click(object sender, RoutedEventArgs e)
         {
             if (PasswordBoxNewPassword.Visibility == Visibility.Visible)
             {
@@ -183,6 +153,100 @@ namespace WFP_Project.UserControls
                 PasswordBoxNewPassword.Password = TextBoxNewPassword.Text;
                 PasswordBoxNewPassword.Visibility = Visibility.Visible;
                 TextBoxNewPassword.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void ButtonToggleShowRepeat_Click(object sender, RoutedEventArgs e)
+        {
+            if (PasswordBoxNewRepeatPassword.Visibility == Visibility.Visible)
+            {
+                TextBoxNewRepeatPassword.Text = PasswordBoxNewRepeatPassword.Password;
+                TextBoxNewRepeatPassword.Visibility = Visibility.Visible;
+                PasswordBoxNewRepeatPassword.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                PasswordBoxNewRepeatPassword.Password = TextBoxNewRepeatPassword.Text;
+                PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
+                TextBoxNewRepeatPassword.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void PasswordBoxNewPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            TextBoxNewPassword.Text = PasswordBoxNewPassword.Password;
+            if ((Keyboard.Modifiers == ModifierKeys.Control) && (e.Key == Key.C || e.Key == Key.V))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBoxNewPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            PasswordBoxNewPassword.Password = TextBoxNewPassword.Text;
+            if ((Keyboard.Modifiers == ModifierKeys.Control) && (e.Key == Key.C || e.Key == Key.V))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void PasswordBoxNewRepeatPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            TextBoxNewRepeatPassword.Text = PasswordBoxNewRepeatPassword.Password;
+            if ((Keyboard.Modifiers == ModifierKeys.Control) && (e.Key == Key.C || e.Key == Key.V))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBoxNewRepeatPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            PasswordBoxNewRepeatPassword.Password = TextBoxNewRepeatPassword.Text;
+            if ((Keyboard.Modifiers == ModifierKeys.Control) && (e.Key == Key.C || e.Key == Key.V))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBoxNewLogin_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxNewLogin.Text == "Enter new login")
+            {
+                TextBoxNewLogin.Text = "";
+                TextBoxNewLogin.Foreground = Brushes.Black;
+            }
+        }
+
+        private void TextBoxNewPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxNewPassword.Text == "Enter new password")
+            {
+                TextBoxNewPassword.Text = "";
+                TextBoxNewPassword.Foreground = Brushes.Black;
+                TextBoxNewPassword.Visibility = Visibility.Collapsed;
+                PasswordBoxNewPassword.Visibility = Visibility.Visible;
+                PasswordBoxNewPassword.Focus();
+            }
+        }
+
+        private void TextBoxNewRepeatPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxNewRepeatPassword.Text == "Repeat password")
+            {
+                TextBoxNewRepeatPassword.Text = "";
+                TextBoxNewRepeatPassword.Foreground = Brushes.Black;
+                TextBoxNewRepeatPassword.Visibility = Visibility.Collapsed;
+                PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
+                PasswordBoxNewRepeatPassword.Focus();
+            }
+        }
+
+        private void TextBoxNewEmail_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxNewEmail.Text == "Enter new email")
+            {
+                TextBoxNewEmail.Text = "";
+                TextBoxNewEmail.Foreground = Brushes.Black;
             }
         }
     }
