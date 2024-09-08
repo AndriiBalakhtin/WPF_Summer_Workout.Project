@@ -6,6 +6,9 @@
     <Compile Update="Classes\SettingsManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControls\ForgotPassword.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Windows\Editor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -32,6 +35,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="UserControls\ForgotPassword.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Windows\Editor.xaml">
       <SubType>Designer</SubType>
     </Page>

@@ -44,8 +44,6 @@
                 </TransformGroup>
             </TextBlock.RenderTransform>
         </TextBlock>
-
-        <!--Login-->
         <RadioButton
             x:Name="RadioButtonLogin"
             Margin="100,89,0,0"
@@ -138,8 +136,6 @@
             </RadioButton.Template>
             <RadioButton Content="RadioButton"/>
         </RadioButton>
-
-        <!-- Sign Up -->
         <RadioButton
             x:Name="RadioButtonSignUp"
             Margin="100,129,0,0"

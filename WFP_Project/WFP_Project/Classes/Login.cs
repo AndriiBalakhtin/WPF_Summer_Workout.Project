@@ -41,12 +41,23 @@ namespace WFP_Project.Classes
 
     public static class ConfirmEmailMenu
     {
-        public static void Email(ConfirmEmail confirmEmail, MainWindow mainWindow)
+        public static void ConfirmEmail(ConfirmEmail confirmEmail, MainWindow mainWindow)
         {
             if (confirmEmail != null && mainWindow != null)
             {
                 mainWindow.MainContentControl.Content = confirmEmail.Content;
             }
+        }
+    }
+
+    public static class ForgotPasswordMenu
+    {
+        public static void ForgotPassword(ForgotPassword forgotPassword, MainWindow mainWindow)
+        {
+            if(forgotPassword != null && mainWindow != null)
+            {
+                mainWindow.MainContentControl.Content = forgotPassword.Content;
+            }   
         }
     }
 }

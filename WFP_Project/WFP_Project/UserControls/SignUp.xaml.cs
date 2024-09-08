@@ -104,7 +104,7 @@ namespace WFP_Project.UserControls
                 var mainWindow = Application.Current.MainWindow as MainWindow;
                 if (mainWindow != null)
                 {
-                    ConfirmEmailMenu.Email(confirmEmail, mainWindow);
+                    ConfirmEmailMenu.ConfirmEmail(confirmEmail, mainWindow);
                 }
             }
             catch (Exception ex)

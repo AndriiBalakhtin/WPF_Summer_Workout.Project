@@ -6,7 +6,7 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     x:Class="WFP_Project.UserControls.Login"
     mc:Ignorable="d"
-    Title="Login" Height="220" Width="335"
+    Title="Login" Height="265" Width="335"
     Loaded="Window_Loaded">
     <Window.Background>
         <SolidColorBrush Color="Transparent"/>
@@ -14,7 +14,7 @@
     <Grid>
         <Border 
             x:Name="LoginRectangleUI"
-            Margin="10,60,0,0" 
+            Margin="10,45,0,0" 
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Height="134" Width="320"
@@ -25,12 +25,12 @@
             x:Name="TextBlockLogin"
             HorizontalAlignment="Left"
             VerticalAlignment="Top" 
-            Margin="20,70,0,0" 
+            Margin="20,55,0,0" 
             TextWrapping="Wrap" 
             Text="LOGIN OR EMAIL"/>
         <TextBox 
             x:Name="TextBoxLogin"
-            Margin="20,90,0,0" 
+            Margin="20,75,0,0" 
             TextAlignment="Left"
             VerticalAlignment="Top"
             HorizontalAlignment="Left"            
@@ -82,14 +82,14 @@
         <TextBlock
             x:Name="TextBlockPassword"
             HorizontalAlignment="Left"
-            Margin="20,130,0,0" 
+            Margin="20,115,0,0" 
             TextWrapping="Wrap" 
             Text="PASSWORD"
             VerticalAlignment="Top" 
             RenderTransformOrigin="0.5,0.5"/>
         <PasswordBox 
             x:Name="PasswordBoxPassword"
-            Margin="20,150,193,0" 
+            Margin="20,135,193,0" 
             Height="36" 
             MaxLength="50"
             FontSize="14"
@@ -131,7 +131,7 @@
         </PasswordBox>
         <TextBox 
             x:Name="TextBoxPassword"
-            Margin="20,150,193,0" 
+            Margin="20,135,193,0" 
             Height="36" 
             Text="Enter pass..."
             MaxLength="50"
@@ -175,7 +175,7 @@
             </TextBox.Style>
         </TextBox>
         <Button 
-            Margin="140,158,167,0" 
+            Margin="140,143,167,0" 
             Height="20" Width="20"
             BorderThickness="0"
             Background="Transparent"
@@ -189,7 +189,7 @@
         <TextBlock
             x:Name="TextBlockRole"
             HorizontalAlignment="Left"
-            Margin="175,70,0,0" 
+            Margin="175,55,0,0" 
             TextWrapping="Wrap" 
             Text="ROLE"
             VerticalAlignment="Top"/>
@@ -199,7 +199,7 @@
             VerticalAlignment="Top"
             Width="145"
             Height="36"
-            Margin="175,90,0,0"
+            Margin="175,75,0,0"
             SelectedIndex="0"
             Background="#FFEEEEEE"
             BorderBrush="#FFCCCCCC"
@@ -281,7 +281,7 @@
         <Button
             x:Name="ButtonLogin"
             Content="Login"
-            Margin="175,150,0,0"
+            Margin="175,135,0,0"
             HorizontalAlignment="Left" 
             VerticalAlignment="Top"
             Height="36" Width="145"
@@ -385,5 +385,29 @@
             </RadioButton.Template>
             <RadioButton Content="RadioButton"/>
         </RadioButton>
+        <Border 
+            x:Name="ButtonForgotPasswordRectangleUI" 
+            Margin="0,178,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Height="68" Width="190"
+            BorderBrush="Gray"
+            CornerRadius="10"
+            BorderThickness="1"/>
+        <Button
+            x:Name="ButtonForgotPassword"
+            Content="Forgot your password?"
+            Margin="0,194,0,0" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top"
+            Height="36" Width="160"
+            Click="ButtonForgotPassword_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#003366" Offset="0"/>
+                    <GradientStop Color="#0066cc" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

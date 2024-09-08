@@ -81,15 +81,15 @@
                                             <SplineThicknessKeyFrame KeyTime="00:00:0.3" Value="0" />
                                         </ThicknessAnimationUsingKeyFrames>
                                         <DoubleAnimation
-                                            Storyboard.TargetName="ReturnBackToSignUpIcon"
+                                            Storyboard.TargetName="BorderReturnBackToSignUpIcon"
                                             Storyboard.TargetProperty="Width"
                                             From="25"
                                             To="32"
                                             Duration="0:0:0.2" />
                                         <DoubleAnimation
-                                            Storyboard.TargetName="ReturnBackToSignUpIcon"
+                                            Storyboard.TargetName="BorderReturnBackToSignUpIcon"
                                             Storyboard.TargetProperty="Height"
-                                            From="25"
+                                            From="5"
                                             To="32"
                                             Duration="0:0:0.2" />
                                     </Storyboard>

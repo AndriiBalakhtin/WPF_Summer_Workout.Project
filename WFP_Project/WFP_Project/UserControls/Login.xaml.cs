@@ -4,6 +4,7 @@ using WFP_Project.Classes;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using MaterialDesignThemes.Wpf;
+
 namespace WFP_Project.UserControls
 {
     public partial class Login : Window
@@ -75,17 +76,19 @@ namespace WFP_Project.UserControls
 
         private void HideLoginUIElements()
         {
-            LoginRectangleUI.Visibility       = Visibility.Hidden;
-            RadioButtonSignUp.Visibility      = Visibility.Hidden;
-            TextBlockLogin.Visibility         = Visibility.Hidden;
-            TextBlockPassword.Visibility      = Visibility.Hidden;
-            TextBlockRole.Visibility          = Visibility.Hidden;
-            TextBoxLogin.Visibility           = Visibility.Hidden;
-            TextBoxPassword.Visibility        = Visibility.Hidden;
-            PasswordBoxPassword.Visibility    = Visibility.Hidden;
-            ShowPasswordToggleIcon.Visibility = Visibility.Hidden;
-            ComboBoxRoleType.Visibility       = Visibility.Hidden;
-            ButtonLogin.Visibility            = Visibility.Hidden;
+            LoginRectangleUI.Visibility                = Visibility.Hidden;
+            RadioButtonSignUp.Visibility               = Visibility.Hidden;
+            TextBlockLogin.Visibility                  = Visibility.Hidden;
+            TextBlockPassword.Visibility               = Visibility.Hidden;
+            TextBlockRole.Visibility                   = Visibility.Hidden;
+            TextBoxLogin.Visibility                    = Visibility.Hidden;
+            TextBoxPassword.Visibility                 = Visibility.Hidden;
+            PasswordBoxPassword.Visibility             = Visibility.Hidden;
+            ShowPasswordToggleIcon.Visibility          = Visibility.Hidden;
+            ComboBoxRoleType.Visibility                = Visibility.Hidden;
+            ButtonLogin.Visibility                     = Visibility.Hidden;
+            ButtonForgotPasswordRectangleUI.Visibility = Visibility.Hidden;
+            ButtonForgotPassword.Visibility            = Visibility.Hidden;
         }
 
         private void TextBoxLogin_GotFocus(object sender, RoutedEventArgs e)
@@ -168,6 +171,16 @@ namespace WFP_Project.UserControls
             if ((Keyboard.Modifiers == ModifierKeys.Control) && (e.Key == Key.C || e.Key == Key.V))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void ButtonForgotPassword_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            if (mainWindow != null)
+            {
+                var forgotPassword = new ForgotPassword();
+                ForgotPasswordMenu.ForgotPassword(forgotPassword, mainWindow);
             }
         }
     }
