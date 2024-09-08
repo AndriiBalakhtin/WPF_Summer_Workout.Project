@@ -133,7 +133,7 @@
                 HorizontalAlignment="Left" 
                 Width="90" 
                 Click="UpdateButton_Click" 
-                Margin="20,5,0,-12"/>
+                Margin="25,6,0,-13"/>
             <Button 
                 Content="Delete" 
                 Grid.Row="6" 
@@ -141,7 +141,7 @@
                 HorizontalAlignment="Left" 
                 Width="90" 
                 Click="DeleteButton_Click"
-                Margin="115,5,0,-12"/>
+                Margin="120,6,0,-13"/>
         </Grid>
     </Grid>
 </Window>

@@ -44,18 +44,22 @@ namespace WFP_Project.Classes
             }
         }
 
-        public bool VerifyUser(string login, string password, string role)
+        public bool VerifyUser(string loginOrEmail, string password, string role)
         {
-            DataTable usersTable = GetUserData();
-            DataRow[] foundRows = usersTable.Select($"Login = '{login}' AND Role = '{role}'");
-
-            if (foundRows.Length > 0)
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                DataRow userRow = foundRows[0];
-                string storedPassword = userRow["Password"].ToString();
-                return password == storedPassword;
+                conn.Open();
+                string query = "SELECT COUNT(1) FROM UserSData WHERE (Login = @loginOrEmail OR Email = @loginOrEmail) AND Password = @password AND Role = @role";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@loginOrEmail", loginOrEmail);
+                cmd.Parameters.AddWithValue("@password", password);
+                cmd.Parameters.AddWithValue("@role", role);
+
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                return count > 0;
             }
-            return false;
         }
 
         public bool EmailExists(string email)

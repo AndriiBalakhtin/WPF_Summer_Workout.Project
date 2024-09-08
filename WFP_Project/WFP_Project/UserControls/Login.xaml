@@ -27,7 +27,7 @@
             VerticalAlignment="Top" 
             Margin="20,70,0,0" 
             TextWrapping="Wrap" 
-            Text="LOGIN"/>
+            Text="LOGIN OR EMAIL"/>
         <TextBox 
             x:Name="TextBoxLogin"
             Margin="20,90,0,0" 

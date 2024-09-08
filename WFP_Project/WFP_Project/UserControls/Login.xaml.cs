@@ -10,6 +10,7 @@ namespace WFP_Project.UserControls
     {
         private UserManagement _userManagement;
         private ToggleButton _toggleButton;
+
         public Login()
         {
             InitializeComponent();
@@ -30,26 +31,27 @@ namespace WFP_Project.UserControls
                 SignUpMenu.ReturnToSignUpMenu(signUp, mainWindow);
             }
         }
+
         private void Button_Login_Click(object sender, RoutedEventArgs e)
         {
-            string login        = TextBoxLogin.Text.Trim();
-            string password     = PasswordBoxPassword.Password.Trim();
-            string role         = ComboBoxRoleType.Text.Trim();
+            string loginOrEmail = TextBoxLogin.Text.Trim();
+            string password = PasswordBoxPassword.Password.Trim();
+            string role = ComboBoxRoleType.Text.Trim();
 
-            PasswordBoxPassword.Password   = TextBoxPassword.Text;
-            ShowPasswordToggleIcon.Kind    = PackIconKind.EyeOff;
+            PasswordBoxPassword.Password = TextBoxPassword.Text;
+            ShowPasswordToggleIcon.Kind = PackIconKind.EyeOff;
             PasswordBoxPassword.Foreground = Brushes.Black;
-            TextBoxPassword.Foreground     = Brushes.Black;
+            TextBoxPassword.Foreground = Brushes.Black;
 
-            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(role))
+            if (string.IsNullOrEmpty(loginOrEmail) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(role))
             {
                 MessageBox.Show("Please fill in all fields.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             bool isAuthenticated;
-            isAuthenticated = _userManagement.VerifyUser(login, password, role);
-            
+            isAuthenticated = _userManagement.VerifyUser(loginOrEmail, password, role);
+
             if (isAuthenticated)
             {
                 ResizeWindowForAuthenticatedUser();
@@ -86,6 +88,15 @@ namespace WFP_Project.UserControls
             ButtonLogin.Visibility            = Visibility.Hidden;
         }
 
+        private void TextBoxLogin_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxLogin.Text == "Enter login")
+            {
+                TextBoxLogin.Text = "";
+                TextBoxLogin.Foreground = Brushes.Black;
+            }
+        }
+
         private void ButtonToggleShowPassword_Click(object sender, RoutedEventArgs e)
         {
             if (TextBoxPassword.Text == "Enter pass...")
@@ -113,15 +124,6 @@ namespace WFP_Project.UserControls
             }
         }
 
-        private void TextBoxLogin_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxLogin.Text == "Enter login")
-            {
-                TextBoxLogin.Text = "";
-                TextBoxLogin.Foreground = Brushes.Black;
-            }
-        }
-
         private void TextBoxPassword_GotFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxPassword.Text == "Enter pass...")
@@ -144,6 +146,22 @@ namespace WFP_Project.UserControls
             }
         }
 
+        private void TextBoxPassword_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (TextBoxPassword.Text == "Enter pass...")
+            {
+                TextBoxPassword.Text = "";
+                TextBoxPassword.Foreground     = Brushes.Black;
+                PasswordBoxPassword.Foreground = Brushes.Black;
+                TextBoxPassword.Visibility     = Visibility.Collapsed;
+                PasswordBoxPassword.Visibility = Visibility.Visible;
+            }
+            ShowPasswordToggleIcon.Kind = PackIconKind.EyeOff;
+            PasswordBoxPassword.Password = TextBoxPassword.Text;
+            PasswordBoxPassword.Visibility = Visibility.Visible;
+            TextBoxPassword.Visibility = Visibility.Collapsed;
+        }
+
         private void TextBoxPassword_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             PasswordBoxPassword.Password = TextBoxPassword.Text;
@@ -151,22 +169,6 @@ namespace WFP_Project.UserControls
             {
                 e.Handled = true;
             }
-        }
-
-        private void TextBoxPassword_MouseLeave(object sender, MouseEventArgs e)
-        {
-            if (TextBoxPassword.Text == "Enter pass...")
-            {
-                TextBoxPassword.Text = "";
-                TextBoxPassword.Foreground = Brushes.Black;
-                PasswordBoxPassword.Foreground = Brushes.Black;
-                TextBoxPassword.Visibility = Visibility.Collapsed;
-                PasswordBoxPassword.Visibility = Visibility.Visible;
-            }
-            ShowPasswordToggleIcon.Kind = PackIconKind.EyeOff;
-            PasswordBoxPassword.Password = TextBoxPassword.Text;
-            PasswordBoxPassword.Visibility = Visibility.Visible;
-            TextBoxPassword.Visibility = Visibility.Collapsed;
         }
     }
 }

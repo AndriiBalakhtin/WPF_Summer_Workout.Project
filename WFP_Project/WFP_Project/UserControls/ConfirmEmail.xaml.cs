@@ -1,5 +1,4 @@
-﻿using System;
-using System.Net.Mail;
+﻿using System.Net.Mail;
 using System.Net;
 using System.Windows;
 using System.Windows.Media;
@@ -17,7 +16,7 @@ namespace WFP_Project.UserControls
         private string _emailToConfirm;
 
         private DispatcherTimer _timer;
-        private int _countdownTime = 31;
+        private int _countdownTime;
         private bool _countdownComplete = false;
 
         public ConfirmEmail(string confirmationCode, string login, string password, string role, string emailToConfirm)
@@ -40,7 +39,7 @@ namespace WFP_Project.UserControls
 
         private void StartCountdown()
         {
-            _countdownTime = 30;
+            _countdownTime = 31;
             _countdownComplete = false;
             ButtonSendAgainEmail.IsEnabled = false;
             _timer.Start();
@@ -81,7 +80,6 @@ namespace WFP_Project.UserControls
             {
                 UserManagement userManagement = new UserManagement();
                 userManagement.SaveUserData(_login, _password, _role, _emailToConfirm);
-                MessageBox.Show("Registration successful!");
 
                 var mainWindow = Application.Current.MainWindow as MainWindow;
                 if (mainWindow != null)
