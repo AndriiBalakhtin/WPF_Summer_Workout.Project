@@ -10,18 +10,6 @@ namespace WFP_Project.Classes
             "AttachDbFilename=C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\Databases\\UserManagement\\UserManagement.mdf;" +
             "Integrated Security=True;Connect Timeout=30";
 
-        private string _email;
-
-        public string GetEmail()
-        {
-            return _email;
-        }
-
-        public void SetEmail(string newEmail)
-        {
-            _email = newEmail;
-        }
-
         public DataTable GetUserData()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -108,6 +96,40 @@ namespace WFP_Project.Classes
                     catch (Exception ex)
                     {
                         MessageBox.Show($"An error occurred while saving data: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        public (string Login, string Role) GetUserLoginAndRoleByEmail(string email)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT Login, Role FROM [UserSData] WHERE Email = @Email";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Email", email);
+
+                    try
+                    {
+                        conn.Open();
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string login = reader["Login"].ToString();
+                                string role = reader["Role"].ToString();
+                                return (login, role);
+                            }
+                            else
+                            {
+                                throw new Exception("Email not found.");
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Error retrieving user data: {ex.Message}");
                     }
                 }
             }
