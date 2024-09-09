@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Text.Json;
 using System.Windows;
+using WFP_Project.Enums;
 
 namespace WFP_Project.Classes
 {
@@ -13,15 +14,15 @@ namespace WFP_Project.Classes
         public static string UserLogin { get; set; } = string.Empty;
         public static string Role { get; set; } = string.Empty;
 
-        public static AppSettings LoadSettings()
+        public static AppSettingsEnums LoadSettings()
         {
             if (File.Exists(SettingsFilePath))
             {
                 try
                 {
                     var json = File.ReadAllText(SettingsFilePath);
-                    var settings = JsonSerializer.Deserialize<AppSettings>(json);
-                    return settings ?? new AppSettings();
+                    var settings = JsonSerializer.Deserialize<AppSettingsEnums>(json);
+                    return settings ?? new AppSettingsEnums();
                 }
                 catch (JsonException ex)
                 {
@@ -29,12 +30,12 @@ namespace WFP_Project.Classes
                 }
             }
 
-            var defaultSettings = new AppSettings();
+            var defaultSettings = new AppSettingsEnums();
             SaveSettings(defaultSettings);
             return defaultSettings;
         }
 
-        public static void SaveSettings(AppSettings settings)
+        public static void SaveSettings(AppSettingsEnums settings)
         {
             var json = JsonSerializer.Serialize(settings, jsonOptions);
             File.WriteAllText(SettingsFilePath, json);
@@ -70,52 +71,5 @@ namespace WFP_Project.Classes
             var settings = LoadSettings();
             ApplyThemes.ApplyTheme(settings.SelectedTheme ?? "DefaultTheme");
         }
-    }
-
-    public static class ApplyThemes
-    {
-        public static void ApplyTheme(string theme)
-        {
-            var newTheme = new ResourceDictionary();
-
-            try
-            {
-                switch (theme)
-                {
-                    case "Light":
-                        newTheme.Source = new Uri("pack://application:,,,/Themes/LightTheme.xaml", UriKind.Absolute);
-                        break;
-                    case "Dark":
-                        newTheme.Source = new Uri("pack://application:,,,/Themes/DarkTheme.xaml", UriKind.Absolute);
-                        break;
-                    default:
-                        MessageBox.Show("Unknown theme selected.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return;
-                }
-
-                Application.Current.Resources.MergedDictionaries.Clear();
-                Application.Current.Resources.MergedDictionaries.Add(newTheme);
-
-                foreach (Window window in Application.Current.Windows)
-                {
-                    window.Background = (System.Windows.Media.Brush)newTheme["WindowBackgroundBrush"];
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error loading theme: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-    }
-
-    public class UserData
-    {
-        public string UserLogin { get; set; }
-        public string Role { get; set; }
-    }
-
-    public class AppSettings
-    {
-        public string SelectedTheme { get; set; } = "Light";
     }
 }

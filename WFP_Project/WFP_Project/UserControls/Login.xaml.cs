@@ -41,10 +41,10 @@ namespace WFP_Project.UserControls
             string password = PasswordBoxPassword.Password.Trim();
             string role = ComboBoxRoleType.Text.Trim();
 
-            PasswordBoxPassword.Password = TextBoxPassword.Text;
-            ShowPasswordToggleIcon.Kind = PackIconKind.EyeOff;
+            PasswordBoxPassword.Password   = TextBoxPassword.Text;
+            ShowPasswordToggleIcon.Kind    = PackIconKind.EyeOff;
             PasswordBoxPassword.Foreground = Brushes.Black;
-            TextBoxPassword.Foreground = Brushes.Black;
+            TextBoxPassword.Foreground     = Brushes.Black;
 
             if (string.IsNullOrEmpty(loginOrEmail) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(role))
             {
@@ -62,7 +62,7 @@ namespace WFP_Project.UserControls
                 LoginSuccess.HideBlockUserControl(mainWindow);
 
                 Home home = new Home();
-                home.SetRole(userLogin, role);
+                home.UpdateUserDataJson(userLogin, role);
 
                 HomeMenu.Home(home, mainWindow);
 

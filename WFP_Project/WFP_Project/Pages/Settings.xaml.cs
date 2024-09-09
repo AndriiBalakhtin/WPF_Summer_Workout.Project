@@ -1,13 +1,13 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using WFP_Project.Classes; 
-
+using WFP_Project.Classes;
+using WFP_Project.Enums;
 
 namespace WFP_Project.Pages
 {
     public partial class SettingsWindow : Window
     {
-        private WFP_Project.Classes.AppSettings appSettings;
+        private AppSettingsEnums appSettings;
 
         public SettingsWindow()
         {

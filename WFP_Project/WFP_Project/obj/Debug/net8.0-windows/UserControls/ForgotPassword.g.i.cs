@@ -231,7 +231,7 @@ namespace WFP_Project.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WFP_Project;V1.0.0.0;component/usercontrols/forgotpassword.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WFP_Project;component/usercontrols/forgotpassword.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControls\ForgotPassword.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
