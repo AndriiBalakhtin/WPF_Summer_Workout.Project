@@ -103,7 +103,7 @@ namespace WFP_Project.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WFP_Project;component/usercontrols/confirmemail.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WFP_Project;V1.0.0.0;component/usercontrols/confirmemail.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControls\ConfirmEmail.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using WFP_Project.Pages;
 using WFP_Project.UserControls;
 
 namespace WFP_Project.Classes
@@ -9,10 +10,22 @@ namespace WFP_Project.Classes
         {
             if (mainWindow != null)
             {
+                mainWindow.RadioButton_Home.IsChecked  = true;
                 mainWindow.BlockUserControl.Visibility = Visibility.Hidden;
                 mainWindow.LockIcon.Visibility         = Visibility.Hidden;
                 mainWindow.ResizeMode                  = ResizeMode.CanResize;
                 mainWindow.Height = 600; mainWindow.Width = 1140; mainWindow.MinHeight = 600; mainWindow.MinWidth = 1140;
+            }
+        }
+    }
+
+    public static class HomeMenu
+    {
+        public static void Home(Home home, MainWindow mainWindow)
+        {
+            if (home != null && mainWindow != null)
+            {
+                mainWindow.MainContentControl.Content = home.Content;
             }
         }
     }

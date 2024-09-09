@@ -3,7 +3,7 @@
   <PropertyGroup />
   <ItemGroup />
   <ItemGroup>
-    <Compile Update="Classes\SettingsManager.xaml.cs">
+    <Compile Update="Classes\Json.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\ForgotPassword.xaml.cs">

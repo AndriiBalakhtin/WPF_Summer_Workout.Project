@@ -471,6 +471,7 @@
                 </ControlTemplate>
             </ComboBox.Template>
             <ComboBoxItem Content="User"/>
+            <ComboBoxItem Content="Athlete"/>
             <ComboBoxItem Content="Instructor"/>
             <ComboBoxItem Content="Administrator"/>
         </ComboBox>

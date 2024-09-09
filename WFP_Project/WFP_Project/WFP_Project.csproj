@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Pages\Settings.ico" />
     <None Remove="Windows\logo.png" />
   </ItemGroup>
 
@@ -30,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Pages\Settings.ico" />
     <Resource Include="Png\logo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

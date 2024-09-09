@@ -4,6 +4,8 @@ using WFP_Project.Classes;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using MaterialDesignThemes.Wpf;
+using WFP_Project.Pages;
+
 
 namespace WFP_Project.UserControls
 {
@@ -50,14 +52,19 @@ namespace WFP_Project.UserControls
                 return;
             }
 
-            bool isAuthenticated;
-            isAuthenticated = _userManagement.VerifyUser(loginOrEmail, password, role);
+            (bool isAuthenticated, string userLogin) = _userManagement.ReadUser(loginOrEmail, password, role);
 
             if (isAuthenticated)
             {
                 ResizeWindowForAuthenticatedUser();
+
                 MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
                 LoginSuccess.HideBlockUserControl(mainWindow);
+
+                Home home = new Home();
+                home.SetRole(userLogin, role);
+
+                HomeMenu.Home(home, mainWindow);
 
                 HideLoginUIElements();
             }
@@ -67,6 +74,7 @@ namespace WFP_Project.UserControls
                 secureLogin.ShowDialog();
             }
         }
+
 
         private void ResizeWindowForAuthenticatedUser()
         {

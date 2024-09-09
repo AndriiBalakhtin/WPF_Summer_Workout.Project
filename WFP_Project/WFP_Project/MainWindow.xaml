@@ -41,6 +41,7 @@
 
             <!-- Home -->
             <RadioButton 
+                x:Name="RadioButton_Home"
                 Background="Transparent"
                 BorderThickness="1"
                 FontFamily="Cascadia Code"                 
@@ -160,6 +161,7 @@
 
             <!-- Controls -->
             <RadioButton 
+                x:Name="RadioButton_Controls"
                 Background="Transparent"
                 BorderThickness="1"
                 FontFamily="Cascadia Code"  
@@ -280,6 +282,7 @@
 
             <!-- Archive -->
             <RadioButton 
+                x:Name="RadioButton_Archive"
                 Background="Transparent"
                 BorderThickness="1"
                 FontFamily="Cascadia Code"  
@@ -398,6 +401,7 @@
 
             <!-- Settings -->
             <RadioButton 
+                x:Name="RadioButton_Settings"
                 Background="Transparent"
                 BorderBrush="Transparent"
                 FontFamily="Cascadia Code"  
