@@ -10,11 +10,14 @@ namespace WFP_Project.Classes
         {
             if (mainWindow != null)
             {
-                mainWindow.RadioButton_Home.IsChecked   = true;
-                mainWindow.RadioButton_Admin.Visibility = Visibility.Visible;
-                mainWindow.BlockUserControl.Visibility  = Visibility.Hidden;
-                mainWindow.LockIcon.Visibility          = Visibility.Hidden;
-                mainWindow.ResizeMode                   = ResizeMode.CanResize;
+                mainWindow.RadioButton_Home.IsChecked     = true;
+                mainWindow.BlockUserControl.Visibility    = Visibility.Hidden;
+                mainWindow.LockIcon.Visibility            = Visibility.Hidden;
+                mainWindow.RadioButton_Admin.Visibility   = Visibility.Visible;
+                mainWindow.RadioButton_Session.Visibility = Visibility.Visible;
+                mainWindow.StackPanelRadioButtonsMainWindow.Height = 450;
+                mainWindow.StackPanelRadioButtonsMainWindow.Margin = new Thickness(15,6,0,0);
+                mainWindow.ResizeMode                              = ResizeMode.CanResize;
                 mainWindow.Height = 600; mainWindow.Width = 1140; mainWindow.MinHeight = 600; mainWindow.MinWidth = 1140;
             }
         }

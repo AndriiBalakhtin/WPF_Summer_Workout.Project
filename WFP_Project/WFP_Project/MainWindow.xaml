@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Control Panel" Height="320" Width="500"
+        Title="Control Panel" Height="307" Width="500"
         Loaded="Window_Loaded" Icon="/Png/logo.png">
     <Window.Background>
         <SolidColorBrush Color="Transparent"/>
@@ -13,8 +13,8 @@
     <Grid RenderTransformOrigin="0.526,0.529" Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition 
-                Height="30"/>
-            <RowDefinition Height="274.04"/>
+                Height="8"/>
+            <RowDefinition Height="300.00"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition 
@@ -27,11 +27,11 @@
             Grid.RowSpan="2" 
             RenderTransformOrigin="0.5,0.5"/>
         <StackPanel 
+            x:Name="StackPanelRadioButtonsMainWindow"
             Grid.Row="1" Grid.Column="0"
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Center"
-            Margin="15,0,0,0" 
-            Width="133" Height="274">
+            HorizontalAlignment="Left"
+            Margin="15,6,0,80" 
+            Width="133">
             <Label 
             Grid.Row="2" Grid.Column="0"
             Margin="0,0,0,0"
@@ -59,7 +59,7 @@
                                 Height="32"
                                 Width="126">
                                 <Border 
-                                    x:Name="BorderAdminIconTxt"
+                                    x:Name="BorderAdminIcon"
                                     Width="32"
                                     Height="32"
                                     HorizontalAlignment="Center"
@@ -67,17 +67,17 @@
                                     CornerRadius="5">
                                     <Border.Background>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                            <GradientStop Offset="0" Color="#0033A0" />
-                                            <GradientStop Offset="1" Color="#0066CC" />
+                                            <GradientStop Offset="0" Color="#A30000" />
+                                            <GradientStop Offset="1" Color="#CC0000" />
                                         </LinearGradientBrush>
                                     </Border.Background>
-                                    <TextBlock 
-                                    x:Name="AdminIconTxt"
-                                    VerticalAlignment="Center" 
-                                    HorizontalAlignment="Center"  
-                                    FontSize="18" 
-                                    Foreground="White" 
-                                    Text="📋"/>
+                                    <materialDesign:PackIcon 
+                                        x:Name="AdminIcon"
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Center"  
+                                        Kind="AdministratorOutline"
+                                        Height="24" Width="24"
+                                        Foreground="White" />
                                 </Border>
                                 <TextBlock
                                     Text="Admin" 
@@ -108,25 +108,36 @@
                                     <BeginStoryboard>
                                         <Storyboard>
                                             <DoubleAnimation
-                                                Storyboard.TargetName="AdminIconTxt"
-                                                Storyboard.TargetProperty="FontSize"
-                                                From="18"
-                                                To="22"
+                                                Storyboard.TargetName="AdminIcon"
+                                                Storyboard.TargetProperty="Height"
+                                                From="22"
+                                                To="24"
                                                 Duration="0:0:0.2"
                                                 FillBehavior="HoldEnd"
                                                 AutoReverse="True" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderAdminIconTxt"
+                                                Storyboard.TargetName="AdminIcon"
+                                                Storyboard.TargetProperty="Width"
+                                                From="22"
+                                                To="24"
+                                                Duration="0:0:0.2"
+                                                FillBehavior="HoldEnd"
+                                                AutoReverse="True" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderAdminIcon"
                                                 Storyboard.TargetProperty="Width"
                                                 From="28"
                                                 To="32"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderAdminIconTxt"
+                                                Storyboard.TargetName="BorderAdminIcon"
                                                 Storyboard.TargetProperty="Height"
                                                 From="28"
                                                 To="32"
                                                 Duration="0:0:0.2" />
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="AdminIcon" Storyboard.TargetProperty="Kind">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static materialDesign:PackIconKind.AdministratorNetwork}" />
+                                            </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </Trigger.EnterActions>
@@ -134,23 +145,32 @@
                                     <BeginStoryboard>
                                         <Storyboard>
                                             <DoubleAnimation
-                                                Storyboard.TargetName="AdminIconTxt"
-                                                Storyboard.TargetProperty="FontSize"
-                                                From="5"
-                                                To="18"
+                                                Storyboard.TargetName="AdminIcon"
+                                                Storyboard.TargetProperty="Height"
+                                                From="22"
+                                                To="24"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderAdminIconTxt"
+                                                Storyboard.TargetName="AdminIcon"
+                                                Storyboard.TargetProperty="Width"
+                                                From="22"
+                                                To="24"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderAdminIcon"
                                                 Storyboard.TargetProperty="Width"
                                                 From="28"
                                                 To="32"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderAdminIconTxt"
+                                                Storyboard.TargetName="BorderAdminIcon"
                                                 Storyboard.TargetProperty="Height"
                                                 From="28"
                                                 To="32"
                                                 Duration="0:0:0.2" />
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="AdminIcon" Storyboard.TargetProperty="Kind">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static materialDesign:PackIconKind.AdministratorOutline}" />
+                                            </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </Trigger.ExitActions>
@@ -158,9 +178,8 @@
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </RadioButton.Template>
-                <RadioButton Content="RadioButton"/>
             </RadioButton>
-
+            
             <!-- Home -->
             <RadioButton 
                 x:Name="RadioButton_Home"
@@ -181,7 +200,7 @@
                                 Height="32"
                                 Width="126">
                                 <Border 
-                                    x:Name="BorderHomeIconTxt"
+                                    x:Name="BorderHomeIcon"
                                     Width="32"
                                     Height="32"
                                     HorizontalAlignment="Center"
@@ -193,13 +212,13 @@
                                             <GradientStop Offset="1" Color="#5161FF" />
                                         </LinearGradientBrush>
                                     </Border.Background>
-                                    <TextBlock 
-                                        x:Name="HomeIconTxt"
+                                    <materialDesign:PackIcon 
+                                        x:Name="HomeIcon" 
+                                        Kind="Home" 
                                         VerticalAlignment="Center" 
                                         HorizontalAlignment="Center"  
-                                        FontSize="18" 
                                         Foreground="White" 
-                                        Text="🏠"/>
+                                        Height="24" Width="24" />
                                 </Border>
                                 <TextBlock
                                     Text="Home" 
@@ -230,19 +249,25 @@
                                     <BeginStoryboard>
                                         <Storyboard>
                                             <DoubleAnimation
-                                                Storyboard.TargetName="HomeIconTxt"
-                                                Storyboard.TargetProperty="FontSize"
-                                                From="5"
-                                                To="18"
+                                                Storyboard.TargetName="HomeIcon"
+                                                Storyboard.TargetProperty="Height"
+                                                From="8"
+                                                To="24"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderHomeIconTxt"
+                                                Storyboard.TargetName="HomeIcon"
+                                                Storyboard.TargetProperty="Width"
+                                                From="8"
+                                                To="24"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderHomeIcon"
                                                 Storyboard.TargetProperty="Width"
                                                 From="28"
                                                 To="32"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderHomeIconTxt"
+                                                Storyboard.TargetName="BorderHomeIcon"
                                                 Storyboard.TargetProperty="Height"
                                                 From="28"
                                                 To="32"
@@ -254,19 +279,25 @@
                                     <BeginStoryboard>
                                         <Storyboard>
                                             <DoubleAnimation
-                                                Storyboard.TargetName="HomeIconTxt"
-                                                Storyboard.TargetProperty="FontSize"
+                                                Storyboard.TargetName="HomeIcon"
+                                                Storyboard.TargetProperty="Height"
                                                 From="5"
-                                                To="18"
+                                                To="24"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderHomeIconTxt"
+                                                Storyboard.TargetName="HomeIcon"
+                                                Storyboard.TargetProperty="Width"
+                                                From="5"
+                                                To="24"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderHomeIcon"
                                                 Storyboard.TargetProperty="Width"
                                                 From="28"
                                                 To="32"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderHomeIconTxt"
+                                                Storyboard.TargetName="BorderHomeIcon"
                                                 Storyboard.TargetProperty="Height"
                                                 From="28"
                                                 To="32"
@@ -290,6 +321,7 @@
                 Foreground="Black"
                 Width="126"
                 Height="45"
+                Visibility="Collapsed"
                 Click="RadioButton_SessionChecked">
                 <RadioButton.Template>
                     <ControlTemplate TargetType="{x:Type RadioButton}">
@@ -299,7 +331,7 @@
                             CornerRadius="5">
                             <StackPanel Orientation="Horizontal" Height="32" Width="126">
                                 <Border 
-                                    x:Name="BorderSessionIconTxt"
+                                    x:Name="BorderSessionIcon"
                                     Width="32"
                                     Height="32"
                                     CornerRadius="5">
@@ -310,14 +342,13 @@
                                             <GradientStop Offset="1" Color="#FF1F3A3A" />
                                         </LinearGradientBrush>
                                     </Border.Background>
-                                    <TextBlock 
-                                        x:Name="SessionIconTxt"
+                                    <materialDesign:PackIcon 
+                                        x:Name="SessionIcon" 
+                                        Kind="Glasses" 
                                         VerticalAlignment="Center" 
-                                        HorizontalAlignment="Center" 
-                                        FontFamily="Arial" 
-                                        FontSize="18" 
+                                        HorizontalAlignment="Center"  
                                         Foreground="White" 
-                                        Text="🗃️"/>
+                                        Height="24" Width="24" />
                                 </Border>
                                 <TextBlock
                                         Text="Session" 
@@ -337,32 +368,34 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="Border" Property="Background" Value="#FFD6EAF8"/>
+                                <Setter TargetName="SessionIcon" Property="Kind" Value="SafetyGoggles"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter TargetName="Border" Property="Background" Value="#FFB0D1E3"/>
                                 <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
                                 <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
                             </Trigger>
-                            <Trigger Property="IsMouseOver" Value="True">
+                            <Trigger Property="IsMouseOver" Value="False">
+                                <Setter TargetName="SessionIcon" Property="Kind" Value="Glasses"/>
                                 <Trigger.EnterActions>
                                     <BeginStoryboard>
                                         <Storyboard>
                                             <ThicknessAnimationUsingKeyFrames
                                                     AccelerationRatio="0.5"
                                                     BeginTime="00:00:00"
-                                                    Storyboard.TargetName="SessionIconTxt"
+                                                    Storyboard.TargetName="SessionIcon"
                                                     Storyboard.TargetProperty="Margin">
-                                                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="30,0,0,0" />
+                                                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="0,60,0,0" />
                                                 <SplineThicknessKeyFrame KeyTime="00:00:0.3" Value="0" />
                                             </ThicknessAnimationUsingKeyFrames>
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderSessionIconTxt"
+                                                Storyboard.TargetName="BorderSessionIcon"
                                                 Storyboard.TargetProperty="Width"
                                                 From="25"
                                                 To="32"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderSessionIconTxt"
+                                                Storyboard.TargetName="BorderSessionIcon"
                                                 Storyboard.TargetProperty="Height"
                                                 From="25"
                                                 To="32"
@@ -374,19 +407,25 @@
                                     <BeginStoryboard>
                                         <Storyboard>
                                             <DoubleAnimation
-                                                Storyboard.TargetName="SessionIconTxt"
-                                                Storyboard.TargetProperty="FontSize"
-                                                From="12"
-                                                To="18"
+                                                Storyboard.TargetName="SessionIcon"
+                                                Storyboard.TargetProperty="Height"
+                                                From="5"
+                                                To="24"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderSessionIconTxt"
+                                                Storyboard.TargetName="SessionIcon"
+                                                Storyboard.TargetProperty="Width"
+                                                From="5"
+                                                To="24"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderSessionIcon"
                                                 Storyboard.TargetProperty="Width"
                                                 From="25"
                                                 To="32"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderSessionIconTxt"
+                                                Storyboard.TargetName="BorderSessionIcon"
                                                 Storyboard.TargetProperty="Height"
                                                 From="25"
                                                 To="32"
@@ -418,7 +457,7 @@
                             CornerRadius="5">
                             <StackPanel Orientation="Horizontal" Height="32" Width="126">
                                 <Border 
-                                    x:Name="BorderControlsIconTxt"
+                                    x:Name="BorderControlsIcon"
                                     Width="32" Height="32"
                                     CornerRadius="5">
                                     <Border.Background>
@@ -427,20 +466,19 @@
                                             <GradientStop Offset="1" Color="#2144E0" />
                                         </LinearGradientBrush>
                                     </Border.Background>
-                                    <TextBlock
-                                        x:Name="ControlsIconTxt"
-                                        VerticalAlignment="Center" 
-                                        HorizontalAlignment="Center" 
-                                        FontFamily="Arial" 
-                                        FontSize="18" 
-                                        Foreground="White" 
-                                        Text="🎚️">
-                                        <TextBlock.RenderTransform>
+                                    <materialDesign:PackIcon 
+                                            x:Name="SessionIcon" 
+                                            Kind="Tools" 
+                                            VerticalAlignment="Center" 
+                                            HorizontalAlignment="Center"  
+                                            Foreground="White" 
+                                            Height="24" Width="24">
+                                        <materialDesign:PackIcon.RenderTransform>
                                             <TransformGroup>
-                                                <RotateTransform x:Name="ControlsRotator" CenterX="12.5" CenterY="10" />
+                                                <RotateTransform x:Name="ControlsRotator" CenterX="12" CenterY="12" />
                                             </TransformGroup>
-                                        </TextBlock.RenderTransform>
-                                    </TextBlock>
+                                        </materialDesign:PackIcon.RenderTransform>
+                                    </materialDesign:PackIcon>
                                 </Border>
                                 <TextBlock
                                     Text="Controls" 
@@ -474,16 +512,16 @@
                                                 Storyboard.TargetName="ControlsRotator"
                                                 Storyboard.TargetProperty="Angle"
                                                 From="0"
-                                                To="180"
-                                                Duration="0:0:0.4" />
+                                                To="360"
+                                                Duration="0:0:1.0" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderControlsIconTxt"
+                                                Storyboard.TargetName="BorderControlsIcon"
                                                 Storyboard.TargetProperty="Width"
                                                 From="25"
                                                 To="32"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderControlsIconTxt"
+                                                Storyboard.TargetName="BorderControlsIcon"
                                                 Storyboard.TargetProperty="Height"
                                                 From="25"
                                                 To="32"
@@ -497,17 +535,17 @@
                                             <DoubleAnimation
                                                 Storyboard.TargetName="ControlsRotator"
                                                 Storyboard.TargetProperty="Angle"
-                                                From="180"
+                                                From="-360"
                                                 To="0"
-                                                Duration="0:0:0.4" />
+                                                Duration="0:0:0.6" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderControlsIconTxt"
+                                                Storyboard.TargetName="BorderControlsIcon"
                                                 Storyboard.TargetProperty="Width"
                                                 From="25"
                                                 To="32"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderControlsIconTxt"
+                                                Storyboard.TargetName="BorderControlsIcon"
                                                 Storyboard.TargetProperty="Height"
                                                 From="25"
                                                 To="32"
@@ -539,7 +577,7 @@
                             CornerRadius="5">
                             <StackPanel Orientation="Horizontal" Height="32" Width="126">
                                 <Border 
-                                    x:Name="BorderArchiveIconTxt"
+                                    x:Name="BorderArchiveIcon"
                                     Width="32"
                                     Height="32"
                                     CornerRadius="5">
@@ -550,14 +588,13 @@
                                             <GradientStop Color="#FFEA1111" Offset="0"/>
                                         </LinearGradientBrush>
                                     </Border.Background>
-                                    <TextBlock 
-                                        x:Name="ArchiveIconTxt"
+                                    <materialDesign:PackIcon 
+                                        x:Name="ArchiveIcon" 
+                                        Kind="PackageVariantClosed" 
                                         VerticalAlignment="Center" 
-                                        HorizontalAlignment="Center" 
-                                        FontFamily="Arial" 
-                                        FontSize="18" 
+                                        HorizontalAlignment="Center"  
                                         Foreground="White" 
-                                        Text="🗃️"/>
+                                        Height="24" Width="24"/>
                                 </Border>
                                 <TextBlock
                                     Text="Archive" 
@@ -577,32 +614,36 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter TargetName="Border" Property="Background" Value="#FFD6EAF8"/>
+                                <Setter TargetName="ArchiveIcon" Property="Kind" Value="PackageVariant"/>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter TargetName="Border" Property="Background" Value="#FFB0D1E3"/>
                                 <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
                                 <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
                             </Trigger>
+                            <Trigger Property="IsMouseOver" Value="False">
+                                <Setter TargetName="ArchiveIcon" Property="Kind" Value="PackageVariantClosed"/>
+                            </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Trigger.EnterActions>
                                     <BeginStoryboard>
                                         <Storyboard>
                                             <ThicknessAnimationUsingKeyFrames
-                                                AccelerationRatio="0.5"
-                                                BeginTime="00:00:00"
-                                                Storyboard.TargetName="ArchiveIconTxt"
-                                                Storyboard.TargetProperty="Margin">
-                                                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="30,0,0,0" />
+                                                    AccelerationRatio="0.5"
+                                                    BeginTime="00:00:00"
+                                                    Storyboard.TargetName="ArchiveIcon"
+                                                    Storyboard.TargetProperty="Margin">
+                                                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="0,0,0,60" />
                                                 <SplineThicknessKeyFrame KeyTime="00:00:0.3" Value="0" />
                                             </ThicknessAnimationUsingKeyFrames>
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderArchiveIconTxt"
+                                                Storyboard.TargetName="BorderArchiveIcon"
                                                 Storyboard.TargetProperty="Width"
                                                 From="25"
                                                 To="32"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderArchiveIconTxt"
+                                                Storyboard.TargetName="BorderArchiveIcon"
                                                 Storyboard.TargetProperty="Height"
                                                 From="25"
                                                 To="32"
@@ -613,20 +654,22 @@
                                 <Trigger.ExitActions>
                                     <BeginStoryboard>
                                         <Storyboard>
+                                            <ThicknessAnimationUsingKeyFrames
+                                                    AccelerationRatio="0.5"
+                                                    BeginTime="00:00:00"
+                                                    Storyboard.TargetName="ArchiveIcon"
+                                                    Storyboard.TargetProperty="Margin">
+                                                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="0,60,0,0" />
+                                                <SplineThicknessKeyFrame KeyTime="00:00:0.3" Value="0" />
+                                            </ThicknessAnimationUsingKeyFrames>
                                             <DoubleAnimation
-                                                Storyboard.TargetName="ArchiveIconTxt"
-                                                Storyboard.TargetProperty="FontSize"
-                                                From="12"
-                                                To="18"
-                                                Duration="0:0:0.2" />
-                                            <DoubleAnimation
-                                                Storyboard.TargetName="BorderArchiveIconTxt"
+                                                Storyboard.TargetName="BorderArchiveIcon"
                                                 Storyboard.TargetProperty="Width"
                                                 From="25"
                                                 To="32"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderArchiveIconTxt"
+                                                Storyboard.TargetName="BorderArchiveIcon"
                                                 Storyboard.TargetProperty="Height"
                                                 From="25"
                                                 To="32"
@@ -658,7 +701,7 @@
                             CornerRadius="5">
                             <StackPanel Orientation="Horizontal" Height="32" Width="126">
                                 <Border
-                                    x:Name="BorderSettingsIconTxt"
+                                    x:Name="BorderSettingsIcon"
                                     Width="32"
                                     Height="32" 
                                     CornerRadius="5">
@@ -668,20 +711,19 @@
                                             <GradientStop Offset="1" Color="#343C51" />
                                         </LinearGradientBrush>
                                     </Border.Background>
-                                    <TextBlock 
-                                        x:Name="SettingsIconTxt"
+                                    <materialDesign:PackIcon 
+                                        x:Name="SettingsIcon" 
+                                        Kind="Settings" 
                                         VerticalAlignment="Center" 
-                                        HorizontalAlignment="Center" 
-                                        FontFamily="Arial" 
-                                        FontSize="18" 
+                                        HorizontalAlignment="Center"  
                                         Foreground="White" 
-                                        Text="⚙️">
-                                        <TextBlock.RenderTransform>
+                                        Height="24" Width="24">
+                                        <materialDesign:PackIcon.RenderTransform>
                                             <TransformGroup>
-                                                <RotateTransform x:Name="SettingsRotator" CenterX="12.5" CenterY="10" />
+                                                <RotateTransform x:Name="SettingsRotator" CenterX="12" CenterY="12" />
                                             </TransformGroup>
-                                        </TextBlock.RenderTransform>
-                                    </TextBlock>
+                                        </materialDesign:PackIcon.RenderTransform>
+                                    </materialDesign:PackIcon>
                                 </Border>
                                 <TextBlock
                                     Text="Settings" 
@@ -716,15 +758,15 @@
                                                 Storyboard.TargetProperty="Angle"
                                                 From="0"
                                                 To="180"
-                                                Duration="0:0:0.4" />
+                                                Duration="0:0:0.5" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderSettingsIconTxt"
+                                                Storyboard.TargetName="BorderSettingsIcon"
                                                 Storyboard.TargetProperty="Width"
                                                 From="25"
                                                 To="32"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderSettingsIconTxt"
+                                                Storyboard.TargetName="BorderSettingsIcon"
                                                 Storyboard.TargetProperty="Height"
                                                 From="25"
                                                 To="32"
@@ -740,15 +782,15 @@
                                                 Storyboard.TargetProperty="Angle"
                                                 From="180"
                                                 To="0"
-                                                Duration="0:0:0.4" />
+                                                Duration="0:0:0.3" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderSettingsIconTxt"
+                                                Storyboard.TargetName="BorderSettingsIcon"
                                                 Storyboard.TargetProperty="Width"
                                                 From="25"
                                                 To="32"
                                                 Duration="0:0:0.2" />
                                             <DoubleAnimation
-                                                Storyboard.TargetName="BorderSettingsIconTxt"
+                                                Storyboard.TargetName="BorderSettingsIcon"
                                                 Storyboard.TargetProperty="Height"
                                                 From="25"
                                                 To="32"
@@ -766,7 +808,6 @@
         <!-- Lock -->
         <Border
             x:Name="BlockUserControl"
-            Visibility="Collapsed"
             Margin="15,30,0,0"
             Width="135"
             Height="190"
@@ -780,8 +821,7 @@
                 <SolidColorBrush Color="Transparent"/>
             </Border.Background>
         </Border>
-        <materialDesign:PackIcon 
-            Visibility="Collapsed"
+        <materialDesign:PackIcon
             x:Name="LockIcon"
             Kind="Lock"
             Width="135"
