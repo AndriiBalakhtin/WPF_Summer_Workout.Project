@@ -1,6 +1,8 @@
-﻿using System.Net;
+﻿using MaterialDesignThemes.Wpf;
+using System.Net;
 using System.Net.Mail;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using WFP_Project.Classes;
@@ -16,7 +18,7 @@ namespace WFP_Project.UserControls
         private DispatcherTimer _timer;
         private int _countdownTime;
         private bool _countdownComplete = false;
-        private bool _isBlocked = false;
+        private bool _isBlocked         = false;
 
         public ForgotPassword()
         {
@@ -48,8 +50,8 @@ namespace WFP_Project.UserControls
                 {
                     ButtonSendAgainEmail.Content = "Send again";
                     ButtonSendAgainEmail.IsEnabled = true;
-                    ButtonConfirmEmail.IsEnabled = true;
-                    _countdownComplete = true;
+                    ButtonConfirmEmail.IsEnabled   = true;
+                    _countdownComplete             = true;
                     _timer.Stop();
                 }
             }
@@ -59,13 +61,13 @@ namespace WFP_Project.UserControls
         {
             _isBlocked = true;
 
-            ButtonConfirmEmail.IsEnabled = false;
-            ButtonSendAgainEmail.IsEnabled = false;
-            ButtonConfirmCodeFromEmail.IsEnabled = false;
-            TextBoxEnterOldEmail.IsEnabled = false;
+            ButtonConfirmEmail.IsEnabled          = false;
+            ButtonSendAgainEmail.IsEnabled        = false;
+            ButtonConfirmCodeFromEmail.IsEnabled  = false;
+            TextBoxEnterOldEmail.IsEnabled        = false;
             TextBoxConfirmCodeFromEmail.IsEnabled = false;
 
-            _countdownTime = 30;
+            _countdownTime = 31;
             _timer.Tick -= Timer_Tick;
             _timer.Tick += BlockTimer_Tick;
             _timer.Start();
@@ -76,14 +78,14 @@ namespace WFP_Project.UserControls
             if (_countdownTime > 0)
             {
                 _countdownTime--;
-                ButtonConfirmCodeFromEmail.Content = $"{_countdownTime} seconds remaining";
+                ButtonConfirmCodeFromEmail.Content = $"{_countdownTime} seconds";
             }
             else
             {
-                ButtonConfirmEmail.IsEnabled = true;
-                ButtonSendAgainEmail.IsEnabled = true;
-                ButtonConfirmCodeFromEmail.IsEnabled = true;
-                TextBoxEnterOldEmail.IsEnabled = true;
+                ButtonConfirmEmail.IsEnabled          = true;
+                ButtonSendAgainEmail.IsEnabled        = true;
+                ButtonConfirmCodeFromEmail.IsEnabled  = true;
+                TextBoxEnterOldEmail.IsEnabled        = true;
                 TextBoxConfirmCodeFromEmail.IsEnabled = true;
 
                 ButtonConfirmCodeFromEmail.Content = "Confirm Code";
@@ -209,7 +211,23 @@ namespace WFP_Project.UserControls
 
             if (enteredCode == _confirmationCode)
             {
-                MessageBox.Show("Code confirmed, you can now reset your password.");
+                TextBlockOldEmail.Visibility                         = Visibility.Collapsed;
+                TextBoxEnterOldEmail.Visibility                      = Visibility.Collapsed;
+                ButtonConfirmEmail.Visibility                        = Visibility.Collapsed;
+                TextBlockCheckEmail.Visibility                       = Visibility.Collapsed;
+                TextBoxConfirmCodeFromEmail.Visibility               = Visibility.Collapsed;
+                ButtonConfirmCodeFromEmail.Visibility                = Visibility.Collapsed;
+                ButtonSendAgainEmail.Visibility                      = Visibility.Collapsed;
+                ButtonSendAgainEmailRectangleUI.Visibility           = Visibility.Collapsed;
+                TextBlockPassword.Visibility              = Visibility.Visible;
+                TextBoxNewPassword.Visibility             = Visibility.Visible;
+                ShowPasswordToggleIcon.Visibility         = Visibility.Visible;
+                ButtonToggleShowPassword.Visibility       = Visibility.Visible;
+                TextBlockRepeatPassword.Visibility        = Visibility.Visible;
+                TextBoxNewRepeatPassword.Visibility       = Visibility.Visible;
+                ShowRepeatPasswordToggleIcon.Visibility   = Visibility.Visible;
+                ButtonToggleShowRepeatPassword.Visibility = Visibility.Visible;
+                ButtonConfirmNewPassword.Visibility       = Visibility.Visible;
             }
             else
             {
@@ -234,5 +252,204 @@ namespace WFP_Project.UserControls
                 TextBoxConfirmCodeFromEmail.Foreground = Brushes.Black;
             }
         }
+
+        private void ButtonToggleShowPassword_Click(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxNewPassword.Text == "Enter new pass...")
+            {
+                TextBoxNewPassword.Text = "";
+                TextBoxNewPassword.Foreground     = Brushes.Black;
+                PasswordBoxNewPassword.Foreground = Brushes.Black;
+                TextBoxNewPassword.Visibility     = Visibility.Collapsed;
+                PasswordBoxNewPassword.Visibility = Visibility.Visible;
+                PasswordBoxNewPassword.Focus();
+            }
+            if (PasswordBoxNewPassword.Visibility == Visibility.Visible)
+            {
+                ShowPasswordToggleIcon.Kind       = PackIconKind.Eye;
+                TextBoxNewPassword.Text           = PasswordBoxNewPassword.Password;
+                TextBoxNewPassword.Visibility     = Visibility.Visible;
+                PasswordBoxNewPassword.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                ShowPasswordToggleIcon.Kind       = PackIconKind.EyeOff;
+                PasswordBoxNewPassword.Password   = TextBoxNewPassword.Text;
+                PasswordBoxNewPassword.Visibility = Visibility.Visible;
+                TextBoxNewPassword.Visibility     = Visibility.Collapsed;
+            }
+        }
+
+        private void ButtonToggleShowRepeatPassword_Click(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxNewRepeatPassword.Text == "Repeat pass...")
+            {
+                TextBoxNewRepeatPassword.Text = "";
+                TextBoxNewRepeatPassword.Foreground     = Brushes.Black;
+                PasswordBoxNewRepeatPassword.Foreground = Brushes.Black;
+                TextBoxNewRepeatPassword.Visibility     = Visibility.Collapsed;
+                PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
+                PasswordBoxNewRepeatPassword.Focus();
+            }
+            if (PasswordBoxNewRepeatPassword.Visibility == Visibility.Visible)
+            {
+                ShowRepeatPasswordToggleIcon.Kind       = PackIconKind.Eye;
+                TextBoxNewRepeatPassword.Text           = PasswordBoxNewRepeatPassword.Password;
+                TextBoxNewRepeatPassword.Visibility     = Visibility.Visible;
+                PasswordBoxNewRepeatPassword.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                ShowRepeatPasswordToggleIcon.Kind       = PackIconKind.EyeOff;
+                PasswordBoxNewRepeatPassword.Password   = TextBoxNewRepeatPassword.Text;
+                PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
+                TextBoxNewRepeatPassword.Visibility     = Visibility.Collapsed;
+            }
+        }
+
+
+        private void PasswordBoxNewPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            TextBoxNewPassword.Text = PasswordBoxNewPassword.Password;
+            if ((Keyboard.Modifiers == ModifierKeys.Control) && (e.Key == Key.C || e.Key == Key.V))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBoxNewPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            PasswordBoxNewPassword.Password = TextBoxNewPassword.Text;
+            if ((Keyboard.Modifiers == ModifierKeys.Control) && (e.Key == Key.C || e.Key == Key.V))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void PasswordBoxNewRepeatPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            TextBoxNewRepeatPassword.Text = PasswordBoxNewRepeatPassword.Password;
+            if ((Keyboard.Modifiers == ModifierKeys.Control) && (e.Key == Key.C || e.Key == Key.V))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBoxNewRepeatPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            PasswordBoxNewRepeatPassword.Password = TextBoxNewRepeatPassword.Text;
+            if ((Keyboard.Modifiers == ModifierKeys.Control) && (e.Key == Key.C || e.Key == Key.V))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TextBoxNewPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxNewPassword.Text == "Enter new pass...")
+            {
+                TextBoxNewPassword.Text = "";
+                TextBoxNewPassword.Foreground     = Brushes.Black;
+                PasswordBoxNewPassword.Foreground = Brushes.Black;
+                TextBoxNewPassword.Visibility     = Visibility.Collapsed;
+                PasswordBoxNewPassword.Visibility = Visibility.Visible;
+                PasswordBoxNewPassword.Focus();
+            }
+        }
+
+        private void TextBoxNewPassword_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (TextBoxNewPassword.Text == "Enter new pass...")
+            {
+                TextBoxNewPassword.Text = "";
+                TextBoxNewPassword.Foreground     = Brushes.Black;
+                PasswordBoxNewPassword.Foreground = Brushes.Black;
+                TextBoxNewPassword.Visibility     = Visibility.Collapsed;
+                PasswordBoxNewPassword.Visibility = Visibility.Visible;
+            }
+            ShowPasswordToggleIcon.Kind       = PackIconKind.EyeOff;
+            PasswordBoxNewPassword.Password   = TextBoxNewPassword.Text;
+            PasswordBoxNewPassword.Visibility = Visibility.Visible;
+            TextBoxNewPassword.Visibility     = Visibility.Collapsed;
+        }
+
+        private void TextBoxNewRepeatPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxNewRepeatPassword.Text == "Repeat pass...")
+            {
+                TextBoxNewRepeatPassword.Text = "";
+                TextBoxNewRepeatPassword.Foreground     = Brushes.Black;
+                PasswordBoxNewRepeatPassword.Foreground = Brushes.Black;
+                TextBoxNewRepeatPassword.Visibility     = Visibility.Collapsed;
+                PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
+                PasswordBoxNewRepeatPassword.Focus();
+            }
+        }
+
+
+        private void TextBoxNewRepeatPassword_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (TextBoxNewRepeatPassword.Text == "Repeat pass...")
+            {
+                TextBoxNewRepeatPassword.Text = "";
+                TextBoxNewRepeatPassword.Foreground     = Brushes.Black;
+                PasswordBoxNewRepeatPassword.Foreground = Brushes.Black;
+                TextBoxNewRepeatPassword.Visibility     = Visibility.Collapsed;
+                PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
+            }
+            ShowRepeatPasswordToggleIcon.Kind       = PackIconKind.EyeOff;
+            PasswordBoxNewRepeatPassword.Password   = TextBoxNewRepeatPassword.Text;
+            PasswordBoxNewRepeatPassword.Visibility = Visibility.Visible;
+            TextBoxNewRepeatPassword.Visibility     = Visibility.Collapsed;
+        }
+
+        private void ButtonConfirmNewPassword_Click(object sender, RoutedEventArgs e)
+        {
+            string newPassword    = PasswordBoxNewPassword.Password;
+            string repeatPassword = PasswordBoxNewRepeatPassword.Password;
+
+            if (string.IsNullOrWhiteSpace(newPassword) || string.IsNullOrWhiteSpace(repeatPassword))
+            {
+                MessageBox.Show("Please enter and confirm your new password.");
+                return;
+            }
+
+            if (newPassword.Length < 8 || newPassword == "Enter new pass...")
+            {
+                MessageBox.Show("Minimum 8 characters required in password!");
+                return;
+            }
+
+            if (newPassword != repeatPassword)
+            {
+                MessageBox.Show("Passwords do not match!");
+                return;
+            }
+
+            if (newPassword == "12345678" || newPassword == "87654321" ||
+                newPassword == "11223344" || newPassword == "44332211")
+            {
+                MessageBox.Show("we ask for strong passwords");
+                return;
+            }
+
+            try
+            {
+                UserManagement userManagement = new UserManagement();
+                userManagement.UpdateUserPassword(_login, newPassword);
+
+                var mainWindow = Application.Current.MainWindow as MainWindow;
+                if (mainWindow != null)
+                {
+                    var login = new Login();
+                    LoginMenu.ReturnToLoginMenu(login, mainWindow);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while updating the password: {ex.Message}");
+            }
+        }
+
     }
 }

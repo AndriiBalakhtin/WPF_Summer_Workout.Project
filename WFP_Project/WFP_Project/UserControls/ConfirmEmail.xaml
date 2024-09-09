@@ -201,8 +201,8 @@
             Click="ButtonSendAgainEmail_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#003366" Offset="0"/>
-                    <GradientStop Color="#0066cc" Offset="1"/>
+                    <GradientStop Color="#b94d1c" Offset="0"/>
+                    <GradientStop Color="#f7a634" Offset="1"/>
                 </LinearGradientBrush>
             </Button.Background>
         </Button>

@@ -101,6 +101,29 @@ namespace WFP_Project.Classes
             }
         }
 
+        public void UpdateUserPassword(string login, string newPassword)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "UPDATE [UserSData] SET Password = @Password WHERE Login = @Login";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Password", newPassword);
+                    cmd.Parameters.AddWithValue("@Login", login);
+
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"An error occurred while updating the password: {ex.Message}");
+                    }
+                }
+            }
+        }
+
         public (string Login, string Role) GetUserLoginAndRoleByEmail(string email)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
