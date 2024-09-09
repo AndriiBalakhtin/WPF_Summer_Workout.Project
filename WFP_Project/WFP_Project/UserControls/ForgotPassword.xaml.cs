@@ -211,23 +211,26 @@ namespace WFP_Project.UserControls
 
             if (enteredCode == _confirmationCode)
             {
-                TextBlockOldEmail.Visibility                         = Visibility.Collapsed;
-                TextBoxEnterOldEmail.Visibility                      = Visibility.Collapsed;
-                ButtonConfirmEmail.Visibility                        = Visibility.Collapsed;
-                TextBlockCheckEmail.Visibility                       = Visibility.Collapsed;
-                TextBoxConfirmCodeFromEmail.Visibility               = Visibility.Collapsed;
-                ButtonConfirmCodeFromEmail.Visibility                = Visibility.Collapsed;
-                ButtonSendAgainEmail.Visibility                      = Visibility.Collapsed;
-                ButtonSendAgainEmailRectangleUI.Visibility           = Visibility.Collapsed;
-                TextBlockPassword.Visibility              = Visibility.Visible;
-                TextBoxNewPassword.Visibility             = Visibility.Visible;
-                ShowPasswordToggleIcon.Visibility         = Visibility.Visible;
-                ButtonToggleShowPassword.Visibility       = Visibility.Visible;
-                TextBlockRepeatPassword.Visibility        = Visibility.Visible;
-                TextBoxNewRepeatPassword.Visibility       = Visibility.Visible;
-                ShowRepeatPasswordToggleIcon.Visibility   = Visibility.Visible;
-                ButtonToggleShowRepeatPassword.Visibility = Visibility.Visible;
-                ButtonConfirmNewPassword.Visibility       = Visibility.Visible;
+                ForgotPasswordRectangleUI.Visibility        = Visibility.Hidden;
+                TextBlockOldEmail.Visibility                = Visibility.Hidden;
+                TextBoxEnterOldEmail.Visibility             = Visibility.Hidden;
+                ButtonConfirmEmail.Visibility               = Visibility.Hidden;
+                TextBlockCheckEmail.Visibility              = Visibility.Hidden;
+                TextBoxConfirmCodeFromEmail.Visibility      = Visibility.Hidden;
+                ButtonConfirmCodeFromEmail.Visibility       = Visibility.Hidden;
+                ButtonSendAgainEmail.Visibility             = Visibility.Hidden;
+                ButtonSendAgainEmailRectangleUI.Visibility  = Visibility.Hidden;
+
+                ButtonConfirmPasswordRectangleUI.Visibility = Visibility.Visible;
+                TextBlockPassword.Visibility                = Visibility.Visible;
+                TextBoxNewPassword.Visibility               = Visibility.Visible;
+                ShowPasswordToggleIcon.Visibility           = Visibility.Visible;
+                ButtonToggleShowPassword.Visibility         = Visibility.Visible;
+                TextBlockRepeatPassword.Visibility          = Visibility.Visible;
+                TextBoxNewRepeatPassword.Visibility         = Visibility.Visible;
+                ShowRepeatPasswordToggleIcon.Visibility     = Visibility.Visible;
+                ButtonToggleShowRepeatPassword.Visibility   = Visibility.Visible;
+                ButtonConfirmNewPassword.Visibility         = Visibility.Visible;
             }
             else
             {

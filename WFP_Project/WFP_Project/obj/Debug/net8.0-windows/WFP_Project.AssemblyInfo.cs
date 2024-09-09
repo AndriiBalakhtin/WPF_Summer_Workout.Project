@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WFP_Project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+abe23f1c6d995d767dae1ac4989335b58573e995")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5cf044a7f0c3dc7977aa2ec993e8da48cd5aa0f")]
 [assembly: System.Reflection.AssemblyProductAttribute("WFP_Project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WFP_Project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
