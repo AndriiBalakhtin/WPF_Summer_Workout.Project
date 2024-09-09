@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Reposotory\WFP\WFP_Summer.Project\WFP_Project\WFP_Project\App.xaml
-15-2027098935
+17-1406202975
 
-22-97102843
+241217025962
 202-502407113
-MainWindow.xaml;Pages\Archive.xaml;Pages\Controls.xaml;Pages\Home.xaml;Pages\Settings.xaml;Themes\DarkTheme.xaml;Themes\LightTheme.xaml;UserControls\ConfirmEmail.xaml;UserControls\FirstStep.xaml;UserControls\ForgotPassword.xaml;UserControls\Login.xaml;UserControls\SignUp.xaml;Windows\Editor.xaml;Windows\GuiArchive.xaml;Windows\SecureLogin.xaml;
+MainWindow.xaml;Pages\AdminPanel.xaml;Pages\Archive.xaml;Pages\Controls.xaml;Pages\Home.xaml;Pages\Session.xaml;Pages\Settings.xaml;Themes\DarkTheme.xaml;Themes\LightTheme.xaml;UserControls\ConfirmEmail.xaml;UserControls\FirstStep.xaml;UserControls\ForgotPassword.xaml;UserControls\Login.xaml;UserControls\SignUp.xaml;Windows\Editor.xaml;Windows\GuiArchive.xaml;Windows\SecureLogin.xaml;
 
 False
 

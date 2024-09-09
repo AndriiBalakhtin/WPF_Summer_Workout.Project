@@ -22,10 +22,22 @@ namespace WFP_Project
             MainContentControl.Content = firstStep.Content;
         }
 
+        private void RadioButton_AdminChecked(object sender, RoutedEventArgs e)
+        {
+            AdminPanel adminPanel = new AdminPanel();
+            MainContentControl.Content = adminPanel.Content;
+        }
+
         private void RadioButton_HomeChecked(object sender, RoutedEventArgs e)
         {
             Home homeWindow = new Home();
             MainContentControl.Content = homeWindow.Content;
+        }
+
+        private void RadioButton_SessionChecked(object sender, RoutedEventArgs e)
+        {
+            Session sessionWindow = new Session();
+            MainContentControl.Content = sessionWindow.Content;
         }
 
         private void RadioButton_ControlsChecked(object sender, RoutedEventArgs e)

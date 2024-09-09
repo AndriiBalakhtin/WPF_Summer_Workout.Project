@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Control Panel" Height="290" Width="500"
+        Title="Control Panel" Height="320" Width="500"
         Loaded="Window_Loaded" Icon="/Png/logo.png">
     <Window.Background>
         <SolidColorBrush Color="Transparent"/>
@@ -13,9 +13,8 @@
     <Grid RenderTransformOrigin="0.526,0.529" Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition 
-                Height="4.04"/>
-            <RowDefinition Height="0"/>
-            <RowDefinition/>
+                Height="30"/>
+            <RowDefinition Height="274.04"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition 
@@ -25,19 +24,142 @@
         <ContentControl
             Name="MainContentControl"
             Grid.Column="1"
-            Grid.RowSpan="3" 
+            Grid.RowSpan="2" 
             RenderTransformOrigin="0.5,0.5"/>
         <StackPanel 
-            Grid.Row="2" Grid.Column="0"
+            Grid.Row="1" Grid.Column="0"
             HorizontalAlignment="Left" 
-            VerticalAlignment="Top"
-            Margin="15,6,0,0" 
-            Width="133" Height="215">
+            VerticalAlignment="Center"
+            Margin="15,0,0,0" 
+            Width="133" Height="274">
             <Label 
             Grid.Row="2" Grid.Column="0"
             Margin="0,0,0,0"
             Content="Pinned" 
             FontWeight="ExtraBold" Height="29"/>
+
+            <!-- Admin Panel-->
+            <RadioButton 
+                x:Name="RadioButton_Admin"
+                Background="Transparent"
+                BorderThickness="1"
+                FontFamily="Cascadia Code"                 
+                Width="126"
+                Height="45"
+                Visibility="Collapsed"
+                Click="RadioButton_AdminChecked">
+                <RadioButton.Template>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Border 
+                            x:Name="Border"
+                            Background="Transparent"
+                            CornerRadius="5">
+                            <StackPanel 
+                                Orientation="Horizontal"
+                                Height="32"
+                                Width="126">
+                                <Border 
+                                    x:Name="BorderAdminIconTxt"
+                                    Width="32"
+                                    Height="32"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    CornerRadius="5">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Offset="0" Color="#0033A0" />
+                                            <GradientStop Offset="1" Color="#0066CC" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <TextBlock 
+                                    x:Name="AdminIconTxt"
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center"  
+                                    FontSize="18" 
+                                    Foreground="White" 
+                                    Text="📋"/>
+                                </Border>
+                                <TextBlock
+                                    Text="Admin" 
+                                    FontWeight="ExtraBold"
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center" 
+                                    FontFamily="Regular" 
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <TextBlock.RenderTransform>
+                                        <TransformGroup>
+                                            <TranslateTransform X="10"/>
+                                        </TransformGroup>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#FFD6EAF8"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#FFB0D1E3"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="AdminIconTxt"
+                                                Storyboard.TargetProperty="FontSize"
+                                                From="18"
+                                                To="22"
+                                                Duration="0:0:0.2"
+                                                FillBehavior="HoldEnd"
+                                                AutoReverse="True" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderAdminIconTxt"
+                                                Storyboard.TargetProperty="Width"
+                                                From="28"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderAdminIconTxt"
+                                                Storyboard.TargetProperty="Height"
+                                                From="28"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="AdminIconTxt"
+                                                Storyboard.TargetProperty="FontSize"
+                                                From="5"
+                                                To="18"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderAdminIconTxt"
+                                                Storyboard.TargetProperty="Width"
+                                                From="28"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderAdminIconTxt"
+                                                Storyboard.TargetProperty="Height"
+                                                From="28"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </RadioButton.Template>
+                <RadioButton Content="RadioButton"/>
+            </RadioButton>
 
             <!-- Home -->
             <RadioButton 
@@ -157,6 +279,125 @@
                     </ControlTemplate>
                 </RadioButton.Template>
                 <RadioButton Content="RadioButton"/>
+            </RadioButton>
+
+            <!-- Session -->
+            <RadioButton 
+                x:Name="RadioButton_Session"
+                Background="Transparent"
+                BorderThickness="1"
+                FontFamily="Cascadia Code"  
+                Foreground="Black"
+                Width="126"
+                Height="45"
+                Click="RadioButton_SessionChecked">
+                <RadioButton.Template>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Border 
+                            x:Name="Border"
+                            Background="Transparent"
+                            CornerRadius="5">
+                            <StackPanel Orientation="Horizontal" Height="32" Width="126">
+                                <Border 
+                                    x:Name="BorderSessionIconTxt"
+                                    Width="32"
+                                    Height="32"
+                                    CornerRadius="5">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Offset="0" Color="#FF2C3E50" />
+                                            <GradientStop Offset="0.5" Color="#FF34495E" />
+                                            <GradientStop Offset="1" Color="#FF1F3A3A" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <TextBlock 
+                                        x:Name="SessionIconTxt"
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Center" 
+                                        FontFamily="Arial" 
+                                        FontSize="18" 
+                                        Foreground="White" 
+                                        Text="🗃️"/>
+                                </Border>
+                                <TextBlock
+                                        Text="Session" 
+                                        FontWeight="ExtraBold" 
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Center" 
+                                        FontFamily="Regular" 
+                                        RenderTransformOrigin="0.5,0.5">
+                                    <TextBlock.RenderTransform>
+                                        <TransformGroup>
+                                            <TranslateTransform X="10"/>
+                                        </TransformGroup>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#FFD6EAF8"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#FFB0D1E3"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimationUsingKeyFrames
+                                                    AccelerationRatio="0.5"
+                                                    BeginTime="00:00:00"
+                                                    Storyboard.TargetName="SessionIconTxt"
+                                                    Storyboard.TargetProperty="Margin">
+                                                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="30,0,0,0" />
+                                                <SplineThicknessKeyFrame KeyTime="00:00:0.3" Value="0" />
+                                            </ThicknessAnimationUsingKeyFrames>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderSessionIconTxt"
+                                                Storyboard.TargetProperty="Width"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderSessionIconTxt"
+                                                Storyboard.TargetProperty="Height"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="SessionIconTxt"
+                                                Storyboard.TargetProperty="FontSize"
+                                                From="12"
+                                                To="18"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderSessionIconTxt"
+                                                Storyboard.TargetProperty="Width"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderSessionIconTxt"
+                                                Storyboard.TargetProperty="Height"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </RadioButton.Template>
             </RadioButton>
 
             <!-- Controls -->
@@ -525,6 +766,7 @@
         <!-- Lock -->
         <Border
             x:Name="BlockUserControl"
+            Visibility="Collapsed"
             Margin="15,30,0,0"
             Width="135"
             Height="190"
@@ -533,12 +775,13 @@
             BorderBrush="Red"
             CornerRadius="10"
             BorderThickness="1"
-            Grid.Row="2">
+            Grid.Row="1">
             <Border.Background>
                 <SolidColorBrush Color="Transparent"/>
             </Border.Background>
         </Border>
         <materialDesign:PackIcon 
+            Visibility="Collapsed"
             x:Name="LockIcon"
             Kind="Lock"
             Width="135"
@@ -546,6 +789,6 @@
             Foreground="Red" 
             Margin="15,30,0,0" 
             RenderTransformOrigin="0.5,0.5" 
-            Grid.Row="2"/>
+            Grid.Row="1"/>
     </Grid>
 </Window>

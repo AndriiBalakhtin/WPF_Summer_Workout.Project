@@ -6,6 +6,12 @@
     <Compile Update="Classes\Json.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\AdminPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Session.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UserControls\ForgotPassword.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -35,6 +41,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Pages\AdminPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Session.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="UserControls\ForgotPassword.xaml">
       <SubType>Designer</SubType>
     </Page>
