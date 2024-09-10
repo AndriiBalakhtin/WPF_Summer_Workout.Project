@@ -16,7 +16,9 @@ namespace WFP_Project.Classes
                 mainWindow.RadioButton_Admin.Visibility   = Visibility.Visible;
                 mainWindow.RadioButton_Session.Visibility = Visibility.Visible;
                 mainWindow.StackPanelRadioButtonsMainWindow.Height = 450;
-                mainWindow.StackPanelRadioButtonsMainWindow.Margin = new Thickness(15,6,0,0);
+                mainWindow.RowDefinitionRadioButtons.Height        = new GridLength(1000);
+                mainWindow.StackPanelRadioButtonsMainWindow.Margin = new Thickness(15,6,0,600);
+                mainWindow.MainContentControl.Margin               = new Thickness(15,6,0,0);
                 mainWindow.ResizeMode                              = ResizeMode.CanResize;
                 mainWindow.Height = 600; mainWindow.Width = 1140; mainWindow.MinHeight = 600; mainWindow.MinWidth = 1140;
             }

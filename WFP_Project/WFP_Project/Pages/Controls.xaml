@@ -242,8 +242,7 @@
         <DataGrid 
             x:Name="databaseDataGrid"
             Grid.Row="0"
-            Margin="10,55,10,10" 
-            Background="LightGray"
+            Margin="0,55,0,0" 
             BeginningEdit="databaseDataGrid_BeginningEdit"
             AutoGenerateColumns="True" />
     </Grid>

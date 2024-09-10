@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Control Panel" Height="307" Width="500"
+        Title="Control Panel" Height="310" Width="500"
         Loaded="Window_Loaded" Icon="/Png/logo.png">
     <Window.Background>
         <SolidColorBrush Color="Transparent"/>
     </Window.Background>
-    <Grid RenderTransformOrigin="0.526,0.529" Margin="0,0,0,0">
+    <Grid RenderTransformOrigin="0.526,0.529" Margin="0,0,0,11">
         <Grid.RowDefinitions>
-            <RowDefinition 
+            <RowDefinition
                 Height="8"/>
-            <RowDefinition Height="350.00"/>
+            <RowDefinition 
+                x:Name="RowDefinitionRadioButtons"
+                Height="350.00"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition 
@@ -23,6 +25,7 @@
         </Grid.ColumnDefinitions>
         <ContentControl
             Name="MainContentControl"
+            Margin="0,0,0,75"
             Grid.Column="1"
             Grid.RowSpan="2" 
             RenderTransformOrigin="0.5,0.5"/>
@@ -30,9 +33,9 @@
             x:Name="StackPanelRadioButtonsMainWindow"
             Grid.Row="1" Grid.Column="0"
             HorizontalAlignment="Left"
-            Margin="15,6,0,80" 
+            Margin="15,6,0,75" 
             Width="133">
-            <Label 
+        <Label 
             Grid.Row="2" Grid.Column="0"
             Margin="0,0,0,0"
             Content="Pinned" 

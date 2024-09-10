@@ -44,7 +44,6 @@ namespace WFP_Project.Pages
 
         private void LoadDatabaseList()
         {
-            // Assuming you have ComboBoxDatabases in your XAML with items for database names.
             ComboBoxDatabases.Items.Clear();
             ComboBoxDatabases.Items.Add(new ComboBoxItem { Content = "DataBase" });
             ComboBoxDatabases.Items.Add(new ComboBoxItem { Content = "UserManagement" });
@@ -136,14 +135,12 @@ namespace WFP_Project.Pages
                     {
                         string tableName = row["TABLE_NAME"].ToString();
 
-                        // Create a StackPanel for layout
                         StackPanel stackPanel = new StackPanel
                         {
                             Orientation = Orientation.Horizontal,
                             Margin = new Thickness(5)
                         };
 
-                        // Create a Border
                         Border roundedBorder = new Border
                         {
                             Width = 174,
@@ -165,7 +162,7 @@ namespace WFP_Project.Pages
                             Foreground = Brushes.Black
                         };
 
-                        roundedBorder.Child = textBlock; // Correct usage
+                        roundedBorder.Child = textBlock;
 
                         roundedBorder.MouseEnter += (s, e) =>
                         {

@@ -208,7 +208,7 @@
         </Border>
         <DataGrid 
             x:Name="DataGridAdminSQL"
-            Margin="10,209,10,10"
+            Margin="10,147,10,10"
             AutoGenerateColumns="True"
             IsReadOnly="True"/>
     </Grid>
