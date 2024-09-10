@@ -23,20 +23,6 @@ namespace WFP_Project.Pages
             SettingsManager.ApplySelectedTheme();
         }
 
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            AdjustDataGridSize();
-        }
-
-        private void AdjustDataGridSize()
-        {
-            double windowHeight = this.ActualHeight;
-            double availableHeight = windowHeight - 10;
-            archivedDataGrid.Height = availableHeight;
-            double windowWidth = this.ActualWidth;
-            archivedDataGrid.Width = windowWidth - 20;
-        }
-
         private void LoadTableData(string tableName)
         {
             try
@@ -47,7 +33,8 @@ namespace WFP_Project.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while loading table data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"An error occurred while loading table data: {ex.Message}", 
+                                 "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -192,18 +179,21 @@ namespace WFP_Project.Pages
                 }
                 else
                 {
-                    MessageBox.Show("No archived tables found.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("No archived tables found.", 
+                                    "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while loading table names: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"An error occurred while loading table names: {ex.Message}", 
+                                 "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void DeleteArchivedTable(string tableName)
         {
-            MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete the table '{tableName}'? This action cannot be undone.", "Delete Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete the table '{tableName}'? This action cannot be undone.", 
+                                                       "Delete Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             if (result == MessageBoxResult.Yes)
             {
@@ -214,14 +204,10 @@ namespace WFP_Project.Pages
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred while deleting the table: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"An error occurred while deleting the table: {ex.Message}", 
+                                     "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-        }
-
-        private void archivedDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
-        {
-            e.Cancel = true;
         }
     }
 }

@@ -29,12 +29,14 @@ namespace WFP_Project.Pages
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred while archiving data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"An error occurred while archiving data: {ex.Message}", 
+                                     "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Please enter a table name.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Please enter a table name.", 
+                                "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
             this.Close();

@@ -1,8 +1,9 @@
 ﻿<Window x:Class="WFP_Project.Pages.ArchiveWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Archive Window" Height="600" Width="800"
-        Loaded="Window_Loaded" SizeChanged="Window_SizeChanged">
+        Title="Archive Window"
+        Height="600" Width="800"
+        Loaded="Window_Loaded">
     <Window.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
             <Setter Property="Padding" Value="10,5"/>
@@ -43,6 +44,6 @@
             Margin="10" 
             AutoGenerateColumns="True"          
             Visibility="Collapsed"
-            BeginningEdit="archivedDataGrid_BeginningEdit"/>
+            IsReadOnly="True"/>
     </Grid>
 </Window>

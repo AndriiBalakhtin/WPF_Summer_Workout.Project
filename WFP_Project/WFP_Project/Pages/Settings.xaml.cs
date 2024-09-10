@@ -34,7 +34,6 @@ namespace WFP_Project.Pages
                 string selectedTheme = selectedItem.Content.ToString();
                 appSettings.SelectedTheme = selectedTheme;
                 SettingsManager.SaveSettings(appSettings);
-
                 ApplyThemes.ApplyTheme(selectedTheme);
             }
         }

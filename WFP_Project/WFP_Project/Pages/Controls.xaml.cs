@@ -44,7 +44,8 @@ namespace WFP_Project.Pages
             }
             else
             {
-                MessageBox.Show("Fill in all the rows from the textboxes.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Fill in all the rows from the textboxes.", 
+                                "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -57,7 +58,8 @@ namespace WFP_Project.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while loading data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"An error occurred while loading data: {ex.Message}", 
+                                 "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -102,24 +104,6 @@ namespace WFP_Project.Pages
             {
                 e.Handled = true;
             }
-        }
-
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            AdjustDataGridSize();
-        }
-
-        private void AdjustDataGridSize()
-        {
-            double windowHeight = this.ActualHeight;
-
-            double availableHeight = windowHeight - 10;
-
-            databaseDataGrid.Height = availableHeight;
-
-            double windowWidth = this.ActualWidth;
-
-            databaseDataGrid.Width = windowWidth - 20;
         }
     }
 }

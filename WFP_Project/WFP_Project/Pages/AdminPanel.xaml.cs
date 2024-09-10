@@ -6,6 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using WFP_Project.Classes;
 using WFP_Project.Classes.ClassesDatabases;
 
@@ -59,12 +60,8 @@ namespace WFP_Project.Pages
                 DataTable resultTable = adminSQL.ExecuteSQLQuery(sqlCommand, selectedDatabase);
                 if (resultTable != null)
                 {
-                    DataGridAdminSQL.ItemsSource = resultTable.DefaultView; // Bind result to DataGrid
+                    DataGridAdminSQL.ItemsSource = resultTable.DefaultView;
                 }
-            }
-            else
-            {
-                MessageBox.Show("Введите SQL-команду и выберите базу данных.");
             }
         }
 
@@ -87,40 +84,90 @@ namespace WFP_Project.Pages
             }
         }
 
+        private int toggleStatePanel = 0;
+        private bool isAnimating = false;
+
         private void ButtonOpenTables_Click(object sender, RoutedEventArgs e)
         {
+            if (isAnimating)
+                return; 
+
+            isAnimating = true;
+
             string selectedDatabase = GetSelectedDatabase();
             if (string.IsNullOrEmpty(selectedDatabase))
             {
-                MessageBox.Show("Выберите базу данных для отображения таблиц.");
+                MessageBox.Show("Select database for table");
+                isAnimating = false;
                 return;
             }
 
+            toggleStatePanel++;
+
             var storyboard = new Storyboard();
-            var animation = new DoubleAnimation
+
+            double targetHeight = toggleStatePanel % 2 == 1 ? 120 : 0;
+            double dataGridMarginTopChange = toggleStatePanel % 2 == 1 ? 130 : -130;
+
+            var heightAnimation = new DoubleAnimation
             {
                 Duration = TimeSpan.FromSeconds(0.3),
-                From = TablesPanel.Visibility == Visibility.Collapsed ? 0 : TablesPanel.ActualHeight,
-                To = TablesPanel.Visibility == Visibility.Collapsed ? 300 : 0 // Adjust height as needed
+                From = TablesPanel.ActualHeight,
+                To = targetHeight
             };
-            Storyboard.SetTarget(animation, TablesPanel);
-            Storyboard.SetTargetProperty(animation, new PropertyPath("Height"));
-            storyboard.Children.Add(animation);
+            Storyboard.SetTarget(heightAnimation, TablesPanel);
+            Storyboard.SetTargetProperty(heightAnimation, new PropertyPath("Height"));
+            storyboard.Children.Add(heightAnimation);
 
-            if (TablesPanel.Visibility == Visibility.Collapsed)
+            var marginAnimation = new ThicknessAnimation
+            {
+                Duration = TimeSpan.FromSeconds(0.3),
+                From = DataGridAdminSQL.Margin,
+                To = new Thickness(DataGridAdminSQL.Margin.Left,
+                    DataGridAdminSQL.Margin.Top + dataGridMarginTopChange,
+                    DataGridAdminSQL.Margin.Right,
+                    DataGridAdminSQL.Margin.Bottom)
+            };
+            Storyboard.SetTarget(marginAnimation, DataGridAdminSQL);
+            Storyboard.SetTargetProperty(marginAnimation, new PropertyPath("Margin"));
+            storyboard.Children.Add(marginAnimation);
+
+            var opacityAnimation = new DoubleAnimation
+            {
+                Duration = TimeSpan.FromSeconds(0.3),
+                From = TablesPanel.Opacity,
+                To = toggleStatePanel % 2 == 1 ? 0.8 : 0
+            };
+            Storyboard.SetTarget(opacityAnimation, TablesPanel);
+            Storyboard.SetTargetProperty(opacityAnimation, new PropertyPath("Opacity"));
+            storyboard.Children.Add(opacityAnimation);
+
+            if (toggleStatePanel % 2 == 1)
             {
                 TablesPanel.Visibility = Visibility.Visible;
-                storyboard.Begin();
                 LoadArchivedTables(selectedDatabase);
             }
             else
             {
-                animation.Completed += (s, a) =>
+                heightAnimation.Completed += (s, a) =>
                 {
                     TablesPanel.Visibility = Visibility.Collapsed;
                 };
-                storyboard.Begin();
             }
+
+            storyboard.Begin();
+
+            var timer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromSeconds(0.5)
+            };
+            timer.Tick += (s, a) =>
+            {
+                timer.Stop();
+                
+                isAnimating = false;
+            };
+            timer.Start();
         }
 
         private void LoadArchivedTables(string database)
@@ -254,12 +301,14 @@ namespace WFP_Project.Pages
                 }
                 else
                 {
-                    MessageBox.Show("No tables found in the selected database.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("No tables found in the selected database.", 
+                                    "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while loading table names: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"An error occurred while loading table names: {ex.Message}", 
+                                 "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -274,13 +323,15 @@ namespace WFP_Project.Pages
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while loading data for table '{tableName}': {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"An error occurred while loading data for table '{tableName}': {ex.Message}", 
+                                 "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void DeleteArchivedTable(string tableName)
         {
-            MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete the table '{tableName}'? This action cannot be undone.", "Delete Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete the table '{tableName}'? This action cannot be undone.",
+                                                       "Delete Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
             if (result == MessageBoxResult.Yes)
             {
@@ -291,7 +342,8 @@ namespace WFP_Project.Pages
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred while deleting the table: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"An error occurred while deleting the table: {ex.Message}", 
+                                     "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }

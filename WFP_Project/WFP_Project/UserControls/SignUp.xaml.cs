@@ -89,7 +89,8 @@ namespace WFP_Project.UserControls
 
             if (emailExists)
             {
-                MessageBox.Show("This email is already registered. Please use a different email.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("This email is already registered. Please use a different email.", 
+                                "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 

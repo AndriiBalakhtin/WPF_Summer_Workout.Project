@@ -35,7 +35,8 @@ namespace WFP_Project.Pages
                 string.IsNullOrEmpty(weightTextBox.Text) ||
                 string.IsNullOrEmpty(goalTextBox.Text))
             {
-                MessageBox.Show("Fill in all the rows from the textboxes.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Fill in all the rows from the textboxes.",
+                                "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -65,7 +66,8 @@ namespace WFP_Project.Pages
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred while updating data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"An error occurred while updating data: {ex.Message}", 
+                                     "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -84,14 +86,16 @@ namespace WFP_Project.Pages
                 try
                 {
                     DataBase.DeleteUserData(_rowId);
-                    MessageBox.Show("Record deleted successfully.", "Delete", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Record deleted successfully.", 
+                                    "Delete", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     this.DialogResult = true;
                     this.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred while deleting data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"An error occurred while deleting data: {ex.Message}", 
+                                     "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }

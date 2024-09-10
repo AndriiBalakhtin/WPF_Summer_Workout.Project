@@ -35,7 +35,7 @@ namespace WFP_Project.Pages
 
                 SettingsManager.SaveUserData(userData);
 
-                TextBlockDataUser.Text = $"Hello! {_userLogin}, your role is: {_role}.";
+                TextBlockDataUser.Text = $"Hello! {_userLogin}, your role is: {_role}";
             }
             else
             {
@@ -44,7 +44,7 @@ namespace WFP_Project.Pages
                     var userData = SettingsManager.LoadUserData();
                     if (!string.IsNullOrEmpty(userData.UserLogin))
                     {
-                        TextBlockDataUser.Text = $"Hello! {userData.UserLogin}, your role is: {userData.Role}.";
+                        TextBlockDataUser.Text = $"Hello! {userData.UserLogin}, your role is: {userData.Role}";
                     }
                     else
                     {
@@ -53,7 +53,8 @@ namespace WFP_Project.Pages
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Failed to load user data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Failed to load user data: {ex.Message}", 
+                                    "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
