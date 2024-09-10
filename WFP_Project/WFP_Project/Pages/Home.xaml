@@ -18,5 +18,12 @@
             TextWrapping="Wrap" 
             Text="N/A"
             VerticalAlignment="Top"/>
+        <TextBlock
+            x:Name="TextBlockMqttData"
+            HorizontalAlignment="Left"
+            Margin="21,52,0,0" 
+            TextWrapping="Wrap" 
+            Text="N/A"
+            VerticalAlignment="Top"/>
     </Grid>
 </Window>
