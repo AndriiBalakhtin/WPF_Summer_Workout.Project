@@ -65,11 +65,29 @@ namespace WFP_Project.Pages
             }
         }
 
+        private bool UpdateArchive = false;
+
+        private void ComboBoxDatabases_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (UpdateArchive == true)
+            {
+                if (ComboBoxDatabases.SelectedItem != null)
+                {
+                    string selectedDatabase = GetSelectedDatabase();
+                    if (!string.IsNullOrEmpty(selectedDatabase))
+                    {
+                        LoadArchivedTables(selectedDatabase);
+                    }
+                }
+            }
+        }
+
         private string GetSelectedDatabase()
         {
             if (ComboBoxDatabases.SelectedItem != null)
             {
                 ComboBoxItem selectedItem = ComboBoxDatabases.SelectedItem as ComboBoxItem;
+                UpdateArchive = true;
                 return selectedItem?.Content.ToString();
             }
             return null;

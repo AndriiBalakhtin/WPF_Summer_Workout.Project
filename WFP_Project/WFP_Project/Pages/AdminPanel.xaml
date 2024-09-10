@@ -104,7 +104,9 @@
             SelectedIndex="0"
             Background="#FFEEEEEE"
             BorderBrush="#FFCCCCCC"
-            BorderThickness="3" RenderTransformOrigin="0.379,0.529">
+            BorderThickness="3" 
+            RenderTransformOrigin="0.5,0.5"
+            SelectionChanged="ComboBoxDatabases_SelectionChanged">
             <ComboBox.Template>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
                     <Grid>

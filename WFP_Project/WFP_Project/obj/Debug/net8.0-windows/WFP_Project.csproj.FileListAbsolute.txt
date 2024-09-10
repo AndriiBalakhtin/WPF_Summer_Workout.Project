@@ -4,6 +4,7 @@ C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-wi
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Archive.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Controls.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Home.baml
+C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Session.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Settings.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Themes\DarkTheme.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Themes\LightTheme.baml
@@ -46,7 +47,6 @@ C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-wi
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Session.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\Editor.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\GuiArchive.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project.g.resources
