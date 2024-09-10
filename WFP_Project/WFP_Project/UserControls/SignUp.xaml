@@ -473,7 +473,6 @@
             <ComboBoxItem Content="User"/>
             <ComboBoxItem Content="Athlete"/>
             <ComboBoxItem Content="Instructor"/>
-            <ComboBoxItem Content="Administrator"/>
         </ComboBox>
         <TextBlock
             x:Name="TextBlockEmail"

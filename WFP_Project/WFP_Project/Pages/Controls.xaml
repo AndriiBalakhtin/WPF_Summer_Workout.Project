@@ -142,7 +142,7 @@
                     MaxLength="4"/>
             </StackPanel>
         </StackPanel>
-		<Button
+        <Button
 			Margin="890,14,0,0"
             Background="Transparent"
             FontFamily="Regular"
@@ -239,7 +239,6 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-
         <DataGrid 
             x:Name="databaseDataGrid"
             Grid.Row="0"

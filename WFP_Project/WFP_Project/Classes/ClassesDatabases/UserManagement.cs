@@ -7,7 +7,7 @@ namespace WFP_Project.Classes
     internal class UserManagement
     {
         private static readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;" +
-            "AttachDbFilename=C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\Databases\\UserManagement\\UserManagement.mdf;" +
+            "AttachDbFilename=C:\\Reposotory\\WFP\\WPF_Summer.Project\\WFP_Project\\Databases\\UserManagement\\UserManagement.mdf;" +
             "Integrated Security=True;Connect Timeout=30";
 
         public DataTable GetUserData()

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9WmvUAFe0cTEVHvrzxEQYCWQSFF51HZf9YamtM4R6TuU1D2J+e+eBjapJL4rDxM+d65CzhpnH7GF0GYyFmkr7w==",
+  "dgSpecHash": "5ovHYobVPEQf8WHBrSt5FxVlIwM9Pid0DR2NHtpvxA2B+aO+wYsrjz3jdO7Fgegig7wpeAV9thltupi7VoTTew==",
   "success": true,
-  "projectFilePath": "C:\\Reposotory\\WFP\\WFP_Summer.Project\\WFP_Project\\WFP_Project\\WFP_Project.csproj",
+  "projectFilePath": "C:\\Reposotory\\WFP\\WPF_Summer.Project\\WFP_Project\\WFP_Project\\WFP_Project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sndre\\.nuget\\packages\\materialdesigncolors\\3.1.0\\materialdesigncolors.3.1.0.nupkg.sha512",
     "C:\\Users\\sndre\\.nuget\\packages\\materialdesignthemes\\5.1.0\\materialdesignthemes.5.1.0.nupkg.sha512",
