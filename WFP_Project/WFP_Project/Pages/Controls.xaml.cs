@@ -3,14 +3,18 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using WFP_Project.Classes;
+using WFP_Project.Enums;
 
 namespace WFP_Project.Pages
 {
     public partial class ControlWindow : Window
     {
+        private UserData currentUserData;
+
         public ControlWindow()
         {
             InitializeComponent();
+            currentUserData = SettingsManager.LoadUserData();
             LoadOverlay();
         }
 
@@ -21,31 +25,47 @@ namespace WFP_Project.Pages
 
         private void ButtonGuiArchive_Click(object sender, RoutedEventArgs e)
         {
-            GuiArchive guiArchive = new GuiArchive();
-            guiArchive.Show();
+            if (currentUserData != null && (currentUserData.Role == "Administrator" || currentUserData.Role == "Instructor"))
+            {
+                GuiArchive guiArchive = new GuiArchive();
+                guiArchive.Show();
+            }
+            else
+            {
+                MessageBox.Show("You do not have permission to archive this is",
+                                "Access Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void InsertButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(forceTextBox.Text) &&
+            if (currentUserData != null && (currentUserData.Role == "Administrator" || currentUserData.Role == "Instructor" || currentUserData.Role == "Athlete"))
+            {
+                if (!string.IsNullOrEmpty(forceTextBox.Text) &&
                 !string.IsNullOrEmpty(weightTextBox.Text) &&
                 !string.IsNullOrEmpty(goalTextBox.Text))
-            {
-                DataBase.InsertUserData(
-                    forceTextBox.Text,
-                    repeate_1stTextBox.Text,
-                    weightTextBox.Text,
-                    repeate_2ndTextBox.Text,
-                    goalTextBox.Text,
-                    repeate_3rdTextBox.Text
-                );
+                {
+                    DataBase.InsertUserData(
+                        forceTextBox.Text,
+                        repeate_1stTextBox.Text,
+                        weightTextBox.Text,
+                        repeate_2ndTextBox.Text,
+                        goalTextBox.Text,
+                        repeate_3rdTextBox.Text
+                    );
 
-                LoadOverlay();
+                    LoadOverlay();
+                }
+                else
+                {
+                    MessageBox.Show("Fill in all the rows from the textboxes.",
+                                    "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
             else
             {
-                MessageBox.Show("Fill in all the rows from the textboxes.", 
-                                "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("You do not have permission to add this is.",
+                "Access Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -65,29 +85,38 @@ namespace WFP_Project.Pages
 
         private void databaseDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
-            if (e.Row.Item is DataRowView rowView)
+            if (currentUserData != null && (currentUserData.Role == "Administrator" || currentUserData.Role == "Instructor" || currentUserData.Role == "Athlete"))
             {
-                DataRow selectedRow = rowView.Row;
-                string rowId = selectedRow["Id"].ToString();
 
-                var editorWindow = new Editor(
-                    selectedRow["Force"].ToString(),
-                    selectedRow["1st"].ToString(),
-                    selectedRow["Weight"].ToString(),
-                    selectedRow["2nd"].ToString(),
-                    selectedRow["Goal"].ToString(),
-                    selectedRow["3rd"].ToString(),
-                    rowId
-                );
-
-                bool? result = editorWindow.ShowDialog();
-
-                if (result == true)
+                if (e.Row.Item is DataRowView rowView)
                 {
-                    LoadOverlay();
-                }
+                    DataRow selectedRow = rowView.Row;
+                    string rowId = selectedRow["Id"].ToString();
 
-                e.Cancel = true;
+                    var editorWindow = new Editor(
+                        selectedRow["Force"].ToString(),
+                        selectedRow["1st"].ToString(),
+                        selectedRow["Weight"].ToString(),
+                        selectedRow["2nd"].ToString(),
+                        selectedRow["Goal"].ToString(),
+                        selectedRow["3rd"].ToString(),
+                        rowId
+                    );
+
+                    bool? result = editorWindow.ShowDialog();
+
+                    if (result == true)
+                    {
+                        LoadOverlay();
+                    }
+
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("You do not have permission for this control.",
+                                 "Access Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 

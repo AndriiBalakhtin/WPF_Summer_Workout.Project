@@ -7,14 +7,18 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using WFP_Project.Classes;
+using WFP_Project.Enums;
 
 namespace WFP_Project.Pages
 {
     public partial class ArchiveWindow : Window
     {
+        private UserData currentUserData;
+
         public ArchiveWindow()
         {
             InitializeComponent();
+            currentUserData = SettingsManager.LoadUserData();
             LoadArchivedTables();
         }
 
@@ -192,22 +196,30 @@ namespace WFP_Project.Pages
 
         private void DeleteArchivedTable(string tableName)
         {
-            MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete the table '{tableName}'? This action cannot be undone.", 
-                                                       "Delete Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-
-            if (result == MessageBoxResult.Yes)
+            if (currentUserData != null && (currentUserData.Role == "Administrator" || currentUserData.Role == "Instructor"))
             {
-                try
+                MessageBoxResult result = MessageBox.Show($"Are you sure you want to delete the table '{tableName}'? This action cannot be undone.",
+                                                           "Delete Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (result == MessageBoxResult.Yes)
                 {
-                    DataBase.DeleteTable(tableName);
-                    LoadArchivedTables();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred while deleting the table: {ex.Message}", 
-                                     "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    try
+                    {
+                        DataBase.DeleteTable(tableName);
+                        LoadArchivedTables();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred while deleting the table: {ex.Message}",
+                                         "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("You do not have permission to delete tables.", 
+                                "Access Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
+
     }
 }
