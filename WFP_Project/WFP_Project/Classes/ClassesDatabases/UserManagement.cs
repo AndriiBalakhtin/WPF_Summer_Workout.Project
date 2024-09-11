@@ -158,6 +158,90 @@ namespace WFP_Project.Classes
             }
         }
 
+        public void SaveUserConfirmationData(string login, string password, string role, string email, string confirmationCode)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO [UserSDataConfirmations] (Login, Password, Role, Email) VALUES (@Login, @Password, @Role, @Email)";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Login", login);
+                    cmd.Parameters.AddWithValue("@Password", password);
+                    cmd.Parameters.AddWithValue("@Role", role);
+                    cmd.Parameters.AddWithValue("@Email", email);
+
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred while saving data: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+
+        public void ApproveUser(string login)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = @"
+            -- Insert data into UserSData from UserSDataConfirmations
+            INSERT INTO UserSData (Login, Password, Role, Email)
+            SELECT Login, Password, Role, Email
+            FROM UserSDataConfirmations
+            WHERE Login = @Login;
+
+            -- Delete the user from UserSDataConfirmations
+            DELETE FROM UserSDataConfirmations
+            WHERE Login = @Login;";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Login", login);
+
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Account approved.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred while approving the user: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+
+
+        public void DenyUser(string login)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "DELETE FROM [UserSConfirmations] WHERE Login = @Login";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Login", login);
+
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred while deleting data: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+
         public (bool IsAuthenticated, string userLogin) ReadUser(string loginOrEmail, string password, string role)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))

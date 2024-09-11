@@ -21,6 +21,7 @@ namespace WFP_Project.UserControls
         {
             InitializeComponent();
         }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SettingsManager.ApplySelectedTheme();

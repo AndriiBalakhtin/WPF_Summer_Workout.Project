@@ -4,6 +4,7 @@ C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-wi
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Archive.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Controls.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Home.baml
+C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Notice.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Session.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Settings.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Themes\DarkTheme.baml
@@ -20,6 +21,7 @@ C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-wi
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Archive.g.cs
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Controls.g.cs
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Home.g.cs
+C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Notice.g.cs
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Session.g.cs
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Settings.g.cs
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\UserControls\ConfirmEmail.g.cs
@@ -65,5 +67,3 @@ C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-wi
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project.pdb
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project.genruntimeconfig.cache
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\ref\WFP_Project.dll
-C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Notice.g.cs
-C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Notice.baml

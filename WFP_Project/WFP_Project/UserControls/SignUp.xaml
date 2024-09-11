@@ -491,7 +491,7 @@
             Foreground="#FF7B7979"            
             Text="Enter new email" 
             Height="36" Width="145"
-            MaxLength="80"
+            MaxLength="100"
             FontSize="14"
             Padding="7,5"
             BorderBrush="#FFCCCCCC"

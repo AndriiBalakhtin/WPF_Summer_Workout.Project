@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Threading;
 using WFP_Project.Classes;
+using WFP_Project.Pages;
 
 namespace WFP_Project.UserControls
 {
@@ -75,14 +76,15 @@ namespace WFP_Project.UserControls
         private void ButtonConfirmEmail_Click(object sender, RoutedEventArgs e)
         {
             string enteredCode = TextBoxConfirmationCode.Text;
-            bool confirmationUserRole = true;
 
             if (enteredCode == _confirmationCode)
             {
-                if (_role == "Athlete")
+                if (_role == "Athlete" || _role == "Instructor")
                 {
-                    MessageBox.Show($"Your account is pending confirmation.\n\n" +
-                                    $"ToolTip: ask for help from the instructor if he takes a long time");
+                    UserManagement userManagement = new UserManagement();
+                    userManagement.SaveUserConfirmationData(_login, _password, _role, _emailToConfirm, _confirmationCode);
+
+                    MessageBox.Show($"Your account is pending confirmation.\n\nToolTip: Ask for help from the {(_role == "Athlete" ? "instructor" : "administrator")} if they take a long time.");
 
                     var mainWindow = Application.Current.MainWindow as MainWindow;
                     if (mainWindow != null)
@@ -90,20 +92,7 @@ namespace WFP_Project.UserControls
                         var login = new Login();
                         LoginMenu.ReturnToLoginMenu(login, mainWindow);
                     }
-                    confirmationUserRole = false;
-                }
-                else if (_role == "Instructor")
-                {
-                    MessageBox.Show($"Your account is pending confirmation.\n\n" +
-                                    $"ToolTip: ask for help from the administrator if he takes a long time");
-
-                    var mainWindow = Application.Current.MainWindow as MainWindow;
-                    if (mainWindow != null)
-                    {
-                        var login = new Login();
-                        LoginMenu.ReturnToLoginMenu(login, mainWindow);
-                    }
-                    confirmationUserRole = false;
+                    Close();
                 }
                 else
                 {
@@ -124,6 +113,7 @@ namespace WFP_Project.UserControls
                 MessageBox.Show("Invalid confirmation code.");
             }
         }
+
 
         private void TextBoxConfirmationCode_GotFocus(object sender, RoutedEventArgs e)
         {
