@@ -14,6 +14,7 @@ namespace WFP_Project.Classes
                 mainWindow.BlockUserControl.Visibility    = Visibility.Hidden;
                 mainWindow.LockIcon.Visibility            = Visibility.Hidden;
                 mainWindow.RadioButton_Admin.Visibility   = Visibility.Visible;
+                mainWindow.RadioButton_Notice.Visibility  = Visibility.Visible;
                 mainWindow.RadioButton_Session.Visibility = Visibility.Visible;
                 mainWindow.StackPanelRadioButtonsMainWindow.Height = 450;
                 mainWindow.RowDefinitionRadioButtons.Height        = new GridLength(1000);

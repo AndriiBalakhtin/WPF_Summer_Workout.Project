@@ -65,3 +65,5 @@ C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-wi
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project.pdb
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project.genruntimeconfig.cache
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\ref\WFP_Project.dll
+C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Notice.g.cs
+C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Pages\Notice.baml

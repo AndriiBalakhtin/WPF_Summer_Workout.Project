@@ -34,6 +34,12 @@ namespace WFP_Project
             MainContentControl.Content = homeWindow.Content;
         }
 
+        private void RadioButton_NoticeChecked(object sender, RoutedEventArgs e)
+        {
+            Notice notice = new Notice();
+            MainContentControl.Content = notice.Content;
+        }
+
         private void RadioButton_SessionChecked(object sender, RoutedEventArgs e)
         {
             Session sessionWindow = new Session();

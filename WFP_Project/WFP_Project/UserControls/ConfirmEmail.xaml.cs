@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Threading;
 using WFP_Project.Classes;
-using System.Diagnostics.Contracts;
 
 namespace WFP_Project.UserControls
 {

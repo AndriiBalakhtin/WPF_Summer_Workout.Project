@@ -5,14 +5,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Home" Height="704" Width="1102"
+        Title="Home" d:DesignHeight="450" d:DesignWidth="800"
         Loaded="Window_Loaded"
         x:Name="WindowHeight">
     <Grid>
+        <TextBlock
+            x:Name="TextBlockDataUser"
+            HorizontalAlignment="Left"
+            Margin="10,10,0,0"
+            TextAlignment="Left"
+            Text="N/A"
+            VerticalAlignment="Top" Width="500"/>
 
-        <lvc:CartesianChart Name="cartesianChartWaterLevelData"
-                            Margin="0,52,0,10"
-                            Series="{Binding SeriesCollection}">
+        <TextBlock
+            x:Name="TextBlockMqttData"
+            HorizontalAlignment="Left"
+            Margin="10,31,0,0"
+            TextAlignment="Left"
+            Text="N/A"
+            VerticalAlignment="Top" Width="500"/>
+        <lvc:CartesianChart 
+            Name="cartesianChartWaterLevelData"
+            Margin="0,52,0,10"
+            Series="{Binding SeriesCollection}">
             <lvc:CartesianChart.AxisY>
                 <lvc:Axis Name="Axis">
                     <lvc:Axis.Sections>
@@ -36,21 +51,5 @@
                 </lvc:Axis>
             </lvc:CartesianChart.AxisY>
         </lvc:CartesianChart>
-
-        <TextBlock
-            x:Name="TextBlockDataUser"
-            HorizontalAlignment="Center"
-            Margin="0,10,0,0"
-            TextWrapping="Wrap"
-            Text="N/A"
-            VerticalAlignment="Top" Width="1082"/>
-
-        <TextBlock
-            x:Name="TextBlockMqttData"
-            HorizontalAlignment="Center"
-            Margin="0,31,0,0"
-            TextWrapping="Wrap"
-            Text="N/A"
-            VerticalAlignment="Top" Width="1082"/>
     </Grid>
 </Window>
