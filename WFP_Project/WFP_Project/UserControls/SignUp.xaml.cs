@@ -86,11 +86,12 @@ namespace WFP_Project.UserControls
             }
 
             UserManagement userManagement = new UserManagement();
-            bool emailExists = userManagement.EmailExists(_email);
+            bool emailExistsInUserSData = userManagement.EmailExists(_email);
+            bool emailExistsInConfirmations = userManagement.EmailExistsInConfirmations(_email);
 
-            if (emailExists)
+            if (emailExistsInUserSData || emailExistsInConfirmations)
             {
-                MessageBox.Show("This email is already registered. Please use a different email.", 
+                MessageBox.Show("This email is already registered or awaiting confirmation. Please use a different email.",
                                 "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }

@@ -69,12 +69,41 @@ namespace WFP_Project.Classes
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"An error occurred while checking email: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"An error occurred while checking email: {ex.Message}", 
+                                         "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         return false;
                     }
                 }
             }
         }
+
+        public bool EmailExistsInConfirmations(string email)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT COUNT(*) FROM [UserSDataConfirmations] WHERE Email = @Email";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Email", email);
+
+                    try
+                    {
+                        conn.Open();
+                        int emailCount = (int)cmd.ExecuteScalar();
+
+                        return emailCount > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred while checking email in confirmations: {ex.Message}",
+                                         "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return false;
+                    }
+                }
+            }
+        }
+
 
         public void SaveUserData(string login, string password, string role, string email)
         {
@@ -183,21 +212,20 @@ namespace WFP_Project.Classes
             }
         }
 
-
         public void ApproveUser(string login)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = @"
-            -- Insert data into UserSData from UserSDataConfirmations
-            INSERT INTO UserSData (Login, Password, Role, Email)
-            SELECT Login, Password, Role, Email
-            FROM UserSDataConfirmations
-            WHERE Login = @Login;
+                        -- Insert data into UserSData from UserSDataConfirmations
+                        INSERT INTO UserSData (Login, Password, Role, Email)
+                        SELECT Login, Password, Role, Email
+                        FROM UserSDataConfirmations
+                        WHERE Login = @Login;
 
-            -- Delete the user from UserSDataConfirmations
-            DELETE FROM UserSDataConfirmations
-            WHERE Login = @Login;";
+                        -- Delete the user from UserSDataConfirmations
+                        DELETE FROM UserSDataConfirmations
+                        WHERE Login = @Login;";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -207,7 +235,6 @@ namespace WFP_Project.Classes
                     {
                         conn.Open();
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Account approved.");
                     }
                     catch (Exception ex)
                     {
@@ -216,8 +243,6 @@ namespace WFP_Project.Classes
                 }
             }
         }
-
-
 
         public void DenyUser(string login)
         {
@@ -241,6 +266,28 @@ namespace WFP_Project.Classes
             }
         }
 
+        public DataTable LoadData()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM UserSDataConfirmations";
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, conn);
+                DataTable dataTable = new DataTable();
+
+                try
+                {
+                    conn.Open();
+                    dataAdapter.Fill(dataTable);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while loading data: {ex.Message}");
+                    return null;
+                }
+
+                return dataTable;
+            }
+        }
 
         public (bool IsAuthenticated, string userLogin) ReadUser(string loginOrEmail, string password, string role)
         {

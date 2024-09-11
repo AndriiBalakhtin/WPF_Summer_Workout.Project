@@ -16,5 +16,5 @@ C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\App.xaml
 206-824913819
 MainWindow.xaml;Pages\AdminPanel.xaml;Pages\Archive.xaml;Pages\Controls.xaml;Pages\Home.xaml;Pages\Notice.xaml;Pages\Session.xaml;Pages\Settings.xaml;Themes\DarkTheme.xaml;Themes\LightTheme.xaml;UserControls\ConfirmEmail.xaml;UserControls\FirstStep.xaml;UserControls\ForgotPassword.xaml;UserControls\Login.xaml;UserControls\SignUp.xaml;Windows\Editor.xaml;Windows\GuiArchive.xaml;Windows\SecureLogin.xaml;
 
-True
+False
 

@@ -1,16 +1,11 @@
 ﻿using System.Data;
 using System.Windows;
-using System.Data.SqlClient;
 using WFP_Project.Classes;
 
 namespace WFP_Project.Pages
 {
     public partial class Notice : Window
     {
-        private static readonly string connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;" +
-            "AttachDbFilename=C:\\Reposotory\\WFP\\WPF_Summer.Project\\WFP_Project\\Databases\\UserManagement\\UserManagement.mdf;" +
-            "Integrated Security=True;Connect Timeout=30";
-
         private DataRowView selectedRow;
 
         public string SelectedLogin { get; set; }
@@ -26,28 +21,21 @@ namespace WFP_Project.Pages
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadData();
+            SettingsManager.ApplySelectedTheme();
         }
 
         private void LoadData()
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            UserManagement userManagement = new UserManagement();
+            DataTable dataTable = userManagement.LoadData();
+
+            if (dataTable != null)
             {
-                string query = "SELECT * FROM UserSDataConfirmations";
-
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(query, conn);
-                DataTable dataTable = new DataTable();
-
-                try
-                {
-                    conn.Open();
-                    dataAdapter.Fill(dataTable);
-                    DataGridConfirmations.ItemsSource = dataTable.DefaultView;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred while loading data: {ex.Message}");
-                }
+                DataGridConfirmations.ItemsSource = dataTable.DefaultView;
+            }
+            else
+            {
+                MessageBox.Show("Failed to load user data.");
             }
         }
 
@@ -77,7 +65,7 @@ namespace WFP_Project.Pages
                 {
                     MessageBox.Show($"An error occurred while approving the user: {ex.Message}");
                 }
-                LoadData(); // Refresh data after approval
+                LoadData();
             }
             else
             {
@@ -99,7 +87,7 @@ namespace WFP_Project.Pages
                 {
                     MessageBox.Show($"An error occurred while denying the user: {ex.Message}");
                 }
-                LoadData(); // Refresh data after denial
+                LoadData();
             }
             else
             {
