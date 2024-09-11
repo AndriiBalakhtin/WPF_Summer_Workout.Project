@@ -44,7 +44,6 @@ C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-wi
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\MaterialDesignThemes.Wpf.dll
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\MQTTnet.dll
-C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\MQTTnet.AspNetCore.dll
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\MQTTnet.Extensions.ManagedClient.dll
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll

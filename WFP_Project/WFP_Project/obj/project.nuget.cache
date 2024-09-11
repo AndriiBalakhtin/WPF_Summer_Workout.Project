@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SdJivwuJWc4+nq17CuOVzkt0kGFxyDMX5PwotRf9Iq1/RivhaeIY+zf7sf2WLgwM1WuDLCfr6cuFQno7FpfvMA==",
+  "dgSpecHash": "KzPiOXpTcpJATj/VsVuS3beayf4AjBldmy+2mlOPgZGQmXQ/DXeUg5ocJxI0MfpNzRIekQwQLASud6JhhcQZnQ==",
   "success": true,
   "projectFilePath": "C:\\Reposotory\\WFP\\WPF_Summer.Project\\WFP_Project\\WFP_Project\\WFP_Project.csproj",
   "expectedPackageFiles": [
@@ -12,7 +12,6 @@
     "C:\\Users\\sndre\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\sndre\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
     "C:\\Users\\sndre\\.nuget\\packages\\mqttnet\\4.3.7.1207\\mqttnet.4.3.7.1207.nupkg.sha512",
-    "C:\\Users\\sndre\\.nuget\\packages\\mqttnet.aspnetcore\\4.3.7.1207\\mqttnet.aspnetcore.4.3.7.1207.nupkg.sha512",
     "C:\\Users\\sndre\\.nuget\\packages\\mqttnet.extensions.managedclient\\4.3.7.1207\\mqttnet.extensions.managedclient.4.3.7.1207.nupkg.sha512",
     "C:\\Users\\sndre\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\sndre\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

@@ -129,25 +129,6 @@
           }
         }
       },
-      "MQTTnet.AspNetCore/4.3.7.1207": {
-        "type": "package",
-        "dependencies": {
-          "MQTTnet": "4.3.7.1207"
-        },
-        "compile": {
-          "lib/net7.0/MQTTnet.AspNetCore.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net7.0/MQTTnet.AspNetCore.dll": {
-            "related": ".xml"
-          }
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
       "MQTTnet.Extensions.ManagedClient/4.3.7.1207": {
         "type": "package",
         "dependencies": {
@@ -502,30 +483,6 @@
         "nuget.png"
       ]
     },
-    "MQTTnet.AspNetCore/4.3.7.1207": {
-      "sha512": "aDtlDjDv65kK0J3/SeagD9h1/xAzxSjbIMEQOzwChyv9mZt79KRRX0TIHQ03SyXfsRC6yyOcyqJxIp8K7FON1A==",
-      "type": "package",
-      "path": "mqttnet.aspnetcore/4.3.7.1207",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net5.0/MQTTnet.AspNetCore.dll",
-        "lib/net5.0/MQTTnet.AspNetCore.xml",
-        "lib/net6.0/MQTTnet.AspNetCore.dll",
-        "lib/net6.0/MQTTnet.AspNetCore.xml",
-        "lib/net7.0/MQTTnet.AspNetCore.dll",
-        "lib/net7.0/MQTTnet.AspNetCore.xml",
-        "lib/netcoreapp2.1/MQTTnet.AspNetCore.dll",
-        "lib/netcoreapp2.1/MQTTnet.AspNetCore.xml",
-        "lib/netcoreapp3.1/MQTTnet.AspNetCore.dll",
-        "lib/netcoreapp3.1/MQTTnet.AspNetCore.xml",
-        "lib/netstandard2.0/MQTTnet.AspNetCore.dll",
-        "lib/netstandard2.0/MQTTnet.AspNetCore.xml",
-        "mqttnet.aspnetcore.4.3.7.1207.nupkg.sha512",
-        "mqttnet.aspnetcore.nuspec",
-        "nuget.png"
-      ]
-    },
     "MQTTnet.Extensions.ManagedClient/4.3.7.1207": {
       "sha512": "i7T+4dsBqy3VVvuDuh9mmTbeZwF7eYP+8rHir4rdriM+k2dGwDNuXrScpz6xI3mEBfJZTVno8zy8+r0zzmFQuQ==",
       "type": "package",
@@ -813,9 +770,9 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "LiveCharts >= 0.9.7",
       "LiveCharts.Wpf >= 0.9.7",
       "MQTTnet >= 4.3.7.1207",
-      "MQTTnet.AspNetCore >= 4.3.7.1207",
       "MQTTnet.Extensions.ManagedClient >= 4.3.7.1207",
       "MaterialDesignThemes >= 5.1.0",
       "System.Data.SqlClient >= 4.8.6"
@@ -865,15 +822,15 @@
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
+          "LiveCharts": {
+            "target": "Package",
+            "version": "[0.9.7, )"
+          },
           "LiveCharts.Wpf": {
             "target": "Package",
             "version": "[0.9.7, )"
           },
           "MQTTnet": {
-            "target": "Package",
-            "version": "[4.3.7.1207, )"
-          },
-          "MQTTnet.AspNetCore": {
             "target": "Package",
             "version": "[4.3.7.1207, )"
           },
