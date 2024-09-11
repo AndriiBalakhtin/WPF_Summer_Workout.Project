@@ -14,15 +14,14 @@
             HorizontalAlignment="Left"
             Margin="10,10,0,0"
             TextAlignment="Left"
-            Text="N/A"
+            Text="Data from Json : N/A"
             VerticalAlignment="Top" Width="500"/>
-
         <TextBlock
             x:Name="TextBlockMqttData"
             HorizontalAlignment="Left"
             Margin="10,31,0,0"
             TextAlignment="Left"
-            Text="N/A"
+            Text="Data from sensor : N/A"
             VerticalAlignment="Top" Width="500"/>
         <lvc:CartesianChart 
             Name="cartesianChartWaterLevelData"

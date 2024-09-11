@@ -7,39 +7,38 @@
     <Window.Background>
         <SolidColorBrush Color="Transparent"/>
     </Window.Background>
-    <Grid Margin="10">
+    <Grid >
         <StackPanel
             Orientation="Horizontal"
             HorizontalAlignment="Left" 
-            VerticalAlignment="Top"
-            Margin="10,0,0,0" 
-            Height="50" Width="942">
+            VerticalAlignment="Top" 
+            Height="50" Width="942" Margin="0,-4,0,0">
             <Button
-                Name="insertButton"
+                x:Name="insertButton"
                 Content="Insert"
-                Width="85" Height="24"
-                Margin="0,12,10,0"
+                Height="32" Width="90"
                 FontWeight="ExtraBold"   
-				BorderThickness="1,1,1,1" 
+				BorderThickness="1,1,1,1"
+                Margin="0,6,0,0"
 				RenderTransformOrigin="0.5,0.5"
                 Click="InsertButton_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
                         <RotateTransform Angle="0"/>
-                        <TranslateTransform X="0" Y="2"/>
+                        <TranslateTransform X="0" Y="4"/>
                     </TransformGroup>
                 </Button.RenderTransform>
             </Button>
             <StackPanel 
                 Orientation="Vertical" 
-                Margin="0,0,10,0">
+                Margin="10,0,10,0">
                 <TextBlock 
                     Text="Force" 
                     HorizontalAlignment="Center" 
                     FontWeight="ExtraBold" 
                     Margin="0,0,0,5"/>
                 <TextBox 
-                    Name="forceTextBox" 
+                    x:Name="forceTextBox" 
                     Width="120" Height="18"
                     TextAlignment="Center"
                     VerticalAlignment="Center"
@@ -63,7 +62,7 @@
                     FontWeight="ExtraBold"
                     Margin="0,0,0,5"/>
                 <TextBox 
-                    Name="repeate_1stTextBox"
+                    x:Name="repeate_1stTextBox"
                     Width="120" Height="18"
                     TextAlignment="Center"
                     VerticalAlignment="Center"
@@ -81,7 +80,7 @@
                     FontWeight="ExtraBold"
                     Margin="0,0,0,5"/>
                 <TextBox
-                    Name="weightTextBox"
+                    x:Name="weightTextBox"
                     Width="120" Height="18"
                     TextAlignment="Center"
                     VerticalAlignment="Center"
@@ -98,7 +97,7 @@
                     FontWeight="ExtraBold"
                     Margin="0,0,0,5"/>
                 <TextBox 
-                    Name="repeate_2ndTextBox"
+                    x:Name="repeate_2ndTextBox"
                     Width="120" Height="18"
                     TextAlignment="Center"
                     VerticalAlignment="Center"
@@ -116,7 +115,7 @@
                     FontWeight="ExtraBold"
                     Margin="0,0,0,5"/>
                 <TextBox 
-                    Name="goalTextBox" 
+                    x:Name="goalTextBox" 
                     Width="120" Height="18"
                     TextAlignment="Center"
                     VerticalAlignment="Center"
@@ -133,7 +132,7 @@
                     FontWeight="ExtraBold" 
                     Margin="0,0,0,5"/>
                 <TextBox 
-                    Name="repeate_3rdTextBox"
+                    x:Name="repeate_3rdTextBox"
                     Width="120" Height="18"
                     TextAlignment="Center"
                     VerticalAlignment="Center"

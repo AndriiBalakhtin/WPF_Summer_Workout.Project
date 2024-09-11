@@ -11,19 +11,26 @@
         <SolidColorBrush Color="Transparent"/>
     </Window.Background>
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-
-        <TextBlock x:Name="NoticeTextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Margin="10" FontSize="16" FontWeight="Bold"/>
-
-        <DataGrid x:Name="DataGridConfirmations" AutoGenerateColumns="True" Grid.Row="1" Margin="10" SelectionChanged="DataGridConfirmations_SelectionChanged"/>
-
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Margin="10">
-            <Button Content="Approve" Click="ButtonApprove_Click" Margin="5"/>
-            <Button Content="Deny" Click="ButtonDeny_Click" Margin="5"/>
-        </StackPanel>
+        <Button 
+            Content="Approve" 
+            Margin="0,18,700,10"
+            Height="32" Width="90"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            FontWeight="ExtraBold" 
+            Click="ButtonApprove_Click"/>
+        <Button 
+            Content="Deny"
+            Margin="95,18,0,0"
+            Height="32" Width="90"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            FontWeight="ExtraBold" 
+            Click="ButtonDeny_Click" />
+        <DataGrid 
+            x:Name="DataGridConfirmations"
+            Margin="0,55,10,10" 
+            SelectionChanged="DataGridConfirmations_SelectionChanged"
+            AutoGenerateColumns="True" />
     </Grid>
 </Window>

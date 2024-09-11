@@ -59,7 +59,7 @@ namespace WFP_Project.UserControls
                 ResizeWindowForAuthenticatedUser();
 
                 MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
-                LoginSuccess.HideBlockUserControl(mainWindow);
+                LoginSuccess.HideBlockUserControl(mainWindow, role);
 
                 Home home = new Home();
                 home.UpdateUserDataJson(userLogin, role);
