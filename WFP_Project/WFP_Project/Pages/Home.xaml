@@ -5,15 +5,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Home" Height="450" Width="800"
+        Title="Home" Height="704" Width="1102"
         Loaded="Window_Loaded"
         x:Name="WindowHeight">
-    <Grid x:Name="MainGrid">
+    <Grid>
+
         <lvc:CartesianChart Name="cartesianChartWaterLevelData"
-                            Grid.Row="2"
-                            Margin="0,52,0,0"
-                            VerticalAlignment="Stretch"
-                            HorizontalAlignment="Stretch"
+                            Margin="0,52,0,10"
                             Series="{Binding SeriesCollection}">
             <lvc:CartesianChart.AxisY>
                 <lvc:Axis Name="Axis">
@@ -41,24 +39,18 @@
 
         <TextBlock
             x:Name="TextBlockDataUser"
-            HorizontalAlignment="Left"
-            Margin="10,10,0,0"
+            HorizontalAlignment="Center"
+            Margin="0,10,0,0"
             TextWrapping="Wrap"
             Text="N/A"
-            VerticalAlignment="Top"/>
+            VerticalAlignment="Top" Width="1082"/>
 
         <TextBlock
             x:Name="TextBlockMqttData"
-            HorizontalAlignment="Left"
-            Margin="10,31,0,0"
+            HorizontalAlignment="Center"
+            Margin="0,31,0,0"
             TextWrapping="Wrap"
             Text="N/A"
-            VerticalAlignment="Top"/>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+            VerticalAlignment="Top" Width="1082"/>
     </Grid>
 </Window>

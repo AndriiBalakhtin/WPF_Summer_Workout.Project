@@ -98,7 +98,7 @@
             x:Name="ComboBoxDatabases"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Width="144"
+            Width="190"
             Height="36"
             Margin="170,34,0,0"
             SelectedIndex="0"
@@ -179,6 +179,7 @@
             </ComboBox.Template>
             <ComboBoxItem Content="DataBase"/>
             <ComboBoxItem Content="UserManagement"/>
+            <ComboBoxItem Content="WaterLevelSensorData"/>
         </ComboBox>
         <Button
             x:Name="ButtonOpenTables"

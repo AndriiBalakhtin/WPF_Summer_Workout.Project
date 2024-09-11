@@ -1,5 +1,4 @@
 ﻿using LiveCharts;
-using LiveCharts.Definitions.Charts;
 using LiveCharts.Wpf;
 using MQTTnet;
 using MQTTnet.Client;
@@ -31,9 +30,9 @@ namespace WFP_Project.Pages
         {
             InitializeComponent();
             SeriesValues = new ChartValues<double>();
-            XFormatter = value => new DateTime((long)value).ToString("HH:mm:ss");
-            YFormatter = value => value.ToString("0.00");
-            DataContext = this;
+            XFormatter   = value => new DateTime((long)value).ToString("HH:mm:ss");
+            YFormatter   = value => value.ToString("0.00");
+            DataContext  = this;
             _dataHandler = new WaterLevelSensorData();
             UpdateUserDataJson();
             InitializeTimer();

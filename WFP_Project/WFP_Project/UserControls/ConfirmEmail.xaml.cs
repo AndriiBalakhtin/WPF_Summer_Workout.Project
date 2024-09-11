@@ -124,7 +124,7 @@ namespace WFP_Project.UserControls
         private string GenerateConfirmationCode()
         {
             Random random = new Random();
-            return random.Next(100000, 999999).ToString();
+            return random.Next(000000, 999999).ToString();
         }
 
         private void SendConfirmationEmail(string toEmail, string code)
