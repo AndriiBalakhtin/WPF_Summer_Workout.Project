@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Threading;
 using WFP_Project.Classes;
+using System.Diagnostics.Contracts;
 
 namespace WFP_Project.UserControls
 {
@@ -75,19 +76,49 @@ namespace WFP_Project.UserControls
         private void ButtonConfirmEmail_Click(object sender, RoutedEventArgs e)
         {
             string enteredCode = TextBoxConfirmationCode.Text;
+            bool confirmationUserRole = true;
 
             if (enteredCode == _confirmationCode)
             {
-                UserManagement userManagement = new UserManagement();
-                userManagement.SaveUserData(_login, _password, _role, _emailToConfirm);
-
-                var mainWindow = Application.Current.MainWindow as MainWindow;
-                if (mainWindow != null)
+                if (_role == "Athlete")
                 {
-                    var login = new Login();
-                    LoginMenu.ReturnToLoginMenu(login, mainWindow);
+                    MessageBox.Show($"Your account is pending confirmation.\n\n" +
+                                    $"ToolTip: ask for help from the instructor if he takes a long time");
+
+                    var mainWindow = Application.Current.MainWindow as MainWindow;
+                    if (mainWindow != null)
+                    {
+                        var login = new Login();
+                        LoginMenu.ReturnToLoginMenu(login, mainWindow);
+                    }
+                    confirmationUserRole = false;
                 }
-                Close();
+                else if (_role == "Instructor")
+                {
+                    MessageBox.Show($"Your account is pending confirmation.\n\n" +
+                                    $"ToolTip: ask for help from the administrator if he takes a long time");
+
+                    var mainWindow = Application.Current.MainWindow as MainWindow;
+                    if (mainWindow != null)
+                    {
+                        var login = new Login();
+                        LoginMenu.ReturnToLoginMenu(login, mainWindow);
+                    }
+                    confirmationUserRole = false;
+                }
+                else
+                {
+                    UserManagement userManagement = new UserManagement();
+                    userManagement.SaveUserData(_login, _password, _role, _emailToConfirm);
+
+                    var mainWindow = Application.Current.MainWindow as MainWindow;
+                    if (mainWindow != null)
+                    {
+                        var login = new Login();
+                        LoginMenu.ReturnToLoginMenu(login, mainWindow);
+                    }
+                    Close();
+                }
             }
             else
             {
