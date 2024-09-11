@@ -1,12 +1,14 @@
 ﻿using System.Data;
 using System.Windows;
 using WFP_Project.Classes;
+using WFP_Project.Enums;
 
 namespace WFP_Project.Pages
 {
     public partial class Notice : Window
     {
         private DataRowView selectedRow;
+        private UserData currentUserData;
 
         public string SelectedLogin { get; set; }
         public string SelectedRole { get; set; }
@@ -16,6 +18,7 @@ namespace WFP_Project.Pages
         public Notice()
         {
             InitializeComponent();
+            currentUserData = SettingsManager.LoadUserData();
             LoadData();
         }
 
@@ -31,6 +34,15 @@ namespace WFP_Project.Pages
 
             if (dataTable != null)
             {
+                if (currentUserData != null && currentUserData.Role == "Instructor")
+                {
+                    DataRow[] rowsToRemove = dataTable.Select("Role = 'Instructor'");
+                    foreach (DataRow row in rowsToRemove)
+                    {
+                        dataTable.Rows.Remove(row);
+                    }
+                }
+
                 DataGridConfirmations.ItemsSource = dataTable.DefaultView;
             }
             else
