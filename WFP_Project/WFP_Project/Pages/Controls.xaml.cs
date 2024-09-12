@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using WFP_Project.Classes;
 using WFP_Project.Enums;
 
@@ -63,6 +64,7 @@ namespace WFP_Project.Pages
                         category
                     );
 
+                    RefreshLayout();
                     LoadOverlay();
                 }
                 else
@@ -78,6 +80,17 @@ namespace WFP_Project.Pages
             }
         }
 
+        private void RefreshLayout()
+        {
+            forceTextBox.Text       = "Enter - force";
+            repeate_1stTextBox.Text = "Enter - repeate 1st";
+            weightTextBox.Text      = "Enter - weight";
+            repeate_2ndTextBox.Text = "repeate_2ndTextBox";
+            goalTextBox.Text        = "Enter - goal";
+            repeate_3rdTextBox.Text = "Enter - repeate 3rd";
+            descriptionTextBox.Text = "Enter - description";
+            difficultySlider.Value  = 0;
+        }
 
         private void databaseDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
@@ -116,10 +129,142 @@ namespace WFP_Project.Pages
             }
         }
 
+        private void LoadOverlay()
+        {
+            databaseDataGrid.ItemsSource = DataBase.GetUserData().DefaultView;
+        }
+
+        private void forceTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (forceTextBox.Text == "Enter - force")
+            {
+                forceTextBox.Text = "";
+                forceTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void forceTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (forceTextBox.Text == "")
+            {
+                forceTextBox.Text = "Enter - force";
+                forceTextBox.Foreground = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
+            }
+        }
+
+        private void repeate_1stTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (repeate_1stTextBox.Text == "Enter - repeate 1st")
+            {
+                repeate_1stTextBox.Text = "";
+                repeate_1stTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void repeate_1stTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (repeate_1stTextBox.Text == "")
+            {
+                repeate_1stTextBox.Text = "Enter - repeate 1st";
+                repeate_1stTextBox.Foreground = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
+            }
+        }
+
+        private void weightTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (weightTextBox.Text == "Enter - weight")
+            {
+                weightTextBox.Text = "";
+                weightTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void weightTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (weightTextBox.Text == "")
+            {
+                weightTextBox.Text = "Enter - weight";
+                weightTextBox.Foreground = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
+            }
+        }
+
+        private void repeate_2ndTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (repeate_2ndTextBox.Text == "Enter - repeate 2nd")
+            {
+                repeate_2ndTextBox.Text = "";
+                repeate_2ndTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void repeate_2ndTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (repeate_2ndTextBox.Text == "")
+            {
+                repeate_2ndTextBox.Text = "Enter - repeate 2nd";
+                repeate_2ndTextBox.Foreground = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
+            }
+        }
+
+        private void goalTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (goalTextBox.Text == "Enter - goal")
+            {
+                goalTextBox.Text = "";
+                goalTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void goalTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (goalTextBox.Text == "")
+            {
+                goalTextBox.Text = "Enter - goal";
+                goalTextBox.Foreground = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
+            }
+        }
+
+        private void repeate_3rdTextBoxGotFocus(object sender, RoutedEventArgs e)
+        {
+            if (repeate_3rdTextBox.Text == "Enter - repeate 3rd")
+            {
+                repeate_3rdTextBox.Text = "";
+                repeate_3rdTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void repeate_3rdTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (repeate_3rdTextBox.Text == "")
+            {
+                repeate_3rdTextBox.Text = "Enter - repeate 3rd";
+                repeate_3rdTextBox.Foreground = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
+            }
+        }
+
+        private void descriptionTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (descriptionTextBox.Text == "Enter - description")
+            {
+                descriptionTextBox.Text = "";
+                descriptionTextBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void descriptionTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (descriptionTextBox.Text == "")
+            {
+                descriptionTextBox.Text = "Enter - description";
+                descriptionTextBox.Foreground = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
+            }
+        }
+
         private void descriptionTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             string description = descriptionTextBox.Text;
         }
+
 
         private void difficultySlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -148,11 +293,6 @@ namespace WFP_Project.Pages
             {
                 e.Handled = true;
             }
-        }
-
-        private void LoadOverlay()
-        {
-            databaseDataGrid.ItemsSource = DataBase.GetUserData().DefaultView;
         }
     }
 }
