@@ -21,7 +21,7 @@
     <Compile Update="Windows\Editor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Windows\EditTrainingWindow .xaml.cs">
+    <Compile Update="Windows\EditTraining.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Windows\GuiArchive.xaml.cs">
@@ -62,7 +62,7 @@
     <Page Update="Windows\Editor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Windows\EditTrainingWindow .xaml">
+    <Page Update="Windows\EditTraining.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\GuiArchive.xaml">

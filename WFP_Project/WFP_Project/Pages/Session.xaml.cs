@@ -35,8 +35,8 @@ namespace WFP_Project.Pages
         {
             if (currentUserData != null && (currentUserData.Role == "Administrator" || currentUserData.Role == "Instructor"))
             {
-                var createTrainingWindow = new EditTrainingWindow();
-                if (createTrainingWindow.ShowDialog() == true)
+                var createTraining = new EditTraining();
+                if (createTraining.ShowDialog() == true)
                 {
                     LoadTrainings();
                 }
@@ -58,8 +58,8 @@ namespace WFP_Project.Pages
             {
                 if (TrainingDataGrid.SelectedItem is Training selectedTraining)
                 {
-                    var editTrainingWindow = new EditTrainingWindow(selectedTraining);
-                    if (editTrainingWindow.ShowDialog() == true)
+                    var editTraining = new EditTraining(selectedTraining);
+                    if (editTraining.ShowDialog() == true)
                     {
                         LoadTrainings();
                     }

@@ -63,5 +63,10 @@ namespace WFP_Project
             SettingsWindow settingsWindow = new SettingsWindow();
             MainContentControl.Content = settingsWindow.Content;
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

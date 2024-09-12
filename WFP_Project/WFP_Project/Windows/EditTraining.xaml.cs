@@ -5,12 +5,12 @@ using WFP_Project.Enums;
 
 namespace WFP_Project.Windows
 {
-    public partial class EditTrainingWindow : Window
+    public partial class EditTraining : Window
     {
         private Training _training;
         private readonly TrainingSessions _trainingSessions = new TrainingSessions();
 
-        public EditTrainingWindow()
+        public EditTraining()
         {
             InitializeComponent();
             LoadTrainingData();
@@ -21,7 +21,7 @@ namespace WFP_Project.Windows
             SettingsManager.ApplySelectedTheme();
         }
 
-        public EditTrainingWindow(Training training) : this()
+        public EditTraining(Training training) : this()
         {
             _training = training;
             LoadTrainingData();
@@ -86,7 +86,6 @@ namespace WFP_Project.Windows
                     Sets = sets
                 };
 
-                // Initialize _training if it's null
                 if (_training == null)
                 {
                     _training = new Training
@@ -94,11 +93,10 @@ namespace WFP_Project.Windows
                         TrainingName = TrainingNameTextBox.Text,
                         AthleteName = AthleteNameTextBox.Text,
                         CoachName = CoachNameTextBox.Text,
-                        Exercises = new List<Exercise>() // Initialize exercises
+                        Exercises = new List<Exercise>()
                     };
                 }
 
-                // Ensure _training.Exercises is initialized
                 if (_training.Exercises == null)
                     _training.Exercises = new List<Exercise>();
 
@@ -106,7 +104,6 @@ namespace WFP_Project.Windows
                 ExercisesListView.ItemsSource = null;
                 ExercisesListView.ItemsSource = _training.Exercises;
 
-                // Clear input fields
                 ExerciseNameTextBox.Clear();
                 RepsTextBox.Clear();
                 SetsTextBox.Clear();
