@@ -3,9 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WFP_Project.Pages"
         mc:Ignorable="d"
-        Title="Editor" Height="345" Width="400" Loaded="Window_Loaded">
+        Title="Editor" Height="533" Width="400" Loaded="Window_Loaded">
     <Window.Background>
         <SolidColorBrush Color="Transparent"/>
     </Window.Background>
@@ -16,7 +15,7 @@
             VerticalAlignment="Top"
             FontSize="16"
             FontWeight="Regular"
-            Margin="210,51,0,0"/>
+            Margin="210,20,0,0"/>
         <TextBlock
             x:Name="selectedRowTextBlock"
             Text="Selected Row:" 
@@ -35,113 +34,172 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="42.62" MinHeight="26.73"/>
+                <RowDefinition Height="Auto" MinHeight="34"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock 
-                Grid.Row="0"
+            <TextBlock
                 Grid.Column="0" 
                 Text="Force:" 
                 FontWeight="Regular"
-                VerticalAlignment="Center"/>
+                VerticalAlignment="Center" Height="16"/>
             <TextBox
                 Grid.Column="1"
                 Name="forceTextBox"  
-                BorderThickness="2" 
-                BorderBrush="#FF1D716B" 
+                Margin="5,5,5,5"
                 MaxLength="25"
-                Margin="5"/>
+                Style="{StaticResource CustomTextBoxStyle}"/>
             <TextBlock
                 Grid.Row="1"
                 Grid.Column="0"
                 Text="Repeat 1st:"
                 FontWeight="Regular"
-                VerticalAlignment="Center"/>
+                VerticalAlignment="Center" Height="16"/>
             <TextBox
                 Grid.Row="1"
                 Grid.Column="1"
                 Name="repeate_1stTextBox"               
-                BorderThickness="2" 
-                BorderBrush="#FF1D716B" 
-                PreviewKeyDown="NumbersOnlyTextboxes"
+                Margin="5,5,5,5"
                 MaxLength="4"
-                Margin="5"/>
+                TextAlignment="Center"
+                PreviewKeyDown="NumbersOnlyTextboxes"
+                Style="{StaticResource CustomTextBoxStyle}"/>
             <TextBlock
                 Grid.Row="2" 
                 Grid.Column="0" 
                 Text="Weight:"
                 FontWeight="Regular"
-                VerticalAlignment="Center"/>
+                VerticalAlignment="Center" Height="16"/>
             <TextBox
                 Grid.Row="2"
                 Grid.Column="1"
                 Name="weightTextBox"
-                BorderThickness="2"
-                BorderBrush="#FF1D716B"
+                Margin="5,5,5,5"
                 MaxLength="50"
-                Margin="5"/>
+                Style="{StaticResource CustomTextBoxStyle}"/>
             <TextBlock 
                 Grid.Row="3" 
                 Grid.Column="0" 
                 Text="Repeat 2nd:"
                 FontWeight="Regular"
-                VerticalAlignment="Center"/>
+                VerticalAlignment="Center" Height="16"/>
             <TextBox 
                 Grid.Row="3" 
                 Grid.Column="1"
                 Name="repeate_2ndTextBox" 
-                BorderThickness="2" 
-                BorderBrush="#FF1D716B"
-                PreviewKeyDown="NumbersOnlyTextboxes"
+                Margin="5,5,5,5"
                 MaxLength="4"
-                Margin="5"/>
+                TextAlignment="Center"
+                PreviewKeyDown="NumbersOnlyTextboxes"
+                Style="{StaticResource CustomTextBoxStyle}"/>
             <TextBlock
                 Grid.Row="4" 
                 Grid.Column="0" 
                 Text="Goal:" 
                 FontWeight="Regular"
-                VerticalAlignment="Center"/>
+                VerticalAlignment="Center" Height="16"/>
             <TextBox 
                 Grid.Row="4" 
                 Grid.Column="1" 
                 Name="goalTextBox" 
-                BorderThickness="2"
-                BorderBrush="#FF1D716B" 
+                Margin="5,5,5,5"
                 MaxLength="75"
-                Margin="5"/>
+                Style="{StaticResource CustomTextBoxStyle}"/>
             <TextBlock 
                 Grid.Row="5"
                 Grid.Column="0" 
                 Text="Repeat 3rd:"
                 FontWeight="Regular"
-                VerticalAlignment="Center"/>
+                VerticalAlignment="Center" Height="16"/>
             <TextBox 
                 Grid.Row="5" 
                 Grid.Column="1" 
                 Name="repeate_3rdTextBox"
-                BorderThickness="2" 
-                BorderBrush="#FF1D716B" 
-                PreviewKeyDown="NumbersOnlyTextboxes"
+                Margin="5,5,5,5"
                 MaxLength="4"
-                Margin="5"/>
+                TextAlignment="Center"
+                PreviewKeyDown="NumbersOnlyTextboxes"
+                Style="{StaticResource CustomTextBoxStyle}"/>
+            <TextBlock 
+                Grid.Row="6"
+                Grid.Column="0" 
+                Text="Description:"
+                FontWeight="Regular"
+                VerticalAlignment="Center" Height="16"/>
+            <TextBox 
+                Grid.Row="6" 
+                Grid.Column="1" 
+                Name="descriptionTextBox"
+                Margin="5,5,5,5"
+                MaxLength="255"
+                Style="{StaticResource CustomTextBoxStyle}"/>
+            <TextBlock 
+                Grid.Row="7"
+                Grid.Column="0"
+                Text="Category:"
+                FontWeight="Regular"
+                VerticalAlignment="Center" Height="16"/>
+            <ComboBox 
+                Name="categoryComboBox"
+                Height="32"
+                Grid.Row="6"
+                Grid.Column="1"
+                Style="{StaticResource CustomComboBoxStyle}" Margin="5,42,5,0" Grid.RowSpan="2">
+                <ComboBoxItem Content="Placers" />
+                <ComboBoxItem Content="Athletes" />
+                <ComboBoxItem Content="Weight Lifters" />
+                <ComboBoxItem Content="Endurance" />
+                <ComboBoxItem Content="Sprinters" />
+            </ComboBox>
+            <TextBlock 
+                Grid.Row="8"
+                Grid.Column="0"
+                Text="Difficulty:"
+                FontWeight="Regular"
+                VerticalAlignment="Center" Height="16"/>
+            <Slider 
+                Name="difficultySlider"
+                Grid.Row="8"
+                Grid.Column="1"
+                Minimum="0" 
+                Maximum="10"
+                TickFrequency="1"
+                IsSnapToTickEnabled="True" 
+                TickPlacement="BottomRight"
+                Margin="5,5,5,5"/>
             <Button 
+                Margin="20,40,0,-30"
                 Content="Update" 
-                Grid.Row="6" 
+                Grid.Row="8" 
                 Grid.Column="1"
                 HorizontalAlignment="Left" 
                 Width="90" 
-                Click="UpdateButton_Click" 
-                Margin="25,6,0,-13"/>
+                Click="UpdateButton_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF4C961B" Offset="1"/>
+                        <GradientStop Color="#FF67EA0F" Offset="0"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
             <Button 
+                Margin="120,40,0,-30"
                 Content="Delete" 
-                Grid.Row="6" 
+                Grid.Row="8" 
                 Grid.Column="1"
                 HorizontalAlignment="Left" 
                 Width="90" 
-                Click="DeleteButton_Click"
-                Margin="120,6,0,-13"/>
+                Click="DeleteButton_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFB71C1C" Offset="0"/>
+                        <GradientStop Color="#FF8A1A1A" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </Grid>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using WFP_Project.Classes;
 
@@ -18,8 +19,11 @@ namespace WFP_Project.Pages
             repeate_2ndTextBox.Text = repeate2nd;
             goalTextBox.Text = goal;
             repeate_3rdTextBox.Text = repeate3rd;
-            _rowId = rowId;
 
+            categoryComboBox.SelectedItem = categoryComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == "Your Default Value");
+            difficultySlider.Value = 5;
+
+            _rowId = rowId;
             selectedRowTextBlock.Text = $"Selected Row: {rowId}";
         }
 
@@ -66,7 +70,7 @@ namespace WFP_Project.Pages
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred while updating data: {ex.Message}", 
+                    MessageBox.Show($"An error occurred while updating data: {ex.Message}",
                                      "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
@@ -86,7 +90,7 @@ namespace WFP_Project.Pages
                 try
                 {
                     DataBase.DeleteUserData(_rowId);
-                    MessageBox.Show("Record deleted successfully.", 
+                    MessageBox.Show("Record deleted successfully.",
                                     "Delete", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     this.DialogResult = true;
@@ -94,7 +98,7 @@ namespace WFP_Project.Pages
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred while deleting data: {ex.Message}", 
+                    MessageBox.Show($"An error occurred while deleting data: {ex.Message}",
                                      "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }

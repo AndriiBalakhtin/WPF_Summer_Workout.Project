@@ -48,7 +48,117 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-          
+
+            <!-- Style for TextBox -->
+            <Style x:Key="CustomTextBoxStyle" TargetType="TextBox">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="TextBox">
+                            <Border 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5">
+                                <ScrollViewer x:Name="PART_ContentHost" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                            <GradientStop Color="#FFEEEEEE" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="BorderBrush" Value="#FFCCCCCC"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Foreground" Value="#FF7B7979"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Padding" Value="7,5"/>
+            </Style>
+
+            <!-- Style for ComboBox -->
+            <Style x:Key="CustomComboBoxStyle" TargetType="ComboBox">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ComboBox">
+                            <Grid>
+                                <Border 
+                                    Background="{TemplateBinding Background}" 
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}" 
+                                    CornerRadius="5">
+                                    <Grid>
+                                        <Border 
+                                            Background="DarkGray"
+                                            CornerRadius="10" 
+                                            HorizontalAlignment="Right" 
+                                            VerticalAlignment="Center"
+                                            Width="15" 
+                                            Height="15">
+                                            <ToggleButton 
+                                                x:Name="ToggleButton"
+                                                BorderThickness="1.5"
+                                                Focusable="false"
+                                                IsChecked="{Binding IsDropDownOpen, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                                ClickMode="Press">
+                                                <Path x:Name="TrianglePath"
+                                                    Fill="Gray"
+                                                    Margin="0,1.5,0,0"
+                                                    Data="M 0 0 L 4 4 L 8 0 Z"
+                                                    VerticalAlignment="Top"
+                                                    HorizontalAlignment="Center"/>
+                                            </ToggleButton>
+                                        </Border>
+                                        <ContentPresenter 
+                                            x:Name="ContentSite"
+                                            Content="{TemplateBinding SelectionBoxItem}"
+                                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Left"
+                                            Margin="10,0,25,2"/>
+                                        <TextBox 
+                                            x:Name="PART_EditableTextBox"
+                                            Style="{x:Null}"
+                                            Background="Transparent"
+                                            Focusable="False"
+                                            Visibility="Hidden"/>
+                                    </Grid>
+                                </Border>
+                                <Popup 
+                                    x:Name="Popup"
+                                    Placement="Bottom" 
+                                    IsOpen="{TemplateBinding IsDropDownOpen}" 
+                                    AllowsTransparency="True" 
+                                    Focusable="False">
+                                    <Border 
+                                        x:Name="DropDownBorder" 
+                                        Background="{TemplateBinding Background}" 
+                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                        BorderThickness="{TemplateBinding BorderThickness}" 
+                                        CornerRadius="5">
+                                        <ScrollViewer 
+                                            x:Name="ScrollViewer" 
+                                            CanContentScroll="True">
+                                            <ItemsPresenter/>
+                                        </ScrollViewer>
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Background" Value="#FFFFFFFF"/>
+                <Setter Property="BorderBrush" Value="#FFCCCCCC"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Foreground" Value="#FF7B7979"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Padding" Value="7,5"/>
+            </Style>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

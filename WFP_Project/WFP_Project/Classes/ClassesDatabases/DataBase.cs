@@ -64,7 +64,6 @@ namespace WFP_Project.Classes
             }
         }
 
-
         public static void UpdateUserData(string id, string force, string repeate1st, string weight, string repeate2nd, string goal, string repeate3rd)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
