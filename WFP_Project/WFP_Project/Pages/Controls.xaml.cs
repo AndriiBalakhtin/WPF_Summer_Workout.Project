@@ -38,6 +38,62 @@ namespace WFP_Project.Pages
             }
         }
 
+        private void databaseDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
+        {
+            if (currentUserData != null && (currentUserData.Role == "Administrator" || currentUserData.Role == "Instructor" || currentUserData.Role == "Athlete"))
+            {
+                if (e.Row.Item is DataRowView rowView)
+                {
+                    DataRow selectedRow = rowView.Row;
+                    string rowId = selectedRow["Id"].ToString();
+
+                    string category = Convert.IsDBNull(selectedRow["Category"]) ? string.Empty : selectedRow["Category"].ToString();
+                    int difficulty = Convert.IsDBNull(selectedRow["Difficulty"]) ? 0 : Convert.ToInt32(selectedRow["Difficulty"]);
+                    string description = Convert.IsDBNull(selectedRow["Description"]) ? string.Empty : selectedRow["Description"].ToString();
+
+                    var editorWindow = new Editor(
+                        Convert.IsDBNull(selectedRow["Force"]) ? string.Empty : selectedRow["Force"].ToString(),
+                        Convert.IsDBNull(selectedRow["1st"]) ? string.Empty : selectedRow["1st"].ToString(),
+                        Convert.IsDBNull(selectedRow["Weight"]) ? string.Empty : selectedRow["Weight"].ToString(),
+                        Convert.IsDBNull(selectedRow["2nd"]) ? string.Empty : selectedRow["2nd"].ToString(),
+                        Convert.IsDBNull(selectedRow["Goal"]) ? string.Empty : selectedRow["Goal"].ToString(),
+                        Convert.IsDBNull(selectedRow["3rd"]) ? string.Empty : selectedRow["3rd"].ToString(),
+                        rowId,
+                        category,
+                        difficulty,
+                        description
+                    );
+
+                    bool? result = editorWindow.ShowDialog();
+
+                    if (result == true)
+                    {
+                        LoadOverlay();
+                    }
+
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("You do not have permission for this control.",
+                                 "Access Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+
+        private void RefreshLayout()
+        {
+            forceTextBox.Text       = "Enter - force";
+            repeate_1stTextBox.Text = "Enter - repeate 1st";
+            weightTextBox.Text      = "Enter - weight";
+            repeate_2ndTextBox.Text = "repeate_2ndTextBox";
+            goalTextBox.Text        = "Enter - goal";
+            repeate_3rdTextBox.Text = "Enter - repeate 3rd";
+            descriptionTextBox.Text = "Enter - description";
+            difficultySlider.Value  = 0;
+        }
+
         private void InsertButton_Click(object sender, RoutedEventArgs e)
         {
             if (currentUserData != null && (currentUserData.Role == "Administrator" || currentUserData.Role == "Instructor" || currentUserData.Role == "Athlete"))
@@ -75,59 +131,11 @@ namespace WFP_Project.Pages
             }
             else
             {
-                MessageBox.Show("You do not have permission to add this is.",
-                "Access Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("You do not have permission to add this.",
+                                "Access Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
-        private void RefreshLayout()
-        {
-            forceTextBox.Text       = "Enter - force";
-            repeate_1stTextBox.Text = "Enter - repeate 1st";
-            weightTextBox.Text      = "Enter - weight";
-            repeate_2ndTextBox.Text = "repeate_2ndTextBox";
-            goalTextBox.Text        = "Enter - goal";
-            repeate_3rdTextBox.Text = "Enter - repeate 3rd";
-            descriptionTextBox.Text = "Enter - description";
-            difficultySlider.Value  = 0;
-        }
-
-        private void databaseDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
-        {
-            if (currentUserData != null && (currentUserData.Role == "Administrator" || currentUserData.Role == "Instructor" || currentUserData.Role == "Athlete"))
-            {
-
-                if (e.Row.Item is DataRowView rowView)
-                {
-                    DataRow selectedRow = rowView.Row;
-                    string rowId = selectedRow["Id"].ToString();
-
-                    var editorWindow = new Editor(
-                        selectedRow["Force"].ToString(),
-                        selectedRow["1st"].ToString(),
-                        selectedRow["Weight"].ToString(),
-                        selectedRow["2nd"].ToString(),
-                        selectedRow["Goal"].ToString(),
-                        selectedRow["3rd"].ToString(),
-                        rowId
-                    );
-
-                    bool? result = editorWindow.ShowDialog();
-
-                    if (result == true)
-                    {
-                        LoadOverlay();
-                    }
-
-                    e.Cancel = true;
-                }
-            }
-            else
-            {
-                MessageBox.Show("You do not have permission for this control.",
-                                 "Access Denied", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-        }
 
         private void LoadOverlay()
         {
@@ -138,7 +146,7 @@ namespace WFP_Project.Pages
         {
             if (forceTextBox.Text == "Enter - force")
             {
-                forceTextBox.Text = "";
+                forceTextBox.Text       = "";
                 forceTextBox.Foreground = Brushes.Black;
             }
         }
@@ -147,7 +155,7 @@ namespace WFP_Project.Pages
         {
             if (forceTextBox.Text == "")
             {
-                forceTextBox.Text = "Enter - force";
+                forceTextBox.Text       = "Enter - force";
                 forceTextBox.Foreground = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
             }
         }
@@ -156,8 +164,9 @@ namespace WFP_Project.Pages
         {
             if (repeate_1stTextBox.Text == "Enter - repeate 1st")
             {
-                repeate_1stTextBox.Text = "";
-                repeate_1stTextBox.Foreground = Brushes.Black;
+                repeate_1stTextBox.Text          = "";
+                repeate_1stTextBox.Foreground    = Brushes.Black;
+                repeate_1stTextBox.TextAlignment = TextAlignment.Center;
             }
         }
 
@@ -165,8 +174,9 @@ namespace WFP_Project.Pages
         {
             if (repeate_1stTextBox.Text == "")
             {
-                repeate_1stTextBox.Text = "Enter - repeate 1st";
-                repeate_1stTextBox.Foreground = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
+                repeate_1stTextBox.Text          = "Enter - repeate 1st";
+                repeate_1stTextBox.Foreground    = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
+                repeate_1stTextBox.TextAlignment = TextAlignment.Left;
             }
         }
 
@@ -174,7 +184,7 @@ namespace WFP_Project.Pages
         {
             if (weightTextBox.Text == "Enter - weight")
             {
-                weightTextBox.Text = "";
+                weightTextBox.Text       = "";
                 weightTextBox.Foreground = Brushes.Black;
             }
         }
@@ -183,7 +193,7 @@ namespace WFP_Project.Pages
         {
             if (weightTextBox.Text == "")
             {
-                weightTextBox.Text = "Enter - weight";
+                weightTextBox.Text       = "Enter - weight";
                 weightTextBox.Foreground = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
             }
         }
@@ -192,8 +202,9 @@ namespace WFP_Project.Pages
         {
             if (repeate_2ndTextBox.Text == "Enter - repeate 2nd")
             {
-                repeate_2ndTextBox.Text = "";
-                repeate_2ndTextBox.Foreground = Brushes.Black;
+                repeate_2ndTextBox.Text          = "";
+                repeate_2ndTextBox.Foreground    = Brushes.Black;
+                repeate_2ndTextBox.TextAlignment = TextAlignment.Center;
             }
         }
 
@@ -201,8 +212,9 @@ namespace WFP_Project.Pages
         {
             if (repeate_2ndTextBox.Text == "")
             {
-                repeate_2ndTextBox.Text = "Enter - repeate 2nd";
-                repeate_2ndTextBox.Foreground = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
+                repeate_2ndTextBox.Text          = "Enter - repeate 2nd";
+                repeate_2ndTextBox.Foreground    = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
+                repeate_2ndTextBox.TextAlignment = TextAlignment.Left;
             }
         }
 
@@ -210,7 +222,7 @@ namespace WFP_Project.Pages
         {
             if (goalTextBox.Text == "Enter - goal")
             {
-                goalTextBox.Text = "";
+                goalTextBox.Text       = "";
                 goalTextBox.Foreground = Brushes.Black;
             }
         }
@@ -219,7 +231,7 @@ namespace WFP_Project.Pages
         {
             if (goalTextBox.Text == "")
             {
-                goalTextBox.Text = "Enter - goal";
+                goalTextBox.Text       = "Enter - goal";
                 goalTextBox.Foreground = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
             }
         }
@@ -228,8 +240,9 @@ namespace WFP_Project.Pages
         {
             if (repeate_3rdTextBox.Text == "Enter - repeate 3rd")
             {
-                repeate_3rdTextBox.Text = "";
-                repeate_3rdTextBox.Foreground = Brushes.Black;
+                repeate_3rdTextBox.Text          = "";
+                repeate_3rdTextBox.Foreground    = Brushes.Black;
+                repeate_3rdTextBox.TextAlignment = TextAlignment.Center;
             }
         }
 
@@ -237,8 +250,9 @@ namespace WFP_Project.Pages
         {
             if (repeate_3rdTextBox.Text == "")
             {
-                repeate_3rdTextBox.Text = "Enter - repeate 3rd";
-                repeate_3rdTextBox.Foreground = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
+                repeate_3rdTextBox.Text          = "Enter - repeate 3rd";
+                repeate_3rdTextBox.Foreground    = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
+                repeate_3rdTextBox.TextAlignment = TextAlignment.Left;
             }
         }
 
@@ -246,7 +260,7 @@ namespace WFP_Project.Pages
         {
             if (descriptionTextBox.Text == "Enter - description")
             {
-                descriptionTextBox.Text = "";
+                descriptionTextBox.Text       = "";
                 descriptionTextBox.Foreground = Brushes.Black;
             }
         }
@@ -255,7 +269,7 @@ namespace WFP_Project.Pages
         {
             if (descriptionTextBox.Text == "")
             {
-                descriptionTextBox.Text = "Enter - description";
+                descriptionTextBox.Text       = "Enter - description";
                 descriptionTextBox.Foreground = new SolidColorBrush(Color.FromArgb(255, 123, 121, 121));
             }
         }

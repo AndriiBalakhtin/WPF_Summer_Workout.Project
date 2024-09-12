@@ -33,7 +33,8 @@ namespace WFP_Project.Classes
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading theme: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Error loading theme: {ex.Message}", 
+                                 "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

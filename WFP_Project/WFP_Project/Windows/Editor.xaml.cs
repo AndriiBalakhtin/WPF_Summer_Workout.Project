@@ -9,7 +9,18 @@ namespace WFP_Project.Pages
     {
         private string _rowId;
 
-        public Editor(string force, string repeate1st, string weight, string repeate2nd, string goal, string repeate3rd, string rowId)
+        public Editor(
+     string force,
+     string repeate1st,
+     string weight,
+     string repeate2nd,
+     string goal,
+     string repeate3rd,
+     string rowId,
+     string category,
+     int difficulty,
+     string description
+ )
         {
             InitializeComponent();
 
@@ -19,9 +30,13 @@ namespace WFP_Project.Pages
             repeate_2ndTextBox.Text = repeate2nd;
             goalTextBox.Text = goal;
             repeate_3rdTextBox.Text = repeate3rd;
+            descriptionTextBox.Text = description;
 
-            categoryComboBox.SelectedItem = categoryComboBox.Items.OfType<ComboBoxItem>().FirstOrDefault(item => item.Content.ToString() == "Your Default Value");
-            difficultySlider.Value = 5;
+            categoryComboBox.SelectedItem = categoryComboBox.Items
+                .OfType<ComboBoxItem>()
+                .FirstOrDefault(item => item.Content.ToString() == category);
+
+            difficultySlider.Value = difficulty;
 
             _rowId = rowId;
             selectedRowTextBlock.Text = $"Selected Row: {rowId}";
@@ -55,6 +70,10 @@ namespace WFP_Project.Pages
             {
                 try
                 {
+                    int difficulty = (int)difficultySlider.Value;
+                    string description = descriptionTextBox.Text;
+                    string category = (categoryComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() ?? string.Empty;
+
                     DataBase.UpdateUserData(
                         _rowId,
                         forceTextBox.Text,
@@ -62,7 +81,10 @@ namespace WFP_Project.Pages
                         weightTextBox.Text,
                         repeate_2ndTextBox.Text,
                         goalTextBox.Text,
-                        repeate_3rdTextBox.Text
+                        repeate_3rdTextBox.Text,
+                        difficulty,
+                        description,
+                        category
                     );
 
                     this.DialogResult = true;

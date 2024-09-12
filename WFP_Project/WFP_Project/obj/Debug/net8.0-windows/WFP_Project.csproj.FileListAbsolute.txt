@@ -14,6 +14,7 @@ C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-wi
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\UserControls\ForgotPassword.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\UserControls\Login.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\UserControls\SignUp.baml
+C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\Editor.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\SecureLogin.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\App.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\MainWindow.g.cs
@@ -53,7 +54,6 @@ C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-wi
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\Editor.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\GuiArchive.baml
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project.g.resources
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project.GeneratedMSBuildEditorConfig.editorconfig

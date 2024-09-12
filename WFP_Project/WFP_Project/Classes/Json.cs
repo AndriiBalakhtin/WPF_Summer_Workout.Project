@@ -26,7 +26,8 @@ namespace WFP_Project.Classes
                 }
                 catch (JsonException ex)
                 {
-                    MessageBox.Show($"Failed to load settings: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Failed to load settings: {ex.Message}", 
+                                     "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
 
@@ -53,7 +54,8 @@ namespace WFP_Project.Classes
                 }
                 catch (JsonException ex)
                 {
-                    MessageBox.Show($"Failed to load user data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"Failed to load user data: {ex.Message}", 
+                                     "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
 

@@ -51,6 +51,8 @@
                 Name="forceTextBox"  
                 Margin="5,5,5,5"
                 MaxLength="25"
+                Foreground="Black"
+                TextAlignment="Center"
                 Style="{StaticResource CustomTextBoxStyle}"/>
             <TextBlock
                 Grid.Row="1"
@@ -64,6 +66,7 @@
                 Name="repeate_1stTextBox"               
                 Margin="5,5,5,5"
                 MaxLength="4"
+                Foreground="Black"
                 TextAlignment="Center"
                 PreviewKeyDown="NumbersOnlyTextboxes"
                 Style="{StaticResource CustomTextBoxStyle}"/>
@@ -79,6 +82,8 @@
                 Name="weightTextBox"
                 Margin="5,5,5,5"
                 MaxLength="50"
+                Foreground="Black"
+                TextAlignment="Center"
                 Style="{StaticResource CustomTextBoxStyle}"/>
             <TextBlock 
                 Grid.Row="3" 
@@ -92,6 +97,7 @@
                 Name="repeate_2ndTextBox" 
                 Margin="5,5,5,5"
                 MaxLength="4"
+                Foreground="Black"
                 TextAlignment="Center"
                 PreviewKeyDown="NumbersOnlyTextboxes"
                 Style="{StaticResource CustomTextBoxStyle}"/>
@@ -107,6 +113,8 @@
                 Name="goalTextBox" 
                 Margin="5,5,5,5"
                 MaxLength="75"
+                Foreground="Black"
+                TextAlignment="Center"
                 Style="{StaticResource CustomTextBoxStyle}"/>
             <TextBlock 
                 Grid.Row="5"
@@ -120,6 +128,7 @@
                 Name="repeate_3rdTextBox"
                 Margin="5,5,5,5"
                 MaxLength="4"
+                Foreground="Black"
                 TextAlignment="Center"
                 PreviewKeyDown="NumbersOnlyTextboxes"
                 Style="{StaticResource CustomTextBoxStyle}"/>
@@ -135,6 +144,8 @@
                 Name="descriptionTextBox"
                 Margin="5,5,5,5"
                 MaxLength="255"
+                Foreground="Black"
+                TextAlignment="Center"
                 Style="{StaticResource CustomTextBoxStyle}"/>
             <TextBlock 
                 Grid.Row="7"

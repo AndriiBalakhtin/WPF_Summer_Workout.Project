@@ -58,42 +58,54 @@ namespace WFP_Project.Classes
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"An error occurred while inserting data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"An error occurred while inserting data: {ex.Message}", 
+                                         "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
         }
 
-        public static void UpdateUserData(string id, string force, string repeate1st, string weight, string repeate2nd, string goal, string repeate3rd)
+        public static void UpdateUserData(string id, string force, string repeate1st, string weight, string repeate2nd, string goal, string repeate3rd, int difficulty, string description, string category)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string query = "UPDATE [UserS] " +
-                               "SET Force = @Force, [1st] = @1st, Weight = @Weight, [2nd] = @2nd, Goal = @Goal, [3rd] = @3rd " +
+                               "SET Force = @Force, [1st] = @1st, Weight = @Weight, [2nd] = @2nd, Goal = @Goal, [3rd] = @3rd, Difficulty = @Difficulty, Description = @Description, Category = @Category " +
                                "WHERE Id = @Id";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@Force", force);
-                    cmd.Parameters.AddWithValue("@1st", repeate1st);
-                    cmd.Parameters.AddWithValue("@Weight", weight);
-                    cmd.Parameters.AddWithValue("@2nd", repeate2nd);
-                    cmd.Parameters.AddWithValue("@Goal", goal);
-                    cmd.Parameters.AddWithValue("@3rd", repeate3rd);
+                    cmd.Parameters.AddWithValue("@Force", force ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@1st", repeate1st ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Weight", weight ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@2nd", repeate2nd ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Goal", goal ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@3rd", repeate3rd ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Difficulty", difficulty);
+                    cmd.Parameters.AddWithValue("@Description", description ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Category", category ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("@Id", id);
 
                     try
                     {
                         conn.Open();
-                        cmd.ExecuteNonQuery();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected == 0)
+                        {
+                            MessageBox.Show("No records were updated. Check if the ID exists.", 
+                                            "Update", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"An error occurred while updating data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"An error occurred while updating data: {ex.Message}\nQuery: {query}", 
+                                         "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
         }
+
 
         public static void DeleteUserData(string id)
         {
@@ -112,7 +124,8 @@ namespace WFP_Project.Classes
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"An error occurred while deleting data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"An error occurred while deleting data: {ex.Message}", 
+                                         "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
@@ -133,7 +146,8 @@ namespace WFP_Project.Classes
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"An error occurred while deleting the table '{tableName}': {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"An error occurred while deleting the table '{tableName}': {ex.Message}", 
+                                         "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
@@ -165,12 +179,14 @@ namespace WFP_Project.Classes
                         {
                             cmd.CommandText = createTableQuery;
                             cmd.ExecuteNonQuery();
-                            MessageBox.Show($"Data successfully archived to table '{tableName}'", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show($"Data successfully archived to table '{tableName}'", 
+                                             "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"An error occurred while archiving data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"An error occurred while archiving data: {ex.Message}", 
+                                         "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
@@ -191,7 +207,8 @@ namespace WFP_Project.Classes
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"An error occurred while loading data from table '{tableName}': {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show($"An error occurred while loading data from table '{tableName}': {ex.Message}", 
+                                     "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
 
                 return dataTable;
@@ -222,7 +239,8 @@ namespace WFP_Project.Classes
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"An error occurred while retrieving table names: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"An error occurred while retrieving table names: {ex.Message}", 
+                                         "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }

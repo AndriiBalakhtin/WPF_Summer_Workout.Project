@@ -27,7 +27,7 @@ namespace WFP_Project.Classes.ClassesDatabases
 
             if (string.IsNullOrEmpty(connectionString))
             {
-                MessageBox.Show("Ошибка выбора базы данных.");
+                MessageBox.Show("Error with database");
                 return null;
             }
 
@@ -69,7 +69,7 @@ namespace WFP_Project.Classes.ClassesDatabases
             string connectionString = GetConnectionString(database);
             if (string.IsNullOrEmpty(connectionString))
             {
-                MessageBox.Show("Ошибка выбора базы данных.");
+                MessageBox.Show("Error with database");
                 return null;
             }
 
