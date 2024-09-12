@@ -15,11 +15,15 @@ namespace WFP_Project.Classes.ClassesDatabases
             "Integrated Security=True;" +
             "Connect Timeout=30";
 
+        private readonly string connectionStringTrainingSessions = "Data Source=(LocalDB)\\MSSQLLocalDB;" +
+            "AttachDbFilename=C:\\Reposotory\\WFP\\WPF_Summer.Project\\WFP_Project\\Databases\\TrainingSessions\\TrainingSessions.mdf;" +
+            "Integrated Security=True;" +
+            "Connect Timeout=30";
+
         private string connectionStringWaterLevelSensorData = "Data Source=(LocalDB)\\MSSQLLocalDB;" +
             "AttachDbFilename=C:\\Reposotory\\WFP\\WPF_Summer.Project\\WFP_Project\\Databases\\WaterLevelSensorData\\WaterLevelSensorData.mdf;" +
             "Integrated Security=True;" +
             "Connect Timeout=30;";
-
 
         public DataTable ExecuteSQLQuery(string query, string database)
         {
@@ -57,6 +61,8 @@ namespace WFP_Project.Classes.ClassesDatabases
                     return connectionStringDatabase;
                 case "UserManagement":
                     return connectionStringUserManagement;
+                case "TrainingSessions":
+                    return connectionStringTrainingSessions;
                 case "WaterLevelSensorData":
                     return connectionStringWaterLevelSensorData;
                 default:

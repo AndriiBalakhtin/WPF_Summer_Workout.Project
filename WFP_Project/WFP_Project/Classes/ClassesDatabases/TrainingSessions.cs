@@ -5,7 +5,10 @@ namespace WFP_Project.Classes.ClassesDatabases
 {
     public class TrainingSessions
     {
-        private readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Reposotory\\WFP\\WPF_Summer.Project\\WFP_Project\\Databases\\TrainingSessions\\TrainingSessions.mdf;Integrated Security=True;Connect Timeout=30";
+        private readonly string _connectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;" +
+            "AttachDbFilename=C:\\Reposotory\\WFP\\WPF_Summer.Project\\WFP_Project\\Databases\\TrainingSessions\\TrainingSessions.mdf;" +
+            "Integrated Security=True;" +
+            "Connect Timeout=30";
 
         public void AddTraining(Training training)
         {
