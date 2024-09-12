@@ -18,7 +18,7 @@
             Width="120" Height="21" Margin="10,10,10,10"
             BorderThickness="2" 
             BorderBrush="#FF1D716B"
-            MaxLength="20"/>
+            MaxLength="15"/>
         <Button
             Content="Archivate"
             Click="ArchiveButton_Click" 

@@ -1,26 +1,28 @@
 ﻿<Window x:Class="WFP_Project.Pages.ControlWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Control Panel" 
+        Title="Control Panel"
         Height="600" Width="1140" MinHeight="600" MinWidth="1140"
         Loaded="Window_Loaded">
     <Window.Background>
         <SolidColorBrush Color="Transparent"/>
     </Window.Background>
-    <Grid >
-        <StackPanel
-            Orientation="Horizontal"
+    <Grid>
+        <StackPanel 
+            Orientation="Horizontal" 
             HorizontalAlignment="Left" 
-            VerticalAlignment="Top" 
-            Height="50" Width="942" Margin="0,-4,0,0">
-            <Button
-                x:Name="insertButton"
-                Content="Insert"
-                Height="32" Width="90"
-                FontWeight="ExtraBold"   
-				BorderThickness="1,1,1,1"
+            VerticalAlignment="Top"
+            Height="50" 
+            Width="942"
+            Margin="0,-4,0,0">
+            <Button 
+                x:Name="insertButton" 
+                Content="Insert" 
+                Height="32" Width="90" 
+                FontWeight="ExtraBold" 
+                BorderThickness="1,1,1,1" 
                 Margin="0,6,0,0"
-				RenderTransformOrigin="0.5,0.5"
+                RenderTransformOrigin="0.5,0.5" 
                 Click="InsertButton_Click">
                 <Button.RenderTransform>
                     <TransformGroup>
@@ -30,8 +32,7 @@
                 </Button.RenderTransform>
             </Button>
             <StackPanel 
-                Orientation="Vertical" 
-                Margin="10,0,10,0">
+                Orientation="Vertical" Margin="10,0,10,0">
                 <TextBlock 
                     Text="Force" 
                     HorizontalAlignment="Center" 
@@ -39,33 +40,63 @@
                     Margin="0,0,0,5"/>
                 <TextBox 
                     x:Name="forceTextBox" 
-                    Width="120" Height="18"
-                    TextAlignment="Center"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
+                    Width="120" 
+                    Height="18" 
+                    TextAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
                     BorderThickness="2" 
-                    BorderBrush="#FF1D716B" 
-                    MaxLength="25" RenderTransformOrigin="0.5,0.5">
-                    <TextBox.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleX="1" ScaleY="1"/>
-                        </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
+                    BorderBrush="#FF1D716B" MaxLength="25"/>
             </StackPanel>
             <StackPanel 
                 Orientation="Vertical" 
                 Margin="0,0,10,0">
-                <TextBlock
+                <TextBlock 
                     Text="Repeat 1st"
-                    HorizontalAlignment="Center"
-                    FontWeight="ExtraBold"
+                    HorizontalAlignment="Center" 
+                    FontWeight="ExtraBold" 
                     Margin="0,0,0,5"/>
-                <TextBox 
+                <TextBox
                     x:Name="repeate_1stTextBox"
                     Width="120" Height="18"
                     TextAlignment="Center"
                     VerticalAlignment="Center"
+                    BorderThickness="2"
+                    BorderBrush="#FF1D716B" 
+                    PreviewKeyDown="NumbersOnlyTextboxes"
+                    MaxLength="4"/>
+            </StackPanel>
+            <StackPanel 
+                Orientation="Vertical" Margin="0,0,10,0">
+                <TextBlock 
+                    Text="Weight" 
+                    HorizontalAlignment="Center" 
+                    FontWeight="ExtraBold"
+                    Margin="0,0,0,5"/>
+                <TextBox 
+                    x:Name="weightTextBox" 
+                    Width="120"
+                    Height="18" 
+                    TextAlignment="Center" 
+                    VerticalAlignment="Center" 
+                    BorderThickness="2" 
+                    BorderBrush="#FF1D716B"
+                    MaxLength="50"/>
+            </StackPanel>
+            <StackPanel 
+                Orientation="Vertical" 
+                Margin="0,0,10,0">
+                <TextBlock 
+                    Text="Repeat 2nd" 
+                    HorizontalAlignment="Center"
+                    FontWeight="ExtraBold"
+                    Margin="0,0,0,5"/>
+                <TextBox 
+                    x:Name="repeate_2ndTextBox" 
+                    Width="120" 
+                    Height="18" 
+                    TextAlignment="Center" 
+                    VerticalAlignment="Center" 
                     BorderThickness="2" 
                     BorderBrush="#FF1D716B" 
                     PreviewKeyDown="NumbersOnlyTextboxes"
@@ -75,97 +106,108 @@
                 Orientation="Vertical"
                 Margin="0,0,10,0">
                 <TextBlock 
-                    Text="Weight"
-                    HorizontalAlignment="Center"
-                    FontWeight="ExtraBold"
-                    Margin="0,0,0,5"/>
-                <TextBox
-                    x:Name="weightTextBox"
-                    Width="120" Height="18"
-                    TextAlignment="Center"
-                    VerticalAlignment="Center"
-                    BorderThickness="2"
-                    BorderBrush="#FF1D716B"
-                    MaxLength="50"/>
-            </StackPanel>
-            <StackPanel 
-                Orientation="Vertical" 
-                Margin="0,0,10,0">
-                <TextBlock 
-                    Text="Repeat 2nd"
-                    HorizontalAlignment="Center"
-                    FontWeight="ExtraBold"
-                    Margin="0,0,0,5"/>
-                <TextBox 
-                    x:Name="repeate_2ndTextBox"
-                    Width="120" Height="18"
-                    TextAlignment="Center"
-                    VerticalAlignment="Center"
-                    BorderThickness="2" 
-                    BorderBrush="#FF1D716B"
-                    PreviewKeyDown="NumbersOnlyTextboxes"
-                    MaxLength="4"/>
-            </StackPanel>
-            <StackPanel 
-                Orientation="Vertical" 
-                Margin="0,0,10,0">
-                <TextBlock 
                     Text="Goal"
-                    HorizontalAlignment="Center"
+                    HorizontalAlignment="Center" 
                     FontWeight="ExtraBold"
                     Margin="0,0,0,5"/>
                 <TextBox 
                     x:Name="goalTextBox" 
-                    Width="120" Height="18"
+                    Width="120" Height="18" 
                     TextAlignment="Center"
                     VerticalAlignment="Center"
                     BorderThickness="2"
-                    BorderBrush="#FF1D716B" 
+                    BorderBrush="#FF1D716B"
                     MaxLength="75"/>
             </StackPanel>
             <StackPanel 
-                Orientation="Vertical" 
+                Orientation="Vertical"
                 Margin="0,0,10,0">
                 <TextBlock 
                     Text="Repeat 3rd" 
                     HorizontalAlignment="Center"
-                    FontWeight="ExtraBold" 
+                    FontWeight="ExtraBold"
                     Margin="0,0,0,5"/>
-                <TextBox 
+                <TextBox
                     x:Name="repeate_3rdTextBox"
-                    Width="120" Height="18"
-                    TextAlignment="Center"
-                    VerticalAlignment="Center"
+                    Width="120"
+                    Height="18" 
+                    TextAlignment="Center" 
+                    VerticalAlignment="Center" 
                     BorderThickness="2" 
                     BorderBrush="#FF1D716B" 
-                    PreviewKeyDown="NumbersOnlyTextboxes"
+                    PreviewKeyDown="NumbersOnlyTextboxes" 
                     MaxLength="4"/>
             </StackPanel>
         </StackPanel>
-        <Button
-			Margin="890,14,0,0"
+
+        <StackPanel 
+            Orientation="Vertical" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Margin="92,46,0,0">
+            <TextBlock 
+                Text="Description"
+                HorizontalAlignment="Left"
+                FontWeight="ExtraBold" 
+                Margin="10,10,0,0"/>
+            <TextBox
+                x:Name="descriptionTextBox"
+                Width="200" Height="41" 
+                TextWrapping="Wrap"
+                VerticalScrollBarVisibility="Auto"
+                BorderThickness="2"
+                MaxLength="255"
+                BorderBrush="#FF1D716B"
+                TextChanged="descriptionTextBox_TextChanged"/>
+        </StackPanel>
+
+        <Slider 
+            Name="difficultySlider" 
+            Minimum="0" Maximum="10"
+            TickFrequency="1"
+            IsSnapToTickEnabled="True" 
+            TickPlacement="BottomRight"
+            Width="200" 
+            Height="30" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Margin="410,79,0,0" 
+            ValueChanged="difficultySlider_ValueChanged" />
+        
+        <ComboBox 
+            Name="categoryComboBox"
+            Width="200" Height="30" 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="633,76,0,0"
+            SelectionChanged="categoryComboBox_SelectionChanged">
+            <ComboBoxItem Content="Placers" />
+            <ComboBoxItem Content="Athletes" />
+            <ComboBoxItem Content="Weight Lifters" />
+            <ComboBoxItem Content="Endurance" />
+            <ComboBoxItem Content="Sprinters" />
+        </ComboBox>
+
+        <Button 
+            Margin="890,14,0,0"
             Background="Transparent"
-            FontFamily="Regular"
+            FontFamily="Regular" 
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Click="ButtonGuiArchive_Click">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border 
-                        x:Name="Border"
-                        Background="Transparent">
+                    <Border x:Name="Border" Background="Transparent">
                         <StackPanel 
-                            Orientation="Horizontal"
-                            Height="32"
-                            Width="32"
-                            HorizontalAlignment="Center"
+                            Orientation="Horizontal" 
+                            Height="32" Width="32" 
+                            HorizontalAlignment="Center" 
                             VerticalAlignment="Center">
-                            <Border 
-                                x:Name="BorderGuiArchiveIconTxt"
-                                Width="32"
-                                Height="32"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
+                            <Border
+                                x:Name="BorderGuiArchiveIconTxt" 
+                                Width="32" Height="32" 
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center" 
                                 CornerRadius="5">
                                 <Border.Background>
                                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -173,14 +215,15 @@
                                         <GradientStop Color="#FC6C1F00" Offset="1"/>
                                     </LinearGradientBrush>
                                 </Border.Background>
-                                <TextBlock 
+                                <TextBlock
                                     x:Name="ArchiveIconTxt"
-                                    VerticalAlignment="Center" 
-                                    HorizontalAlignment="Left" 
-                                    FontFamily="Arial" 
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    FontFamily="Arial"
                                     FontSize="18" 
-                                    Foreground="White"
-                                    Text="📥" Margin="3,0,0,0"/>
+                                    Foreground="White" 
+                                    Text="📥"
+                                    Margin="3,0,0,0"/>
                             </Border>
                         </StackPanel>
                     </Border>
@@ -194,19 +237,19 @@
                                             Storyboard.TargetProperty="FontSize"
                                             From="1"
                                             To="18"
-                                            Duration="0:0:0.2" />
+                                            Duration="0:0:0.2"/>
                                         <DoubleAnimation
                                             Storyboard.TargetName="BorderGuiArchiveIconTxt"
                                             Storyboard.TargetProperty="Width"
                                             From="28"
                                             To="32"
-                                            Duration="0:0:0.2" />
+                                            Duration="0:0:0.2"/>
                                         <DoubleAnimation
-                                            Storyboard.TargetName="BorderGuiArchiveIconTxt"
+                                            Storyboard.TargetName="BorderGuiArchiveIconTxt" 
                                             Storyboard.TargetProperty="Height"
                                             From="28"
                                             To="32"
-                                            Duration="0:0:0.2" />
+                                            Duration="0:0:0.2"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>
@@ -218,19 +261,18 @@
                                             Storyboard.TargetProperty="FontSize"
                                             From="1"
                                             To="18"
-                                            Duration="0:0:0.2" />
-                                        <DoubleAnimation
+                                            Duration="0:0:0.2"/>
+                                        <DoubleAnimation 
                                             Storyboard.TargetName="BorderGuiArchiveIconTxt"
                                             Storyboard.TargetProperty="Width"
                                             From="28"
                                             To="32"
-                                            Duration="0:0:0.2" />
-                                        <DoubleAnimation
+                                            Duration="0:0:0.2"/>
+                                        <DoubleAnimation 
                                             Storyboard.TargetName="BorderGuiArchiveIconTxt"
                                             Storyboard.TargetProperty="Height"
                                             From="28"
-                                            To="32"
-                                            Duration="0:0:0.2" />
+                                            To="32" Duration="0:0:0.2"/>
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
@@ -241,9 +283,8 @@
         </Button>
         <DataGrid 
             x:Name="databaseDataGrid"
-            Grid.Row="0"
-            Margin="0,55,10,10" 
+            Margin="0,118,10,10"
             BeginningEdit="databaseDataGrid_BeginningEdit"
-            AutoGenerateColumns="True" />
+            AutoGenerateColumns="True"/>
     </Grid>
 </Window>

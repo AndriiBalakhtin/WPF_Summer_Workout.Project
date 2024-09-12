@@ -104,7 +104,6 @@ namespace WFP_Project.Classes
             }
         }
 
-
         public void SaveUserData(string login, string password, string role, string email)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))

@@ -32,12 +32,12 @@ namespace WFP_Project.Classes
                 return dataTable;
             }
         }
-        public static void InsertUserData(string force, string repeate1st, string weight, string repeate2nd, string goal, string repeate3rd)
+        public static void InsertUserData(string force, string repeate1st, string weight, string repeate2nd, string goal, string repeate3rd, int difficulty, string description, string category)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO [UserS] (Force, [1st], Weight, [2nd], Goal, [3rd]) " +
-                               "VALUES (@Force, @1st, @Weight, @2nd, @Goal, @3rd)";
+                string query = "INSERT INTO [UserS] (Force, [1st], Weight, [2nd], Goal, [3rd], Difficulty, Description, Category) " +
+                               "VALUES (@Force, @1st, @Weight, @2nd, @Goal, @3rd, @Difficulty, @Description, @Category)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -47,6 +47,9 @@ namespace WFP_Project.Classes
                     cmd.Parameters.AddWithValue("@2nd", repeate2nd);
                     cmd.Parameters.AddWithValue("@Goal", goal);
                     cmd.Parameters.AddWithValue("@3rd", repeate3rd);
+                    cmd.Parameters.AddWithValue("@Difficulty", difficulty);
+                    cmd.Parameters.AddWithValue("@Description", description);
+                    cmd.Parameters.AddWithValue("@Category", category);
 
                     try
                     {
@@ -60,6 +63,7 @@ namespace WFP_Project.Classes
                 }
             }
         }
+
 
         public static void UpdateUserData(string id, string force, string repeate1st, string weight, string repeate2nd, string goal, string repeate3rd)
         {

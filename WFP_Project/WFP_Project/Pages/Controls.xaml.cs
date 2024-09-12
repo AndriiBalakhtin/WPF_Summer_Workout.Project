@@ -42,16 +42,25 @@ namespace WFP_Project.Pages
             if (currentUserData != null && (currentUserData.Role == "Administrator" || currentUserData.Role == "Instructor" || currentUserData.Role == "Athlete"))
             {
                 if (!string.IsNullOrEmpty(forceTextBox.Text) &&
-                !string.IsNullOrEmpty(weightTextBox.Text) &&
-                !string.IsNullOrEmpty(goalTextBox.Text))
+                    !string.IsNullOrEmpty(weightTextBox.Text) &&
+                    !string.IsNullOrEmpty(goalTextBox.Text) &&
+                    !string.IsNullOrEmpty(descriptionTextBox.Text) &&
+                    categoryComboBox.SelectedItem != null)
                 {
+                    int difficulty = (int)difficultySlider.Value;
+                    string description = descriptionTextBox.Text;
+                    string category = (categoryComboBox.SelectedItem as ComboBoxItem).Content.ToString();
+
                     DataBase.InsertUserData(
                         forceTextBox.Text,
                         repeate_1stTextBox.Text,
                         weightTextBox.Text,
                         repeate_2ndTextBox.Text,
                         goalTextBox.Text,
-                        repeate_3rdTextBox.Text
+                        repeate_3rdTextBox.Text,
+                        difficulty,
+                        description,
+                        category
                     );
 
                     LoadOverlay();
@@ -69,19 +78,6 @@ namespace WFP_Project.Pages
             }
         }
 
-        private void LoadOverlay()
-        {
-            try
-            {
-                DataTable dataTable = DataBase.GetUserData();
-                databaseDataGrid.ItemsSource = dataTable.DefaultView;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred while loading data: {ex.Message}", 
-                                 "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
 
         private void databaseDataGrid_BeginningEdit(object sender, DataGridBeginningEditEventArgs e)
         {
@@ -120,6 +116,25 @@ namespace WFP_Project.Pages
             }
         }
 
+        private void descriptionTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string description = descriptionTextBox.Text;
+        }
+
+        private void difficultySlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            int difficulty = (int)difficultySlider.Value;
+        }
+
+
+        private void categoryComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (categoryComboBox.SelectedItem is ComboBoxItem selectedItem)
+            {
+                string selectedCategory = selectedItem.Content.ToString();
+            }
+        }
+
         private void NumbersOnlyTextboxes(object sender, KeyEventArgs e)
         {
             if ((e.Key >= Key.D0 && e.Key <= Key.D9) ||
@@ -133,6 +148,11 @@ namespace WFP_Project.Pages
             {
                 e.Handled = true;
             }
+        }
+
+        private void LoadOverlay()
+        {
+            databaseDataGrid.ItemsSource = DataBase.GetUserData().DefaultView;
         }
     }
 }
