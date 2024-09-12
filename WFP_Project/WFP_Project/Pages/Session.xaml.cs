@@ -40,6 +40,10 @@ namespace WFP_Project.Pages
                 {
                     LoadTrainings();
                 }
+                else
+                {
+                    MessageBox.Show("You can't add an exercise, if you haven't done the workout");
+                }
             }
             else
             {

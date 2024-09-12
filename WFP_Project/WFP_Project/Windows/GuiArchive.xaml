@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WFP_Project.Pages"
         mc:Ignorable="d"
-        Title="Gui - Archive" Height="90" Width="300" MaxHeight="90" MaxWidth="300" MinHeight="90" MinWidth="300"
+        Title="Gui - Archive" Height="90" Width="245" MaxHeight="90"
         Loaded="Window_Loaded">
     <Window.Background>
         <SolidColorBrush Color="Transparent"/>
@@ -15,15 +15,25 @@
             x:Name="archiveTableNameTextBox"
             HorizontalAlignment="Left"
             VerticalAlignment="Center"
-            Width="120" Height="21" Margin="10,10,10,10"
+            Padding="10,5"
+            Width="120" Height="36" Margin="10,0,0,0"
             BorderThickness="2" 
-            BorderBrush="#FF1D716B"
+            Foreground="Black"
+            Style="{StaticResource CustomTextBoxStyle}"
             MaxLength="15"/>
         <Button
             Content="Archivate"
-            Click="ArchiveButton_Click" 
+            Margin="10, 10, 10, 10"
             HorizontalAlignment="Right"
             VerticalAlignment="Center"
-            Width="120" Height="25" Margin="10, 10, 10, 10"/>
+            Width="80" Height="28"
+            Click="ArchiveButton_Click" >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF4C961B" Offset="1"/>
+                    <GradientStop Color="#FF67EA0F" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

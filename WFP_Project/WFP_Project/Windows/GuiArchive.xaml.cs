@@ -9,6 +9,7 @@ namespace WFP_Project.Pages
         public GuiArchive()
         {
             InitializeComponent();
+            ResizeMode = ResizeMode.NoResize;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

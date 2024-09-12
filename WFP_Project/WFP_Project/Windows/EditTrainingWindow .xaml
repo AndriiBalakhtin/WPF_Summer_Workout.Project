@@ -3,22 +3,45 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WFP_Project.Windows"
         mc:Ignorable="d"
-        Title="Edit Training" Height="554" Width="420">
+        Title="Edit Training" Height="630" Width="450" Loaded="Window_Loaded">
     <Grid Margin="0,0,0,-6">
         <StackPanel Margin="10">
-            <TextBlock Text="Training Name" Margin="0,0,0,5"/>
-            <TextBox x:Name="TrainingNameTextBox" Width="400" Margin="0,0,0,10"/>
-
-            <TextBlock Text="Athlete Name" Margin="0,0,0,5"/>
-            <TextBox x:Name="AthleteNameTextBox" Width="400" Margin="0,0,0,10"/>
-
-            <TextBlock Text="Coach Name" Margin="0,0,0,5"/>
-            <TextBox x:Name="CoachNameTextBox" Width="400" Margin="0,0,0,20"/>
-
-            <TextBlock Text="Exercises" FontWeight="Bold" Margin="0,0,0,5"/>
-            <ListView x:Name="ExercisesListView" Margin="0,0,0,20" Height="90">
+            <TextBlock 
+                Text="Training Name" 
+                Margin="5,0,0,5"/>
+            <TextBox 
+                x:Name="TrainingNameTextBox" 
+                Width="400"
+                Margin="0,0,0,5"
+                Foreground="Black"
+                Style="{StaticResource CustomTextBoxStyle}"/>
+            <TextBlock
+                Text="Athlete Name"
+                Margin="5,0,0,5"/>
+            <TextBox
+                x:Name="AthleteNameTextBox"
+                Width="400"
+                Margin="0,0,0,5"
+                Foreground="Black"
+                Style="{StaticResource CustomTextBoxStyle}"/>
+            <TextBlock 
+                Text="Coach Name" 
+                Margin="5,0,0,5"/>
+            <TextBox 
+                x:Name="CoachNameTextBox"
+                Width="400" 
+                Margin="0,0,0,5"
+                Foreground="Black"
+                Style="{StaticResource CustomTextBoxStyle}"/>
+            <TextBlock 
+                Text="Exercises" 
+                FontWeight="Bold" 
+                Margin="0,0,0,5"/>
+            <ListView 
+                x:Name="ExercisesListView" 
+                Margin="0,0,0,5"
+                Height="90">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Exercise" DisplayMemberBinding="{Binding ExerciseName}" Width="200"/>
@@ -27,21 +50,72 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-
-            <TextBlock Text="Exercise Name" Margin="0,0,0,5"/>
-            <TextBox x:Name="ExerciseNameTextBox" Width="400" Margin="0,0,0,5"/>
-
-            <TextBlock Text="Reps" Margin="0,0,0,5"/>
-            <TextBox x:Name="RepsTextBox" Width="400" Margin="0,0,0,5"/>
-
-            <TextBlock Text="Sets" Margin="0,0,0,5"/>
-            <TextBox x:Name="SetsTextBox" Width="400" Margin="0,0,0,20"/>
-
-            <Button Content="Add Exercise" Click="AddExerciseButton_Click" Margin="0,0,0,10"/>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Content="Save" Click="SaveButton_Click" Margin="0,0,5,0"/>
-                <Button Content="Cancel" Click="CancelButton_Click"/>
+            <TextBlock
+                Text="Exercise Name"
+                Margin="5,0,0,5"/>
+            <TextBox
+                x:Name="ExerciseNameTextBox" 
+                Width="400" 
+                Margin="0,0,0,5"
+                Foreground="Black"
+                Style="{StaticResource CustomTextBoxStyle}"/>
+            <TextBlock 
+                Text="Reps" 
+                Margin="5,0,0,5"/>
+            <TextBox 
+                x:Name="RepsTextBox"
+                Width="400"
+                Margin="0,0,0,5"
+                Foreground="Black"
+                Style="{StaticResource CustomTextBoxStyle}"/>
+            <TextBlock 
+                Text="Sets" 
+                Margin="5,0,0,5"/>
+            <TextBox 
+                x:Name="SetsTextBox" 
+                Width="400"
+                Margin="0,0,0,10"
+                Foreground="Black"
+                Style="{StaticResource CustomTextBoxStyle}"/>
+            <Button 
+                Content="Add Exercise" 
+                Height="32"
+                Click="AddExerciseButton_Click"
+                Margin="0,0,0,10">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#b94d1c" Offset="0"/>
+                        <GradientStop Color="#f7a634" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <StackPanel 
+                Orientation="Horizontal"
+                HorizontalAlignment="Right">
+                <Button 
+                    Content="Save"
+                    Height="32" Width="100"
+                    Click="SaveButton_Click"
+                    HorizontalAlignment="Right" 
+                    Margin="0,0,200,0">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF4C961B" Offset="1"/>
+                            <GradientStop Color="#FF67EA0F" Offset="0"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button
+                    Content="Cancel"
+                    Height="32" Width="100"
+                    Click="CancelButton_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFB71C1C" Offset="0"/>
+                            <GradientStop Color="#FF8A1A1A" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </StackPanel>
         </StackPanel>
     </Grid>

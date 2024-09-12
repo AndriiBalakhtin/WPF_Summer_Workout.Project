@@ -44,14 +44,29 @@ namespace WFP_Project.Classes.ClassesDatabases
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                using (var command = new SqlCommand("UPDATE Trainings SET TrainingName = @TrainingName, AthleteName = @AthleteName, CoachName = @CoachName WHERE TrainingId = @TrainingId", connection))
-                {
-                    command.Parameters.AddWithValue("@TrainingId", training.TrainingId);
-                    command.Parameters.AddWithValue("@TrainingName", training.TrainingName);
-                    command.Parameters.AddWithValue("@AthleteName", training.AthleteName);
-                    command.Parameters.AddWithValue("@CoachName", training.CoachName);
 
-                    command.ExecuteNonQuery();
+                if (training.TrainingId == 0)
+                {
+                    using (var command = new SqlCommand("INSERT INTO Trainings (TrainingName, AthleteName, CoachName) OUTPUT INSERTED.TrainingId VALUES (@TrainingName, @AthleteName, @CoachName)", connection))
+                    {
+                        command.Parameters.AddWithValue("@TrainingName", training.TrainingName);
+                        command.Parameters.AddWithValue("@AthleteName", training.AthleteName);
+                        command.Parameters.AddWithValue("@CoachName", training.CoachName);
+
+                        training.TrainingId = (int)command.ExecuteScalar();
+                    }
+                }
+                else
+                {
+                    using (var command = new SqlCommand("UPDATE Trainings SET TrainingName = @TrainingName, AthleteName = @AthleteName, CoachName = @CoachName WHERE TrainingId = @TrainingId", connection))
+                    {
+                        command.Parameters.AddWithValue("@TrainingId", training.TrainingId);
+                        command.Parameters.AddWithValue("@TrainingName", training.TrainingName);
+                        command.Parameters.AddWithValue("@AthleteName", training.AthleteName);
+                        command.Parameters.AddWithValue("@CoachName", training.CoachName);
+
+                        command.ExecuteNonQuery();
+                    }
                 }
 
                 using (var command = new SqlCommand("DELETE FROM Exercises WHERE TrainingId = @TrainingId", connection))
@@ -60,11 +75,12 @@ namespace WFP_Project.Classes.ClassesDatabases
                     command.ExecuteNonQuery();
                 }
 
+
                 foreach (var exercise in training.Exercises)
                 {
                     using (var command = new SqlCommand("INSERT INTO Exercises (TrainingId, ExerciseName, Reps, Sets) VALUES (@TrainingId, @ExerciseName, @Reps, @Sets)", connection))
                     {
-                        command.Parameters.AddWithValue("@TrainingId", training.TrainingId);
+                        command.Parameters.AddWithValue("@TrainingId", training.TrainingId); 
                         command.Parameters.AddWithValue("@ExerciseName", exercise.ExerciseName);
                         command.Parameters.AddWithValue("@Reps", exercise.Reps);
                         command.Parameters.AddWithValue("@Sets", exercise.Sets);

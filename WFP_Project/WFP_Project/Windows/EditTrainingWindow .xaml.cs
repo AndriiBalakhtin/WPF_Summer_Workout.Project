@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using WFP_Project.Classes;
 using WFP_Project.Classes.ClassesDatabases;
 using WFP_Project.Enums;
 
@@ -13,6 +14,11 @@ namespace WFP_Project.Windows
         {
             InitializeComponent();
             LoadTrainingData();
+            this.ResizeMode = ResizeMode.NoResize;
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            SettingsManager.ApplySelectedTheme();
         }
 
         public EditTrainingWindow(Training training) : this()
@@ -28,7 +34,11 @@ namespace WFP_Project.Windows
                 TrainingNameTextBox.Text = _training.TrainingName;
                 AthleteNameTextBox.Text = _training.AthleteName;
                 CoachNameTextBox.Text = _training.CoachName;
-                ExercisesListView.ItemsSource = _training.Exercises ?? new List<Exercise>();
+
+                if (_training.Exercises == null)
+                    _training.Exercises = new List<Exercise>();
+
+                ExercisesListView.ItemsSource = _training.Exercises;
             }
         }
 
@@ -76,12 +86,27 @@ namespace WFP_Project.Windows
                     Sets = sets
                 };
 
+                // Initialize _training if it's null
+                if (_training == null)
+                {
+                    _training = new Training
+                    {
+                        TrainingName = TrainingNameTextBox.Text,
+                        AthleteName = AthleteNameTextBox.Text,
+                        CoachName = CoachNameTextBox.Text,
+                        Exercises = new List<Exercise>() // Initialize exercises
+                    };
+                }
+
+                // Ensure _training.Exercises is initialized
                 if (_training.Exercises == null)
                     _training.Exercises = new List<Exercise>();
 
                 _training.Exercises.Add(newExercise);
                 ExercisesListView.ItemsSource = null;
                 ExercisesListView.ItemsSource = _training.Exercises;
+
+                // Clear input fields
                 ExerciseNameTextBox.Clear();
                 RepsTextBox.Clear();
                 SetsTextBox.Clear();
