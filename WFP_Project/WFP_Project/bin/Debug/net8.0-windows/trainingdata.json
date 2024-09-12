@@ -1,8 +1,38 @@
 [
   {
-    "TrainingName": "123",
+    "TrainingName": "",
+    "AthleteName": "",
+    "CoachName": "",
+    "Exercises": []
+  },
+  {
+    "TrainingName": "312132123132",
     "AthleteName": "123",
     "CoachName": "123",
+    "Exercises": []
+  },
+  {
+    "TrainingName": "123",
+    "AthleteName": "123",
+    "CoachName": "332322323vfvfcvv",
+    "Exercises": []
+  },
+  {
+    "TrainingName": "",
+    "AthleteName": "",
+    "CoachName": "",
+    "Exercises": []
+  },
+  {
+    "TrainingName": "",
+    "AthleteName": "",
+    "CoachName": "",
+    "Exercises": []
+  },
+  {
+    "TrainingName": "3",
+    "AthleteName": "3",
+    "CoachName": "3",
     "Exercises": []
   }
 ]

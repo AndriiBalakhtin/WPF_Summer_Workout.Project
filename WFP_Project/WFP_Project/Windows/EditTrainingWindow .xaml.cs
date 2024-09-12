@@ -1,16 +1,18 @@
 ﻿using System.Windows;
+using WFP_Project.Classes.ClassesDatabases;
 using WFP_Project.Enums;
-using WFP_Project.Classes;
 
 namespace WFP_Project.Windows
 {
     public partial class EditTrainingWindow : Window
     {
         private Training _training;
+        private readonly TrainingSessions _trainingSessions = new TrainingSessions();
 
         public EditTrainingWindow()
         {
             InitializeComponent();
+            LoadTrainingData();
         }
 
         public EditTrainingWindow(Training training) : this()
@@ -26,7 +28,7 @@ namespace WFP_Project.Windows
                 TrainingNameTextBox.Text = _training.TrainingName;
                 AthleteNameTextBox.Text = _training.AthleteName;
                 CoachNameTextBox.Text = _training.CoachName;
-                ExercisesListView.ItemsSource = _training.Exercises;
+                ExercisesListView.ItemsSource = _training.Exercises ?? new List<Exercise>();
             }
         }
 
@@ -41,14 +43,16 @@ namespace WFP_Project.Windows
                     CoachName = CoachNameTextBox.Text,
                     Exercises = new List<Exercise>()
                 };
-                SettingsManager.TrainingManager.CreateTraining(_training);
+
+                _trainingSessions.AddTraining(_training);
             }
             else
             {
                 _training.TrainingName = TrainingNameTextBox.Text;
                 _training.AthleteName = AthleteNameTextBox.Text;
                 _training.CoachName = CoachNameTextBox.Text;
-                SettingsManager.TrainingManager.UpdateTraining(_training);
+
+                _trainingSessions.UpdateTraining(_training);
             }
             DialogResult = true;
             Close();
