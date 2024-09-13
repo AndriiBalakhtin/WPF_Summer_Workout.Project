@@ -4,7 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Editor" Height="533" Width="400" Loaded="Window_Loaded">
+        Title="Editor" 
+        Icon="/Png/logo.png"
+        Height="533" Width="400" 
+        Loaded="Window_Loaded">
     <Window.Background>
         <SolidColorBrush Color="Transparent"/>
     </Window.Background>

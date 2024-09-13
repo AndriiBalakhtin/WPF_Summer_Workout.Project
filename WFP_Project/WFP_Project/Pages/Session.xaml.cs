@@ -40,10 +40,6 @@ namespace WFP_Project.Pages
                 {
                     LoadTrainings();
                 }
-                else
-                {
-                    MessageBox.Show("You can't add an exercise, if you haven't done the workout");
-                }
             }
             else
             {
@@ -109,6 +105,19 @@ namespace WFP_Project.Pages
             {
                 ExercisesDataGrid.ItemsSource = null;
             }
+        }
+
+        private void FilterTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            var filterText = FilterTextBox.Text.ToLower();
+
+            var filteredTrainings = _trainings.Where(t =>
+                t.TrainingName.ToLower().Contains(filterText) ||
+                t.AthleteName.ToLower().Contains(filterText) ||
+                t.CoachName.ToLower().Contains(filterText)).ToList();
+
+            TrainingDataGrid.ItemsSource = filteredTrainings;
+            TrainingDataGrid.Items.Refresh();
         }
     }
 }

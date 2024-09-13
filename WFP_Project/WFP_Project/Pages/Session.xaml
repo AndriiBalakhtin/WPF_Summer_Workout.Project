@@ -9,41 +9,89 @@
         Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
-        <!-- Trainings DataGrid -->
-        <DataGrid x:Name="TrainingDataGrid" AutoGenerateColumns="False" IsReadOnly="True"
-                  Margin="10,68,10,10" SelectionChanged="TrainingDataGrid_SelectionChanged"
-                  Grid.Column="0">
+        <DataGrid 
+            x:Name="TrainingDataGrid" 
+            AutoGenerateColumns="False" 
+            IsReadOnly="True"
+            Margin="10,68,10,10" 
+            SelectionChanged="TrainingDataGrid_SelectionChanged"
+            Grid.Column="0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Training" Binding="{Binding TrainingName}" Width="*"/>
                 <DataGridTextColumn Header="Athlete" Binding="{Binding AthleteName}" Width="*"/>
                 <DataGridTextColumn Header="Coach" Binding="{Binding CoachName}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-
-        <!-- Exercises DataGrid -->
-        <DataGrid x:Name="ExercisesDataGrid" AutoGenerateColumns="False"
-                  Margin="10,68,10,10" IsReadOnly="True" Grid.Column="1">
+        <DataGrid 
+            x:Name="ExercisesDataGrid" 
+            AutoGenerateColumns="False"
+            Margin="10,68,10,10" 
+            IsReadOnly="True" 
+            Grid.Column="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Exercise" Binding="{Binding ExerciseName}" Width="*"/>
                 <DataGridTextColumn Header="Reps" Binding="{Binding Reps}" Width="*"/>
                 <DataGridTextColumn Header="Sets" Binding="{Binding Sets}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-
-        <!-- Filter and Buttons -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="18" Width="239">
-            <TextBlock Text="Filter:" VerticalAlignment="Center"/>
-            <TextBox Width="200" Margin="10,0,0,0" x:Name="FilterTextBox"/>
-        </StackPanel>
-
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" Height="30" Width="256" Grid.Column="1">
-            <Button Content="Create Training" Click="CreateTrainingButton_Click" Margin="0,10,10,0"/>
-            <Button Content="Edit Training" Click="EditTrainingButton_Click" Margin="0,10,10,0"/>
-            <Button Content="Delete Training" Click="DeleteTrainingButton_Click" Margin="0,10,0,0"/>
-        </StackPanel>
+        <TextBlock
+            Text="Filter:"
+            VerticalAlignment="Top"
+            Margin="10,0,316,0"/>
+        <TextBox 
+            x:Name="FilterTextBox" Height="32"
+            Margin="10,19,10,383"
+            VerticalAlignment="Top"
+            Foreground="Black"
+            Style="{StaticResource CustomTextBoxStyle}"
+            TextChanged="FilterTextBox_TextChanged"/>
+        <Button 
+            Content="Create Training"           
+            Margin="0,19,260,0"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Height="32" Width="120" 
+            Grid.Column="1"
+            Click="CreateTrainingButton_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF4C961B" Offset="1"/>
+                    <GradientStop Color="#FF67EA0F" Offset="0"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button
+            Content="Edit Training" 
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Height="32" Width="120"
+            Margin="0,19,135,0" 
+            Grid.Column="1"
+            Click="EditTrainingButton_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#b94d1c" Offset="0"/>
+                    <GradientStop Color="#f7a634" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button 
+            Content="Delete Training"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Height="32" Width="120"
+            Margin="0,19,10,0" 
+            Grid.Column="1"
+            Click="DeleteTrainingButton_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB71C1C" Offset="0"/>
+                    <GradientStop Color="#FF8A1A1A" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

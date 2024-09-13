@@ -29,6 +29,11 @@
         <Setter Property="GridLinesVisibility" Value="None"/>
     </Style>
 
+    <Style TargetType="ListView">
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Background" Value="White"/>
+    </Style>
+
     <Style TargetType="ComboBox">
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="Background" Value="White"/>

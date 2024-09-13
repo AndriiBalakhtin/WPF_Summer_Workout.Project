@@ -6,6 +6,7 @@
         WindowStyle="None"
         ResizeMode="NoResize" 
         ShowInTaskbar="False"
+        Icon="/Png/logo.png"
         Loaded="Window_Loaded">
     <Window.Background>
         <SolidColorBrush Color="Transparent"/>

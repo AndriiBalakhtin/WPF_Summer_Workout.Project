@@ -1,4 +1,18 @@
-﻿<Window
+﻿<!--
+/*
+ * © [2024] Andrii Balakhtin
+ * 
+ * All rights reserved.
+ * 
+ * This code and all its parts are the property of Andrii Balakhtin. 
+ * Distribution, copying, modification, or use of this code 
+ * without explicit written permission from the owner is prohibited.
+ * 
+ * Unauthorized use or distribution of this code may result in civil, administrative, or criminal penalties 
+ * in accordance with copyright laws.
+ *-->
+    
+<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"

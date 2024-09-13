@@ -4,7 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Edit Training" Height="630" Width="450" Loaded="Window_Loaded">
+        Title="Edit Training" 
+        Icon="/Png/logo.png"
+        Height="630" Width="450" 
+        Loaded="Window_Loaded">
     <Grid Margin="0,0,0,-6">
         <StackPanel Margin="10">
             <TextBlock 
@@ -40,13 +43,13 @@
                 Margin="0,0,0,5"/>
             <ListView 
                 x:Name="ExercisesListView" 
-                Margin="0,0,0,5"
+                Margin="0,0,0,5"               
                 Height="90">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Exercise" DisplayMemberBinding="{Binding ExerciseName}" Width="200"/>
                         <GridViewColumn Header="Reps" DisplayMemberBinding="{Binding Reps}" Width="100"/>
-                        <GridViewColumn Header="Sets" DisplayMemberBinding="{Binding Sets}" Width="100"/>
+                        <GridViewColumn Header="Sets" DisplayMemberBinding="{Binding Sets}" Width="105"/>
                     </GridView>
                 </ListView.View>
             </ListView>

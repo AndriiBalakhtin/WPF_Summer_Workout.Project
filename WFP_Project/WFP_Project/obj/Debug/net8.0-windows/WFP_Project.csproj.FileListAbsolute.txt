@@ -35,7 +35,6 @@ C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-wi
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\Windows\SecureLogin.g.cs
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\App.g.cs
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project_MarkupCompile.cache
-C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\obj\Debug\net8.0-windows\WFP_Project_MarkupCompile.lref
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\WFP_Project.exe
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\WFP_Project.deps.json
 C:\Reposotory\WFP\WPF_Summer.Project\WFP_Project\WFP_Project\bin\Debug\net8.0-windows\WFP_Project.runtimeconfig.json
