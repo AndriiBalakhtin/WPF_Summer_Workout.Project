@@ -60,7 +60,7 @@ namespace WFP_Project.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/WFP_Project;component/windows/guiarchive.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/WFP_Project;V1.0.0.0;component/windows/guiarchive.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Windows\GuiArchive.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

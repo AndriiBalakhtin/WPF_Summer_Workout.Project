@@ -10,30 +10,30 @@ namespace WFP_Project.Classes
         {
             if (mainWindow != null)
             {
-                mainWindow.RadioButton_Home.IsChecked = true;
+                mainWindow.RadioButton_Home.IsChecked  = true;
                 mainWindow.BlockUserControl.Visibility = Visibility.Hidden;
-                mainWindow.LockIcon.Visibility = Visibility.Hidden;
+                mainWindow.LockIcon.Visibility         = Visibility.Hidden;
 
                 switch (userRole)
                 {
                     case "Administrator":
-                        mainWindow.RadioButton_Admin.Visibility = Visibility.Visible;
-                        mainWindow.RadioButton_Notice.Visibility = Visibility.Visible;
+                        mainWindow.RadioButton_Admin.Visibility  = Visibility.Visible;
+                        mainWindow.RadioButton_Notice.Visibility  = Visibility.Visible;
                         mainWindow.RadioButton_Session.Visibility = Visibility.Visible;
                         break;
                     case "Instructor":
-                        mainWindow.RadioButton_Admin.Visibility = Visibility.Collapsed;
-                        mainWindow.RadioButton_Notice.Visibility = Visibility.Visible;
+                        mainWindow.RadioButton_Admin.Visibility  = Visibility.Collapsed;
+                        mainWindow.RadioButton_Notice.Visibility  = Visibility.Visible;
                         mainWindow.RadioButton_Session.Visibility = Visibility.Visible;
                         break;
                     case "Athlete":
-                        mainWindow.RadioButton_Admin.Visibility = Visibility.Collapsed;
-                        mainWindow.RadioButton_Notice.Visibility = Visibility.Collapsed;
+                        mainWindow.RadioButton_Admin.Visibility   = Visibility.Collapsed;
+                        mainWindow.RadioButton_Notice.Visibility  = Visibility.Collapsed;
                         mainWindow.RadioButton_Session.Visibility = Visibility.Visible;
                         break;
                     case "User":
-                        mainWindow.RadioButton_Admin.Visibility = Visibility.Collapsed;
-                        mainWindow.RadioButton_Notice.Visibility = Visibility.Collapsed;
+                        mainWindow.RadioButton_Admin.Visibility   = Visibility.Collapsed;
+                        mainWindow.RadioButton_Notice.Visibility  = Visibility.Collapsed;
                         mainWindow.RadioButton_Session.Visibility = Visibility.Collapsed;
                         break;
                     default:
@@ -41,14 +41,13 @@ namespace WFP_Project.Classes
                 }
 
                 mainWindow.StackPanelRadioButtonsMainWindow.Height = 450;
-                mainWindow.RowDefinitionRadioButtons.Height = new GridLength(1000);
+                mainWindow.RowDefinitionRadioButtons.Height        = new GridLength(1000);
                 mainWindow.StackPanelRadioButtonsMainWindow.Margin = new Thickness(15, 6, 0, 600);
-                mainWindow.MainContentControl.Margin = new Thickness(15, 6, 0, 0);
-                mainWindow.ResizeMode = ResizeMode.CanResize;
-                mainWindow.Height = 600;
-                mainWindow.Width = 1140;
+                mainWindow.MainContentControl.Margin               = new Thickness(15, 6, 0, 0);
+                mainWindow.ResizeMode  = ResizeMode.CanResize;
+                mainWindow.WindowState = WindowState.Maximized;
                 mainWindow.MinHeight = 600;
-                mainWindow.MinWidth = 1140;
+                mainWindow.MinWidth = 1140;              
             }
         }
     }

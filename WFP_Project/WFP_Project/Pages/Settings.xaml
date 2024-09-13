@@ -25,14 +25,16 @@
         <Image 
             x:Name="ThemeImage"
             VerticalAlignment="Top"
+            HorizontalAlignment="Left"
             Height="100" 
             Width="100" 
-            Margin="-70,47,608,287">
+            Margin="93,47,608,287">
         </Image>
         <Rectangle 
             VerticalAlignment="Top"
+            HorizontalAlignment="Left"
             Height="100" Width="100"
-            Margin="-70,47,608,287">
+            Margin="93,47,608,287">
         </Rectangle>
     </Grid>
 </Window>
