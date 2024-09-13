@@ -178,8 +178,8 @@
                 </ControlTemplate>
             </ComboBox.Template>
             <ComboBoxItem Content="DataBase"/>
-            <ComboBoxItem Content="UserManagement"/>
             <ComboBoxItem Content="TrainingSessions"/>
+            <ComboBoxItem Content="UserManagement"/>
             <ComboBoxItem Content="WaterLevelSensorData"/>
         </ComboBox>
         <Button

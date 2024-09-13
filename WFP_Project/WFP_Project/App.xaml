@@ -18,7 +18,7 @@
              StartupUri="MainWindow.xaml">
              <Application.Resources>
         <ResourceDictionary>
-            
+
             <!-- ToggleButton -->
             <Style TargetType="ToggleButton">
                 <Setter Property="Background" Value="Transparent"/>

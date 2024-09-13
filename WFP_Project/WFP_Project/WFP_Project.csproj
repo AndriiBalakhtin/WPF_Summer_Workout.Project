@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Pages\LightTheme.png" />
     <None Remove="Windows\logo.png" />
   </ItemGroup>
 
@@ -33,6 +34,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Materials\DarkTheme.png" />
+    <Resource Include="Materials\LightTheme.png" />
     <Resource Include="Png\logo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

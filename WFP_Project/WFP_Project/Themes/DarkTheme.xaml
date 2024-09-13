@@ -1,7 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
+    <BitmapImage x:Key="ThemeImage" UriSource="/Pages/DarkTheme.png"/>
+    
     <ImageBrush x:Key="WindowBackgroundBrush" ImageSource="/Images/DarkBackground.png"/>
+
+    <Style TargetType="Rectangle">
+        <Setter Property="Stroke" Value="White"/>
+    </Style>
 
     <Style TargetType="Border">
         <Setter Property="BorderBrush" Value="White"/>

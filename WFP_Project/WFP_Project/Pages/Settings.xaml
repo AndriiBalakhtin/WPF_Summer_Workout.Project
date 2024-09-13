@@ -5,28 +5,34 @@
         Height="450" Width="800"
         Loaded="Window_Loaded">
     <Grid>
-        <StackPanel 
-            Orientation="Horizontal"
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Top"
-            Margin="10,10,0,0">
-            <TextBlock 
-                x:Name="ThemeTxt"
+        <TextBlock 
+                x:Name="ThemeTextBlock"
                 Text="Theme:" 
-                VerticalAlignment="Center" 
+                VerticalAlignment="Top" 
                 FontWeight="ExtraBold"
-                Margin="5">
-            </TextBlock>
-            <ComboBox 
-                x:Name="ThemeModeComboBox"    
-                Width="120"
-                SelectionChanged="ThemeModeComboBox_SelectionChanged"
-                BorderBrush="Black"
-                Background="White"
-                Foreground="Black">
-                <ComboBoxItem Content="Light"/>
-                <ComboBoxItem Content="Dark"/>
-            </ComboBox>
-        </StackPanel>
+                Margin="10,18,730,0"/>
+        <ComboBox 
+                x:Name="ThemeModeComboBox"
+                Height="32"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Style="{StaticResource CustomComboBoxStyle}"
+                SelectionChanged="ThemeModeComboBox_SelectionChanged" 
+                Width="135" Margin="75,10,590,392">
+            <ComboBoxItem Content="Light"/>
+            <ComboBoxItem Content="Dark"/>
+        </ComboBox>
+        <Image 
+            x:Name="ThemeImage"
+            VerticalAlignment="Top"
+            Height="100" 
+            Width="100" 
+            Margin="-70,47,608,287">
+        </Image>
+        <Rectangle 
+            VerticalAlignment="Top"
+            Height="100" Width="100"
+            Margin="-70,47,608,287">
+        </Rectangle>
     </Grid>
 </Window>
