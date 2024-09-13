@@ -247,7 +247,7 @@ namespace WFP_Project.Classes
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "DELETE FROM [UserSConfirmations] WHERE Login = @Login";
+                string query = "DELETE FROM [UserSDataConfirmations] WHERE Login = @Login";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@Login", login);
