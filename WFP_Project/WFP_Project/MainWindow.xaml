@@ -968,6 +968,131 @@
                     </ControlTemplate>
                 </RadioButton.Template>
             </RadioButton>
+
+            <!-- Logout -->
+            <RadioButton 
+                x:Name="RadioButton_Logout"
+                Background="Transparent"
+                BorderThickness="1"
+                FontFamily="Cascadia Code"  
+                Foreground="Black"
+                Width="126"
+                Height="45"
+                Visibility="Collapsed"
+                Click="RadioButton_LogoutChecked">
+                <RadioButton.Template>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <Border 
+                            x:Name="Border"
+                            Background="Transparent"
+                            CornerRadius="5">
+                            <StackPanel Orientation="Horizontal" Height="32" Width="126">
+                                <Border 
+                                    x:Name="BorderLogoutIcon"
+                                    Width="32"
+                                    Height="32"
+                                    CornerRadius="5">
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Offset="0" Color="#FF2E2E2E" />
+                                            <GradientStop Offset="1" Color="#FF4B4B4B" />
+                                            <GradientStop Color="#FF1F1F1F" Offset="0"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <materialDesign:PackIcon 
+                                        x:Name="LogoutIcon" 
+                                        Kind="ExitToApp"
+                                        VerticalAlignment="Center" 
+                                        HorizontalAlignment="Center"  
+                                        Foreground="White" 
+                                        Height="24" Width="24"/>
+                                </Border>
+                                <TextBlock
+                                    Text="Logout" 
+                                    FontWeight="ExtraBold" 
+                                    VerticalAlignment="Center" 
+                                    HorizontalAlignment="Center" 
+                                    FontFamily="Regular" 
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <TextBlock.RenderTransform>
+                                        <TransformGroup>
+                                            <TranslateTransform X="10"/>
+                                        </TransformGroup>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="LogoutIcon" Property="Kind" Value="Check" />
+                                <Setter TargetName="Border" Property="Background" Value="#FFD6EAF8"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#FFB0D1E3"/>
+                                <Setter TargetName="Border" Property="BorderBrush" Value="White"/>
+                                <Setter TargetName="Border" Property="BorderThickness" Value="1"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="False">
+                                <Setter TargetName="LogoutIcon" Property="Kind" Value="ExitToApp" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimationUsingKeyFrames
+                                                AccelerationRatio="0.5"
+                                                BeginTime="00:00:00"
+                                                Storyboard.TargetName="LogoutIcon"
+                                                Storyboard.TargetProperty="Margin">
+                                                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="60,0,0,0" />
+                                                <SplineThicknessKeyFrame KeyTime="00:00:0.3" Value="0" />
+                                            </ThicknessAnimationUsingKeyFrames>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderLogoutIcon"
+                                                Storyboard.TargetProperty="Width"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderLogoutIcon"
+                                                Storyboard.TargetProperty="Height"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimationUsingKeyFrames
+                                                AccelerationRatio="0.5"
+                                                BeginTime="00:00:00"
+                                                Storyboard.TargetName="LogoutIcon"
+                                                Storyboard.TargetProperty="Margin">
+                                                <SplineThicknessKeyFrame KeyTime="00:00:00" Value="0,0,60,0" />
+                                                <SplineThicknessKeyFrame KeyTime="00:00:0.3" Value="0" />
+                                            </ThicknessAnimationUsingKeyFrames>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderLogoutIcon"
+                                                Storyboard.TargetProperty="Width"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="BorderLogoutIcon"
+                                                Storyboard.TargetProperty="Height"
+                                                From="25"
+                                                To="32"
+                                                Duration="0:0:0.2" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </RadioButton.Template>
+            </RadioButton>
         </StackPanel>
 
         <!-- Lock -->

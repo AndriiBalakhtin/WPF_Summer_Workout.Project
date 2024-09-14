@@ -10,9 +10,10 @@ namespace WFP_Project.Classes
         {
             if (mainWindow != null)
             {
-                mainWindow.RadioButton_Home.IsChecked  = true;
-                mainWindow.BlockUserControl.Visibility = Visibility.Hidden;
-                mainWindow.LockIcon.Visibility         = Visibility.Hidden;
+                mainWindow.RadioButton_Home.IsChecked    = true;
+                mainWindow.BlockUserControl.Visibility   = Visibility.Hidden;
+                mainWindow.LockIcon.Visibility           = Visibility.Hidden;
+                mainWindow.RadioButton_Logout.Visibility = Visibility.Visible;
 
                 switch (userRole)
                 {

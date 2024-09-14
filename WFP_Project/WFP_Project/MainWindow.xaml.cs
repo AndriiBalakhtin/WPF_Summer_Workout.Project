@@ -77,9 +77,23 @@ namespace WFP_Project
             MainContentControl.Content = settingsWindow.Content;
         }
 
+        private void RadioButton_LogoutChecked(object sender, RoutedEventArgs e)
+        {
+            string exePath = System.Reflection.Assembly.GetEntryAssembly().Location.Replace(".dll", ".exe");
+
+            var newProcess = new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = exePath,
+                UseShellExecute = true
+            };
+            System.Diagnostics.Process.Start(newProcess);
+
+            Application.Current.Shutdown();
+        }
+
         private void Window_Closed(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            Application.Current.Shutdown();
         }
     }
 }
