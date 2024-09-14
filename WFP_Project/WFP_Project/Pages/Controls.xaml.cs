@@ -81,13 +81,12 @@ namespace WFP_Project.Pages
             }
         }
 
-
         private void RefreshLayout()
         {
             forceTextBox.Text       = "Enter - force";
             repeate_1stTextBox.Text = "Enter - repeate 1st";
             weightTextBox.Text      = "Enter - weight";
-            repeate_2ndTextBox.Text = "repeate_2ndTextBox";
+            repeate_2ndTextBox.Text = "Enter - repeate 2nd";
             goalTextBox.Text        = "Enter - goal";
             repeate_3rdTextBox.Text = "Enter - repeate 3rd";
             descriptionTextBox.Text = "Enter - description";
@@ -107,6 +106,15 @@ namespace WFP_Project.Pages
                     int difficulty = (int)difficultySlider.Value;
                     string description = descriptionTextBox.Text;
                     string category = (categoryComboBox.SelectedItem as ComboBoxItem).Content.ToString();
+
+                    if(forceTextBox.Text == "Enter - force" || repeate_1stTextBox.Text == "Enter - repeate 1st" ||
+                       weightTextBox.Text == "Enter - weight" || repeate_2ndTextBox.Text == "Enter - repeate 2nd" ||
+                       goalTextBox.Text == "Enter - goal" || repeate_3rdTextBox.Text == "Enter - repeate 3rd" ||
+                       descriptionTextBox.Text == "Enter - description")
+                    {
+                        MessageBox.Show("Fill all data in textboxes for insert");
+                        return;
+                    }
 
                     DataBase.InsertUserData(
                         forceTextBox.Text,
